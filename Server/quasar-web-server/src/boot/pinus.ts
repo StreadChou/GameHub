@@ -1,18 +1,11 @@
 import {boot} from 'quasar/wrappers';
+import PinusUtils from "src/library/pinus/PinusUtils";
 
-declare interface PinusInterface {
-  request(route: string, body: string, callback: any): void;
-
-  init(params: {
-    host: string,
-    port: string,
-    log: boolean,
-  }, callback: any): void;
-}
+const pinusUtils = PinusUtils.getInstance()
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $pinus: PinusInterface;
+    $pinus: PinusUtils;
   }
 }
 
@@ -22,5 +15,5 @@ export const pinus = window.pinus;
 
 export default boot(({Vue}) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  Vue.prototype.$pinus = pinus;
+  Vue.prototype.$pinus = pinusUtils;
 });

@@ -12,19 +12,13 @@ export default {
     return {}
   },
   methods: {
-    requestTest() {
+    async requestTest() {
       console.log(this);
       let host = "127.0.0.1";
       let port = "3010";
-      this.$pinus.init({
-        host: host,
-        port: port,
-        log: true
-      }, () => {
-        this.$pinus.request("connector.entryHandler.entry", "hello pinus", function (data) {
-          alert(data.msg);
-        });
-      });
+      await this.$pinus.initSync({host: host, port: port, log: true})
+      let response = await this.$pinus.requestSync("connector.entryHandler.entry", "hello pinus");
+      console.log(response);
     },
   },
 }
