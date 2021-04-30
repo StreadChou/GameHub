@@ -1,6 +1,0 @@
-[2021-04-30T13:57:14.254] [INFO] pinus-admin - [master-server-1 mqttServer.js] [MqttServer] listen on 3005
-[2021-04-30T13:57:14.264] [INFO] pinus-admin - [master-server-1 consoleService.js] try to connect master: "master", "127.0.0.1", 3005
-[2021-04-30T13:57:14.723] [INFO] pinus-admin - [connector-server-1 consoleService.js] try to connect master: "connector", "127.0.0.1", 3005
-[2021-04-30T13:58:01.493] [INFO] pinus-admin - [master-server-1 mqttServer.js] [MqttServer] listen on 3005
-[2021-04-30T13:58:01.502] [INFO] pinus-admin - [master-server-1 consoleService.js] try to connect master: "master", "127.0.0.1", 3005
-[2021-04-30T13:58:01.924] [INFO] pinus-admin - [connector-server-1 consoleService.js] try to connect master: "connector", "127.0.0.1", 3005
