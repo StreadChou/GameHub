@@ -25,12 +25,12 @@ export class AuthRemoter {
      * @param username
      * @param password
      */
-    public async auth(username: string , password: string) {
+    public async auth(username: string, password: string) {
         return true;
     }
 
     // 私有方法不会加入到RPC提示里
-    private async privateMethod(testarg:string,arg2:number){
+    private async privateMethod(testarg: string, arg2: number) {
 
     }
 }

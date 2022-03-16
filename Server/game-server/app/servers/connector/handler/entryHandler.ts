@@ -1,4 +1,4 @@
-import { Application, FrontendSession } from 'pinus';
+import {Application, FrontendSession} from 'pinus';
 
 export default function (app: Application) {
     return new Handler(app);
@@ -16,7 +16,7 @@ export class Handler {
      * @param  {Object}   session current session object
      */
     async entry(msg: any, session: FrontendSession) {
-        return { code: 200, msg: 'game server is ok.' };
+        return {code: 200, msg: 'game server is ok.'};
     }
 
     /**
@@ -28,7 +28,7 @@ export class Handler {
     async publish(msg: any, session: FrontendSession) {
         let result = {
             topic: 'publish',
-            payload: JSON.stringify({ code: 200, msg: 'publish message is ok.' })
+            payload: JSON.stringify({code: 200, msg: 'publish message is ok.'})
         };
         return result;
     }
@@ -42,7 +42,7 @@ export class Handler {
     async subscribe(msg: any, session: FrontendSession) {
         let result = {
             topic: 'subscribe',
-            payload: JSON.stringify({ code: 200, msg: 'subscribe message is ok.' })
+            payload: JSON.stringify({code: 200, msg: 'subscribe message is ok.'})
         };
         return result;
     }
