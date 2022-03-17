@@ -1,4 +1,7 @@
 import {Application, FrontendSession} from 'pinus';
+import {LoginDto} from "../dto/entryDto";
+import {RequestParamsException} from "../../../exception/RequestParamsException";
+import {ErrorCode} from "../../../constant/ErrorCode";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -6,6 +9,18 @@ export default function (app: Application) {
 
 export class Handler {
     constructor(private app: Application) {
+
+    }
+
+    async login(msg: LoginDto, session: FrontendSession) {
+        let {uid, token} = msg;
+        if (!uid || !token) {
+            throw new RequestParamsException(ErrorCode.LOGIN_TOKEN_CHECK_ERROR);
+        }
+        // TODO 验证数据
+        console.log(uid, token)
+
+        await session.abind(uid);
 
     }
 

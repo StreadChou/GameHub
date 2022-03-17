@@ -1,5 +1,6 @@
-import { pinus } from 'pinus';
-import { preload } from './preload';
+import {RESERVED, pinus} from 'pinus';
+import {preload} from './preload';
+import {DefaultErrorHandler} from "./app/exception/AppErrorHandler";
 
 /**
  *  替换全局Promise
@@ -23,6 +24,8 @@ app.configure('production|development', 'connector', function () {
             useDict: true,
             useProtobuf: true
         });
+
+    app.set(RESERVED.ERROR_HANDLER, DefaultErrorHandler)
 });
 
 // start app
