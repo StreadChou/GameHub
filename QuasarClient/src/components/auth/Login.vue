@@ -10,6 +10,8 @@
 import {defineComponent, ref} from "vue";
 import {init, request} from "src/pinus/PinusHelper";
 
+const Chance = require('chance');
+
 export default defineComponent({
   name: "Login",
   setup() {
@@ -19,8 +21,9 @@ export default defineComponent({
     })
 
     const loginFunction = async function () {
-      const uid = loginData.value.uid || "123456"; // TODO random
-      const token = loginData.value.token;
+      const chance = new Chance();
+      const uid = loginData.value.uid || chance.guid({version: 5});
+      const token = loginData.value.token || chance.string({length: 20});
       await init();
       await request("connector.entryHandler.login", {uid, token});
 

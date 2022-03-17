@@ -4,6 +4,7 @@ import {AbstractException} from "./AbstractException";
 
 export const DefaultErrorHandler: ResponseErrorHandler = function (err: any, msg: any, resp: any, session: FrontendOrBackendSession, cb: HandlerCallback) {
     if (err instanceof Error) {
+        console.error(err.message, err.stack);
         return cb(err, {code: 500});
     }
     if (err instanceof AbstractException) {

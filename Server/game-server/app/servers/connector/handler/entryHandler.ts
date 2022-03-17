@@ -2,6 +2,7 @@ import {Application, FrontendSession} from 'pinus';
 import {LoginDto} from "../dto/entryDto";
 import {RequestParamsException} from "../../../exception/RequestParamsException";
 import {ErrorCode} from "../../../constant/ErrorCode";
+import {dispatchRandom} from "../../../helper/routeHelper";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -21,7 +22,8 @@ export class Handler {
         console.log(uid, token)
 
         await session.abind(uid);
-
+        await this.app.rpc.logic.authRemoter.Login.toServer(dispatchRandom("logic", uid).id, uid);
+        return {};
     }
 
     /**

@@ -11,6 +11,7 @@ export class Handler {
     }
 
     async createRoom(msg: any, session: FrontendSession) {
+
         return {code: 200, msg: 'game server is ok.'};
     }
 
