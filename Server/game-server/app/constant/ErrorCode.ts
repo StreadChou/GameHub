@@ -1,4 +1,7 @@
 export enum ErrorCode {
     COMMON_ERROR = 500,
     LOGIN_TOKEN_CHECK_ERROR = 1000,
+
+    ROOM_NOT_EXIST = 2000,
+    ROOM_IS_FULL,
 }

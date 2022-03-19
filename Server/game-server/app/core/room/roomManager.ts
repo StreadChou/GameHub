@@ -1,0 +1,54 @@
+import {CreateRoomDto, PlayerJoinRoomDto} from "./dto/RoomDto";
+import {NormalRoom} from "./room/normalRoom";
+import {RequestParamsException} from "../../exception/RequestParamsException";
+import {ErrorCode} from "../../constant/ErrorCode";
+import {AbstractRoom} from "./room/abstractRoom";
+import {RoomPlayer} from "./component/roomPlayer";
+
+export class RoomManager {
+    private static _instance: RoomManager;
+    roomMap: { [key in number]: AbstractRoom } = {};
+
+    private constructor() {
+        // 单例
+    }
+
+    public static getInstance(): RoomManager {
+        if (this._instance) return this._instance;
+        this._instance = new RoomManager();
+        return this._instance;
+    }
+
+    async createRoom(createRoomDto: CreateRoomDto) {
+        let roomId: number = await this.generateRandomRoomId();
+        let room = new NormalRoom(roomId, createRoomDto);
+        this.roomMap[roomId] = room;
+        return room;
+    }
+
+    async joinRoom(roomId: number, uid: string, opts: PlayerJoinRoomDto) {
+        let room: AbstractRoom = await this.getRoomByRoomId(roomId);
+        let player: RoomPlayer = await RoomPlayer.getInstanceByUid(uid);
+
+        // 检查是否可以加入房间
+        await room.checkPlayerCanJoinRoom(player, opts);
+    }
+
+    // 踢出房间
+    async kickOutRoom(){
+
+    }
+
+    // 根据ID获取房间, 返回一定是房间
+    async getRoomByRoomId(roomId: number): Promise<AbstractRoom> {
+        let room = this.roomMap[roomId];
+        if (!room) throw new RequestParamsException(ErrorCode.ROOM_NOT_EXIST);
+        return room;
+    }
+
+
+    // 生成唯一的房间ID
+    async generateRandomRoomId(): Promise<number> {
+        return 1;
+    }
+}

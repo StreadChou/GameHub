@@ -8,3 +8,7 @@ export function dispatchRandom(serverType: string, uid: string): ServerInfo {
     return serverList[index];
 }
 
+
+export function dispatchUserLogic(uid: string): string {
+    return "";
+}

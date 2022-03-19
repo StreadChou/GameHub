@@ -1,5 +1,6 @@
 import {Application, RemoterClass, FrontendSession} from 'pinus';
 import {User} from "../../../core/logic/user/user";
+import {RoomPlayerInitDto} from "../../../core/room/dto/RoomDto";
 
 export default function (app: Application) {
     return new LogicRemote(app);
@@ -10,7 +11,7 @@ declare global {
     interface UserRpc {
         logic: {
             // 一次性定义一个类自动合并到UserRpc中
-            authRemoter: RemoterClass<FrontendSession, LogicRemote>;
+            logicRemote: RemoterClass<FrontendSession, LogicRemote>;
         };
     }
 }
@@ -21,7 +22,11 @@ export class LogicRemote {
 
     }
 
-    public async Login(uid) {
+    public async Login(uid: string) {
         await User.login(uid);
+    }
+
+    public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {
+        return {}
     }
 }
