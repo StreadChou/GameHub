@@ -22,7 +22,7 @@ export class Handler {
         console.log(uid, token)
 
         await session.abind(uid);
-        await this.app.rpc.logic.authRemoter.Login.toServer(dispatchRandom("logic", uid).id, uid);
+        await this.app.rpc.logic.logicRemote.Login.toServer(dispatchRandom("logic", uid).id, uid);
         return {};
     }
 

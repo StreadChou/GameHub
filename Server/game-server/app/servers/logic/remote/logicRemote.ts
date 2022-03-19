@@ -1,5 +1,5 @@
 import {Application, RemoterClass, FrontendSession} from 'pinus';
-import {User} from "../../../core/logic/user/user";
+import {User} from "../../../core/user/user";
 import {RoomPlayerInitDto} from "../../../core/room/dto/RoomDto";
 
 export default function (app: Application) {

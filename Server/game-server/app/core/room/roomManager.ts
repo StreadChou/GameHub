@@ -32,11 +32,25 @@ export class RoomManager {
 
         // 检查是否可以加入房间
         await room.checkPlayerCanJoinRoom(player, opts);
+
+        await room.joinRoom(player);
+    }
+
+    async leaveRoom(roomId: number, uid: string) {
+        let room: AbstractRoom = await this.getRoomByRoomId(roomId);
+        let player: RoomPlayer = await room.getPlayerFromRoom(uid);
+        await room.leaveRoom(player);
     }
 
     // 踢出房间
-    async kickOutRoom(){
-
+    async kickOutRoom(roomId: number, uid: string, targetUId: string) {
+        let room: AbstractRoom = await this.getRoomByRoomId(roomId);
+        // 获取玩家
+        let player: RoomPlayer = await room.getPlayerFromRoom(uid);
+        let targetPlayer: RoomPlayer = await room.getPlayerFromRoom(targetUId);
+        // 踢出玩家
+        await player.checkCanKickPlayer(targetPlayer)
+        await room.leaveRoom(targetPlayer);
     }
 
     // 根据ID获取房间, 返回一定是房间

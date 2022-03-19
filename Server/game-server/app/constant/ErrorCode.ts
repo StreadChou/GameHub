@@ -4,4 +4,9 @@ export enum ErrorCode {
 
     ROOM_NOT_EXIST = 2000,
     ROOM_IS_FULL,
+    NOT_IN_ROOM,
+    NOT_ROOM_MASTER,
+    CANT_KICK_VIP_PLAYER,
+    ALREADY_IN_ROOM,
+    PASSWORD_ERROR,
 }
