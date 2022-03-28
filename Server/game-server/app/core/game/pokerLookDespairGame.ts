@@ -37,6 +37,8 @@ export class PokerLookDespairGame extends AbstractGame {
 
     // 低于50分自动解散
 
+    // 房间信道
+
     startGame() {
 
     }
@@ -48,7 +50,7 @@ export class PokerLookDespairGame extends AbstractGame {
 
     // 检查当前牌是否可以压住上家牌
     checkCardHigher() {
-        
+
     }
 
 
