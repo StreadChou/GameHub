@@ -1,13 +1,18 @@
 import {User} from "../../../core/user/user";
 import {pinus} from "pinus";
+import {UserServices} from "../../../core/user/services/userServices";
 
 export class LogicServer {
     private static _instance: LogicServer
     svrId: string;
+    userServices: UserServices;
+
+
     userUidMap: { [uid in string]: User }
 
     private constructor() {
         this.svrId = pinus.app.getServerId();
+        this.userServices = UserServices.getInstance();
     }
 
     public static getInstance(): LogicServer {
@@ -21,7 +26,8 @@ export class LogicServer {
     }
 
     public async userLogin(uid: string) {
-        
+        const userEntity = await this.userServices.queryOrCreateUser(uid);
+        console.log(userEntity);
     }
 
 

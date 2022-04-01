@@ -4,6 +4,7 @@ import {RequestParamsException} from "../../../exception/RequestParamsException"
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {dispatchRandom} from "../../../helper/routeHelper";
 import {SessionAttr} from "../../../constant/session";
+import {LogicProxy} from "../../logic/proxy/logicProxy";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -24,7 +25,7 @@ export class Handler {
         await pinus.app.sessionService.akick(uid); // TODO T出原因
         await session.abind(uid);
         const logicId = dispatchRandom("logic", uid).id;
-        await this.app.rpc.logic.logicRemote.Login.toServer(logicId, uid);
+        await LogicProxy.getInstance().userLogin(uid);
         session.set(SessionAttr.LogicServerId, logicId);
         await session.apushAll()
         return {code: ErrorCode.Success, data: {}};
