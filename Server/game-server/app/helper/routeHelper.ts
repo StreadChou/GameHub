@@ -1,5 +1,5 @@
 import {pinus, ServerInfo} from 'pinus';
-import {crc} from 'crc';
+import * as crc from 'crc';
 
 
 export function dispatchRandom(serverType: string, uid: string): ServerInfo {

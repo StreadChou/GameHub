@@ -1,6 +1,7 @@
 import {Application, RemoterClass, FrontendSession} from 'pinus';
 import {User} from "../../../core/user/user";
 import {RoomPlayerInitDto} from "../../../core/room/dto/RoomDto";
+import {LogicServer} from "../instance/logicServer";
 
 export default function (app: Application) {
     return new LogicRemote(app);
@@ -18,12 +19,14 @@ declare global {
 
 
 export class LogicRemote {
+    private serverId: string;
+
     constructor(private app: Application) {
 
     }
 
     public async Login(uid: string) {
-        await User.login(uid);
+        await LogicServer.getInstance().userLogin(uid)
     }
 
     public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {

@@ -29,6 +29,15 @@ export async function request(route: string, data: any) {
   })
 }
 
+export async function listen(routeList: Array<string>, callback?: Function) {
+  routeList.forEach(route => {
+    pinus.on(route, (data: any, info: any) => {
+      callback && callback(route, data, info);
+      writeListenLog(route, data, info)
+    })
+  })
+}
+
 
 export async function writeRequestLog(route: string, data: any) {
   console.log(`发送请求: ${route}, ${JSON.stringify(data)}`)
@@ -36,4 +45,8 @@ export async function writeRequestLog(route: string, data: any) {
 
 export async function writeResponseLog(route: string, data: any, response: any) {
   console.log(`收到回文: ${route}, ${JSON.stringify(response)}`)
+}
+
+export async function writeListenLog(route: string, data: any, info: any) {
+  console.log(`收到通知: ${route}, ${JSON.stringify(data)}, ${info}`)
 }

@@ -12,6 +12,11 @@ export class LogicProxy {
         this.logicRemote = pinus.app.rpc.logic.logicRemote;
     }
 
+    async getLogicServerId(uid: string) {
+        return "logic-server-1";
+    }
+
+
     public static getInstance(): LogicProxy {
         if (this._instance) return this._instance;
         this._instance = new LogicProxy();
@@ -20,7 +25,8 @@ export class LogicProxy {
 
 
     public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {
-        return await this.logicRemote.generateRoomPlayer.toServer(dispatchUserLogic(uid), uid)
+        const svrId = await this.getLogicServerId(uid);
+        return await this.logicRemote.generateRoomPlayer.toServer(svrId, uid)
     }
 
 }

@@ -1,4 +1,5 @@
 export enum ErrorCode {
+    Success = 200,
     COMMON_ERROR = 500,
     LOGIN_TOKEN_CHECK_ERROR = 1000,
 

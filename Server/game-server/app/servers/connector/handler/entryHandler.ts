@@ -1,8 +1,9 @@
-import {Application, FrontendSession} from 'pinus';
+import {Application, FrontendSession, pinus} from 'pinus';
 import {LoginDto} from "../dto/entryDto";
 import {RequestParamsException} from "../../../exception/RequestParamsException";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {dispatchRandom} from "../../../helper/routeHelper";
+import {SessionAttr} from "../../../constant/session";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -20,10 +21,13 @@ export class Handler {
         }
         // TODO 验证数据
         console.log(uid, token)
-
+        await pinus.app.sessionService.akick(uid); // TODO T出原因
         await session.abind(uid);
-        await this.app.rpc.logic.logicRemote.Login.toServer(dispatchRandom("logic", uid).id, uid);
-        return {};
+        const logicId = dispatchRandom("logic", uid).id;
+        await this.app.rpc.logic.logicRemote.Login.toServer(logicId, uid);
+        session.set(SessionAttr.LogicServerId, logicId);
+        await session.apushAll()
+        return {code: ErrorCode.Success, data: {}};
     }
 
     /**

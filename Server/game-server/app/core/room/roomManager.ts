@@ -4,6 +4,7 @@ import {RequestParamsException} from "../../exception/RequestParamsException";
 import {ErrorCode} from "../../constant/ErrorCode";
 import {AbstractRoom} from "./room/abstractRoom";
 import {RoomPlayer} from "./component/roomPlayer";
+import {randomNumberBetween} from "../../helper/randomHelper";
 
 export class RoomManager {
     private static _instance: RoomManager;
@@ -63,6 +64,6 @@ export class RoomManager {
 
     // 生成唯一的房间ID
     async generateRandomRoomId(): Promise<number> {
-        return 1;
+        return randomNumberBetween(100000, 999999);
     }
 }
