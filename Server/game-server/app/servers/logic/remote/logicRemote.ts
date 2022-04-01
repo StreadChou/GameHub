@@ -30,6 +30,6 @@ export class LogicRemote {
     }
 
     public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {
-        return {}
+        return await LogicServer.getInstance().generateRoomPlayer(uid)
     }
 }

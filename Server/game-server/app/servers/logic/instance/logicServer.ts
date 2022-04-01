@@ -1,6 +1,7 @@
 import {User} from "../../../core/user/user";
 import {pinus} from "pinus";
 import {UserServices} from "../../../core/user/services/userServices";
+import {RoomPlayerInitDto} from "../../../core/room/dto/RoomDto";
 
 export class LogicServer {
     private static _instance: LogicServer
@@ -21,13 +22,19 @@ export class LogicServer {
     }
 
     // 获取用户
-    public async getUser(uid: string): Promise<User> {
+    public getUser(uid: string): User {
         return this.userUidMap[uid];
     }
 
     public async userLogin(uid: string) {
         const userEntity = await this.userServices.queryOrCreateUser(uid);
-        console.log(userEntity);
+        const user = User.loadFromEntity(userEntity);
+        this.userUidMap[user.uid] = user;
+    }
+
+    public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {
+        const user: User = this.getUser(uid);
+        return user.makeRoomNeed()
     }
 
 

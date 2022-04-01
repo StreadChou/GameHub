@@ -1,29 +1,23 @@
-import {UserItems} from "./component/userItems";
+import {UserEntity} from "../../entity/userEntity";
+import {UserServices} from "./services/userServices";
+import {RoomPlayerInitDto} from "../room/dto/RoomDto";
 
 export class User {
-    uid: string;
+    uid: string = ""; // 用户名
+    nick: string = ""; // 昵称
 
-    userItems: UserItems = new UserItems(this);
+    userServices: UserServices;
 
-    private constructor(uid: string) {
-        this.uid = uid;
+    // 从entity 中load 用户
+    public static loadFromEntity = (entity: UserEntity) => new User(entity);
+
+    private constructor(entity: UserEntity) {
+        Object.assign(this, entity);
+        this.userServices = UserServices.getInstance();
     }
 
-    async load() {
-        await this.userItems.load();
+    public async makeRoomNeed(): Promise<RoomPlayerInitDto> {
+        return {uid: this.uid, nick: this.nick};
     }
 
-    public static async login(uid: string): Promise<User> {
-        const user = new User(uid);
-        await user.load();
-        return user;
-    }
-
-    async saveUser() {
-
-    }
-
-    async loadUser() {
-
-    }
 }

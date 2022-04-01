@@ -9,7 +9,8 @@ export interface PlayerJoinRoomDto {
 }
 
 export interface RoomPlayerInitDto {
-
+    uid: string,
+    nick: string,
 }
 
 
