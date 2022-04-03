@@ -3,3 +3,7 @@ export enum RoomPushRoute {
     OnPlayerJoinRoom = "onPlayerJoinRoom",
     OnPlayerLeaveRoom = "onPlayerLeaveRoom",
 }
+
+export enum GamePushRoute {
+    OnReceivedPoker = "onReceivedPoker",
+}

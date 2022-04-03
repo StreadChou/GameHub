@@ -8,11 +8,15 @@
         {{ item.uid }}
       </div>
     </q-card-section>
+    <q-card-section>
+      <q-btn flat label="开始游戏" @click="startGame"/>
+    </q-card-section>
   </q-card>
 </template>
 
 <script lang="ts">
 import {defineComponent, ref} from "vue";
+import {listen, request} from "src/pinus/PinusHelper";
 
 export default defineComponent({
   name: "Room",
@@ -21,7 +25,7 @@ export default defineComponent({
     const password = ref<number>(0);
     const master = ref<string>("");
 
-    const playerList = ref<any[]>([]);
+    const playerList = ref<{ uid: string, cards: { suit: number, rank: number }[] }[]>([]);
 
     const setRoomInfo = (roomInfo: any) => {
       roomId.value = roomInfo.roomId;
@@ -36,9 +40,23 @@ export default defineComponent({
       playerList.value.push(data);
     }
 
+    enum GamePushRoute {
+      OnReceivedPoker = "onReceivedPoker",
+    }
+
+    const onPlayerJoinRoom = (route: string, data: any, info: any) => {
+
+    }
+
+    const startGame = async () => {
+      if (!roomId.value) return;
+      await request("room.roomHandler.startGame", {roomId: roomId.value});
+      await listen([GamePushRoute.OnReceivedPoker], onPlayerJoinRoom);
+    }
+
     return {
       roomId, password, master, playerList,
-      setRoomInfo, joinPlayer
+      setRoomInfo, joinPlayer, startGame,
     };
   }
 })

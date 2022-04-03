@@ -5,6 +5,7 @@ import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus, Channel} from "pinus";
 import {RoomPushRoute} from "../../../constant/Route";
 import {JOIN_ROOM_REASON, LEAVE_ROOM_REASON} from "../../../constant/Room";
+import {AbstractGame} from "../../game/abstract/abstractGame";
 
 export abstract class AbstractRoom {
     roomId: number = 0;
@@ -14,6 +15,8 @@ export abstract class AbstractRoom {
     master: string = "";
     // 房间信道
     channel: Channel;
+    // 游戏
+    game: AbstractGame
 
     get roomMaxPlayerNumber(): number {
         return 4
@@ -84,7 +87,7 @@ export abstract class AbstractRoom {
             playerList: this.makeClientPlayerList(),
 
         }
-        player.sendMessage(RoomPushRoute.OnRoomInfo, roomInfoMessage);
+        player.pushMessage(RoomPushRoute.OnRoomInfo, roomInfoMessage);
 
         // 给房间所有人通知有人进入
         const joinRoomMessage: playerClientData = player.makeClientData()

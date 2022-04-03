@@ -6,10 +6,13 @@ import {pinus} from "pinus";
 
 export class RoomPlayer {
     uid: string = "";
-    master: boolean = false;
-    vip: boolean = false;
     sid: number = 0;
     fid: string = ""
+    vip: boolean = false;
+
+    master: boolean = false;
+    seat: number;
+
 
     private constructor(uid) {
         this.uid = uid;
@@ -27,7 +30,7 @@ export class RoomPlayer {
         if (targetPlayer.vip) throw new RequestParamsException(ErrorCode.CANT_KICK_VIP_PLAYER);
     }
 
-    public sendMessage(route: string, msg: any, opts?: any, cb?: (err?: Error, result?: void) => void) {
+    public pushMessage(route: string, msg: any, opts?: any, cb?: (err?: Error, result?: void) => void) {
         const persons = [{sid: this.fid, uid: this.uid}]
         pinus.app.channelService.pushMessageByUids(route, msg, persons, opts, cb)
     }

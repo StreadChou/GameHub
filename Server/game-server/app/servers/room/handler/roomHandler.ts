@@ -40,8 +40,11 @@ export class Handler {
         return {code: 200, msg: 'game server is ok.'};
     }
 
-    async startGame() {
-
+    async startGame(msg: JoinRoomDto, session: FrontendSession) {
+        const roomId = msg.roomId;
+        const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
+        await room.startGame();
+        return {code: 200, data: {roomId: room.roomId}};
     }
 
 }

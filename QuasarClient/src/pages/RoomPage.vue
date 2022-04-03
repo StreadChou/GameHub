@@ -44,8 +44,6 @@ export default defineComponent({
     }
 
     const createRoom = async () => {
-      await listen([RoomPushRoute.OnRoomInfo], onRoomInfo);
-      await listen([RoomPushRoute.OnPlayerJoinRoom], onPlayerJoinRoom);
       const createResponse = await request("room.roomHandler.createRoom", {});
       if (createResponse.code == 200) {
         roomId.value = createResponse.data.roomId;
@@ -54,9 +52,10 @@ export default defineComponent({
     }
 
     const joinRoom = async () => {
-      if (roomId.value) {
-        await request("room.roomHandler.joinRoom", {roomId: roomId.value});
-      }
+      if (!roomId.value) return;
+      await listen([RoomPushRoute.OnRoomInfo], onRoomInfo);
+      await listen([RoomPushRoute.OnPlayerJoinRoom], onPlayerJoinRoom);
+      await request("room.roomHandler.joinRoom", {roomId: roomId.value});
     }
 
 

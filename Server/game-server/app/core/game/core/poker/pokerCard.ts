@@ -1,14 +1,24 @@
-import {PokerManager} from "./PokerManager";
-import {PokerSuit} from "../../constant/poker";
+import {PokerSuit} from "../../../../constant/poker";
 
 export class PokerCard {
-    // 属于哪一副牌的卡片
-    belongTo: PokerManager;
-
     // 花色
     suit: PokerSuit;
     // 等级
     rank: number;
+
+    constructor(suit: PokerSuit, rank: number) {
+        this.suit = suit;
+        this.rank = rank;
+    }
+
+
+    makeClient() {
+        return {
+            suit: this.suit,
+            rank: this.rank,
+            name: this.getPokerName(),
+        }
+    }
 
 
     // 获取卡牌的中文名字
