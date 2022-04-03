@@ -9,7 +9,7 @@ export class LogicServer {
     userServices: UserServices;
 
 
-    userUidMap: { [uid in string]: User }
+    userUidMap: { [uid in string]: User } = {}
 
     private constructor() {
         this.svrId = pinus.app.getServerId();
@@ -26,10 +26,13 @@ export class LogicServer {
         return this.userUidMap[uid];
     }
 
-    public async userLogin(uid: string) {
+    public async userLogin(uid: string, params: { sid: number, fid: string }) {
         const userEntity = await this.userServices.queryOrCreateUser(uid);
         const user = User.loadFromEntity(userEntity);
+        user.sid = params.sid;
+        user.fid = params.fid;
         this.userUidMap[user.uid] = user;
+        return {};
     }
 
     public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {

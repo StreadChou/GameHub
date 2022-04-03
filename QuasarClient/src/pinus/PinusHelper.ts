@@ -19,11 +19,12 @@ export async function init(host = "127.0.0.1", port = "3010") {
 }
 
 
-export async function request(route: string, data: any) {
+export async function request(route: string, data: any, callback?: Function): Promise<{ code: number, msg?: string, data?: any }> {
   return new Promise((resolve) => {
     writeRequestLog(route, data);
     pinus.request(route, data, (response: any) => {
       writeResponseLog(route, data, response)
+      callback && callback(response);
       return resolve(response);
     });
   })

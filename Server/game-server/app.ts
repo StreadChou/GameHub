@@ -27,9 +27,8 @@ app.configure('production|development', 'connector', function () {
             useDict: true,
             useProtobuf: true
         });
-
-    app.set(RESERVED.ERROR_HANDLER, DefaultErrorHandler)
 });
+app.set(RESERVED.ERROR_HANDLER, DefaultErrorHandler)
 
 const AppDataSource = new DataSource({
     type: "mysql",

@@ -20,7 +20,7 @@ export class RoomManager {
         return this._instance;
     }
 
-    async createRoom(createRoomDto: CreateRoomDto) {
+    async createRoom(createRoomDto: CreateRoomDto): Promise<AbstractRoom> {
         let roomId: number = await this.generateRandomRoomId();
         let room = new NormalRoom(roomId, createRoomDto);
         this.roomMap[roomId] = room;
@@ -55,7 +55,7 @@ export class RoomManager {
     }
 
     // 根据ID获取房间, 返回一定是房间
-    async getRoomByRoomId(roomId: number): Promise<AbstractRoom> {
+    public getRoomByRoomId(roomId: number): AbstractRoom {
         let room = this.roomMap[roomId];
         if (!room) throw new RequestParamsException(ErrorCode.ROOM_NOT_EXIST);
         return room;
@@ -63,7 +63,7 @@ export class RoomManager {
 
 
     // 生成唯一的房间ID
-    async generateRandomRoomId(): Promise<number> {
+    protected async generateRandomRoomId(): Promise<number> {
         return randomNumberBetween(100000, 999999);
     }
 }

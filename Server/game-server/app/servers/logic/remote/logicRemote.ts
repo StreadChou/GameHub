@@ -25,8 +25,8 @@ export class LogicRemote {
 
     }
 
-    public async Login(uid: string) {
-        await LogicServer.getInstance().userLogin(uid)
+    public async Login(uid: string, params: { sid: number, fid: string }) {
+        return await LogicServer.getInstance().userLogin(uid, params)
     }
 
     public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {

@@ -1,16 +1,17 @@
 import {RoomPlayer} from "../component/roomPlayer";
-import {CreateRoomDto, NoticeJoinRoomDto, NoticeLeaveRoomDto, PlayerJoinRoomDto} from "../dto/RoomDto";
+import {CreateRoomDto, PlayerJoinRoomDto} from "../dto/RoomDto";
 import {RequestParamsException} from "../../../exception/RequestParamsException";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus, Channel} from "pinus";
-import {PushRoute} from "../../../constant/Route";
+import {RoomPushRoute} from "../../../constant/Route";
 import {JOIN_ROOM_REASON, LEAVE_ROOM_REASON} from "../../../constant/Room";
 
 export abstract class AbstractRoom {
     roomId: number = 0;
     roomParams: CreateRoomDto;
     playerMap: { [key in string]: RoomPlayer } = {}
-    password: string = "";
+    password: number = 10;
+    master: string = "";
     // 房间信道
     channel: Channel;
 
@@ -18,14 +19,24 @@ export abstract class AbstractRoom {
         return 4
     };
 
+    get playerNumber(): number {
+        return Object.keys(this.playerMap).length
+    }
+
+    get playerList(): Array<RoomPlayer> {
+        return Object.values(this.playerMap);
+    }
+
     get isRoomFull(): boolean {
-        return Object.keys(this.playerMap).length >= this.roomMaxPlayerNumber;
+        return this.playerNumber >= this.roomMaxPlayerNumber;
     };
+
 
     protected constructor(roomId: number, params: CreateRoomDto) {
         this.roomId = roomId;
         this.roomParams = params;
-        this.channel = pinus.app.get('channelService').getChannel(`room_${this.roomId}`);
+        this.channel = pinus.app.get('channelService').getChannel(`room_${this.roomId}`, true);
+        console.log(this.channel);
     }
 
     // 从房间中获取玩家
@@ -45,8 +56,16 @@ export abstract class AbstractRoom {
 
     // 加入房间
     public async joinRoom(player: RoomPlayer): Promise<void> {
+        if (this.playerNumber) this.setMaster(player);
         this.playerMap[player.uid] = player;
+        this.channel.add(player.uid, player.fid);
         await this.noticeJoinRoom(player);
+    }
+
+    // 设置房主
+    public setMaster(player: RoomPlayer) {
+        player.master = true;
+        this.master = player.uid;
     }
 
     public async leaveRoom(player: RoomPlayer): Promise<void> {
@@ -55,12 +74,30 @@ export abstract class AbstractRoom {
     }
 
 
+    // 通知加入房间
     public async noticeJoinRoom(player: RoomPlayer) {
-        const message: NoticeJoinRoomDto = {
-            uid: player.uid,
-            reason: JOIN_ROOM_REASON.JOIN
+        // 先通知房间信息
+        const roomInfoMessage: NoticeRoomInfo = {
+            roomId: this.roomId,
+            master: this.master,
+            password: this.password,
+            playerList: this.makeClientPlayerList(),
+
         }
-        this.pushRoomMessage(PushRoute.ON_PLAYER_JOIN_ROOM, message).then();
+        player.sendMessage(RoomPushRoute.OnRoomInfo, roomInfoMessage);
+
+        // 给房间所有人通知有人进入
+        const joinRoomMessage: playerClientData = player.makeClientData()
+        this.pushRoomMessage(RoomPushRoute.OnPlayerJoinRoom, joinRoomMessage).then();
+    }
+
+    // 生成玩家列表给客户端
+    public makeClientPlayerList(): Array<playerClientData> {
+        const rlt: Array<playerClientData> = []
+        this.playerList.forEach(ele => {
+            rlt.push(ele.makeClientData())
+        })
+        return rlt;
     }
 
     // 通知玩家离开房间
@@ -69,7 +106,7 @@ export abstract class AbstractRoom {
             uid: player.uid,
             reason: LEAVE_ROOM_REASON.DEFAULT
         }
-        this.pushRoomMessage(PushRoute.ON_PLAYER_LEVEL_ROOM, message).then();
+        this.pushRoomMessage(RoomPushRoute.OnPlayerLeaveRoom, message).then();
     }
 
     // 给房间发送消息

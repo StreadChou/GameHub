@@ -10,4 +10,7 @@ export const DefaultErrorHandler: ResponseErrorHandler = function (err: any, msg
     if (err instanceof AbstractException) {
         return cb(new Error(), err.generateErrorResponse());
     }
+
+    console.error(err.message, err.stack);
+    return cb(new Error(), {code: 500});
 }

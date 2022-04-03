@@ -5,6 +5,8 @@ import {RoomPlayerInitDto} from "../room/dto/RoomDto";
 export class User {
     uid: string = ""; // 用户名
     nick: string = ""; // 昵称
+    sid: number = 0; // sessionId
+    fid: string = "" // frontendId
 
     userServices: UserServices;
 
@@ -17,7 +19,12 @@ export class User {
     }
 
     public async makeRoomNeed(): Promise<RoomPlayerInitDto> {
-        return {uid: this.uid, nick: this.nick};
+        return {
+            uid: this.uid,
+            nick: this.nick,
+            sid: this.sid,
+            fid: this.fid,
+        };
     }
 
 }

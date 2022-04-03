@@ -22,9 +22,9 @@ export class LogicProxy {
         return this._instance
     }
 
-    public async userLogin(uid: string) {
+    public async userLogin(uid: string, params: { sid: number, fid: string }) {
         const svrId = await this.getLogicServerId(uid);
-        return await this.logicRemote.Login.toServer(svrId, uid)
+        return await this.logicRemote.Login.toServer(svrId, uid, params)
     }
 
 

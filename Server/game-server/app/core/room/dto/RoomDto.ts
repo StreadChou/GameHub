@@ -5,22 +5,34 @@ export interface CreateRoomDto {
 }
 
 export interface PlayerJoinRoomDto {
-    password: string;
+    password: number;
 }
 
 export interface RoomPlayerInitDto {
     uid: string,
     nick: string,
+    sid: number,
+    fid: string,
 }
 
 
-// 离开房间给房间里所有人推送的电文
-export interface NoticeJoinRoomDto {
+declare global {
+    interface NoticeRoomInfo {
+        roomId: number;
+        master: string;
+        password: number;
+        playerList: Array<playerClientData>;
+    }
 
-}
+    interface playerClientData {
+        uid: string,
+        master: boolean,
 
-// 离开房间给房间里所有人推送的电文
-export interface NoticeLeaveRoomDto {
-    uid: string,
-    reason: LEAVE_ROOM_REASON,
+    }
+
+    // 离开房间给房间里所有人推送的电文
+    interface NoticeLeaveRoomDto {
+        uid: string,
+        reason: LEAVE_ROOM_REASON,
+    }
 }

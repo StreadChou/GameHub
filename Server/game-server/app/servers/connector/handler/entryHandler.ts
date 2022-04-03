@@ -25,7 +25,7 @@ export class Handler {
         await pinus.app.sessionService.akick(uid); // TODO T出原因
         await session.abind(uid);
         const logicId = dispatchRandom("logic", uid).id;
-        await LogicProxy.getInstance().userLogin(uid);
+        await LogicProxy.getInstance().userLogin(uid, {sid: session.id, fid: session.frontendId});
         session.set(SessionAttr.LogicServerId, logicId);
         await session.apushAll()
         return {code: ErrorCode.Success, data: {}};
