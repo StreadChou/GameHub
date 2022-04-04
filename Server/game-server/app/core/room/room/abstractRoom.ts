@@ -19,7 +19,7 @@ export abstract class AbstractRoom {
     game: AbstractGame
 
     get roomMaxPlayerNumber(): number {
-        return 4
+        return 3
     };
 
     get playerNumber(): number {
@@ -62,6 +62,7 @@ export abstract class AbstractRoom {
         if (this.playerNumber) this.setMaster(player);
         this.playerMap[player.uid] = player;
         this.channel.add(player.uid, player.fid);
+        player.seat = this.getSeat();
         await this.noticeJoinRoom(player);
     }
 
@@ -74,6 +75,17 @@ export abstract class AbstractRoom {
     public async leaveRoom(player: RoomPlayer): Promise<void> {
         delete this.playerMap[player.uid];
         await this.noticeLeveRoom(player);
+    }
+
+    public getSeat(): number {
+        const seatList = this.playerList.map(ele => {
+            return ele.seat;
+        })
+        for (let i = 1; i <= this.roomMaxPlayerNumber; i++) {
+            if (seatList.includes(i)) continue;
+            return i;
+        }
+        return 0;
     }
 
 

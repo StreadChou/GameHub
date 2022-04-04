@@ -1,6 +1,9 @@
 import {UserEntity} from "../../entity/userEntity";
 import {UserServices} from "./services/userServices";
 import {RoomPlayerInitDto} from "../room/dto/RoomDto";
+import {pinus} from "pinus";
+import {PlayerPushRoute} from "../../constant/Route";
+import {PlayerLoginDto} from "./dto/userDto";
 
 export class User {
     uid: string = ""; // 用户名
@@ -18,6 +21,19 @@ export class User {
         this.userServices = UserServices.getInstance();
     }
 
+
+    public async login() {
+        const message: PlayerLoginDto = {
+            uid: this.uid,
+            nick: this.nick
+        }
+        this.pushMessage(PlayerPushRoute.OnLogin,message);
+    }
+
+    public async makeLoginNeed() {
+
+    }
+
     public async makeRoomNeed(): Promise<RoomPlayerInitDto> {
         return {
             uid: this.uid,
@@ -26,5 +42,11 @@ export class User {
             fid: this.fid,
         };
     }
+
+    public pushMessage(route: string, msg: any, opts?: any, cb?: (err?: Error, result?: void) => void) {
+        const persons = [{sid: this.fid, uid: this.uid}]
+        pinus.app.channelService.pushMessageByUids(route, msg, persons, opts, cb)
+    }
+
 
 }

@@ -39,6 +39,7 @@ export class RoomPlayer {
         return {
             uid: this.uid,
             master: this.master,
+            seat: this.seat
         }
     }
 

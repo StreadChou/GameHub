@@ -27,7 +27,7 @@ declare global {
     interface playerClientData {
         uid: string,
         master: boolean,
-
+        seat: number;
     }
 
     // 离开房间给房间里所有人推送的电文

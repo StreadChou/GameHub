@@ -32,6 +32,7 @@ export class LogicServer {
         user.sid = params.sid;
         user.fid = params.fid;
         this.userUidMap[user.uid] = user;
+        await user.login();
         return {};
     }
 
