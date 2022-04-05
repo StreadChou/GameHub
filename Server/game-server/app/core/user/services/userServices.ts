@@ -3,6 +3,7 @@ import {pinus} from "pinus";
 import {AppAttr} from "../../../constant/app";
 import {DataSource} from "typeorm";
 import {Repository} from "typeorm/repository/Repository";
+import {PlayerAuthInfo} from "../dto/userDto";
 
 export class UserServices {
     private static _instance: UserServices;
@@ -19,7 +20,7 @@ export class UserServices {
     }
 
     // 查询或者创建用户
-    public async queryOrCreateUser(uid: string): Promise<UserEntity> {
+    public async queryOrCreateUser(uid: string, info: PlayerAuthInfo): Promise<UserEntity> {
         let user: UserEntity
         try {
             user = await this.userRepository.findOne({where: {uid: uid}});
@@ -28,7 +29,7 @@ export class UserServices {
         }
 
         if (!user) {
-            user = this.userRepository.create({uid: uid, nick: uid});
+            user = this.userRepository.create({uid: uid, nick: info.nick, cover: info.cover});
             await this.userRepository.save(user);
         }
         return user;

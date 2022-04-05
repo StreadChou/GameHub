@@ -2,6 +2,7 @@ import {User} from "../../../core/user/user";
 import {pinus} from "pinus";
 import {UserServices} from "../../../core/user/services/userServices";
 import {RoomPlayerInitDto} from "../../../core/room/dto/RoomDto";
+import {PlayerAuthInfo} from "../../../core/user/dto/userDto";
 
 export class LogicServer {
     private static _instance: LogicServer
@@ -26,8 +27,8 @@ export class LogicServer {
         return this.userUidMap[uid];
     }
 
-    public async userLogin(uid: string, params: { sid: number, fid: string }) {
-        const userEntity = await this.userServices.queryOrCreateUser(uid);
+    public async userLogin(uid: string, info: PlayerAuthInfo, params: { sid: number, fid: string }) {
+        const userEntity = await this.userServices.queryOrCreateUser(uid, info);
         const user = User.loadFromEntity(userEntity);
         user.sid = params.sid;
         user.fid = params.fid;

@@ -5,6 +5,8 @@ import {ErrorCode} from "../../../constant/ErrorCode";
 import {dispatchRandom} from "../../../helper/routeHelper";
 import {SessionAttr} from "../../../constant/session";
 import {LogicProxy} from "../../logic/proxy/logicProxy";
+import {PlayerAuthInfo} from "../../../core/user/dto/userDto";
+import {randomNumberBetween} from "../../../helper/randomHelper";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -25,7 +27,20 @@ export class Handler {
         await pinus.app.sessionService.akick(uid); // TODO T出原因
         await session.abind(uid);
         const logicId = dispatchRandom("logic", uid).id;
-        await LogicProxy.getInstance().userLogin(uid, {sid: session.id, fid: session.frontendId});
+        const cover = [
+            "http://static.stread.net/test/1.jpg",
+            "http://static.stread.net/test/2.jpg",
+            "http://static.stread.net/test/3.jpg",
+            "http://static.stread.net/test/4.jpg",
+            "http://static.stread.net/test/5.jpg",
+        ]
+        const info: PlayerAuthInfo = {
+            nick: `测试账号${randomNumberBetween(100, 999)}`,
+            cover: cover[randomNumberBetween(0, 4)]
+        }
+        await LogicProxy.getInstance().userLogin(uid, info, {sid: session.id, fid: session.frontendId}
+        )
+        ;
         session.set(SessionAttr.LogicServerId, logicId);
         await session.apushAll()
         return {code: ErrorCode.Success, data: {}};

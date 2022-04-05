@@ -8,6 +8,10 @@ import {PlayerLoginDto} from "./dto/userDto";
 export class User {
     uid: string = ""; // 用户名
     nick: string = ""; // 昵称
+    level: number = 1;
+    money: number = 0;
+    cover: string = "";
+
     sid: number = 0; // sessionId
     fid: string = "" // frontendId
 
@@ -25,9 +29,11 @@ export class User {
     public async login() {
         const message: PlayerLoginDto = {
             uid: this.uid,
-            nick: this.nick
+            nick: this.nick,
+            level: this.level,
+            money: this.money,
         }
-        this.pushMessage(PlayerPushRoute.OnLogin,message);
+        this.pushMessage(PlayerPushRoute.OnLogin, message);
     }
 
     public async makeLoginNeed() {

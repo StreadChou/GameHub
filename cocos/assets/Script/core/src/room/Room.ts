@@ -13,6 +13,8 @@ export class Room {
     roomId: number = 0;
     master: string = "";
     password: number = 0;
+    maxPlayer: number = 5;
+
     playerSeatMap: { [key in number]: RoomPlayer } = {};
     seat: number;
 
@@ -36,6 +38,7 @@ export class Room {
 
     setRoomPlayerManager(roomPlayerManager: RoomPlayerManager) {
         this.roomPlayerManager = roomPlayerManager;
+        console.error("setRoomPlayerManager", this.roomPlayerManager)
     }
 
     public onPlayerJoinRoom(data: RoomPlayer) {
@@ -45,7 +48,11 @@ export class Room {
         }
         this.playerSeatMap[data.seat] = data;
 
-        if (this.roomPlayerManager) this.roomPlayerManager.reseatPlayerSeat();
+        console.error(data)
+        if (this.roomPlayerManager) {
+            console.error(this.roomPlayerManager)
+            this.roomPlayerManager.reseatPlayerSeat(data);
+        }
     }
 
 }

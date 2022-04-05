@@ -7,4 +7,14 @@ export class UserEntity {
 
     @Column()
     nick: string;
+
+    @Column({default: ""})
+    cover: string;
+
+    @Column({default: 1})
+    level: number;
+
+
+    @Column({default: 3200})
+    money: number;
 }

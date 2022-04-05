@@ -7,12 +7,13 @@ declare global {
 
     interface Window {
         pinus: PinusInterface
+        pomelo: PinusInterface
     }
 }
 
 export class NetworkManager {
     private static _instance: NetworkManager;
-    private pinus = window.pinus;
+    private pinus = window.pomelo;
 
     private constructor() {
         this.init();
@@ -23,7 +24,9 @@ export class NetworkManager {
         return this._instance;
     }
 
-    init(host = "127.0.0.1", port = "3010", callback?: Function) {
+    init(host = "127.0.0.1", port = 3010, callback?: Function) {
+        // host = "20f6s62005.iask.in";
+        // port = 53708;
         this.pinus.init({
             host: host,
             port: port,
