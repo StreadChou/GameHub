@@ -37,7 +37,7 @@ export class Handler {
     }
 
     async leaveRoom(msg: any, session: FrontendSession) {
-        return {code: 200, msg: 'game server is ok.'};
+        return {code: 200, msg: 'gameState server is ok.'};
     }
 
     async startGame(msg: JoinRoomDto, session: FrontendSession) {

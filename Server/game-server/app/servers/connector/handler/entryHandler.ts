@@ -53,7 +53,7 @@ export class Handler {
      * @param  {Object}   session current session object
      */
     async entry(msg: any, session: FrontendSession) {
-        return {code: 200, msg: 'game server is ok.'};
+        return {code: 200, msg: 'gameState server is ok.'};
     }
 
     /**
