@@ -61,4 +61,19 @@ export class Game extends AbstractGame {
     public endGame() {
         this.callback(this);
     }
+
+    // 出牌
+    public roundPlay(uid: string, _cards: any[]) {
+        const player = this.playerMap[uid];
+        if (!player) throw new Error("玩家不在房间")
+
+        const cards = Table.generateStandardCard()
+    }
+
+    // 玩家过牌
+    public roundPass(uid: string, _cards: any[]) {
+        const player = this.playerMap[uid];
+        if (!player) throw new Error("玩家不在房间")
+        const cards = Table.generateStandardCard()
+    }
 }

@@ -5,10 +5,14 @@ export class PokerCard {
     suit: PokerSuit;
     // 等级
     rank: number;
+    // 唯一值, 用suit + rank 形成的唯一的值
+    value: number;
+
 
     constructor(suit: PokerSuit, rank: number) {
         this.suit = suit;
         this.rank = rank;
+        this.value = parseInt(`${this.suit}${this.rank < 10 ? '0' + this.rank : this.rank}`);
     }
 
 

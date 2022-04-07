@@ -1,5 +1,5 @@
 export enum PokerSuit {
-    CLUB, // 梅花
+    CLUB = 1, // 梅花
     DIAMOND, // 方块(钻石)
     HEART, // 红心(红桃)
     SPADE, // 黑桃

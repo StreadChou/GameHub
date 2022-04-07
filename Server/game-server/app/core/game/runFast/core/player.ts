@@ -9,8 +9,9 @@ import {Game} from "./game";
 export class Player extends AbstractPlayer {
     game: Game;
     private event: EventEmitter = new EventEmitter().setMaxListeners(50);
-
+    // 我的手牌
     cards: PokerCard[] = [];
+    round: boolean = false; // 是否是我的回合
 
     get cardNumber(): number {
         return this.cards.length;
@@ -43,6 +44,11 @@ export class Player extends AbstractPlayer {
     // 增加手牌
     public addCards(cards: Array<PokerCard>) {
         this.cards = this.cards.concat(cards);
+    }
+
+    // 判断玩家是有这些牌
+    getCards(_cards: { suit: number, rank: number }[]): PokerCard[] {
+        return [];
     }
 
 
