@@ -10,6 +10,7 @@ export class StateGameOver extends StateBase {
     }
 
     deal() {
+        this.sendPhaseMessage(this.makeStateMessage());
     }
 
 }

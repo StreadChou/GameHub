@@ -13,7 +13,6 @@ export class Table extends PokerManager {
     game: Game;
 
     remainCardsMap: { [key in number]: PokerCard } = {}; // 剩余的牌
-
     removeCardsMap: { [key in number]: PokerCard } = {}; // 已经出去的牌
 
     nowCardsMap: { [key in number]: PokerCard } = null; // 现在的牌
@@ -36,12 +35,11 @@ export class Table extends PokerManager {
     constructor(game: Game, config: { [key in PokerSuit]?: Array<number> }) {
         super(config);
         this.game = game;
-
         this.cards = shuffleArray(this.cards);
         this.cards = shuffleArray(this.cards);
 
         this.cards.forEach(ele => {
-            this.remainCards[ele.value] = ele;
+            this.remainCardsMap[ele.value] = ele;
         })
     }
 
@@ -70,10 +68,17 @@ export class Table extends PokerManager {
 
     // 给某人发牌
     sendCardToSomeBody(player: Player, number: number) {
-        const cards = this.cards.slice(0, number);
+        const remainCardsKey = Object.keys(this.remainCardsMap);
+        const cardsKey = remainCardsKey.slice(0, number);
+        const cards: Array<PokerCard> = []
+        cardsKey.forEach(ele => {
+            cards.push(this.remainCardsMap[ele]);
+            this.remainCardsMap[ele] = undefined;
+            delete this.remainCardsMap[ele];
+        })
         player.addCards(cards);
-        const cardInfo = PokerManager.generateCardClientData(cards);
 
+        const cardInfo = PokerManager.generateCardClientData(cards);
         const message: OnReceivedPokerMessage = {
             uid: player.uid,
             number: cardInfo.length,

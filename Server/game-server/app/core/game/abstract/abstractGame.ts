@@ -49,8 +49,8 @@ export abstract class AbstractGame {
     pushDifferentiationMessage(route: string, player: AbstractPlayer, message: any, otherMessage: any) {
         // 先给玩家自己发送
         player.pushMessage(route, message);
-        this.playerList.forEach(player => {
-            player.pushMessage(route, otherMessage);
+        this.playerList.forEach(ele => {
+            if (player.uid != ele.uid) ele.pushMessage(route, otherMessage);
         })
     }
 

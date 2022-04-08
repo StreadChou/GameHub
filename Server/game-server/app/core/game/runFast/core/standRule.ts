@@ -33,6 +33,7 @@ export class StandRule {
 
     public next() {
         this.fsm.transition().next();
+        console.log(123);
     }
 
 

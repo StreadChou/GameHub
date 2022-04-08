@@ -1,8 +1,9 @@
-import {GameState} from "../../interface";
+import {GameState, OnPhaseMessage} from "../../interface";
 import {StandRule} from "../standRule";
 import {Game} from "../game";
 import {Table} from "../table";
 import {Player} from "../player";
+import {GamePushRoute} from "../../../../../constant/Route";
 
 export abstract class StateBase {
     abstract state: GameState;
@@ -51,12 +52,9 @@ export abstract class StateBase {
     public after = () => undefined;
 
     public transition = () => {
-        if (this.phaseTime <= 0) {
-            this.standRule.next()
-        }
         this.phaseTimer = setTimeout(() => {
             this.standRule.next();
-        }, this.phaseTime)
+        }, this.phaseTime * 1000)
     }
 
 
@@ -68,4 +66,18 @@ export abstract class StateBase {
     public end = (nowPhase: GameState, toPhase: GameState) => {
 
     }
+
+
+    makeStateMessage(): OnPhaseMessage {
+        return {
+            phase: this.state,
+            time: this.phaseTime,
+        };
+    }
+
+    sendPhaseMessage(message: OnPhaseMessage) {
+        this.game.pushMessage(GamePushRoute.OnPhase, message);
+    }
+
+
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/jquery/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+
+<div>
+    <button onclick="CreateRunFastGame()">创建房间</button>
+</div>
+<div>
+    <label for="joinRoomId">加入房间ID</label><input id="joinRoomId">
+    <button onclick="JoinRunFastGame()">加入房间</button>
+</div>
+
+
+<div id="frame">
+
+</div>
+</body>
+<script>
+    const loadIframe = (srcInfo, num, i = 0) => {
+        const frame = '<iframe src=' + srcInfo + ' id="iframe' + (i + 1) + '" width="49.4%" height="300px" ></iframe>';
+        $('#frame').append(frame);
+        i++;
+        if (i < num) {
+            setTimeout(function () {
+                loadIframe(srcInfo, i, num);
+            }, 100)
+        }
+    }
+
+    const CreateRunFastGame = () => {
+        const srcInfo = "/modules/room/game/runFastGame.html";
+        loadIframe(srcInfo, 1);
+    }
+
+    const JoinRunFastGame = () => {
+        const roomId = $('#joinRoomId').val();
+        console.log(roomId);
+        const srcInfo = `/modules/room/game/runFastGame.html?roomId=${roomId}`;
+        loadIframe(srcInfo, 2);
+    }
+
+
+</script>
+</html>

@@ -1,7 +1,6 @@
 import {StateBase} from "./stateBase";
 import {GameState} from "../../interface";
 import {StandRule} from "../standRule";
-import {LookDespairGameRoute} from "../../../../../constant/Route";
 
 export class StateStart extends StateBase {
     state: GameState = GameState.Start;
@@ -12,9 +11,7 @@ export class StateStart extends StateBase {
 
     deal() {
         // 确定先手;
-
-        const message = {};
-        this.game.pushMessage(LookDespairGameRoute.LookDespairGameStart, message);
+        this.sendPhaseMessage(this.makeStateMessage());
     }
 
 }

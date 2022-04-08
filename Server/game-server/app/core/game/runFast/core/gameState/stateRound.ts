@@ -12,9 +12,13 @@ export class StateRound extends StateBase {
     }
 
     deal() {
+        this.sendPhaseMessage(this.makeStateMessage());
         // 通知别人出牌
     }
 
+    public transition = () => {
+
+    }
 
 
 }

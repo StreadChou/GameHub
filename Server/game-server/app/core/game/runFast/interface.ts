@@ -41,3 +41,8 @@ export interface OnReceivedPokerMessage {
     cards?: Array<PokerClientDto>
 }
 
+
+export interface OnPhaseMessage {
+    phase: GameState
+    time: number
+}

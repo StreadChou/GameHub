@@ -24,6 +24,8 @@ export class Game extends AbstractGame {
 
     constructor(room: AbstractRoom, roomPlayers: Array<RoomPlayer>, opts: CreateGameOpts, callback: Function) {
         super(room, roomPlayers, callback);
+        this.config = opts.config;
+
         this.initPlayer(roomPlayers);
         this.table = Table.generateTable(this);
         this.standRule = new StandRule(this);
