@@ -10,14 +10,13 @@ export class Player extends AbstractPlayer {
     game: Game;
     private event: EventEmitter = new EventEmitter().setMaxListeners(50);
     remainCardsMap: { [key in number]: PokerCard } = {}; // 我的手牌
-    round: boolean = false; // 是否是我的回合
 
     cardsList(): Array<PokerCard> {
         return Object.values(this.remainCardsMap);
     }
 
     get cardNumber(): number {
-        return this.cardsList.length;
+        return Object.values(this.remainCardsMap).length;
     }
 
 
@@ -45,6 +44,22 @@ export class Player extends AbstractPlayer {
 
 
     addCards(cards: Array<PokerCard>) {
+        cards.forEach(ele => {
+            this.remainCardsMap[ele.value] = ele;
+        })
+    }
 
+    getCards(_cardsValue: any[], isAuto = false): Array<PokerCard> {
+        const cards = Object.keys(this.remainCardsMap);
+        const rlt: Array<PokerCard> = [];
+        if (isAuto && _cardsValue.length <= 0) {
+            const random = cards[randomNumberBetween(0, cards.length - 1)];
+            rlt.push(this.remainCardsMap[random]);
+            return rlt;
+        }
+        _cardsValue.forEach(ele => {
+            rlt.push(this.remainCardsMap[ele.value]);
+        })
+        return rlt;
     }
 }

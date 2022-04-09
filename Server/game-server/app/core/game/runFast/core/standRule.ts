@@ -46,6 +46,7 @@ export class StandRule {
         const now: StateBase = this._getPhaseInstance(toState)
         now.start(currentState, toState);
         if (now) now.end(currentState, toState);
+        console.log("\n\n\n\n\n", currentState, toState, "\n\n\n\n\n")
     }
 
 

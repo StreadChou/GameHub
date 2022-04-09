@@ -20,10 +20,14 @@ export class RoomPlayerManager extends Component {
     seatIndex2: Node = null;
 
     @property(Node)
-    seatIndex3: Node = null;
+    RoundCtrl: Node = null;
 
     @property(Node)
-    seatIndex4: Node = null;
+    RoundPass: Node = null;
+
+    @property(Node)
+    RoundPlay: Node = null;
+
 
     start() {
         this.reseatPlayerSeat();
@@ -35,7 +39,9 @@ export class RoomPlayerManager extends Component {
         for (let seat in this.room.playerSeatMap) {
             let targetOffset = parseInt(seat) - mySeat;
             if (targetOffset < 0) targetOffset = this.room.maxPlayer + targetOffset;
+            console.log("targetOffset", targetOffset, parseInt(seat), mySeat);
             (this[`seatIndex${targetOffset}`] as Node).active = true;
+            this.room.playerSeatMap[seat].index = targetOffset;
         }
     }
 

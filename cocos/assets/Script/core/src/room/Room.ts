@@ -5,6 +5,7 @@ export interface RoomPlayer {
     uid: string,
     master: boolean,
     seat: number;
+    index?: number;
 }
 
 export class Room {
@@ -13,9 +14,10 @@ export class Room {
     roomId: number = 0;
     master: string = "";
     password: number = 0;
-    maxPlayer: number = 5;
+    maxPlayer: number = 3;
 
     playerSeatMap: { [key in number]: RoomPlayer } = {};
+    playerUidMap: { [key in string]: RoomPlayer } = {}
     seat: number;
 
     private constructor(onRoomInfoData?: any) {
@@ -23,6 +25,7 @@ export class Room {
             Object.assign(this, onRoomInfoData);
             onRoomInfoData.playerList.forEach(ele => {
                 this.playerSeatMap[ele.seat] = ele;
+                this.playerUidMap[ele.uid] = ele;
             })
         }
     }
@@ -47,6 +50,7 @@ export class Room {
             this.seat = data.seat;
         }
         this.playerSeatMap[data.seat] = data;
+        this.playerUidMap[data.uid] = data;
 
         console.error(data)
         if (this.roomPlayerManager) {

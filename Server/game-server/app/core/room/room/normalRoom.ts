@@ -17,8 +17,8 @@ export class NormalRoom extends AbstractRoom {
         const GameClass = GameFactory(gameType);
         const opts: LookDespairCreateOpts = {
             config: {
-                maxPlayer: 4,
-                playerCardsNumber: 5,
+                maxPlayer: 3,
+                playerCardsNumber: 15,
             }
         }
         this.game = new GameClass(this, this.playerList, opts, () => {

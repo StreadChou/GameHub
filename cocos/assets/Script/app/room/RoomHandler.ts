@@ -1,6 +1,6 @@
 import {_decorator, Component, Node, EditBox, BaseNode, director} from 'cc';
 import {NetworkManager} from "db://assets/Script/core/src/network/NetworkManager";
-import {RoomPushRoute} from "db://assets/Script/core/constant/Route";
+import {GamePushRoute, RoomPushRoute} from "db://assets/Script/core/constant/Route";
 import {User} from "db://assets/Script/core/src/user/User";
 import {Room} from "db://assets/Script/core/src/room/Room";
 
@@ -9,9 +9,13 @@ const {ccclass, property} = _decorator;
 
 @ccclass('RoomHandler')
 export class RoomHandler extends Component {
-    private network: NetworkManager = NetworkManager.getInstance();
+    private network: NetworkManager
+
+    @property(Node)
+    startGameNode: Node = null;
 
     onLoad() {
+        this.network = NetworkManager.getInstance();
         this.network.listenRoute(RoomPushRoute.OnRoomInfo, this.onRoomInfo.bind(this))
         this.network.listenRoute(RoomPushRoute.OnPlayerJoinRoom, this.onPlayerJoinRoom.bind(this))
     }
@@ -29,6 +33,9 @@ export class RoomHandler extends Component {
 
     startGame() {
         const room = Room.getInstance();
+        if (Object.keys(room.playerSeatMap).length <= 1) {
+            return false;
+        }
         this.network.request("room.roomHandler.startGame", {roomId: room.roomId});
     }
 
@@ -41,5 +48,6 @@ export class RoomHandler extends Component {
         const room = Room.getInstance(data);
         room.onPlayerJoinRoom(data);
     }
+
 
 }

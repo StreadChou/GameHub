@@ -7,6 +7,8 @@ export enum RoomPushRoute {
 export enum GamePushRoute {
     OnPhase = "onPhase",
     OnReceivedPoker = "onReceivedPoker",
+    OnPlayerRound = "onPlayerRound",
+    OnPlayerPlay = "onPlayerPlay"
 }
 
 export enum LookDespairGameRoute {

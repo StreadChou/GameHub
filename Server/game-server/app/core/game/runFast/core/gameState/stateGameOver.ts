@@ -13,4 +13,8 @@ export class StateGameOver extends StateBase {
         this.sendPhaseMessage(this.makeStateMessage());
     }
 
+    public transition = () => {
+
+    }
+
 }

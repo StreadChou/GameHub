@@ -25,8 +25,8 @@ export class NetworkManager {
     }
 
     init(host = "127.0.0.1", port = 3010, callback?: Function) {
-        host = "117.22.253.110";
-        port = 64030;
+        // host = "117.22.253.110";
+        // port = 64030;
         this.pinus.init({
             host: host,
             port: port,

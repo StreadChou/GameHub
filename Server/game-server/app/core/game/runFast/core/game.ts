@@ -65,17 +65,21 @@ export class Game extends AbstractGame {
     }
 
     // 出牌
-    public roundPlay(uid: string, _cards: any[]) {
+    public roundPlay(uid: string, _cards: any[], isAuto = false) {
         const player = this.playerMap[uid];
         if (!player) throw new Error("玩家不在房间")
+        const cards = player.getCards(_cards, isAuto)
+        if (!this.table.isCardsLegal(player, cards)) {
+            throw new Error("出牌不合法")
+        }
 
-        const cards = Table.generateStandardCard()
+        this.table.playerPlayCards(player, cards);
     }
 
     // 玩家过牌
-    public roundPass(uid: string, _cards: any[]) {
+    public roundPass(uid: string) {
         const player = this.playerMap[uid];
         if (!player) throw new Error("玩家不在房间")
-        const cards = Table.generateStandardCard()
+        this.table.playerPass(player);
     }
 }

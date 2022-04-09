@@ -20,6 +20,7 @@ export class PokerCard {
         return {
             suit: this.suit,
             rank: this.rank,
+            value: this.value,
             name: this.getPokerName(),
         }
     }
