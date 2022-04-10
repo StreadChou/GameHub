@@ -3,12 +3,10 @@
   "importer": "javascript",
   "imported": true,
   "uuid": "cf69a630-eaf4-4578-a457-12974510d8ba",
-  "files": [
-    ".js"
-  ],
+  "files": [],
   "subMetas": {},
   "userData": {
-    "isPlugin": true,
+    "isPlugin": false,
     "loadPluginInWeb": true,
     "loadPluginInNative": true,
     "loadPluginInEditor": true

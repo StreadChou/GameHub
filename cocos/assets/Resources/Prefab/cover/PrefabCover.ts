@@ -10,8 +10,8 @@ export class prefabCover extends Component {
     cover: Sprite = null;
 
     start() {
-        const user = User.getInstance();
-        console.log(user.cover)
+        // const user = User.getInstance();
+        // console.log(user.cover)
     }
 
 
