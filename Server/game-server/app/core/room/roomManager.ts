@@ -1,10 +1,10 @@
 import {CreateRoomDto, PlayerJoinRoomDto} from "./dto/RoomDto";
 import {NormalRoom} from "./room/normalRoom";
-import {RequestParamsException} from "../../exception/RequestParamsException";
 import {ErrorCode} from "../../constant/ErrorCode";
 import {AbstractRoom} from "./room/abstractRoom";
 import {RoomPlayer} from "./component/roomPlayer";
 import {randomNumberBetween} from "../../helper/randomHelper";
+import {ClientException} from "../../exception/clientException";
 
 export class RoomManager {
     private static _instance: RoomManager;
@@ -57,7 +57,7 @@ export class RoomManager {
     // 根据ID获取房间, 返回一定是房间
     public getRoomByRoomId(roomId: number): AbstractRoom {
         let room = this.roomMap[roomId];
-        if (!room) throw new RequestParamsException(ErrorCode.ROOM_NOT_EXIST);
+        if (!room) throw new ClientException(ErrorCode.ROOM_NOT_EXIST, {}, "房间不存在");
         return room;
     }
 

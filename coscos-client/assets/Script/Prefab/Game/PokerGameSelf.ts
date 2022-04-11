@@ -16,6 +16,9 @@ export default class PokerGameSelf extends cc.Component {
     @property(cc.Node)
     handNode: cc.Node = null;
 
+    @property(cc.Node)
+    timer: cc.Node = null;
+
     @property(cc.Label)
     time: cc.Label = null;
 

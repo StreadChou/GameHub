@@ -1,9 +1,9 @@
 import {RESERVED, pinus} from 'pinus';
 import {preload} from './preload';
-import {DefaultErrorHandler} from "./app/exception/AppErrorHandler";
 import {DataSource} from "typeorm";
 import {AppAttr} from "./app/constant/app";
 import * as path from "path";
+import {AppErrorHandler} from "./app/exception/errorHandler/appErrorHandler";
 
 /**
  *  替换全局Promise
@@ -28,7 +28,7 @@ app.configure('production|development', 'connector', function () {
             useProtobuf: true
         });
 });
-app.set(RESERVED.ERROR_HANDLER, DefaultErrorHandler)
+app.set(RESERVED.ERROR_HANDLER, AppErrorHandler)
 
 const AppDataSource = new DataSource({
     type: "mysql",

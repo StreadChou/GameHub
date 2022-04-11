@@ -6,7 +6,9 @@ import {Player} from "./player";
 import {GamePushRoute} from "../../../../constant/Route";
 import {PokerCard} from "../../core/poker/pokerCard";
 import {CardsType, OnReceivedPokerMessage} from "../interface";
-import {CardTypeCheck} from "../../core/poker/helper/CardTypeFactory";
+import {CardTypeCheck, CardTypeIs} from "../../core/poker/helper/CardTypeFactory";
+import {ErrorCode} from "../../../../constant/ErrorCode";
+import {ClientException} from "../../../../exception/clientException";
 
 
 // 牌桌, 一切和牌相关的管理中心
@@ -117,9 +119,12 @@ export class Table extends PokerManager {
 
     // 出牌是否合法
     isCardsLegal(player: Player, cards: Array<PokerCard>) {
-        if (player.uid != this.nowPlayPlayer.uid) return false;
-        if (!this.checkCardsLegal(cards)) return false;
+        if (player.uid != this.nowPlayPlayer.uid) throw new ClientException(ErrorCode.COMMON_ERROR, {}, "当前不是您的出牌阶段")
+
+        if (!this.checkCardsLegal(cards)) throw new ClientException(ErrorCode.COMMON_ERROR, {}, "牌型不合法")
+
         if (!this.lastCardsMap) return true;
+
         return this.checkCardsGtLast(cards);
     }
 
@@ -134,40 +139,27 @@ export class Table extends PokerManager {
         const lastCards = Object.values(this.lastCardsMap);
         const lastType = this.checkCardsType(Object.values(this.lastCardsMap));
         const myType = this.checkCardsType(cards);
+        if (lastType != myType && myType == CardsType.FourOfAKind) {
+            throw new ClientException(ErrorCode.COMMON_ERROR, {}, "牌型不合法")
+        }
+
         if (lastType == myType) {
-            return CardTypeCheck(lastType, cards, lastCards)
+            const config = this.game.config.pokerConfig.CardsTypeConfig[lastType] ?? {};
+            config.pokerRankSort = this.game.config.pokerConfig.pokerRankSort;
+            return CardTypeCheck(lastType, cards, lastCards, config)
         }
         if (myType == CardsType.FourOfAKind) {
             return true;
         }
-        //
-        return false;
+        throw new ClientException(ErrorCode.COMMON_ERROR, {}, "您的牌小于上家出牌")
     }
 
     checkCardsType(cards: Array<PokerCard>): CardsType {
-        const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
-        if (cards.length == 1) return CardsType.Single;
-        if (cards.length == 2) {
-            if (ranks[0] == ranks[1]) return CardsType.Treys
-            return null;
+        for (let item of this.game.config.pokerConfig.cardsType) {
+            const config = this.game.config.pokerConfig.CardsTypeConfig[item] ?? {};
+            config.pokerRankSort = this.game.config.pokerConfig.pokerRankSort;
+            if (CardTypeIs(item, cards, config)) return item;
         }
-        if (cards.length == 3) {
-            if (ranks[0] == ranks[ranks.length - 1]) return CardsType.ThirtyMiles
-            return null;
-        }
-        if (cards.length == 4) {
-            if (ranks[0] == ranks[ranks.length - 1]) return CardsType.FourOfAKind
-            if (ranks[0] == ranks[ranks.length - 2] || ranks[1] == ranks[ranks.length - 1]) return CardsType.ThirtyMilesWithSingle
-            if (ranks[0] == ranks[1] && ranks[2] == ranks[3]) return CardsType.ContinuousTreys
-            return null;
-        }
-        if (cards.length == 5) {
-            if (ranks[0] == ranks[ranks.length - 1]) return CardsType.FourOfAKind
-            if (ranks[0] == ranks[ranks.length - 2] || ranks[1] == ranks[ranks.length - 1]) return CardsType.ThirtyMilesWithSingle
-            return null;
-        }
-
-
         return null;
     }
 
@@ -188,7 +180,7 @@ export class Table extends PokerManager {
             } else {
                 this.game.roundPlay(player.uid, [], true)
             }
-        }, 30 * 1000);
+        }, this.game.config.roundTime * 1000);
     }
 
 
@@ -225,6 +217,7 @@ export class Table extends PokerManager {
         const message = {
             lastCards: PokerManager.generateCardClientData(this.lastCards), // 现在的牌面, 你必须大于此牌面, 如果为null, 则代表随意出牌
             uid: this.nowPlayPlayer.uid,
+            time: this.game.config.roundTime,
         }
         this.game.pushMessage(GamePushRoute.OnPlayerRound, message);
     }

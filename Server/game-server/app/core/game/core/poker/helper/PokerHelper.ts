@@ -6,4 +6,6 @@ export interface PokerHelper {
 
     // 检查A 是不是比 B大
     check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, config?: any): boolean;
+
+
 }

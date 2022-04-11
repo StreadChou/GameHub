@@ -14,16 +14,20 @@ export class TypeThirtyMilesWithSingle implements PokerHelper {
 
 
     is(cards: Array<PokerCard>, config?: any): boolean {
-        return false;
+        if (cards.length != 4) return false;
+        return this.getThirtyRank(cards) !== null;
     }
 
     check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, config?: any): boolean {
-        return this.getThirtyRank(cardsA) > this.getThirtyRank(cardsB);
+        const {pokerRankSort} = config
+        return pokerRankSort.indexOf(this.getThirtyRank(cardsA)) > pokerRankSort.indexOf(this.getThirtyRank(cardsB));
     }
 
+    // 从5张牌里找到三张一样的
     getThirtyRank(cards: Array<PokerCard>): number {
-        const rank = cards.map(ele => ele.rank);
-        if (rank[0] == rank[2]) return rank[0];
-        if (rank[1] == rank[3]) return rank[1];
+        const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
+        if (ranks[0] == ranks[2]) return ranks[0];
+        if (ranks[1] == ranks[3]) return ranks[1];
+        return null;
     }
 }

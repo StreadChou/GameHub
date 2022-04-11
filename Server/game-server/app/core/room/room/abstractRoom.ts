@@ -1,11 +1,11 @@
 import {RoomPlayer} from "../component/roomPlayer";
 import {CreateRoomDto, PlayerJoinRoomDto} from "../dto/RoomDto";
-import {RequestParamsException} from "../../../exception/RequestParamsException";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus, Channel} from "pinus";
 import {RoomPushRoute} from "../../../constant/Route";
 import {JOIN_ROOM_REASON, LEAVE_ROOM_REASON} from "../../../constant/Room";
 import {AbstractGame} from "../../game/abstract/abstractGame";
+import {ClientException} from "../../../exception/clientException";
 
 export abstract class AbstractRoom {
     roomId: number = 0;
@@ -13,6 +13,9 @@ export abstract class AbstractRoom {
     playerMap: { [key in string]: RoomPlayer } = {}
     password: number = 10;
     master: string = "";
+    maxPlayer: number = 2;
+    gameConfig: any;
+
     // 房间信道
     channel: Channel;
     // 游戏
@@ -38,23 +41,24 @@ export abstract class AbstractRoom {
     protected constructor(roomId: number, params: CreateRoomDto) {
         this.roomId = roomId;
         this.roomParams = params;
+        this.maxPlayer = params.opts.playerNumber;
+        this.gameConfig = params.opts.gameConfig;
         this.channel = pinus.app.get('channelService').getChannel(`room_${this.roomId}`, true);
-        console.log(this.channel);
     }
 
     // 从房间中获取玩家
     public async getPlayerFromRoom(uid: string): Promise<RoomPlayer> {
         let player: RoomPlayer = this.playerMap[uid];
-        if (!player) throw new RequestParamsException(ErrorCode.NOT_IN_ROOM);
+        if (!player) throw new ClientException(ErrorCode.NOT_IN_ROOM, {}, "玩家不在房间中");
         return player;
     }
 
 
     // 检查是否可以加入房间
     public async checkPlayerCanJoinRoom(player: RoomPlayer, opts: PlayerJoinRoomDto): Promise<void> {
-        if (this.isRoomFull) throw new RequestParamsException(ErrorCode.ROOM_IS_FULL, "检查是否可以加入房间, 但是房间已满");
-        if (this.playerMap.hasOwnProperty(player.uid)) throw new RequestParamsException(ErrorCode.ALREADY_IN_ROOM, "已经在房间中");
-        if (this.password && this.password != opts.password) throw new RequestParamsException(ErrorCode.PASSWORD_ERROR, "房间密码错误");
+        if (this.isRoomFull) throw new ClientException(ErrorCode.ROOM_IS_FULL, {}, "检查是否可以加入房间, 但是房间已满");
+        if (this.playerMap.hasOwnProperty(player.uid)) throw new ClientException(ErrorCode.ALREADY_IN_ROOM, {}, "已经在房间中");
+        if (this.password && this.password != opts.password) throw new ClientException(ErrorCode.PASSWORD_ERROR, {}, "房间密码错误");
     }
 
     // 加入房间
@@ -96,8 +100,8 @@ export abstract class AbstractRoom {
             roomId: this.roomId,
             master: this.master,
             password: this.password,
+            maxPlayer: this.maxPlayer,
             playerList: this.makeClientPlayerList(),
-
         }
         player.pushMessage(RoomPushRoute.OnRoomInfo, roomInfoMessage);
 

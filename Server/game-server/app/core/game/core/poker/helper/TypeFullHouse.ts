@@ -14,17 +14,29 @@ export class TypeFullHouse implements PokerHelper {
 
 
     is(cards: Array<PokerCard>, config?: any): boolean {
-        return false;
+        if (cards.length != 5) return false;
+        return this.getThirtyRank(cards) !== null && this.getTwoRank(cards) !== null
     }
 
     check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, config?: any): boolean {
-        return this.getThirtyRank(cardsA) > this.getThirtyRank(cardsB);
+        const {pokerRankSort} = config
+        return pokerRankSort.indexOf(this.getThirtyRank(cardsA)) > pokerRankSort.indexOf(this.getThirtyRank(cardsB));
     }
 
+    // 从5张牌里找到三张一样的
     getThirtyRank(cards: Array<PokerCard>): number {
-        const rank = cards.map(ele => ele.rank);
-        if (rank[0] == rank[2]) return rank[0];
-        if (rank[1] == rank[3]) return rank[1];
-        if (rank[2] == rank[4]) return rank[2];
+        const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
+        if (ranks[0] == ranks[2]) return ranks[0];
+        if (ranks[1] == ranks[3]) return ranks[1];
+        if (ranks[2] == ranks[4]) return ranks[2];
+        return null;
+    }
+
+    // 从5张牌里找到两张张一样的
+    getTwoRank(cards: Array<PokerCard>): number {
+        const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
+        if (ranks[0] == ranks[1]) return ranks[0];
+        if (ranks[3] == ranks[4]) return ranks[2];
+        return null;
     }
 }

@@ -11,5 +11,9 @@ export default class UIGamePoker_Auto extends cc.Component {
 	RoomInfo: cc.Label = null;
 	@property(cc.Button)
 	StartGame: cc.Button = null;
+	@property(cc.Node)
+	GameOperate: cc.Node = null;
+	@property(cc.Node)
+	Pass: cc.Node = null;
  
 }

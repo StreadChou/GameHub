@@ -7,6 +7,8 @@ export default class UIRunFastCreator_Auto extends cc.Component {
 	Title: cc.Label = null;
 	@property(cc.ToggleContainer)
 	PlayerNumber: cc.ToggleContainer = null;
+	@property(cc.ToggleContainer)
+	RoundTime: cc.ToggleContainer = null;
 	@property(cc.Toggle)
 	ConfigMust: cc.Toggle = null;
 	@property(cc.Toggle)

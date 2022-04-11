@@ -1,7 +1,13 @@
 import {LEAVE_ROOM_REASON} from "../../../constant/Room";
 
 export interface CreateRoomDto {
-
+    opts: {
+        playerNumber: number;
+        gameConfig: {
+            roundTime: number;
+            config: {}
+        }
+    }
 }
 
 export interface PlayerJoinRoomDto {
@@ -24,6 +30,7 @@ declare global {
         roomId: number;
         master: string;
         password: number;
+        maxPlayer: number;
         playerList: Array<playerClientData>;
     }
 

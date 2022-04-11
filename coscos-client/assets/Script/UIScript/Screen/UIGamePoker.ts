@@ -11,6 +11,14 @@ export default class UIGamePoker extends UIScreen {
 
     view: UIGamePoker_Auto;
 
+    seatPosition = {
+        "right": new cc.Vec2(607, -140),
+        "right-top": new cc.Vec2(607, 30),
+        "top": new cc.Vec2(-11, 228),
+        "left-top": new cc.Vec2(-620, 96),
+        "left": new cc.Vec2(-620, -140),
+    }
+
 
     start() {
         UIGamePoker.inst = this;
@@ -26,12 +34,22 @@ export default class UIGamePoker extends UIScreen {
         }
     }
 
-    addRole(role: cc.Node) {
+    addRole(role: cc.Node, position?: "right" | "right-top" | "top" | "left-top" | "left") {
+        if (position) role.setPosition(this.seatPosition[position])
         this.node.addChild(role);
     }
 
     setRoomInfo(roomId: number, password: number) {
         this.view.RoomInfo.string = `房间号 :  ${roomId}  密码: ${password}`
+    }
+
+    startGame() {
+        PokerGame.instance.roomController.startGame()
+    }
+
+    // 出牌
+    playCard() {
+        PokerGame.instance.gameController.playCard()
     }
 
 }

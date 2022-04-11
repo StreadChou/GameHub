@@ -21,7 +21,7 @@ export class Handler {
     async createRoom(msg: any, session: FrontendSession) {
         const uid = session.uid;
         const logic = session.get(SessionAttr.LogicServerId);
-        const room: AbstractRoom = await this.roomManager.createRoom({});
+        const room: AbstractRoom = await this.roomManager.createRoom(msg);
         return {code: 200, data: {uid, logic, roomId: room.roomId}};
     }
 

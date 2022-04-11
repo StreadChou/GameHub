@@ -6,7 +6,7 @@ import {Table} from "./table";
 import {EventEmitter} from "events";
 import {GameEvent} from "../constant/event";
 import {StandRule} from "./standRule";
-import {CreateGameOpts, GameConfig, GameConfigKey} from "../interface";
+import {CardsType, CreateGameOpts, GameConfig, GameConfigKey} from "../interface";
 
 
 // 干瞪眼游戏
@@ -25,6 +25,22 @@ export class Game extends AbstractGame {
     constructor(room: AbstractRoom, roomPlayers: Array<RoomPlayer>, opts: CreateGameOpts, callback: Function) {
         super(room, roomPlayers, callback);
         this.config = opts.config;
+        this.config.pokerConfig = {
+            cardsType: [
+                CardsType.Single,
+                CardsType.Treys,
+                CardsType.ThirtyMiles,
+                CardsType.ThirtyMilesWithSingle,
+                CardsType.ThirtyMilesWithTwo,
+                CardsType.ContinuousTreys,
+                CardsType.Straight,
+                CardsType.FourOfAKind,
+            ],
+            CardsTypeConfig: {
+                [CardsType.Straight]: {min: 5, minCard: 3, maxCard: 2, spanCard: [1, 2]}
+            },
+            pokerRankSort: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2]
+        }
 
         this.initPlayer(roomPlayers);
         this.table = Table.generateTable(this);

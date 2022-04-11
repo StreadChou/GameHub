@@ -1,8 +1,8 @@
 import {LogicProxy} from "../../../servers/logic/proxy/logicProxy";
 import {RoomPlayerInitDto} from "../dto/RoomDto";
-import {RequestParamsException} from "../../../exception/RequestParamsException";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus} from "pinus";
+import {ClientException} from "../../../exception/clientException";
 
 export class RoomPlayer {
     uid: string = "";
@@ -31,8 +31,8 @@ export class RoomPlayer {
     }
 
     public async checkCanKickPlayer(targetPlayer: RoomPlayer): Promise<void> {
-        if (!this.master) throw new RequestParamsException(ErrorCode.NOT_ROOM_MASTER);
-        if (targetPlayer.vip) throw new RequestParamsException(ErrorCode.CANT_KICK_VIP_PLAYER);
+        if (!this.master) throw new ClientException(ErrorCode.NOT_ROOM_MASTER, {}, "不是房主, 无法操作");
+        if (targetPlayer.vip) throw new ClientException(ErrorCode.CANT_KICK_VIP_PLAYER, {}, "对方是VIP玩家, 无法操作");
     }
 
     public pushMessage(route: string, msg: any, opts?: any, cb?: (err?: Error, result?: void) => void) {

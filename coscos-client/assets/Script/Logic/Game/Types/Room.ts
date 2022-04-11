@@ -10,6 +10,11 @@ export enum ROOM_STATE {
 declare global {
     interface CreateRunFastRoomOpts {
         playerNumber: number;
-        config: {}
+        gameConfig: {
+            roundTime: number;
+            perPlayerCards: number;
+            config: {}
+            pokerConfig?: any
+        }
     }
 }

@@ -3,13 +3,20 @@ import {ITransitionDir} from "../../../helper/stateMachine";
 
 // 创建游戏需要的opts
 export interface CreateGameOpts {
+    maxPlayer: number,
     config: GameConfig;
 }
 
 // 房间配置信息
 export interface GameConfig {
-    maxPlayer: number;  // 玩家数量
-    playerCardsNumber: number; // 玩家手牌数量
+    roundTime: number;
+    perPlayerCards: number;
+    config: {}
+    pokerConfig?: {
+        cardsType: Array<CardsType>
+        CardsTypeConfig: { [key in CardsType]?: any }
+        pokerRankSort: Array<number>
+    }
 }
 
 // 牌面类型

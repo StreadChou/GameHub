@@ -116,7 +116,7 @@ export class OnlineSocketManager extends EventEmitter implements IProtocolHelper
                     //     isSingleBtn: true,
                     // });
                 }
-                EventSystem.instance.fire(EVENT.ON_ERROR_CODE, msg.code);
+                EventSystem.instance.fire(EVENT.ON_ERROR_CODE, msg);
             }
             if ((!CMD_ERROR_FILTER.has(route)) && (codeFilter.indexOf(msg.code) < 0)) {
                 return;

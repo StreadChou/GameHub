@@ -13,7 +13,7 @@ export class StateDeal extends StateBase {
         this.phaseTime = 3;
         this.sendPhaseMessage(this.makeStateMessage());
 
-        const cardNumberPerPlayer = this.game.config.playerCardsNumber;
+        const cardNumberPerPlayer = this.game.config.perPlayerCards;
 
         this.playerList.forEach(player => {
             this.table.sendCardToSomeBody(player, cardNumberPerPlayer);

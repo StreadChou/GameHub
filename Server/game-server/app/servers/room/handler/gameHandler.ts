@@ -23,7 +23,11 @@ export class Handler {
         const cards = msg.cards;
         const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
         const game = room.game;
-        (game as RunFast.Game).roundPlay(session.uid, cards);
+        if (!cards || cards.length <= 0) {
+            (game as RunFast.Game).roundPass(session.uid);
+        } else {
+            (game as RunFast.Game).roundPlay(session.uid, cards);
+        }
         return {code: 200, data: {roomId: room.roomId}};
     }
 

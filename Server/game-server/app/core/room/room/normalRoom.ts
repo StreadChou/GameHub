@@ -1,8 +1,7 @@
 import {AbstractRoom} from "./abstractRoom";
 import {CreateRoomDto} from "../dto/RoomDto";
-import {LookDespair} from "../../game/lookDispair";
-import {LookDespairCreateOpts} from "../../game/lookDispair/interface";
 import {GameClassMap, GameFactory, GameType} from "../../game/GameFactory";
+import {CreateGameOpts} from "../../game/runFast/interface";
 
 
 export class NormalRoom extends AbstractRoom {
@@ -15,11 +14,9 @@ export class NormalRoom extends AbstractRoom {
     public async startGame(): Promise<void> {
         const gameType = GameType.RunFast;
         const GameClass = GameFactory(gameType);
-        const opts: LookDespairCreateOpts = {
-            config: {
-                maxPlayer: 3,
-                playerCardsNumber: 15,
-            }
+        const opts: CreateGameOpts = {
+            maxPlayer: this.maxPlayer,
+            config: this.gameConfig,
         }
         this.game = new GameClass(this, this.playerList, opts, () => {
             this.onGameOver();

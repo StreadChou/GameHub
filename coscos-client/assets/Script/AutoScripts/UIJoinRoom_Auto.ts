@@ -5,5 +5,7 @@ const {ccclass, property} = cc._decorator;
 export default class UIJoinRoom_Auto extends cc.Component {
 	@property(cc.EditBox)
 	RoomId: cc.EditBox = null;
+	@property(cc.EditBox)
+	Password: cc.EditBox = null;
  
 }

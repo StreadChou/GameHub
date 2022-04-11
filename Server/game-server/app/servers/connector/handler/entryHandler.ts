@@ -1,12 +1,12 @@
 import {Application, FrontendSession, pinus} from 'pinus';
 import {LoginDto} from "../dto/entryDto";
-import {RequestParamsException} from "../../../exception/RequestParamsException";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {dispatchRandom} from "../../../helper/routeHelper";
 import {SessionAttr} from "../../../constant/session";
 import {LogicProxy} from "../../logic/proxy/logicProxy";
 import {PlayerAuthInfo} from "../../../core/user/dto/userDto";
 import {randomNumberBetween} from "../../../helper/randomHelper";
+import {ClientException} from "../../../exception/clientException";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -20,7 +20,7 @@ export class Handler {
     async login(msg: LoginDto, session: FrontendSession) {
         let {uid, token} = msg;
         if (!uid || !token) {
-            throw new RequestParamsException(ErrorCode.LOGIN_TOKEN_CHECK_ERROR);
+            throw new ClientException(ErrorCode.LOGIN_TOKEN_CHECK_ERROR, {}, "登录Token错误");
         }
         // TODO 验证数据
         console.log(uid, token)

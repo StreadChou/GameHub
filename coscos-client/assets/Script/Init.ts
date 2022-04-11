@@ -40,7 +40,7 @@ export default class Init extends cc.Component {
         cc.log("onOnlineSocketDisconnect")
     }
 
-    protected onErrorCode(code: number) {
-        console.log(code);
+    protected onErrorCode({code, data, message}) {
+        return FormMgr.open(UIConfig.UINotice, message)
     }
 }
