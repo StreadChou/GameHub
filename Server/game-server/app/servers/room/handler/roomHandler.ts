@@ -25,10 +25,6 @@ export class Handler {
         return {code: 200, data: {uid, logic, roomId: room.roomId}};
     }
 
-    async selectGameType(msg: any, session: FrontendSession) {
-
-    }
-
     async joinRoom(msg: JoinRoomDto, session: FrontendSession) {
         const roomId = msg.roomId;
         const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
@@ -45,23 +41,6 @@ export class Handler {
         const roomId = msg.roomId;
         const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
         await room.startGame();
-        return {code: 200, data: {roomId: room.roomId}};
-    }
-
-    async pass(msg: any, session: FrontendSession) {
-        const roomId = msg.roomId;
-        const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
-        const game = room.game;
-        (game as RunFast.Game).roundPass(session.uid);
-        return {code: 200, data: {roomId: room.roomId}};
-    }
-
-    async play(msg: any, session: FrontendSession) {
-        const roomId = msg.roomId;
-        const cards = msg.cards;
-        const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
-        const game = room.game;
-        (game as RunFast.Game).roundPlay(session.uid, cards);
         return {code: 200, data: {roomId: room.roomId}};
     }
 

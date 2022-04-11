@@ -44,6 +44,10 @@ export class User {
         return {
             uid: this.uid,
             nick: this.nick,
+            level: this.level,
+            money: this.money,
+            cover: this.cover,
+
             sid: this.sid,
             fid: this.fid,
         };

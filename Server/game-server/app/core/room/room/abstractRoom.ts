@@ -59,7 +59,7 @@ export abstract class AbstractRoom {
 
     // 加入房间
     public async joinRoom(player: RoomPlayer): Promise<void> {
-        if (this.playerNumber) this.setMaster(player);
+        if (this.playerNumber <= 0) this.setMaster(player);
         this.playerMap[player.uid] = player;
         this.channel.add(player.uid, player.fid);
         player.seat = this.getSeat();

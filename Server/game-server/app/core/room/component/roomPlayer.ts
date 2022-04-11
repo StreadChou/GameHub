@@ -6,6 +6,11 @@ import {pinus} from "pinus";
 
 export class RoomPlayer {
     uid: string = "";
+    nick: string = ""; // 昵称
+    level: number = 1;
+    money: number = 0;
+    cover: string = "";
+
     sid: number = 0;
     fid: string = ""
     vip: boolean = false;
@@ -38,8 +43,12 @@ export class RoomPlayer {
     public makeClientData(): playerClientData {
         return {
             uid: this.uid,
+            seat: this.seat,
+            nick: this.nick,
+            level: this.level,
+            money: this.money,
+            cover: this.cover,
             master: this.master,
-            seat: this.seat
         }
     }
 

@@ -11,6 +11,9 @@ export interface PlayerJoinRoomDto {
 export interface RoomPlayerInitDto {
     uid: string,
     nick: string,
+    level: number
+    money: number
+    cover: string
     sid: number,
     fid: string,
 }
@@ -26,8 +29,14 @@ declare global {
 
     interface playerClientData {
         uid: string,
+        seat: number
+
+
+        nick: string
+        level: number
+        money: number
+        cover: string
         master: boolean,
-        seat: number;
     }
 
     // 离开房间给房间里所有人推送的电文

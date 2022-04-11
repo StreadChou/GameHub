@@ -1,0 +1,5 @@
+export enum PLAYER_CMD {
+    RequestLogin = "connector.entryHandler.login",
+
+    OnLogin = "onLogin",
+}
