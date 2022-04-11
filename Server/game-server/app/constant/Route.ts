@@ -11,10 +11,6 @@ export enum GamePushRoute {
     OnPlayerPlay = "onPlayerPlay"
 }
 
-export enum LookDespairGameRoute {
-    LookDespairGameStart = "lookDespairGameStart", // 游戏开始
-    LookDespairReceivedPoker = "lookDespairReceivedPoker", // 收到牌
-}
 
 export enum PlayerPushRoute {
     OnLogin = "onLogin",
