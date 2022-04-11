@@ -23,4 +23,6 @@ export default class UIRunFastCreator extends UIWindow {
         }
         PokerGame.instance.roomController.createRoom();
     }
+
+
 }

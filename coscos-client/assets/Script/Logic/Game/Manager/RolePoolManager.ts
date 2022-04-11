@@ -7,6 +7,9 @@ export default class RolePoolManager extends cc.Component {
     @property({type: cc.Prefab, displayName: "房间内的玩家"})
     RoomPlayer: cc.Prefab = null;
 
+    @property({type: cc.Prefab, displayName: "房间内我的视角"})
+    RoomSelf: cc.Prefab = null;
+
     @property({type: cc.Prefab, displayName: "扑克牌"})
     poker: cc.Prefab = null;
 
@@ -14,20 +17,27 @@ export default class RolePoolManager extends cc.Component {
     pokerAtlas: cc.SpriteAtlas = null;
 
 
-    private RoomPlayerNodePool: cc.NodePool;
-
     onLoad() {
         RolePoolManager.instance = this;
         cc.game.addPersistRootNode(this.node);
-        this.RoomPlayerNodePool = new cc.NodePool();
     }
 
-    getRoomPlayerNodeFromPool() {
-        if (this.RoomPlayerNodePool.size() > 0) {
-            return this.RoomPlayerNodePool.get();
-        } else {
-            return cc.instantiate(this.RoomPlayer);
-        }
+    getRoomPlayerNode() {
+        return cc.instantiate(this.RoomPlayer);
+    }
+
+    getRoomSelfNode() {
+        return cc.instantiate(this.RoomSelf);
+    }
+
+
+    getPokerNode() {
+        return cc.instantiate(this.poker);
+    }
+
+    getPokerSpriteFrame(suit: number, rank: number): cc.SpriteFrame {
+        const name = `card_${suit}_${rank}`;
+        return this.pokerAtlas.getSpriteFrame(name);
     }
 
 }

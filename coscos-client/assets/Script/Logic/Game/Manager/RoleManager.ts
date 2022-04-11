@@ -1,8 +1,9 @@
 import {Role} from "../Component/Role";
 import RolePoolManager from "./RolePoolManager";
-import RoomPlayer from "../../../Prefab/Game/RoomPlayer";
 import UIGamePoker from "../../../UIScript/Screen/UIGamePoker";
 import {Player} from "../../Player/Player";
+import PokerGamePlayer from "../../../Prefab/Game/PokerGamePlayer";
+import PokerGameSelf from "../../../Prefab/Game/PokerGameSelf";
 
 export class RoleManager {
     roleUidMap: Map<number, Role> = new Map()
@@ -34,11 +35,19 @@ export class RoleManager {
 
     resetSeat() {
         this.roleUidMap.forEach((ele, uid) => {
-            const roleNode = RolePoolManager.instance.getRoomPlayerNodeFromPool();
-            ele.setNode(roleNode);
-            UIGamePoker.inst.addRole(roleNode);
+            if (this.self.uid == ele.uid) {
+                const roleNode = RolePoolManager.instance.getRoomSelfNode();
+                roleNode.setPosition(roleNode.x, roleNode.y - 230);
+                ele.setNode(roleNode);
+                UIGamePoker.inst.addRole(roleNode);
+            } else {
+                const roleNode = RolePoolManager.instance.getRoomPlayerNode();
+                ele.setNode(roleNode);
+                const comp = roleNode.getComponent(PokerGamePlayer);
+                comp.setPlayer(ele);
+                UIGamePoker.inst.addRole(roleNode);
+            }
         })
-
     }
 
 

@@ -84,6 +84,9 @@
     "RoomPlayer": {
       "__uuid__": "9eb55b7c-8f64-46ca-82db-2bafd9f3dbad"
     },
+    "RoomSelf": {
+      "__uuid__": "f820cab2-e6e8-49ae-b0e2-718f0122a540"
+    },
     "poker": {
       "__uuid__": "256ca9c6-9811-4de8-913e-c0bc3327e6ef"
     },

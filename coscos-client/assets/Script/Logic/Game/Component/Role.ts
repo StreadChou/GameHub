@@ -1,6 +1,8 @@
-import RoomPlayer from "../../../Prefab/Game/RoomPlayer";
+import {Player} from "../../Player/Player";
 
 export class Role {
+    self: boolean = false; // 是不是玩家自己
+
     uid: string = "";
     nick: string = "";
     money: number = 0;
@@ -12,13 +14,12 @@ export class Role {
     static generateRoleByInfo(info) {
         const role = new Role();
         Object.assign(role, info);
+        if (role.uid == Player.instance.uid) role.self = true;
         return role;
     }
 
     setNode(node: cc.Node) {
         this.node = node;
-        const roomPlayer = node.getComponent(RoomPlayer);
-        roomPlayer.setPlayer(this);
     }
 
 

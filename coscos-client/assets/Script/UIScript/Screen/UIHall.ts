@@ -17,10 +17,14 @@ export default class UIHall extends UIScreen {
         let node = e.getCurrentTarget();
         switch (node.name) {
             case "RunFastButton":
-                return FormMgr.open(UIConfig.UIRunFastCreator, "功能还在开发中!")
+                return FormMgr.open(UIConfig.UIRunFastCreator)
             default:
                 return FormMgr.open(UIConfig.UINotice, "功能还在开发中!")
         }
+    }
+
+    JoinRoom(e: cc.Event.EventTouch, params: string){
+        FormMgr.open(UIConfig.UIJoinRoom)
     }
 
 }

@@ -27,6 +27,10 @@ export default class UIConfig {
         prefabUrl: "Forms/Tips/UINotice",
         type: "UITips"
     }
+    static UIJoinRoom = {
+        prefabUrl: "Forms/Windows/UIJoinRoom",
+        type: "UIWindow"
+    }
     static UIRunFastCreator = {
         prefabUrl: "Forms/Windows/UIRunFastCreator",
         type: "UIWindow"
