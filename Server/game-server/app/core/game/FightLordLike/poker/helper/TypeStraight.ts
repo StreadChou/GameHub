@@ -1,15 +1,11 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
-import {CardsType} from "../../../runFast/interface";
-import {GameType} from "../../../GameFactory";
-import {AbstractPokerConfig} from "../config/PokerConfig";
-import {ConfigContinuousTreys} from "../config/ConfigContinuousTreys";
 import {ConfigStraight} from "../config/ConfigStraight";
-import {FactoryUseConfig, FactoryUseOption} from "./CardTypeFactory";
+import {CardsType, CardsTypeConfig, GameOptions} from "../../Interface";
 
 // 顺子
 export class TypeStraight extends AbstractPokerHelp{
-    type: CardsType;
+    type: CardsType = CardsType.Straight;
 
     private static _instance: TypeStraight;
 
@@ -23,7 +19,7 @@ export class TypeStraight extends AbstractPokerHelp{
     }
 
 
-    is(cards: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): boolean{
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean{
         if (cards.length < 5) return false;
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
 
@@ -38,7 +34,7 @@ export class TypeStraight extends AbstractPokerHelp{
         return true;
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): boolean{
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean{
         const rankA = cardsA.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const rankB = cardsB.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const {pokerRank} = _opt
@@ -46,7 +42,7 @@ export class TypeStraight extends AbstractPokerHelp{
     }
 
 
-    all(cards: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): Array<Array<PokerCard>> {
         const config = _config[this.type] as ConfigStraight;
         let rlt: Array<Array<PokerCard>> = [];
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);

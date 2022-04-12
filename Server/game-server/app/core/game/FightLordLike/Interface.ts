@@ -1,5 +1,6 @@
-
 // 牌面类型
+import {AbstractPokerConfig} from "./poker/config/PokerConfig";
+
 export enum CardsType {
     Single = 1, // 单张
     Treys, // 对子
@@ -12,4 +13,14 @@ export enum CardsType {
     StraightFlush,// 同花顺
     FourOfAKind, // 四张相同的牌(炸弹)
     AllJoker, // 全部都是小丑(王炸)
+}
+
+
+export type CardsTypeConfig = { [key in CardsType]?: AbstractPokerConfig }
+export type GameOptions = {
+    maxPlayer: number,
+    roundTime: number;
+    perPlayerCards: number;
+    pokerRank: Array<number>;
+    allowCardsType: Array<CardsType>;
 }

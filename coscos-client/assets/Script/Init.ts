@@ -20,7 +20,7 @@ export default class Init extends cc.Component {
     }
 
     connectSocket() {
-        NetworkManager.instance.openMainSocket("127.0.0.1", 3010);
+        NetworkManager.instance.openMainSocket("8.134.88.0", 3010);
 
         this.eventMap.registerEvent(EVENT.ON_SOCKET_CONNECT_SUCCEED, this.onOnlineSocketConnectSucceed);
         this.eventMap.registerEvent(EVENT.ON_SOCKET_CONNECT_FAILED, this.onOnlineSocketConnectFailed);

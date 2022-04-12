@@ -206,10 +206,10 @@ export class RoleController extends ControllerBase {
     UIDisableAllCards() {
         this.roleManager.roleUidMap.forEach((ele) => {
             if (ele.self) {
-                ele.node.getComponent(PokerGameSelf).foldNode.active = false;
-                ele.node.getComponent(PokerGameSelf).handNode.active = false;
+                ele.node.getComponent(PokerGameSelf).foldNode.removeAllChildren()
+                ele.node.getComponent(PokerGameSelf).handNode.removeAllChildren()
             } else {
-                ele.node.getComponent(PokerGamePlayer).foldNode.active = false;
+                ele.node.getComponent(PokerGamePlayer).foldNode.removeAllChildren()
                 ele.node.getComponent(PokerGamePlayer).pokerNode.active = false;
             }
         })

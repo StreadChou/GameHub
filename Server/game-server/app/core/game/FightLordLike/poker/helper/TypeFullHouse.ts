@@ -1,7 +1,6 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
-import {CardsType} from "../../../runFast/interface";
-import {FactoryUseConfig, FactoryUseOption} from "./CardTypeFactory";
+import {CardsType, CardsTypeConfig, GameOptions} from "../../Interface";
 
 
 // 三代对
@@ -20,7 +19,7 @@ export class TypeFullHouse extends AbstractPokerHelp {
     }
 
 
-    is(cards: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): boolean {
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean {
         if (cards.length != 5) return false;
         const sameRank = this.pokerGetCardInSame(cards, 3);
         const otherRank = cards.map(card => {
@@ -29,7 +28,7 @@ export class TypeFullHouse extends AbstractPokerHelp {
         return otherRank[0] != otherRank[1]
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): boolean {
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean {
         const {pokerRank} = _opt
         const sameRankA = this.pokerGetCardInSame(cardsA, 3);
         const sameRankB = this.pokerGetCardInSame(cardsB, 3);
@@ -38,7 +37,7 @@ export class TypeFullHouse extends AbstractPokerHelp {
     }
 
 
-    all(cards: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): Array<Array<PokerCard>> {
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const uniqueRank = [...new Set(ranks)]
 

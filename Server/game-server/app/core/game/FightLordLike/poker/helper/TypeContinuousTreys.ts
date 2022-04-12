@@ -1,10 +1,7 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
-import {CardsType} from "../../../runFast/interface";
-import {GameType} from "../../../GameFactory";
-import {AbstractPokerConfig} from "../config/PokerConfig";
 import {ConfigContinuousTreys} from "../config/ConfigContinuousTreys";
-import {FactoryUseConfig, FactoryUseOption} from "./CardTypeFactory";
+import {CardsType, CardsTypeConfig, GameOptions} from "../../Interface";
 
 // 连对
 export class TypeContinuousTreys extends AbstractPokerHelp {
@@ -21,7 +18,7 @@ export class TypeContinuousTreys extends AbstractPokerHelp {
     }
 
 
-    is(cards: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): boolean {
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean {
         if (cards.length % 2 != 0 || cards.length <= 3) return false;
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
 
@@ -34,14 +31,14 @@ export class TypeContinuousTreys extends AbstractPokerHelp {
         return true;
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): boolean {
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean {
         const rankA = cardsA.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const rankB = cardsB.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const {pokerRank} = _opt
         return pokerRank.indexOf(rankA[rankA.length - 1]) > pokerRank.indexOf(rankB[rankB.length - 1]);
     }
 
-    all(cards: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): Array<Array<PokerCard>> {
         const config = _config[this.type] as ConfigContinuousTreys;
         let rlt: Array<Array<PokerCard>> = [];
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);

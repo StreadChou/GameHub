@@ -1,8 +1,7 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
-import {CardsType} from "../../../runFast/interface";
-import {FactoryUseConfig, FactoryUseOption} from "./CardTypeFactory";
 import {ConfigStraight} from "../config/ConfigStraight";
+import {CardsType, CardsTypeConfig, GameOptions} from "../../Interface";
 
 // 同花顺
 export class TypeStraightFlush extends AbstractPokerHelp {
@@ -20,7 +19,7 @@ export class TypeStraightFlush extends AbstractPokerHelp {
     }
 
 
-    is(cards: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): boolean {
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean {
         if (cards.length <= 5) return false;
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const suits = cards.map(ele => ele.suit);
@@ -37,7 +36,7 @@ export class TypeStraightFlush extends AbstractPokerHelp {
         return true;
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): boolean {
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean {
         const rankA = cardsA.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const rankB = cardsB.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const {pokerRank} = _opt
@@ -45,11 +44,7 @@ export class TypeStraightFlush extends AbstractPokerHelp {
     }
 
 
-    allGt(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, type: CardsType, config?: any): Array<Array<PokerCard>> {
-        return [];
-    }
-
-    all(cards: Array<PokerCard>, _config: FactoryUseConfig, _opt: FactoryUseOption): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): Array<Array<PokerCard>> {
         const config = _config[this.type] as ConfigStraight;
         let rlt: Array<Array<PokerCard>> = [];
         const {pokerRank} = _opt
