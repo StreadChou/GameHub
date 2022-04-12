@@ -1,4 +1,4 @@
-import {PokerSuit} from "../../../../constant/poker";
+import {PokerSuit} from "./Interface";
 
 export class PokerCard {
     // 花色
@@ -16,6 +16,7 @@ export class PokerCard {
     }
 
 
+    // 获取客户端数据
     makeClient() {
         return {
             suit: this.suit,

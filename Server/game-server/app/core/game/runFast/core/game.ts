@@ -27,14 +27,7 @@ export class Game extends AbstractGame {
         this.config = opts.config;
         this.config.pokerConfig = {
             cardsType: [
-                CardsType.Single,
-                CardsType.Treys,
-                CardsType.ThirtyMiles,
-                CardsType.ThirtyMilesWithSingle,
-                CardsType.ThirtyMilesWithTwo,
-                CardsType.ContinuousTreys,
-                CardsType.Straight,
-                CardsType.FourOfAKind,
+
             ],
             CardsTypeConfig: {
                 [CardsType.Straight]: {min: 5, minCard: 3, maxCard: 2, spanCard: [1, 2]}

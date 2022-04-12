@@ -30,8 +30,6 @@ export abstract class AbstractGame {
 
     abstract startGame();
 
-    protected abstract initPlayer(players: Array<RoomPlayer>);
-
     abstract endGame();
 
     protected makeFullGameChannel(players: Array<RoomPlayer>) {

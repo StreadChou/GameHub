@@ -4,9 +4,9 @@ import {shuffleArray} from "../../../../helper/randomHelper";
 import {Game} from "./game";
 import {Player} from "./player";
 import {GamePushRoute} from "../../../../constant/Route";
-import {PokerCard} from "../../core/poker/pokerCard";
+import {PokerCard} from "../../core/poker/PokerCard";
 import {CardsType, OnReceivedPokerMessage} from "../interface";
-import {CardTypeCheck, CardTypeIs} from "../../core/poker/helper/CardTypeFactory";
+import {CardTypeCheck, CardTypeIs} from "../../FightLordLike/poker/helper/CardTypeFactory";
 import {ErrorCode} from "../../../../constant/ErrorCode";
 import {ClientException} from "../../../../exception/clientException";
 

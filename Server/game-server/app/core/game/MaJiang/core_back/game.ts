@@ -3,9 +3,6 @@ import {AbstractRoom} from "../../../room/room/abstractRoom";
 import {RoomPlayer} from "../../../room/component/roomPlayer";
 import {Player, PlayerState} from "./player";
 import {Table} from "./table";
-import {GamePushRoute} from "../../../../constant/Route";
-import {OnReceivedPokerMessage} from "../dto/gameDto";
-import {PokerManager} from "../../core/poker/PokerManager";
 import {EventEmitter} from "events";
 import {GameEvent} from "../constant/event";
 

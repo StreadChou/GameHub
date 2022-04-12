@@ -5,7 +5,7 @@ import {Game} from "./game";
 import {Player} from "./player";
 import {OnReceivedPokerMessage} from "../dto/gameDto";
 import {GamePushRoute} from "../../../../constant/Route";
-import {PokerCard} from "../../core/poker/pokerCard";
+import {PokerCard} from "../../core/poker/PokerCard";
 
 export class Table extends PokerManager {
     game: Game;

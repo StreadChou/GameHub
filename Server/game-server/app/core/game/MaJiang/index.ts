@@ -1,5 +1,5 @@
-import * as _game from "./core/game";
-import * as _player from "./core/player";
+import * as _game from "./core_back/game";
+import * as _player from "./core_back/player";
 
 export namespace MaJiang {
     export class Game extends _game.Game {
