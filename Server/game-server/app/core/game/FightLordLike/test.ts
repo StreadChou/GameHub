@@ -1,5 +1,5 @@
 import {PokerCard} from "../core/poker/PokerCard";
-import {CardsType} from "./Interface";
+import {CardsType, FightLordLikeGameOptions} from "./Interface";
 import {ConfigStraight} from "./poker/config/ConfigStraight";
 import {CardsAllGt, CardTypeCheck, CardTypeIs} from "./poker/helper/CardTypeFactory";
 import {TypeSingle} from "./poker/helper/TypeSingle";
@@ -37,7 +37,7 @@ const allowCardsType = [
 ]
 
 
-const cardsTypeConfig: { [key in CardsType]: any }  = {
+const cardsTypeConfig: { [key in CardsType]: any } = {
     [CardsType.Straight]: new ConfigStraight(5, 13),
     [CardsType.ContinuousTreys]: new ConfigContinuousTreys(5, 13),
 
@@ -53,7 +53,9 @@ const cardsTypeConfig: { [key in CardsType]: any }  = {
 }
 
 
-const gameOption = {
+const gameOption: FightLordLikeGameOptions = {
+    gameEnum: 1,
+    gameTypeEnum: 1,
     allowCardsType: [
         CardsType.Single,
         CardsType.Treys, CardsType.ContinuousTreys,

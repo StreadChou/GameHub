@@ -1,10 +1,11 @@
 import {PokerCard} from "./PokerCard";
 import {PokerSuit} from "./Interface";
+import {PokerClientDto} from "../../../../constant/clientDto/DtoConstant";
 
 export class PokerManager {
     cards: PokerCard[] = [];
 
-    protected constructor(config: { [key in PokerSuit]?: Array<number> }) {
+    public constructor(config: { [key in PokerSuit]?: Array<number> }) {
         for (let _suit in config) {
             const suit: PokerSuit = parseInt(_suit);
             const cards: Array<number> = config[suit];
@@ -18,7 +19,7 @@ export class PokerManager {
      * 获取牌的 config 用于生成牌
      * @param number 几副牌
      */
-    static getPokerConfig(number: number = 1) {
+    static getPokerConfig(number: number = 1): { [key in PokerSuit]?: Array<number> } {
         const config: { [key in PokerSuit]?: Array<number> } = {}
         config[PokerSuit.ADVERT] = [];
         config[PokerSuit.JOKER] = [];
@@ -34,6 +35,12 @@ export class PokerManager {
             config[PokerSuit.CLUB] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
         }
         return config;
+    }
+
+    static makeClient(pokers: Array<PokerCard>): Array<PokerClientDto> {
+        return pokers.map(ele => {
+            return ele.makeClient();
+        })
     }
 
     /**

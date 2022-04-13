@@ -1,91 +1,69 @@
 import {RoomPlayer} from "../component/roomPlayer";
-import {CreateRoomDto, PlayerJoinRoomDto} from "../dto/RoomDto";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus, Channel} from "pinus";
 import {RoomPushRoute} from "../../../constant/Route";
-import {JOIN_ROOM_REASON, LEAVE_ROOM_REASON} from "../../../constant/Room";
 import {AbstractGame} from "../../game/core/abstract/abstractGame";
 import {ClientException} from "../../../exception/clientException";
+import {ListMap} from "../../../type/ListMap";
+import {GameOptions} from "../../game/Interface";
+import {
+    OnPlayerJoinRoomMessage,
+    OnPlayerLeaveRoomMessage,
+    OnRoomInfoMessage
+} from "../../../constant/clientDto/Server2ClientDto";
 
 export abstract class AbstractRoom {
+
     roomId: number = 0;
-    roomParams: CreateRoomDto;
-    playerMap: { [key in string]: RoomPlayer } = {}
     password: number = 10;
     master: string = "";
-    maxPlayer: number = 2;
-    gameConfig: any;
+    players: ListMap<RoomPlayer> = new ListMap<RoomPlayer>("uid")
+    gameOption: GameOptions; // 游戏选项
 
-    // 房间信道
-    channel: Channel;
-    // 游戏
-    game: AbstractGame
-
-    get roomMaxPlayerNumber(): number {
-        return 3
-    };
-
-    get playerNumber(): number {
-        return Object.keys(this.playerMap).length
-    }
-
-    get playerList(): Array<RoomPlayer> {
-        return Object.values(this.playerMap);
-    }
-
-    get isRoomFull(): boolean {
-        return this.playerNumber >= this.roomMaxPlayerNumber;
-    };
+    channel: Channel; // 房间信道
+    game: AbstractGame; // 游戏
 
 
-    protected constructor(roomId: number, params: CreateRoomDto) {
+    protected constructor(roomId: number, gameOptions: GameOptions) {
         this.roomId = roomId;
-        this.roomParams = params;
-        this.maxPlayer = params.opts.playerNumber;
-        this.gameConfig = params.opts.gameConfig;
+        this.setGameOptions(gameOptions)
         this.channel = pinus.app.get('channelService').getChannel(`room_${this.roomId}`, true);
     }
 
-    // 从房间中获取玩家
-    public async getPlayerFromRoom(uid: string): Promise<RoomPlayer> {
-        let player: RoomPlayer = this.playerMap[uid];
+    get isRoomFull() {
+        return this.players.length >= this.gameOption.maxPlayer;
+    }
+
+    getPlayer(uid: string) {
+        let player: RoomPlayer = this.players.key(uid);
         if (!player) throw new ClientException(ErrorCode.NotInRoom, {}, "玩家不在房间中");
         return player;
     }
 
 
-    // 检查是否可以加入房间
-    public async checkPlayerCanJoinRoom(player: RoomPlayer, opts: PlayerJoinRoomDto): Promise<void> {
-        if (this.isRoomFull) throw new ClientException(ErrorCode.RoomFull, {}, "检查是否可以加入房间, 但是房间已满");
-        if (this.playerMap.hasOwnProperty(player.uid)) throw new ClientException(ErrorCode.AlreadyInRoom, {}, "已经在房间中");
-        if (this.password && this.password != opts.password) throw new ClientException(ErrorCode.PasswordError, {}, "房间密码错误");
-    }
-
     // 加入房间
     public async joinRoom(player: RoomPlayer): Promise<void> {
-        if (this.playerNumber <= 0) this.setMaster(player);
-        this.playerMap[player.uid] = player;
+        if (this.isRoomFull) throw new ClientException(ErrorCode.RoomFull, {}, "房间已满");
+        if (this.players.has(player.uid)) throw new ClientException(ErrorCode.AlreadyInRoom, {}, "已经在房间中");
+
+        // 加入房间
+        if (this.players.length <= 0) this.master = player.uid;
+        this.players.push(player);
         this.channel.add(player.uid, player.fid);
         player.seat = this.getSeat();
         await this.noticeJoinRoom(player);
     }
 
-    // 设置房主
-    public setMaster(player: RoomPlayer) {
-        player.master = true;
-        this.master = player.uid;
-    }
 
     public async leaveRoom(player: RoomPlayer): Promise<void> {
-        delete this.playerMap[player.uid];
+        if (this.players.has(player.uid)) throw new ClientException(ErrorCode.AlreadyInRoom, {}, "不在房间中");
+        // TODO 切换房主
         await this.noticeLeveRoom(player);
     }
 
     public getSeat(): number {
-        const seatList = this.playerList.map(ele => {
-            return ele.seat;
-        })
-        for (let i = 1; i <= this.roomMaxPlayerNumber; i++) {
+        const seatList = this.players.map(ele => ele.seat)
+        for (let i = 1; i <= this.gameOption.maxPlayer; i++) {
             if (seatList.includes(i)) continue;
             return i;
         }
@@ -96,34 +74,25 @@ export abstract class AbstractRoom {
     // 通知加入房间
     public async noticeJoinRoom(player: RoomPlayer) {
         // 先通知房间信息
-        const roomInfoMessage: NoticeRoomInfo = {
+        const roomInfoMessage: OnRoomInfoMessage = {
             roomId: this.roomId,
             master: this.master,
             password: this.password,
-            maxPlayer: this.maxPlayer,
-            playerList: this.makeClientPlayerList(),
+            maxPlayer: this.gameOption.maxPlayer,
+            playerList: this.players.map(ele => ele.makeClientData()),
         }
         player.pushMessage(RoomPushRoute.OnRoomInfo, roomInfoMessage);
 
         // 给房间所有人通知有人进入
-        const joinRoomMessage: playerClientData = player.makeClientData()
+        const joinRoomMessage: OnPlayerJoinRoomMessage = player.makeClientData()
         this.pushRoomMessage(RoomPushRoute.OnPlayerJoinRoom, joinRoomMessage).then();
     }
 
-    // 生成玩家列表给客户端
-    public makeClientPlayerList(): Array<playerClientData> {
-        const rlt: Array<playerClientData> = []
-        this.playerList.forEach(ele => {
-            rlt.push(ele.makeClientData())
-        })
-        return rlt;
-    }
 
     // 通知玩家离开房间
     public async noticeLeveRoom(player: RoomPlayer) {
-        const message: NoticeLeaveRoomDto = {
+        const message: OnPlayerLeaveRoomMessage = {
             uid: player.uid,
-            reason: LEAVE_ROOM_REASON.DEFAULT
         }
         this.pushRoomMessage(RoomPushRoute.OnPlayerLeaveRoom, message).then();
     }
@@ -136,10 +105,9 @@ export abstract class AbstractRoom {
                 return resolve(res);
             });
         })
-
     }
 
+    protected abstract setGameOptions(gameOptions: GameOptions);
 
     public abstract startGame(): Promise<void>;
-
 }

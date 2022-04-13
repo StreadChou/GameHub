@@ -1,8 +1,8 @@
 import {User} from "../../../core/user/user";
 import {pinus} from "pinus";
 import {UserServices} from "../../../core/user/services/userServices";
-import {RoomPlayerInitDto} from "../../../core/room/dto/RoomDto";
 import {PlayerAuthInfo} from "../../../core/user/dto/userDto";
+import {RoomPlayerInitDto} from "../../../constant/RpcDto";
 
 export class LogicServer {
     private static _instance: LogicServer

@@ -1,3 +1,7 @@
 export enum AppAttr {
-    DataSource = "data_source"
+    DataSource = "dataSource"
+}
+
+export enum SessionAttr {
+    LogicServerId = "logicServerId"
 }

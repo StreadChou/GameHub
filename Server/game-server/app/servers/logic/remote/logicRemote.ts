@@ -1,8 +1,7 @@
 import {Application, RemoterClass, FrontendSession} from 'pinus';
-import {User} from "../../../core/user/user";
-import {RoomPlayerInitDto} from "../../../core/room/dto/RoomDto";
 import {LogicServer} from "../instance/logicServer";
 import {PlayerAuthInfo} from "../../../core/user/dto/userDto";
+import {RoomPlayerInitDto} from "../../../constant/RpcDto";
 
 export default function (app: Application) {
     return new LogicRemote(app);

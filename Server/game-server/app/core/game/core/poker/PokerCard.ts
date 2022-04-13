@@ -1,4 +1,5 @@
-import {PokerClientDto, PokerSuit} from "./Interface";
+import {PokerSuit} from "./Interface";
+import {PokerClientDto} from "../../../../constant/clientDto/DtoConstant";
 
 export class PokerCard {
     // 花色

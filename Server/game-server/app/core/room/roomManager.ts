@@ -1,10 +1,10 @@
-import {CreateRoomDto, PlayerJoinRoomDto} from "./dto/RoomDto";
 import {NormalRoom} from "./room/normalRoom";
 import {ErrorCode} from "../../constant/ErrorCode";
 import {AbstractRoom} from "./room/abstractRoom";
 import {RoomPlayer} from "./component/roomPlayer";
 import {randomNumberBetween} from "../../helper/randomHelper";
 import {ClientException} from "../../exception/clientException";
+import {GameOptions} from "../game/Interface";
 
 export class RoomManager {
     private static _instance: RoomManager;
@@ -20,38 +20,23 @@ export class RoomManager {
         return this._instance;
     }
 
-    async createRoom(createRoomDto: CreateRoomDto): Promise<AbstractRoom> {
+    async createRoom(createRoomDto: GameOptions): Promise<AbstractRoom> {
         let roomId: number = await this.generateRandomRoomId();
         let room = new NormalRoom(roomId, createRoomDto);
         this.roomMap[roomId] = room;
         return room;
     }
 
-    async joinRoom(roomId: number, uid: string, opts: PlayerJoinRoomDto) {
+    async joinRoom(roomId: number, uid: string) {
         let room: AbstractRoom = await this.getRoomByRoomId(roomId);
         let player: RoomPlayer = await RoomPlayer.getInstanceByUid(uid);
-
-        // 检查是否可以加入房间
-        await room.checkPlayerCanJoinRoom(player, opts);
-
         await room.joinRoom(player);
     }
 
     async leaveRoom(roomId: number, uid: string) {
         let room: AbstractRoom = await this.getRoomByRoomId(roomId);
-        let player: RoomPlayer = await room.getPlayerFromRoom(uid);
+        let player: RoomPlayer = await room.getPlayer(uid);
         await room.leaveRoom(player);
-    }
-
-    // 踢出房间
-    async kickOutRoom(roomId: number, uid: string, targetUId: string) {
-        let room: AbstractRoom = await this.getRoomByRoomId(roomId);
-        // 获取玩家
-        let player: RoomPlayer = await room.getPlayerFromRoom(uid);
-        let targetPlayer: RoomPlayer = await room.getPlayerFromRoom(targetUId);
-        // 踢出玩家
-        await player.checkCanKickPlayer(targetPlayer)
-        await room.leaveRoom(targetPlayer);
     }
 
     // 根据ID获取房间, 返回一定是房间

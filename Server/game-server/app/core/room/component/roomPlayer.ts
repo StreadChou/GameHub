@@ -1,8 +1,9 @@
 import {LogicProxy} from "../../../servers/logic/proxy/logicProxy";
-import {RoomPlayerInitDto} from "../dto/RoomDto";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus} from "pinus";
 import {ClientException} from "../../../exception/clientException";
+import {RoomPlayerInitDto} from "../../../constant/RpcDto";
+import {RoomRoomPlayerClientData} from "../../../constant/clientDto/DtoConstant";
 
 export class RoomPlayer {
     uid: string = "";
@@ -40,7 +41,7 @@ export class RoomPlayer {
         pinus.app.channelService.pushMessageByUids(route, msg, persons, opts, cb)
     }
 
-    public makeClientData(): playerClientData {
+    public makeClientData(): RoomRoomPlayerClientData {
         return {
             uid: this.uid,
             seat: this.seat,
@@ -48,7 +49,6 @@ export class RoomPlayer {
             level: this.level,
             money: this.money,
             cover: this.cover,
-            master: this.master,
         }
     }
 

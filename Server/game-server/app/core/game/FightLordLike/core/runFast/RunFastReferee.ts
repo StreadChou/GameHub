@@ -1,35 +1,37 @@
-import Game from "./Game";
-import {Role} from "./Role";
-import {ClientException} from "../../../../exception/clientException";
-import {ErrorCode} from "../../../../constant/ErrorCode";
-import {PokerCard} from "../../core/poker/PokerCard";
-import {CardsType} from "../Interface";
-import {CardTypeCheck, CardTypeIs} from "../poker/helper/CardTypeFactory";
+import RunFastGame from "./RunFastGame";
+import {RunFastRole} from "./RunFastRole";
+import {ClientException} from "../../../../../exception/clientException";
+import {ErrorCode} from "../../../../../constant/ErrorCode";
+import {PokerCard} from "../../../core/poker/PokerCard";
+import {CardsType} from "../../Interface";
+import {CardTypeCheck, CardTypeIs} from "../../poker/helper/CardTypeFactory";
+import {AbstractFightLordLikeReferee} from "../AbstractFightLordLikeReferee";
 
 // 管理未发的牌以及已经出的牌
-export class Referee {
-    game: Game
+export class RunFastReferee extends AbstractFightLordLikeReferee {
+    game: RunFastGame
 
     // 当前是谁的回合, locker 查看 setRoundLocker
-    round: { role: Role, locker: boolean, timer: NodeJS.Timeout };
+    round: { role: RunFastRole, locker: boolean, timer: NodeJS.Timeout };
 
     // 上一个回合(目前桌面上) 是谁出的牌, 出的啥, 以及牌的类型
-    last: { role: Role, pokers: Array<PokerCard>, type: CardsType };
+    last: { role: RunFastRole, pokers: Array<PokerCard>, type: CardsType };
 
-    constructor(game: Game) {
+    constructor(game: RunFastGame) {
+        super(game);
         this.game = game;
     }
 
 
     // 出牌有两种方式, 玩家手动出牌和倒计时到了之后系统出牌
     // 这两个可能同时触发, 所以增加一个锁
-    setRoundLocker(role: Role): boolean {
+    setRoundLocker(role: RunFastRole): boolean {
         if (this.round.role != role) throw new ClientException(ErrorCode.NotRoleRound, {}, "当前不是您的回合");
         return this.round.locker;
     }
 
     // 裁判收到玩家出牌
-    playerPlayPoker(role: Role, pokers: Array<PokerCard>) {
+    playerPlayPoker(role: RunFastRole, pokers: Array<PokerCard>) {
         // 如果之前就是我出的牌, 现在又轮到我出牌了, 也就是过了一个回合都没人要, 就把last 清空了
         if (this.last && this.last.role == role) this.last = undefined;
 
@@ -49,7 +51,7 @@ export class Referee {
     }
 
     // 玩家自由出牌
-    playerFreePlay(role: Role, pokers: Array<PokerCard>): CardsType {
+    playerFreePlay(role: RunFastRole, pokers: Array<PokerCard>): CardsType {
         // 判断牌型是否合法
         for (let allowCardsType of this.game.gameOption.allowCardsType) {
             if (CardTypeIs(allowCardsType, pokers, this.game.cardsTypeConfig, this.game.gameOption)) {
@@ -60,7 +62,7 @@ export class Referee {
     }
 
     // 玩家压制出牌
-    playerSuppressPlay(role: Role, pokers: Array<PokerCard>): CardsType {
+    playerSuppressPlay(role: RunFastRole, pokers: Array<PokerCard>): CardsType {
         // 判断我和之前的是不是同一个牌型, 如果是的话
         if (CardTypeIs(this.last.type, pokers, this.game.cardsTypeConfig, this.game.gameOption)) {
             // 判断我是否比上家大
@@ -81,24 +83,23 @@ export class Referee {
 
     // 进入下一个玩家的回合
     enterNextPlayerRound() {
-        if (!this.round) return this.setPlayInitPlayer();
-        clearTimeout(this.round.timer)
+        if (this.round) clearTimeout(this.round.timer);
         const nextPlayer = this.getNextPlayer();
         this.round = {
             role: nextPlayer,
             locker: false,
             timer: setTimeout(() => {
 
-            }, this.game.gameOption.roundTime);
+            }, this.game.gameOption.roundTime * 1000)
         }
     }
 
-    // 设置打牌的起始玩家, TODO 这里需要确认谁先打牌
-    setPlayInitPlayer() {
-        return this.game.getRole(1);
-    }
-
-    getNextPlayer(): Role {
+    // 获取下一个打牌的人
+    getNextPlayer(): RunFastRole {
+        if (!this.round) {
+            // TODO 这里需要确认谁先打牌
+            return this.game.getRole(1);
+        }
         const nowSeat = this.round.role.seat;
         if (nowSeat == this.game.gameOption.maxPlayer) return this.game.getRole(1);
         return this.game.getRole(nowSeat + 1);

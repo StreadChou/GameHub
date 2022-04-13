@@ -1,7 +1,7 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
 import {PokerSuit} from "../../../core/poker/Interface";
-import {CardsType, CardsTypeConfig, GameOptions} from "../../Interface";
+import {CardsType, CardsTypeConfig, FightLordLikeGameOptions} from "../../Interface";
 
 // 王炸
 export class TypeAllJoker extends AbstractPokerHelp {
@@ -19,7 +19,7 @@ export class TypeAllJoker extends AbstractPokerHelp {
     }
 
 
-    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean{
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean{
         if (cards.length < 2) return false;
         const suits = cards.map(ele => ele.suit);
         const allSuit = suits.every(ele => ele == PokerSuit.JOKER);
@@ -28,11 +28,11 @@ export class TypeAllJoker extends AbstractPokerHelp {
         return true;
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean{
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean{
         return false;
     }
 
-    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): Array<Array<PokerCard>> {
         return []
     }
 

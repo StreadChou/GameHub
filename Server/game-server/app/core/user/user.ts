@@ -1,9 +1,9 @@
 import {UserEntity} from "../../entity/userEntity";
 import {UserServices} from "./services/userServices";
-import {RoomPlayerInitDto} from "../room/dto/RoomDto";
 import {pinus} from "pinus";
 import {PlayerPushRoute} from "../../constant/Route";
 import {PlayerLoginDto} from "./dto/userDto";
+import {RoomPlayerInitDto} from "../../constant/RpcDto";
 
 export class User {
     uid: string = ""; // 用户名

@@ -1,10 +1,15 @@
-import {Application, FrontendSession, pinus} from 'pinus';
-import {SessionAttr} from "../../../constant/session";
+import {Application, FrontendSession} from 'pinus';
 import {RoomManager} from "../../../core/room/roomManager";
 import {AbstractRoom} from "../../../core/room/room/abstractRoom";
-import {JoinRoomDto} from "../dto/roomHandlerDto";
 import {RoomPlayer} from "../../../core/room/component/roomPlayer";
-import {RunFast} from "../../../core/game/runFast";
+import {
+    RequestRoomRoomHandlerCreateRoom,
+    RequestRoomRoomHandlerJoinRoom,
+    RequestRoomRoomHandlerStartGame,
+    ResponseRoomRoomHandlerCreateRoom,
+    ResponseRoomRoomHandlerJoinRoom, ResponseRoomRoomHandlerStartGame,
+} from "../../../constant/clientDto/Client2ServerDto";
+import {ErrorCode} from "../../../constant/ErrorCode";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -18,14 +23,13 @@ export class Handler {
         this.roomManager = RoomManager.getInstance();
     }
 
-    async createRoom(msg: any, session: FrontendSession) {
+    async createRoom(msg: RequestRoomRoomHandlerCreateRoom, session: FrontendSession): Promise<ResponseRoomRoomHandlerCreateRoom> {
         const uid = session.uid;
-        const logic = session.get(SessionAttr.LogicServerId);
-        const room: AbstractRoom = await this.roomManager.createRoom(msg);
-        return {code: 200, data: {uid, logic, roomId: room.roomId}};
+        const room: AbstractRoom = await this.roomManager.createRoom(msg.gameOption);
+        return {code: ErrorCode.Success, data: {uid, roomId: room.roomId}};
     }
 
-    async joinRoom(msg: JoinRoomDto, session: FrontendSession) {
+    async joinRoom(msg: RequestRoomRoomHandlerJoinRoom, session: FrontendSession): Promise<ResponseRoomRoomHandlerJoinRoom> {
         const roomId = msg.roomId;
         const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
         const player = await RoomPlayer.getInstanceByUid(session.uid);
@@ -33,11 +37,7 @@ export class Handler {
         return {code: 200, data: {roomId: room.roomId}};
     }
 
-    async leaveRoom(msg: any, session: FrontendSession) {
-        return {code: 200, msg: 'gameState server is ok.'};
-    }
-
-    async startGame(msg: JoinRoomDto, session: FrontendSession) {
+    async startGame(msg: RequestRoomRoomHandlerStartGame, session: FrontendSession): Promise<ResponseRoomRoomHandlerStartGame> {
         const roomId = msg.roomId;
         const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
         await room.startGame();

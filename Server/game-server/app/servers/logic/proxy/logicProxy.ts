@@ -1,7 +1,7 @@
 import {FrontendSession, pinus, RemoterClass} from "pinus";
 import {LogicRemote} from "../remote/logicRemote";
-import {RoomPlayerInitDto} from "../../../core/room/dto/RoomDto";
 import {PlayerAuthInfo} from "../../../core/user/dto/userDto";
+import {RoomPlayerInitDto} from "../../../constant/RpcDto";
 
 export class LogicProxy {
     private static _instance: LogicProxy;

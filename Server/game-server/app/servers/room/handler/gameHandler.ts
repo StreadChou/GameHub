@@ -1,10 +1,11 @@
-import {Application, FrontendSession, pinus} from 'pinus';
-import {SessionAttr} from "../../../constant/session";
+import {Application, FrontendSession} from 'pinus';
 import {RoomManager} from "../../../core/room/roomManager";
 import {AbstractRoom} from "../../../core/room/room/abstractRoom";
-import {JoinRoomDto} from "../dto/roomHandlerDto";
-import {RoomPlayer} from "../../../core/room/component/roomPlayer";
-import {RunFast} from "../../../core/game/runFast";
+import {
+    RequestRoomGameHandlerPlay,
+    ResponseRoomGameHandlerPlay
+} from "../../../constant/clientDto/Client2ServerDto";
+import {AbstractFightLordLikeGame} from "../../../core/game/FightLordLike/core/AbstractFightLordLikeGame";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -18,15 +19,16 @@ export class Handler {
         this.roomManager = RoomManager.getInstance();
     }
 
-    async play(msg: any, session: FrontendSession) {
+    async play(msg: RequestRoomGameHandlerPlay, session: FrontendSession): Promise<ResponseRoomGameHandlerPlay> {
         const roomId = msg.roomId;
         const cards = msg.cards;
         const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
+        const player = room.getPlayer(session.uid);
         const game = room.game;
         if (!cards || cards.length <= 0) {
-            (game as RunFast.Game).roundPass(session.uid);
+            (game as AbstractFightLordLikeGame).playerPlayPokers(player.seat, cards);
         } else {
-            (game as RunFast.Game).roundPlay(session.uid, cards);
+            (game as AbstractFightLordLikeGame).playerPass(player.seat);
         }
         return {code: 200, data: {roomId: room.roomId}};
     }

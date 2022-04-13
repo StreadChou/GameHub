@@ -1,24 +1,24 @@
 import {PokerCard} from "../../../core/poker/PokerCard";
 import {PokerSuit} from "../../../core/poker/Interface";
-import {CardsType, CardsTypeConfig, GameOptions} from "../../Interface";
+import {CardsType, CardsTypeConfig, FightLordLikeGameOptions} from "../../Interface";
 
 export abstract class AbstractPokerHelp {
     abstract type: CardsType;
 
     // 检查牌型是否是该类型
-    abstract is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean;
+    abstract is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean;
 
     // 检查A 是不是比 B大
-    abstract check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean;
+    abstract check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean;
 
 
     // 从 cards 中 获取所有牌型为 type 的卡牌, 返回的是可以适配的内容
-    abstract all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): Array<Array<PokerCard>> ;
+    abstract all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): Array<Array<PokerCard>> ;
 
 
     // 从 cardsA 中获取所有 大于 cardsB 的牌, 其中已知 cardsB 的类型是 type
     // 提醒功能
-    allGt(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, type: CardsType, _config: CardsTypeConfig, _opt: GameOptions): Array<Array<PokerCard>> {
+    allGt(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, type: CardsType, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): Array<Array<PokerCard>> {
         let rlt: Array<Array<PokerCard>> = [];
 
         // 如果我和B是同类型, 从 cards 中, 取我的所有类型

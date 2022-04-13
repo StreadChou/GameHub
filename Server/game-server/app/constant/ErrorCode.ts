@@ -13,6 +13,7 @@ export enum ErrorCode {
     CantKickVipPlayer,
     AlreadyInRoom,
     PasswordError,
+    GameConfigError,
 
     // 游戏相关
     GameNotExist = 30000, // 游戏还没有开始, 没有对实例化出来

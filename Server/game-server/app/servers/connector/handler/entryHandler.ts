@@ -2,11 +2,11 @@ import {Application, FrontendSession, pinus} from 'pinus';
 import {LoginDto} from "../dto/entryDto";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {dispatchRandom} from "../../../helper/routeHelper";
-import {SessionAttr} from "../../../constant/session";
 import {LogicProxy} from "../../logic/proxy/logicProxy";
 import {PlayerAuthInfo} from "../../../core/user/dto/userDto";
 import {randomNumberBetween} from "../../../helper/randomHelper";
 import {ClientException} from "../../../exception/clientException";
+import {SessionAttr} from "../../../constant/App";
 
 export default function (app: Application) {
     return new Handler(app);

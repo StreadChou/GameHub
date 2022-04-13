@@ -1,5 +1,6 @@
 // 牌面类型
 import {AbstractPokerConfig} from "./poker/config/PokerConfig";
+import {GameOptions} from "../Interface";
 
 export enum CardsType {
     Single = 1, // 单张
@@ -17,12 +18,13 @@ export enum CardsType {
 
 
 export type CardsTypeConfig = { [key in CardsType]?: AbstractPokerConfig }
-export type GameOptions = {
-    maxPlayer: number,
+
+
+export interface FightLordLikeGameOptions extends GameOptions {
     roundTime: number;
     perPlayerCards: number;
-    pokerRank: Array<number>;
-    allowCardsType: Array<CardsType>;
+    pokerRank?: Array<number>; // 这个参数将会在游戏中补全
+    allowCardsType?: Array<CardsType>; // 这个参数将会在游戏中补全
 }
 
 
