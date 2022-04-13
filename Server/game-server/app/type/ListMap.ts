@@ -34,18 +34,20 @@ export class ListMap<T> {
      *  获取
      * ********************************************/
 
+    // 获取整个数组
     list(): Array<T> {
         return this.List;
     }
 
+    // 通过数组下标获取
     index(index: number): T | undefined {
         return this.List[index]
     }
 
+    // 通过关键值的 key 获取
     key(mapKey: number | string): T | undefined {
         return this.Map.get(mapKey)
     }
-
 
     /* ********************************************
      *  插入

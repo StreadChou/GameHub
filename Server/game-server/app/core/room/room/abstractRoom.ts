@@ -4,7 +4,7 @@ import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus, Channel} from "pinus";
 import {RoomPushRoute} from "../../../constant/Route";
 import {JOIN_ROOM_REASON, LEAVE_ROOM_REASON} from "../../../constant/Room";
-import {AbstractGame} from "../../game/abstract/abstractGame";
+import {AbstractGame} from "../../game/core/abstract/abstractGame";
 import {ClientException} from "../../../exception/clientException";
 
 export abstract class AbstractRoom {
@@ -49,16 +49,16 @@ export abstract class AbstractRoom {
     // 从房间中获取玩家
     public async getPlayerFromRoom(uid: string): Promise<RoomPlayer> {
         let player: RoomPlayer = this.playerMap[uid];
-        if (!player) throw new ClientException(ErrorCode.NOT_IN_ROOM, {}, "玩家不在房间中");
+        if (!player) throw new ClientException(ErrorCode.NotInRoom, {}, "玩家不在房间中");
         return player;
     }
 
 
     // 检查是否可以加入房间
     public async checkPlayerCanJoinRoom(player: RoomPlayer, opts: PlayerJoinRoomDto): Promise<void> {
-        if (this.isRoomFull) throw new ClientException(ErrorCode.ROOM_IS_FULL, {}, "检查是否可以加入房间, 但是房间已满");
-        if (this.playerMap.hasOwnProperty(player.uid)) throw new ClientException(ErrorCode.ALREADY_IN_ROOM, {}, "已经在房间中");
-        if (this.password && this.password != opts.password) throw new ClientException(ErrorCode.PASSWORD_ERROR, {}, "房间密码错误");
+        if (this.isRoomFull) throw new ClientException(ErrorCode.RoomFull, {}, "检查是否可以加入房间, 但是房间已满");
+        if (this.playerMap.hasOwnProperty(player.uid)) throw new ClientException(ErrorCode.AlreadyInRoom, {}, "已经在房间中");
+        if (this.password && this.password != opts.password) throw new ClientException(ErrorCode.PasswordError, {}, "房间密码错误");
     }
 
     // 加入房间

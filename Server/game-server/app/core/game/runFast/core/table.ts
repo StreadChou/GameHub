@@ -119,9 +119,9 @@ export class Table extends PokerManager {
 
     // 出牌是否合法
     isCardsLegal(player: Player, cards: Array<PokerCard>) {
-        if (player.uid != this.nowPlayPlayer.uid) throw new ClientException(ErrorCode.COMMON_ERROR, {}, "当前不是您的出牌阶段")
+        if (player.uid != this.nowPlayPlayer.uid) throw new ClientException(ErrorCode.CommonError, {}, "当前不是您的出牌阶段")
 
-        if (!this.checkCardsLegal(cards)) throw new ClientException(ErrorCode.COMMON_ERROR, {}, "牌型不合法")
+        if (!this.checkCardsLegal(cards)) throw new ClientException(ErrorCode.CommonError, {}, "牌型不合法")
 
         if (!this.lastCardsMap) return true;
 
@@ -140,7 +140,7 @@ export class Table extends PokerManager {
         const lastType = this.checkCardsType(Object.values(this.lastCardsMap));
         const myType = this.checkCardsType(cards);
         if (lastType != myType && myType == CardsType.FourOfAKind) {
-            throw new ClientException(ErrorCode.COMMON_ERROR, {}, "牌型不合法")
+            throw new ClientException(ErrorCode.CommonError, {}, "牌型不合法")
         }
 
         if (lastType == myType) {
@@ -151,7 +151,7 @@ export class Table extends PokerManager {
         if (myType == CardsType.FourOfAKind) {
             return true;
         }
-        throw new ClientException(ErrorCode.COMMON_ERROR, {}, "您的牌小于上家出牌")
+        throw new ClientException(ErrorCode.CommonError, {}, "您的牌小于上家出牌")
     }
 
     checkCardsType(cards: Array<PokerCard>): CardsType {

@@ -1,7 +1,7 @@
 import {RESERVED, pinus} from 'pinus';
 import {preload} from './preload';
 import {DataSource} from "typeorm";
-import {AppAttr} from "./app/constant/app";
+import {AppAttr} from "./app/constant/App";
 import * as path from "path";
 import {AppErrorHandler} from "./app/exception/errorHandler/appErrorHandler";
 

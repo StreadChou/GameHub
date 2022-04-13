@@ -31,8 +31,8 @@ export class RoomPlayer {
     }
 
     public async checkCanKickPlayer(targetPlayer: RoomPlayer): Promise<void> {
-        if (!this.master) throw new ClientException(ErrorCode.NOT_ROOM_MASTER, {}, "不是房主, 无法操作");
-        if (targetPlayer.vip) throw new ClientException(ErrorCode.CANT_KICK_VIP_PLAYER, {}, "对方是VIP玩家, 无法操作");
+        if (!this.master) throw new ClientException(ErrorCode.NotRoomMaster, {}, "不是房主, 无法操作");
+        if (targetPlayer.vip) throw new ClientException(ErrorCode.CantKickVipPlayer, {}, "对方是VIP玩家, 无法操作");
     }
 
     public pushMessage(route: string, msg: any, opts?: any, cb?: (err?: Error, result?: void) => void) {

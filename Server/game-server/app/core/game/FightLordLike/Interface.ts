@@ -24,3 +24,12 @@ export type GameOptions = {
     pokerRank: Array<number>;
     allowCardsType: Array<CardsType>;
 }
+
+
+export enum GameEvent {
+    OnGameStart = "onGameStart"
+}
+
+export enum PlayerEvent {
+    OnReceive = "onReceive"
+}

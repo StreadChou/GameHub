@@ -1,6 +1,6 @@
 import {UserEntity} from "../../../entity/userEntity";
 import {pinus} from "pinus";
-import {AppAttr} from "../../../constant/app";
+import {AppAttr} from "../../../constant/App";
 import {DataSource} from "typeorm";
 import {Repository} from "typeorm/repository/Repository";
 import {PlayerAuthInfo} from "../dto/userDto";

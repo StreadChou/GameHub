@@ -1,8 +1,8 @@
-import {AbstractRoom} from "../../room/room/abstractRoom";
-import {RoomPlayer} from "../../room/component/roomPlayer";
+import {AbstractRoom} from "../../../room/room/abstractRoom";
+import {RoomPlayer} from "../../../room/component/roomPlayer";
 import {Channel, pinus} from "pinus";
-import {nowTimestamp} from "../../../helper/timeHelper";
-import {randomNumberBetween} from "../../../helper/randomHelper";
+import {nowTimestamp} from "../../../../helper/timeHelper";
+import {randomNumberBetween} from "../../../../helper/randomHelper";
 import {AbstractPlayer} from "./abstractPlayer";
 
 export abstract class AbstractGame {

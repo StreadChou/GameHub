@@ -1,4 +1,4 @@
-import {PokerSuit} from "./Interface";
+import {PokerClientDto, PokerSuit} from "./Interface";
 
 export class PokerCard {
     // 花色
@@ -17,7 +17,7 @@ export class PokerCard {
 
 
     // 获取客户端数据
-    makeClient() {
+    makeClient(): PokerClientDto {
         return {
             suit: this.suit,
             rank: this.rank,

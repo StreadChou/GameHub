@@ -20,7 +20,7 @@ export class Handler {
     async login(msg: LoginDto, session: FrontendSession) {
         let {uid, token} = msg;
         if (!uid || !token) {
-            throw new ClientException(ErrorCode.LOGIN_TOKEN_CHECK_ERROR, {}, "登录Token错误");
+            throw new ClientException(ErrorCode.LoginTokenCheckError, {}, "登录Token错误");
         }
         // TODO 验证数据
         console.log(uid, token)

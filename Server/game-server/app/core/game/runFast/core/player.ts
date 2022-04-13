@@ -1,4 +1,4 @@
-import {AbstractPlayer} from "../../abstract/abstractPlayer";
+import {AbstractPlayer} from "../../core/abstract/abstractPlayer";
 import {RoomPlayer} from "../../../room/component/roomPlayer";
 import {randomNumberBetween} from "../../../../helper/randomHelper";
 import {PokerCard} from "../../core/poker/PokerCard";
@@ -17,17 +17,6 @@ export class Player extends AbstractPlayer {
 
     get cardNumber(): number {
         return Object.values(this.remainCardsMap).length;
-    }
-
-
-    protected constructor(game: Game, roomPlayer: RoomPlayer) {
-        super(roomPlayer);
-        this.game = game;
-    }
-
-
-    static generate(game: Game, roomPlayer: RoomPlayer): Player {
-        return new Player(game, roomPlayer);
     }
 
     public on(event: PlayerEvent, listener: (...args: any[]) => void) {

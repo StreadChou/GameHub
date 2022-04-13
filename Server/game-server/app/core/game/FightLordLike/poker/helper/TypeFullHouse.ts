@@ -22,10 +22,13 @@ export class TypeFullHouse extends AbstractPokerHelp {
     is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean {
         if (cards.length != 5) return false;
         const sameRank = this.pokerGetCardInSame(cards, 3);
-        const otherRank = cards.map(card => {
-            if (card.rank != sameRank) return card.rank;
+
+        const otherRank = [];
+        cards.forEach(card => {
+            if (card.rank != sameRank) otherRank.push(card.rank);
         })
-        return otherRank[0] != otherRank[1]
+        console.log(otherRank)
+        return otherRank[0] == otherRank[1]
     }
 
     check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: GameOptions): boolean {

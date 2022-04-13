@@ -1,4 +1,4 @@
-import {AbstractGame} from "../../abstract/abstractGame";
+import {AbstractGame} from "../../core/abstract/abstractGame";
 import {AbstractRoom} from "../../../room/room/abstractRoom";
 import {RoomPlayer} from "../../../room/component/roomPlayer";
 import {Player} from "./player";
