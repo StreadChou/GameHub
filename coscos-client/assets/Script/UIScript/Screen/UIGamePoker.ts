@@ -2,6 +2,7 @@ import {UIScreen} from "../../UIFrame/UIForm";
 import UIGamePoker_Auto from "../../AutoScripts/UIGamePoker_Auto";
 import PokerGame from "../../Logic/Game/PokerGame";
 import {Player} from "../../Logic/Player/Player";
+import {FightLordLikeGame} from "../../Logic/GameT/FightLordLikeGame/FightLordLikeGame";
 
 const {ccclass, property} = cc._decorator;
 
@@ -50,6 +51,10 @@ export default class UIGamePoker extends UIScreen {
     // 出牌
     playCard() {
         PokerGame.instance.gameController.playCard()
+    }
+
+    protected update(dt: number) {
+        FightLordLikeGame.instance.update(dt)
     }
 
 }

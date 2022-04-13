@@ -18,12 +18,12 @@ export enum LoadType {
 }
 
 export class PreloadManager {
-    private loadTypeList: Array<LoadType>;
-    private loadIndex: number = -1;
-    private _loadType: LoadType = LoadType.CONFIG;
-    private _progress: number = 0;
-    private _isLoading: boolean = false;
-    private finishCallback: Function;
+    protected loadTypeList: Array<LoadType>;
+    protected loadIndex: number = -1;
+    protected _loadType: LoadType = LoadType.CONFIG;
+    protected _progress: number = 0;
+    protected _isLoading: boolean = false;
+    protected finishCallback: Function;
 
     public reset() {
         this._isLoading = false;
@@ -55,7 +55,7 @@ export class PreloadManager {
         this.handleLoad();
     }
 
-    private handleLoad() {
+    protected handleLoad() {
         if (this.loadType == LoadType.CONFIG) {
             this.loadConfigData();
         } else if (this.loadType == LoadType.MUSIC) {
@@ -67,7 +67,7 @@ export class PreloadManager {
         }
     }
 
-    private loadOneTypeEnd() {
+    protected loadOneTypeEnd() {
         if (!this._isLoading) {
             return;
         }
@@ -87,38 +87,28 @@ export class PreloadManager {
     /**
      * 加载配置
      */
-    private loadConfigData() {
+    protected loadConfigData() {
         this.loadOneTypeEnd();
     }
 
     /**
      * 加载音效
      */
-    private loadSound() {
+    protected loadSound() {
         this.loadOneTypeEnd();
     }
 
     /**
      * 加载音乐
      */
-    private loadMusic() {
+    protected loadMusic() {
         this.loadOneTypeEnd();
     }
 
     /**
      * 加载资源
      */
-    private loadPoolManager() {
-        let beginProgress = this.progress;
-        cc.resources.load("Pool/RolePoolManager", cc.Prefab, (finish: number, total: number, item: cc.AssetManager.RequestItem) => {
-            let precent = finish / total / this.loadTypeList.length;
-            if (beginProgress + precent > this.progress) {
-                this.progress = beginProgress + precent;
-            }
-        }, (error: Error, asset: cc.Prefab) => {
-            let managerPool = cc.instantiate(asset);
-            cc.director.getScene().addChild(managerPool);
-            this.loadOneTypeEnd();
-        });
+    protected loadPoolManager() {
+        this.loadOneTypeEnd();
     }
 }
