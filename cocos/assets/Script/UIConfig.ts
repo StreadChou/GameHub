@@ -1,4 +1,8 @@
 export default class UIConfig {
+    static UIHall = {
+        prefabUrl: "Forms/Screen/UIHall",
+        type: "UIScreen"
+    }
     static UILoading = {
         prefabUrl: "Forms/Tips/UILoading",
         type: "UITips"
@@ -6,14 +10,6 @@ export default class UIConfig {
     static UITips = {
         prefabUrl: "Forms/Windows/UITips",
         type: "UIWindow"
-    }
-    static UIHall = {
-        prefabUrl: "Forms/Screen/UIHall",
-        type: "UIScreen"
-    }
-    static UIHallTop = {
-        prefabUrl: "Forms/Fixed/UIHallTop",
-        type: "UIFixed"
     }
     
     }
