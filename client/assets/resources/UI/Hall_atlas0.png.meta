@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "d37238cb-1777-44f9-aa43-e9f10390f2ed",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "Hall_atlas0": {
+      "ver": "1.0.6",
+      "uuid": "4bb99b30-e5c4-4f1d-9a22-9a0612be555e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "d37238cb-1777-44f9-aa43-e9f10390f2ed",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -9.5,
+      "offsetY": 152,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 2029,
+      "height": 720,
+      "rawWidth": 2048,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

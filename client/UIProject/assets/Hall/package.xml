@@ -2,7 +2,22 @@
 <packageDescription id="4ezujtbm">
   <resources>
     <component id="swh90" name="Main.xml" path="/" exported="true"/>
-    <component id="pwg91" name="Button1.xml" path="/"/>
+    <image id="hkqd2" name="Background.jpg" path="/images/"/>
+    <image id="hkqd3" name="window_1.png" path="/images/"/>
+    <image id="hkqd4" name="button_5.png" path="/images/" scale="9grid" scale9grid="45,22,90,34"/>
+    <image id="hkqd5" name="button_1.png" path="/images/"/>
+    <image id="hkqd6" name="button_2.png" path="/images/"/>
+    <image id="hkqd7" name="button_3.png" path="/images/"/>
+    <image id="hkqd8" name="button_4.png" path="/images/"/>
+    <image id="hkqd9" name="window_2.png" path="/images/" scale="9grid" scale9grid="41,116,582,301"/>
+    <image id="hkqda" name="default_header.png" path="/images/"/>
+    <image id="hkqdb" name="header_border.png" path="/images/"/>
+    <component id="hkqdc" name="header.xml" path="/"/>
+    <image id="r9znd" name="Tex_0492.png" path="/images/"/>
+    <component id="o0obg" name="Button1.xml" path="/"/>
+    <component id="o0obi" name="RoomListItem.xml" path="/"/>
+    <component id="o0obj" name="Button2.xml" path="/"/>
+    <image id="o0obk" name="Tex_0866.png" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

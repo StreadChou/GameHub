@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="u03c55yl">
+  <resources>
+    <image id="o0ob0" name="60.png" path="/"/>
+    <image id="o0ob1" name="Beginners_guide_Img_jingji_tips2_guide.png" path="/"/>
+    <image id="o0ob2" name="Beginners_guide_Img_jingji_tips3_guide.png" path="/"/>
+    <image id="o0ob3" name="Beginners_guide_jxyx_guide.png" path="/"/>
+    <image id="o0ob4" name="Beginners_guide_jxyx02_guide.png" path="/"/>
+    <image id="o0ob5" name="Beginners_guide_ksyx_guide.png" path="/"/>
+    <image id="o0ob6" name="Chat_Chat_ok_bg_qipao_biaoqing.png" path="/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>
