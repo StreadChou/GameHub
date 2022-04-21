@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="600,630" bgColor="#ff0000">
+  <displayList>
+    <image id="n1_n6gu" name="n1" src="n6gur" fileName="Images/right/play_bg_1_1.png" xy="38,12" size="250,173" aspect="true">
+      <relation target="" sidePair="top-top"/>
+    </image>
+    <image id="n2_n6gu" name="n2" src="n6gus" fileName="Images/right/play_bg_1_2.png" xy="311,14" size="250,173" aspect="true">
+      <relation target="n1_n6gu" sidePair="left-left,top-top"/>
+    </image>
+    <image id="n3_n6gu" name="n3" src="n6gut" fileName="Images/right/play_bg_2_1.png" xy="413,213" size="150,142" aspect="true">
+      <relation target="n5_n6gu" sidePair="left-left,bottom-top"/>
+    </image>
+    <image id="n4_n6gu" name="n4" src="n6guu" fileName="Images/right/play_bg_2_2.png" xy="233,213" size="150,142" aspect="true">
+      <relation target="n5_n6gu" sidePair="left-left,bottom-top"/>
+    </image>
+    <image id="n5_n6gu" name="n5" src="n6guv" fileName="Images/right/play_bg_2_3.png" xy="42,213" size="150,142" aspect="true">
+      <relation target="" sidePair="top-top"/>
+    </image>
+    <component id="n6_n6gu" name="n6" src="n6guy" fileName="Component/right/CreateRoom.xml" xy="178,540" size="200,70">
+      <relation target="n7_n6gu" sidePair="left-left,top-top"/>
+    </component>
+    <component id="n7_n6gu" name="n7" src="n6guz" fileName="Component/right/JoinRoom.xml" xy="388,542" size="200,70">
+      <relation target="" sidePair="bottom-bottom"/>
+    </component>
+  </displayList>
+</component>

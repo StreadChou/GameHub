@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,100">
+  <displayList>
+    <graph id="n15_n6gu" name="Background" xy="0,0" size="1334,100" type="rect" fillColor="#0cffffff"/>
+    <text id="n1_n6gu" name="Nick" xy="140,24" size="136,32" group="n4_n6gu" fontSize="22" color="#ffffff" text="六个字的名字"/>
+    <text id="n2_n6gu" name="n2" xy="140,52" size="27,29" group="n4_n6gu" fontSize="20" color="#ffff00" text="LV"/>
+    <text id="n3_n6gu" name="Level" xy="171,52" size="26,29" group="n4_n6gu" fontSize="20" color="#ffff00" text="10"/>
+    <group id="n4_n6gu" name="InfoGroup" xy="140,24" size="136,57"/>
+    <component id="n5_n6gu" name="CoverGroup" src="hkqdc" fileName="Component/Cover.xml" xy="36,10"/>
+    <image id="n6_n6gu" name="Email" src="n6gum" fileName="Images/button_email.png" xy="1000,12" group="n10_n6gu"/>
+    <image id="n7_n6gu" name="Support" src="n6guo" fileName="Images/button_support.png" xy="1100,12" group="n10_n6gu"/>
+    <image id="n8_n6gu" name="Setting" src="n6gun" fileName="Images/button_setting.png" xy="1200,12" group="n10_n6gu"/>
+    <group id="n10_n6gu" name="ControGroup" xy="1000,12" size="270,78"/>
+    <component id="n13_n6gu" name="n13" src="n6guq" fileName="Component/Button3.xml" xy="328,33"/>
+  </displayList>
+</component>

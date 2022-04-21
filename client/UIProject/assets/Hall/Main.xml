@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <image id="n1_hkqd" name="n1" src="hkqd2" fileName="images/Background.jpg" xy="1,0" size="1334,750">
+    <image id="n1_hkqd" name="Background" src="hkqd2" fileName="Images/Background.jpg" xy="1,0" size="1334,750">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <graph id="n2_hkqd" name="n2" xy="0,0" size="1334,100" type="rect" fillColor="#5b000000"/>
-    <component id="n5_hkqd" name="n5" src="hkqdc" fileName="header.xml" xy="30,13"/>
-    <text id="n6_hkqd" name="n6" xy="120,21" size="136,32" group="n9_r9zn" fontSize="22" color="#ffffff" text="六个字的名字"/>
-    <text id="n7_hkqd" name="n7" xy="120,49" size="27,29" group="n9_r9zn" fontSize="20" color="#ffff00" text="LV"/>
-    <text id="n8_hkqd" name="n8" xy="151,49" size="26,29" group="n9_r9zn" fontSize="20" color="#ffff00" text="10"/>
-    <group id="n9_r9zn" name="n9" xy="120,21" size="136,57"/>
-    <component id="n15_o0ob" name="n15" src="o0obg" fileName="Button1.xml" xy="293,29" size="100,50">
-      <Button title="10000" titleColor="#ffffff" titleFontSize="15"/>
-    </component>
-    <image id="n17_o0ob" name="n17" src="hkqd9" fileName="images/window_2.png" xy="33,115" size="482,601" group="n20_o0ob">
+    <component id="n24_n6gu" name="Header" src="n6gul" fileName="Component/header/Header.xml" xy="0,0"/>
+    <image id="n17_o0ob" name="n17" src="hkqd9" fileName="Images/window_2.png" xy="33,115" size="482,601" group="n20_o0ob">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
     <list id="n16_o0ob" name="n16" xy="62,222" size="415,447" group="n20_o0ob" overflow="scroll" defaultItem="ui://4ezujtbmo0obi">
@@ -24,10 +16,13 @@
       <item/>
       <item/>
       <item/>
+      <item/>
     </list>
     <text id="n18_o0ob" name="n18" xy="190,134" size="128,43" group="n20_o0ob" fontSize="30" color="#cccccc" align="center" autoSize="none" text="房间列表" input="true"/>
     <text id="n19_o0ob" name="n19" xy="189,184" size="128,29" group="n20_o0ob" fontSize="18" color="#cccccc" align="center" autoSize="none" text="下拉刷新" input="true"/>
     <group id="n20_o0ob" name="n20" xy="33,115" size="482,601"/>
-    <image id="n22_o0ob" name="n22" src="o0obk" fileName="Tex_0866.png" xy="292,39" size="29,29"/>
+    <component id="n41_n6gu" name="n41" src="n6gu10" fileName="Component/right/RightCtl.xml" xy="678,114" size="600,630">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
   </displayList>
 </component>

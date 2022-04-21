@@ -2,22 +2,29 @@
 <packageDescription id="4ezujtbm">
   <resources>
     <component id="swh90" name="Main.xml" path="/" exported="true"/>
-    <image id="hkqd2" name="Background.jpg" path="/images/"/>
-    <image id="hkqd3" name="window_1.png" path="/images/"/>
-    <image id="hkqd4" name="button_5.png" path="/images/" scale="9grid" scale9grid="45,22,90,34"/>
-    <image id="hkqd5" name="button_1.png" path="/images/"/>
-    <image id="hkqd6" name="button_2.png" path="/images/"/>
-    <image id="hkqd7" name="button_3.png" path="/images/"/>
-    <image id="hkqd8" name="button_4.png" path="/images/"/>
-    <image id="hkqd9" name="window_2.png" path="/images/" scale="9grid" scale9grid="41,116,582,301"/>
-    <image id="hkqda" name="default_header.png" path="/images/"/>
-    <image id="hkqdb" name="header_border.png" path="/images/"/>
-    <component id="hkqdc" name="header.xml" path="/"/>
-    <image id="r9znd" name="Tex_0492.png" path="/images/"/>
-    <component id="o0obg" name="Button1.xml" path="/"/>
+    <image id="hkqd2" name="Background.jpg" path="/Images/"/>
+    <image id="hkqd3" name="window_1.png" path="/Images/" scale="9grid" scale9grid="396,277,139,227"/>
+    <image id="hkqd5" name="button_1.png" path="/Images/"/>
+    <image id="hkqd7" name="button_3.png" path="/Images/" scale9grid="85,24,142,77"/>
+    <image id="hkqd9" name="window_2.png" path="/Images/" scale="9grid" scale9grid="41,116,582,301"/>
+    <image id="hkqda" name="default_header.png" path="/Images/header/"/>
+    <image id="hkqdb" name="header_border.png" path="/Images/header/"/>
+    <component id="hkqdc" name="Cover.xml" path="/Component/header/"/>
     <component id="o0obi" name="RoomListItem.xml" path="/"/>
-    <component id="o0obj" name="Button2.xml" path="/"/>
-    <image id="o0obk" name="Tex_0866.png" path="/"/>
+    <image id="o0obk" name="gold.png" path="/Images/header/"/>
+    <component id="n6gul" name="Header.xml" path="/Component/header/"/>
+    <image id="n6gum" name="button_email.png" path="/Images/header/"/>
+    <image id="n6gun" name="button_setting.png" path="/Images/header/"/>
+    <image id="n6guo" name="button_support.png" path="/Images/header/"/>
+    <component id="n6guq" name="GoldInfo.xml" path="/Component/header/"/>
+    <image id="n6gur" name="play_bg_1_1.png" path="/Images/right/"/>
+    <image id="n6gus" name="play_bg_1_2.png" path="/Images/right/"/>
+    <image id="n6gut" name="play_bg_2_1.png" path="/Images/right/"/>
+    <image id="n6guu" name="play_bg_2_2.png" path="/Images/right/"/>
+    <image id="n6guv" name="play_bg_2_3.png" path="/Images/right/"/>
+    <component id="n6guy" name="CreateRoom.xml" path="/Component/right/"/>
+    <component id="n6guz" name="JoinRoom.xml" path="/Component/right/"/>
+    <component id="n6gu10" name="RightCtl.xml" path="/Component/right/"/>
   </resources>
   <publish name=""/>
 </packageDescription>
