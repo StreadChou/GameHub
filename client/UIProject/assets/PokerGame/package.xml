@@ -8,6 +8,7 @@
     <image id="o0ob4" name="Beginners_guide_jxyx02_guide.png" path="/"/>
     <image id="o0ob5" name="Beginners_guide_ksyx_guide.png" path="/"/>
     <image id="o0ob6" name="Chat_Chat_ok_bg_qipao_biaoqing.png" path="/"/>
+    <component id="gxrw7" name="Component1.xml" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

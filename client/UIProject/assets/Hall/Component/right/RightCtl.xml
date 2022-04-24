@@ -16,7 +16,7 @@
     <image id="n5_n6gu" name="n5" src="n6guv" fileName="Images/right/play_bg_2_3.png" xy="42,213" size="150,142" aspect="true">
       <relation target="" sidePair="top-top"/>
     </image>
-    <component id="n6_n6gu" name="n6" src="n6guy" fileName="Component/right/CreateRoom.xml" xy="178,540" size="200,70">
+    <component id="n6_n6gu" name="CreateRoom" src="n6guy" fileName="Component/right/CreateRoom.xml" xy="178,540" size="200,70">
       <relation target="n7_n6gu" sidePair="left-left,top-top"/>
     </component>
     <component id="n7_n6gu" name="n7" src="n6guz" fileName="Component/right/JoinRoom.xml" xy="388,542" size="200,70">

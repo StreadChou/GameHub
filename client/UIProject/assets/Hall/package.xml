@@ -25,6 +25,10 @@
     <component id="n6guy" name="CreateRoom.xml" path="/Component/right/"/>
     <component id="n6guz" name="JoinRoom.xml" path="/Component/right/"/>
     <component id="n6gu10" name="RightCtl.xml" path="/Component/right/"/>
+    <component id="h1ju11" name="CreateRunFastRoom.xml" path="/Component/create/RunFastCreateRoom/" exported="true"/>
+    <component id="h1ju14" name="RunFastCreateRooOpts.xml" path="/Component/create/RunFastCreateRoom/"/>
+    <image id="gxrw18" name="Tex_2706.png" path="/Images/"/>
+    <component id="gh831n" name="CreateFrame.xml" path="/Component/create/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

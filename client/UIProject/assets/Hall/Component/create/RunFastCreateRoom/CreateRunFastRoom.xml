@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1200,700">
+  <displayList>
+    <component id="n8_gh83" name="frame" src="gh831n" fileName="Component/create/CreateFrame.xml" xy="0,0"/>
+    <component id="n4_h1ju" name="optsPane" src="h1ju14" fileName="Component/create/RunFastCreateRoom/RunFastCreateRooOpts.xml" xy="101,106">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n7_gh83" name="createButton" src="gh837l" fileName="Component/Button/btn_sm_blue.xml" pkg="hyyrj5lp" xy="810,582">
+      <relation target="" sidePair="bottom-bottom%"/>
+      <Button title="创建游戏" titleColor="#ffffff" titleFontSize="17"/>
+    </component>
+  </displayList>
+</component>

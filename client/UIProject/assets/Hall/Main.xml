@@ -21,7 +21,7 @@
     <text id="n18_o0ob" name="n18" xy="190,134" size="128,43" group="n20_o0ob" fontSize="30" color="#cccccc" align="center" autoSize="none" text="房间列表" input="true"/>
     <text id="n19_o0ob" name="n19" xy="189,184" size="128,29" group="n20_o0ob" fontSize="18" color="#cccccc" align="center" autoSize="none" text="下拉刷新" input="true"/>
     <group id="n20_o0ob" name="n20" xy="33,115" size="482,601"/>
-    <component id="n41_n6gu" name="n41" src="n6gu10" fileName="Component/right/RightCtl.xml" xy="678,114" size="600,630">
+    <component id="n41_n6gu" name="Right" src="n6gu10" fileName="Component/right/RightCtl.xml" xy="678,114" size="600,630">
       <relation target="" sidePair="width-width,height-height"/>
     </component>
   </displayList>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="50,40" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n5_gh83" name="n5" src="gh8328" fileName="Image/Button/button096.png" xy="0,11" size="21,20" aspect="true">
+      <gearDisplay controller="button" pages="0,1,2,3"/>
+      <relation target="" sidePair="left-left"/>
+    </image>
+    <image id="n6_gh83" name="n6" src="gh837f" fileName="Image/Icon/icon099.png" xy="3,14" size="15,12" aspect="true">
+      <gearDisplay controller="button" pages="1,3"/>
+    </image>
+    <text id="n3_gh83" name="title" xy="29,0" size="21,40" fontSize="12" vAlign="middle" autoSize="none" singleLine="true" text="">
+      <relation target="n5_gh83" sidePair="left-right"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </text>
+  </displayList>
+  <Button mode="Check"/>
+</component>
