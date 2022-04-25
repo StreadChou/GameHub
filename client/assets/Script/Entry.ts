@@ -1,18 +1,29 @@
+import {EventSystem} from "./Event/EventSystem";
+
 const {ccclass, property} = cc._decorator;
-import Hall from "./View/hall/Hall";
+import Hall from "./View/Hall/Hall";
+import {EVENT} from "./Event/EventDefine";
+import {NetworkManager} from "./Lib/NetWork/NetworkManager";
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class Entry extends cc.Component {
     private _currentDemo: cc.Component;
 
     onLoad() {
-        fgui.UIPackage.loadPackage("UI/Common", ()=>{
-            fgui.GRoot.create();
-            this.node.on("start_demo", this.onDemoStart, this);
-            console.error(Hall);
-            this.addComponent(Hall);
-        });
+        NetworkManager.instance.openMainSocket("127.0.0.1", 3010);
 
+        fgui.UIPackage.loadPackage("UI/Common", () => {
+            fgui.GRoot.create();
+            this.addComponent(Hall);
+
+            this.registerError();
+        });
+    }
+
+    registerError() {
+        EventSystem.instance.register(EVENT.ON_ERROR_CODE, (message: any) => {
+            console.error(`收到error消息`, message);
+        })
     }
 
     onDemoStart(demo) {
