@@ -2,6 +2,9 @@ import Hall from "../Hall/Hall";
 import {EventSystem} from "../../Event/EventSystem";
 import {EVENT} from "../../Event/EventDefine";
 import {ControllerLogic} from "../../Controller/Logic/ControllerLogic";
+import {AlertWindow} from "../Common/ErrorWindow/AlertWindow";
+import {LoginPane} from "./AccountPane/LoginPane";
+import {RegisterPane} from "./AccountPane/RegisterPane";
 
 const {ccclass, property} = cc._decorator;
 
@@ -29,6 +32,7 @@ export default class Login extends cc.Component {
             ControllerLogic.getInstance().onLoginSuccess();
         })
 
+        this._view.getChild("AccountLogin").onClick(this.openLoginPane.bind(this));
     }
 
     onDestroy() {
@@ -42,4 +46,23 @@ export default class Login extends cc.Component {
         this.onDestroy();
     }
 
+
+    private loginPane: LoginPane;
+    private registerPane: RegisterPane;
+
+    openLoginPane() {
+        if (this.registerPane) {
+            this.registerPane.hide();
+        }
+        this.loginPane = this.loginPane ?? new LoginPane();
+        this.loginPane.show();
+    }
+
+    openRegisterPane() {
+        if (this.loginPane) {
+            this.loginPane.hide();
+        }
+        this.registerPane = this.registerPane ?? new RegisterPane();
+        this.registerPane.show();
+    }
 }

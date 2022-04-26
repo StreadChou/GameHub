@@ -143,14 +143,14 @@
     <image id="gh8351" name="panel033.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8352" name="panel034.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8353" name="panel035.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh8354" name="panel036.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh8354" name="panel036.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="23,23,46,46"/>
     <image id="gh8355" name="panel037.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8356" name="panel038.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8357" name="panel039.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8358" name="panel040.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8359" name="panel041.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh835a" name="panel042.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh835b" name="panel043.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh835a" name="panel042.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="117,125,234,250"/>
+    <image id="gh835b" name="panel043.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="122,110,244,220"/>
     <image id="gh835c" name="panel044.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835d" name="panel045.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835e" name="panel046.png" path="/Image/Panel/" exported="true"/>
@@ -159,9 +159,9 @@
     <image id="gh835h" name="panel049.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835i" name="panel050.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835j" name="panel051.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh835k" name="panel028.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh835k" name="panel028.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="78,113,158,186"/>
     <image id="gh835l" name="panel052.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh835m" name="panel027.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh835m" name="panel027.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="78,110,158,188"/>
     <image id="gh835n" name="panel025.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835o" name="panel002.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835p" name="panel003.png" path="/Image/Panel/" exported="true"/>
@@ -170,7 +170,7 @@
     <image id="gh835s" name="panel006.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835t" name="panel007.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835u" name="panel008.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh835v" name="panel009.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh835v" name="panel009.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="74,59,148,118"/>
     <image id="gh835w" name="panel010.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835x" name="panel011.png" path="/Image/Panel/" exported="true"/>
     <image id="gh835y" name="panel012.png" path="/Image/Panel/" exported="true"/>
@@ -184,9 +184,9 @@
     <image id="gh8366" name="panel020.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8367" name="panel021.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8368" name="panel022.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh8369" name="panel023.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh8369" name="panel023.png" path="/Image/Panel/" exported="true" scale9grid="105,0,210,94"/>
     <image id="gh836a" name="panel024.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh836b" name="panel026.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh836b" name="panel026.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="45,93,131,153"/>
     <image id="gh836c" name="panel053.png" path="/Image/Panel/" exported="true"/>
     <image id="gh836d" name="word111.png" path="/Image/Words/" exported="true"/>
     <image id="gh836e" name="word112.png" path="/Image/Words/" exported="true"/>
@@ -344,8 +344,12 @@
     <sound id="gh83as" name="DealNoShuffle.ogg" path="/Sound/Special/" exported="true"/>
     <sound id="gh83at" name="Special_Multiply.ogg" path="/Sound/Special/" exported="true"/>
     <component id="rjbiau" name="AlertWindow.xml" path="/Component/ErrorWindow/AlertWindow/" exported="true"/>
-    <component id="rjbiav" name="frame.xml" path="/Component/ErrorWindow/AlertWindow/"/>
-    <component id="rjbiaw" name="close.xml" path="/Component/ErrorWindow/AlertWindow/"/>
+    <component id="rjbiav" name="frame.xml" path="/Component/ErrorWindow/AlertWindow/" exported="true"/>
+    <component id="pmpeax" name="CloseButton.xml" path="/Component/ErrorWindow/AlertWindow/" exported="true"/>
+    <font id="pmpe8" name="FZGDCTJW-R.TTF" path="/Font/" exported="true" renderMode="" samplePointSize="16"/>
+    <font id="pmpeb1" name="FZPSHJW.TTF" path="/Font/" exported="true" renderMode="" samplePointSize="16"/>
+    <component id="pmpeb2" name="CloseButton.xml" path="/Component/Button/" exported="true"/>
+    <component id="pmpeb3" name="CheckBox_1.xml" path="/Component/CheckBox/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

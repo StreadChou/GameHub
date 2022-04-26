@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="900,400">
+  <displayList>
+    <component id="n7_pmpe" name="frame" src="pmpe7" fileName="Component/AccountFrame.xml" xy="0,0"/>
+    <image id="n8_pmpe" name="n8" src="gh8369" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="102,67" size="397,57" group="n10_pmpe"/>
+    <text id="n11_pmpe" name="label_account" xy="130,67" size="72,57" group="n10_pmpe" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" text="账号:"/>
+    <text id="n12_pmpe" name="Account" xy="219,67" size="249,57" group="n10_pmpe" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" singleLine="true" text="stread" input="true"/>
+    <group id="n10_pmpe" name="AccountGroup" xy="102,67" size="397,57"/>
+    <image id="n13_pmpe" name="n13" src="gh8369" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="102,168" size="400,57" group="n16_pmpe"/>
+    <text id="n14_pmpe" name="label_password" xy="129,168" size="71,57" group="n16_pmpe" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" text="密码:"/>
+    <text id="n15_pmpe" name="Password" xy="219,167" size="301,57" group="n16_pmpe" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" singleLine="true" text="stread" input="true" password="true"/>
+    <group id="n16_pmpe" name="PasswordGroup" xy="102,167" size="418,58"/>
+    <component id="n18_pmpe" name="LoginButton" src="pmpe8" fileName="Component/LoginButton.xml" xy="567,55"/>
+    <text id="n19_pmpe" name="n19" xy="166,271" size="104,34" fontSize="24" color="#ffffff" bold="true" strokeColor="#3f1d04" text="记住账号"/>
+    <component id="n20_pmpe" name="Remember" src="pmpeb3" fileName="Component/CheckBox/CheckBox_1.xml" pkg="hyyrj5lp" xy="124,271" size="31,33"/>
+    <component id="n21_pmpe" name="Register" src="gh837l" fileName="Component/Button/btn_sm_blue.xml" pkg="hyyrj5lp" xy="354,259">
+      <Button title="注册账号" titleColor="#ffffff" titleFontSize="21"/>
+    </component>
+    <component id="n22_pmpe" name="FindPassword" src="gh837l" fileName="Component/Button/btn_sm_blue.xml" pkg="hyyrj5lp" xy="554,258">
+      <Button title="找回密码" titleColor="#ffffff" titleFontSize="21"/>
+    </component>
+  </displayList>
+</component>

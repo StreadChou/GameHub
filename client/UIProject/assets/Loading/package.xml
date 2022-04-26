@@ -2,6 +2,10 @@
 <packageDescription id="2duhv4um">
   <resources>
     <component id="rjbi0" name="Main.xml" path="/" exported="true"/>
+    <image id="pmpe1" name="loading.png" path="/" exported="true"/>
+    <image id="pmpe2" name="k33.png" path="/Image/" scale="9grid" scale9grid="53,0,374,26"/>
+    <image id="pmpe3" name="k34.png" path="/Image/" scale="9grid" scale9grid="105,3,210,8"/>
+    <component id="pmpe5" name="LoadingSlider.xml" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="u6m2pew8">
   <resources>
-    <image id="o0ob0" name="7.png" path="/"/>
     <component id="rjbi1" name="Main.xml" path="/" exported="true"/>
-    <component id="rjbi2" name="Register.xml" path="/Component/" exported="true"/>
-    <component id="rjbi3" name="Login.xml" path="/Component/" exported="true"/>
+    <component id="rjbi3" name="LoginPane.xml" path="/Component/" exported="true"/>
     <component id="rjbi4" name="AccountLogin.xml" path="/Component/Button/"/>
     <component id="rjbi5" name="GuestLogin.xml" path="/Component/Button/"/>
     <component id="rjbi6" name="WechatLogin.xml" path="/Component/Button/"/>
+    <component id="pmpe7" name="AccountFrame.xml" path="/Component/"/>
+    <component id="pmpe8" name="LoginButton.xml" path="/Component/"/>
+    <component id="pmpe9" name="RegisterPane.xml" path="/Component/" exported="true"/>
+    <component id="pmpea" name="RegisterButton.xml" path="/Component/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

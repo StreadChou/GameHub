@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="480,26" extention="Slider">
+  <displayList>
+    <image id="n1_pmpe" name="bar" src="pmpe3" fileName="Image/k34.png" xy="31,4" size="441,15"/>
+    <image id="n0_pmpe" name="n0" src="pmpe2" fileName="Image/k33.png" xy="0,0" size="480,26">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n2_pmpe" name="title" xy="0,2" size="480,19" fontSize="12" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="">
+      <relation target="" sidePair="width-width"/>
+    </text>
+  </displayList>
+  <Slider/>
+</component>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="206,193" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n0_pmpe" name="n0" src="gh8327" fileName="Image/Button/button095.png" pkg="hyyrj5lp" xy="0,0">
+      <gearDisplay controller="button" pages="0"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_pmpe" name="n1" src="gh8327" fileName="Image/Button/button095.png" pkg="hyyrj5lp" xy="0,0">
+      <gearDisplay controller="button" pages="1"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n2_pmpe" name="n2" src="gh8327" fileName="Image/Button/button095.png" pkg="hyyrj5lp" xy="0,0">
+      <gearDisplay controller="button" pages="2"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n3_pmpe" name="n3" src="gh8327" fileName="Image/Button/button095.png" pkg="hyyrj5lp" xy="0,0">
+      <gearDisplay controller="button" pages="3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n4_pmpe" name="title" xy="2,-12" size="206,193" font="ui://hyyrj5lppmpeb1" fontSize="57" color="#ffffff" align="center" vAlign="middle" autoSize="none" bold="true" strokeColor="#215d0b" strokeSize="3" singleLine="true" text="注册">
+      <relation target="" sidePair="width-width,height-height"/>
+    </text>
+  </displayList>
+  <Button/>
+</component>

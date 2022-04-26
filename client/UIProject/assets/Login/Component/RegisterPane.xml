@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="900,400">
+  <displayList>
+    <component id="n7_pmpe" name="frame" src="pmpe7" fileName="Component/AccountFrame.xml" xy="0,0"/>
+    <image id="n8_pmpe" name="n8" src="gh8369" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="102,67" size="397,57" group="n10_pmpe"/>
+    <text id="n11_pmpe" name="label_account" xy="134,68" size="72,57" group="n10_pmpe" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" text="账号:"/>
+    <text id="n12_pmpe" name="Account" xy="219,68" size="258,57" group="n10_pmpe" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" singleLine="true" text="stread" input="true"/>
+    <group id="n10_pmpe" name="AccountGroup" xy="102,67" size="397,58"/>
+    <image id="n13_pmpe" name="n13" src="gh8369" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="102,168" size="400,57" group="n16_pmpe"/>
+    <text id="n14_pmpe" name="label_password" xy="134,168" size="71,57" group="n16_pmpe" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" text="密码:"/>
+    <text id="n15_pmpe" name="Password" xy="219,169" size="257,57" group="n16_pmpe" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" singleLine="true" text="stread" input="true" password="true"/>
+    <group id="n16_pmpe" name="PasswordGroup" xy="102,168" size="400,58"/>
+    <image id="n24_pmpe" name="n24" src="gh8369" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="102,267" size="400,57" group="n27_pmpe"/>
+    <text id="n25_pmpe" name="label_confirm_password" xy="134,268" size="71,57" group="n27_pmpe" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" text="重复:"/>
+    <text id="n26_pmpe" name="ConfirmPassword" xy="219,268" size="257,57" group="n27_pmpe" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" singleLine="true" text="stread" input="true" password="true"/>
+    <group id="n27_pmpe" name="ConfirmPasswordGroup" xy="102,267" size="400,58"/>
+    <component id="n22_pmpe" name="Login" src="gh837l" fileName="Component/Button/btn_sm_blue.xml" pkg="hyyrj5lp" xy="591,258">
+      <Button title="去登陆" titleColor="#ffffff" titleFontSize="21"/>
+    </component>
+    <component id="n23_pmpe" name="RegisterButton" src="pmpea" fileName="Component/RegisterButton.xml" xy="566,61"/>
+  </displayList>
+</component>

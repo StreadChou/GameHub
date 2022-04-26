@@ -5,10 +5,10 @@ export class AlertWindow extends BaseErrorWindow {
 
     constructor() {
         super();
-        this.contentPane = fgui.UIPackage.createObject("Common", this.WindowName).asCom;
+        this.contentPane = fgui.UIPackage.createObject(this.PackageName, this.WindowName).asCom;
     }
 
-    public showMessage(message: string) {
+    public showMessage(message: string, title?: string, code?: number) {
         this.contentPane.getChild("Message").asTextField.text = message;
         super.show();
     }

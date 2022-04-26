@@ -1,11 +1,12 @@
 import {EventSystem} from "./Event/EventSystem";
-
-const {ccclass} = cc._decorator;
 import {EVENT} from "./Event/EventDefine";
 import {NetworkManager} from "./Lib/NetWork/NetworkManager";
 import Loading from "./View/Loading/Loading";
 import Login from "./View/Login/Login";
 import {AlertWindow} from "./View/Common/ErrorWindow/AlertWindow";
+
+const {ccclass} = cc._decorator;
+
 
 @ccclass
 export default class Entry extends cc.Component {
@@ -17,10 +18,14 @@ export default class Entry extends cc.Component {
         const loading = this.addComponent(Loading);
 
         fgui.UIPackage.loadPackage("UI/Common", () => {
-            this.addComponent(Login);
-            this.node.removeComponent(loading);
-            loading.destroy();
-            this.registerError();
+            loading.setProcess(100);
+
+            setTimeout(()=>{
+                this.addComponent(Login);
+                this.node.removeComponent(loading);
+                loading.destroy();
+                this.registerError();
+            }, 1000)
         });
     }
 
