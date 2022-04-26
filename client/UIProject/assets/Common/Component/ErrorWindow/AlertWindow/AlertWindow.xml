@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="600,350">
+  <displayList>
+    <graph id="n2_rjbi" name="n2" xy="0,0" size="600,350" type="rect"/>
+    <component id="n0_rjbi" name="frame" src="rjbiav" fileName="Component/ErrorWindow/AlertWindow/frame.xml" xy="0,0"/>
+    <text id="n1_rjbi" name="Message" xy="27,35" size="554,190" fontSize="12" align="center" vAlign="middle" autoSize="none" text="" input="true"/>
+  </displayList>
+</component>

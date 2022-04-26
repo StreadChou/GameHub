@@ -1,26 +1,28 @@
 import Login from "../../View/Login/Login";
-import {User} from "../../Model/User";
+import {randomNumberBetween} from "../../Base/Helper/RandomHelper";
+import {UserServices} from "../../Model/UserServices";
 
 export class ControllerLogic {
     private static _instance: ControllerLogic;
-    component: Login;
 
-    constructor(component?: Login) {
-        this.component = component;
+    get loginComponent(): Login {
+        return Login.instance;
     }
 
-    public static getInstance(component?: Login) {
-        if (this._instance) return this._instance;
-        this._instance = new ControllerLogic(component);
+    public static getInstance() {
+        this._instance = this._instance ?? new ControllerLogic();
         return this._instance;
     }
+
 
     public guestLogin() {
         const uid = randomNumberBetween(100000, 999999).toString();
         const token = randomNumberBetween(10000000, 99999999).toString()
-        let msg = {uid, token};
+        let message = {uid, token};
+        UserServices.instance.sendLoginMessage(message);
+    }
 
-        User.Login(msg);
-        this.component.onLoginSuccess();
+    public onLoginSuccess() {
+        this.loginComponent.onLoginSuccess();
     }
 }

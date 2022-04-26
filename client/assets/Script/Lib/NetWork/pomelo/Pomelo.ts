@@ -62,18 +62,17 @@ export class Pomelo extends EventEmitter {
 
     constructor() {
         super();
-        let self = this;
         this.handlers[Package.TYPE_HANDSHAKE] = (data: any) => {
-            self.handshake(data);
+            this.handshake(data);
         }
         this.handlers[Package.TYPE_HEARTBEAT] = (data: any) => {
-            self.heartbeat(data);
+            this.heartbeat(data);
         }
         this.handlers[Package.TYPE_DATA] = (data: any) => {
-            self.onData(data);
+            this.onData(data);
         }
         this.handlers[Package.TYPE_KICK] = (data: any) => {
-            self.onKick(data);
+            this.onKick(data);
         }
     }
 
@@ -249,9 +248,7 @@ export class Pomelo extends EventEmitter {
     }
 
     public request(route: string, msg: any) {
-        if (!route) {
-            return;
-        }
+        if (!route) return undefined;
         this.reqId++;
         msg = msg || {};
         this.sendMessage(this.reqId, route, msg);

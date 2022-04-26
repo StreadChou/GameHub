@@ -7,7 +7,9 @@ export class CreateFastRoomView extends BaseCreateRoomView {
 
     protected onInit(): void {
         this.contentPane = fgui.UIPackage.createObject("Hall", "CreateRunFastRoom").asCom;
-        this.center();
+        this.contentPane.makeFullScreen();
+
+        // this.center();
 
         // 弹出窗口的动效已中心为轴心
         this.setPivot(0.5, 0.5);

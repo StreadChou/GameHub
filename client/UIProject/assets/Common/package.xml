@@ -343,6 +343,9 @@
     <sound id="gh83ar" name="Special_Paixingjiafen.ogg" path="/Sound/Special/" exported="true"/>
     <sound id="gh83as" name="DealNoShuffle.ogg" path="/Sound/Special/" exported="true"/>
     <sound id="gh83at" name="Special_Multiply.ogg" path="/Sound/Special/" exported="true"/>
+    <component id="rjbiau" name="AlertWindow.xml" path="/Component/ErrorWindow/AlertWindow/" exported="true"/>
+    <component id="rjbiav" name="frame.xml" path="/Component/ErrorWindow/AlertWindow/"/>
+    <component id="rjbiaw" name="close.xml" path="/Component/ErrorWindow/AlertWindow/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

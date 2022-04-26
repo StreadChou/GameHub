@@ -1,9 +1,11 @@
 import {EventSystem} from "./Event/EventSystem";
 
-const {ccclass, property} = cc._decorator;
-import Hall from "./View/Hall/Hall";
+const {ccclass} = cc._decorator;
 import {EVENT} from "./Event/EventDefine";
 import {NetworkManager} from "./Lib/NetWork/NetworkManager";
+import Loading from "./View/Loading/Loading";
+import Login from "./View/Login/Login";
+import {AlertWindow} from "./View/Common/ErrorWindow/AlertWindow";
 
 @ccclass
 export default class Entry extends cc.Component {
@@ -11,18 +13,23 @@ export default class Entry extends cc.Component {
 
     onLoad() {
         NetworkManager.instance.openMainSocket("127.0.0.1", 3010);
+        fgui.GRoot.create();
+        const loading = this.addComponent(Loading);
 
         fgui.UIPackage.loadPackage("UI/Common", () => {
-            fgui.GRoot.create();
-            this.addComponent(Hall);
-
+            this.addComponent(Login);
+            this.node.removeComponent(loading);
+            loading.destroy();
             this.registerError();
         });
     }
 
     registerError() {
-        EventSystem.instance.register(EVENT.ON_ERROR_CODE, (message: any) => {
-            console.error(`收到error消息`, message);
+        EventSystem.instance.register(EVENT.ON_ERROR_CODE, (data: any) => {
+            const errorWindows = new AlertWindow();
+            const string = data.message ?? data.code ?? "未知错误";
+            errorWindows.showMessage(string);
+            console.error(`收到error消息`, data);
         })
     }
 

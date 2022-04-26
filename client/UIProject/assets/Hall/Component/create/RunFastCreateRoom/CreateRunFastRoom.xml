@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1200,700">
+<component size="1334,750">
   <displayList>
-    <component id="n8_gh83" name="frame" src="gh831n" fileName="Component/create/CreateFrame.xml" xy="0,0"/>
-    <component id="n4_h1ju" name="optsPane" src="h1ju14" fileName="Component/create/RunFastCreateRoom/RunFastCreateRooOpts.xml" xy="101,106">
+    <component id="n8_gh83" name="frame" src="gh831n" fileName="Component/create/CreateFrame.xml" xy="77,31" size="1186,685">
       <relation target="" sidePair="width-width,height-height"/>
     </component>
-    <component id="n7_gh83" name="createButton" src="gh837l" fileName="Component/Button/btn_sm_blue.xml" pkg="hyyrj5lp" xy="810,582">
-      <relation target="" sidePair="bottom-bottom%"/>
+    <component id="n4_h1ju" name="optsPane" src="h1ju14" fileName="Component/create/RunFastCreateRoom/RunFastCreateRooOpts.xml" xy="178,137" size="986,425">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n7_gh83" name="createButton" src="gh837l" fileName="Component/Button/btn_sm_blue.xml" pkg="hyyrj5lp" xy="886,598">
+      <relation target="n8_gh83" sidePair="right-right,bottom-bottom"/>
       <Button title="创建游戏" titleColor="#ffffff" titleFontSize="17"/>
     </component>
   </displayList>

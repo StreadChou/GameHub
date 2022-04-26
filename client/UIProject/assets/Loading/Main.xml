@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <text id="n0_rjbi" name="n0" xy="0,0" size="1334,750" fontSize="48" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="加载中..." input="true"/>
+  </displayList>
+</component>

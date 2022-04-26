@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <component id="n0_rjbi" name="WechatLogin" src="rjbi6" fileName="Component/Button/WechatLogin.xml" xy="279,402"/>
+    <component id="n1_rjbi" name="AccountLogin" src="rjbi4" fileName="Component/Button/AccountLogin.xml" xy="612,402"/>
+    <component id="n2_rjbi" name="GuestLogin" src="rjbi5" fileName="Component/Button/GuestLogin.xml" xy="973,400"/>
+  </displayList>
+</component>
