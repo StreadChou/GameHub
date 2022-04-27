@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="575,722">
+  <displayList>
+    <component id="n13_m9xm" name="frame" src="m9xm1" fileName="CommonUserCard/Frame.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <image id="n1_m9xm" name="n1" src="gh835q" fileName="Image/Panel/panel004.png" pkg="hyyrj5lp" xy="39,73" group="n14_m9xm"/>
+    <image id="n11_m9xm" name="Cover" src="gh833o" fileName="Image/Icon/icon069.png" pkg="hyyrj5lp" xy="93,113" group="n14_m9xm"/>
+    <image id="n10_m9xm" name="CoverFrame" src="gh8354" fileName="Image/Panel/panel036.png" pkg="hyyrj5lp" xy="87,106" group="n14_m9xm"/>
+    <text id="n12_m9xm" name="UserName" xy="214,117" size="172,38" group="n14_m9xm" font="ui://hyyrj5lppmpeb1" fontSize="27" color="#ffffff" bold="true" shadowColor="#000000" shadowOffset="1,1" text="六个字的名字"/>
+    <text id="n21_m9xm" name="Money" xy="246,159" size="140,38" group="n14_m9xm" font="ui://hyyrj5lppmpeb1" fontSize="27" color="#ffffff" autoSize="none" bold="true" shadowColor="#000000" shadowOffset="1,1" text="3200"/>
+    <image id="n25_m9xm" name="n25" src="gh8344" fileName="Image/Icon/icon004.png" pkg="hyyrj5lp" xy="214,163" size="35,30" group="n14_m9xm"/>
+    <group id="n14_m9xm" name="UserInfo" xy="39,73" size="497,163" advanced="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </group>
+    <image id="n4_m9xm" name="Other_1" src="gh8364" fileName="Image/Panel/panel018.png" pkg="hyyrj5lp" xy="91,389" size="409,48"/>
+    <image id="n5_m9xm" name="Other_2_1" src="gh8364" fileName="Image/Panel/panel018.png" pkg="hyyrj5lp" xy="91,460" size="202,48"/>
+    <image id="n6_m9xm" name="Other_2_2" src="gh8364" fileName="Image/Panel/panel018.png" pkg="hyyrj5lp" xy="297,460" size="202,48"/>
+    <image id="n7_m9xm" name="Other_3" src="gh8364" fileName="Image/Panel/panel018.png" pkg="hyyrj5lp" xy="91,529" size="409,48"/>
+    <component id="n9_m9xm" name="KickButton" src="gh837m" fileName="Component/Button/btn_sm_yellow.xml" pkg="hyyrj5lp" xy="341,598">
+      <Button title="踢出房间" titleColor="#ffffff" titleFontSize="17"/>
+    </component>
+    <image id="n2_m9xm" name="UidBackground" src="gh8364" fileName="Image/Panel/panel018.png" pkg="hyyrj5lp" xy="90,266" size="409,48" group="n15_m9xm"/>
+    <text id="n16_m9xm" name="n16" xy="114,266" size="51,48" group="n15_m9xm" font="ui://hyyrj5lppmpe8" fontSize="17" color="#ffeac1" align="center" vAlign="middle" autoSize="none" bold="true" singleLine="true" text="UID : "/>
+    <text id="n17_m9xm" name="UidValue" xy="184,266" size="293,48" group="n15_m9xm" font="ui://hyyrj5lppmpe8" fontSize="17" color="#ffab3e" align="center" vAlign="middle" autoSize="none" bold="true" singleLine="true" text="1194D800"/>
+    <group id="n15_m9xm" name="UID" xy="90,266" size="409,48"/>
+    <image id="n3_m9xm" name="LevelBackground" src="gh8364" fileName="Image/Panel/panel018.png" pkg="hyyrj5lp" xy="90,324" size="409,48" group="n18_m9xm"/>
+    <text id="n22_m9xm" name="n22" xy="110,324" size="51,48" group="n18_m9xm" font="ui://hyyrj5lppmpe8" fontSize="17" color="#ffeac1" align="center" vAlign="middle" autoSize="none" bold="true" singleLine="true" text="等级 : "/>
+    <text id="n23_m9xm" name="LevelValue" xy="180,324" size="293,48" group="n18_m9xm" font="ui://hyyrj5lppmpe8" fontSize="17" color="#ffab3e" align="center" vAlign="middle" autoSize="none" bold="true" singleLine="true" text="10"/>
+    <group id="n18_m9xm" name="Level" xy="90,324" size="409,48"/>
+  </displayList>
+</component>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="j8ri8siz">
+  <resources>
+    <component id="m9xm0" name="CommonUserCard.xml" path="/CommonUserCard/" exported="true"/>
+    <component id="m9xm1" name="Frame.xml" path="/CommonUserCard/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

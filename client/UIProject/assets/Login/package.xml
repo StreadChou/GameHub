@@ -10,6 +10,10 @@
     <component id="pmpe8" name="LoginButton.xml" path="/Component/"/>
     <component id="pmpe9" name="RegisterPane.xml" path="/Component/" exported="true"/>
     <component id="pmpea" name="RegisterButton.xml" path="/Component/"/>
+    <image id="m9xmb" name="button78.png" path="/Image/"/>
+    <image id="m9xmc" name="button086.png" path="/Image/"/>
+    <image id="m9xmd" name="button087.png" path="/Image/"/>
+    <image id="m9xme" name="button088.png" path="/Image/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

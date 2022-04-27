@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="575,722" extention="Label">
+  <displayList>
+    <text id="n0_m9xm" name="title" xy="0,0" size="575,722" fontSize="12" align="center" vAlign="middle" autoSize="none" singleLine="true" text="">
+      <relation target="" sidePair="width-width,height-height"/>
+    </text>
+    <image id="n1_m9xm" name="n1" src="gh835s" fileName="Image/Panel/panel006.png" pkg="hyyrj5lp" xy="0,0"/>
+    <component id="n2_m9xm" name="closeButton" src="pmpeb2" fileName="Component/Button/CloseButton.xml" pkg="hyyrj5lp" xy="501,7"/>
+  </displayList>
+</component>

@@ -143,7 +143,7 @@
     <image id="gh8351" name="panel033.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8352" name="panel034.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8353" name="panel035.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh8354" name="panel036.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="23,23,46,46"/>
+    <image id="gh8354" name="panel036.png" path="/Image/Panel/" exported="true" scale9grid="23,23,46,46"/>
     <image id="gh8355" name="panel037.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8356" name="panel038.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8357" name="panel039.png" path="/Image/Panel/" exported="true"/>
@@ -179,9 +179,9 @@
     <image id="gh8361" name="panel015.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8362" name="panel016.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8363" name="panel017.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh8364" name="panel018.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh8364" name="panel018.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="31,12,62,24"/>
     <image id="gh8365" name="panel019.png" path="/Image/Panel/" exported="true"/>
-    <image id="gh8366" name="panel020.png" path="/Image/Panel/" exported="true"/>
+    <image id="gh8366" name="panel020.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="35,9,70,18"/>
     <image id="gh8367" name="panel021.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8368" name="panel022.png" path="/Image/Panel/" exported="true"/>
     <image id="gh8369" name="panel023.png" path="/Image/Panel/" exported="true" scale9grid="105,0,210,94"/>
