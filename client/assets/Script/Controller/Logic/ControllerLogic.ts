@@ -23,6 +23,7 @@ export class ControllerLogic {
     }
 
     public onLoginSuccess() {
+        // 通知view我登录成功了
         this.loginComponent.onLoginSuccess();
     }
 }

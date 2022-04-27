@@ -1,4 +1,5 @@
 import {BaseCreateRoomView} from "./BaseCreateRoomView";
+import {RunFastConfig} from "../../../Constant/Game";
 
 export class CreateFastRoomView extends BaseCreateRoomView {
     public constructor() {
@@ -52,10 +53,11 @@ export class CreateFastRoomView extends BaseCreateRoomView {
         const whoPay = parseInt(optsPane.getController("whoPay").selectedPage);
         const dealPoker = parseInt(optsPane.getController("dealPoker").selectedPage);
         const chat = parseInt(optsPane.getController("chat").selectedPage);
+
         const double = parseInt(optsPane.getController("double").selectedPage);
         const addPoints = parseInt(optsPane.getController("addPoints").selectedPage);
 
-        const getSetting = (type: SettingEnum): boolean => {
+        const getSetting = (type: RunFastConfig): boolean => {
             const settingPane = optsPane.getChild(`setting_${type}`);
             if (!settingPane) return undefined;
             return settingPane.asButton.selected;
@@ -63,7 +65,7 @@ export class CreateFastRoomView extends BaseCreateRoomView {
 
         // @ts-ignore, 初始化的时候不给值
         const setting: { [key in SettingEnum]: boolean } = {};
-        Object.values(SettingEnum).forEach(key => {
+        Object.values(RunFastConfig).forEach(key => {
             if (Number.isInteger(key)) {
                 // @ts-ignore
                 setting[key] = getSetting(key);
@@ -74,10 +76,3 @@ export class CreateFastRoomView extends BaseCreateRoomView {
     }
 }
 
-export enum SettingEnum {
-    FourWithThree = 1, // 四代三
-    Spade3First, // 黑桃三先出牌
-    MustPlay, // 有牌必须出
-    ThreeAceBoom, // 三个 A 算炸弹
-    ShowCardsNumber, // 显示卡牌数量
-}
