@@ -1,5 +1,5 @@
 import {RoomPlayer} from "../component/roomPlayer";
-import {ErrorCode} from "../../../constant/ErrorCode";
+import {ErrorCode} from "../../../../object/ErrorCode";
 import {pinus, Channel} from "pinus";
 import {RoomPushRoute} from "../../../constant/Route";
 import {AbstractGame} from "../../game/core/abstract/abstractGame";

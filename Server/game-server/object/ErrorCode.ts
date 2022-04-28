@@ -4,6 +4,7 @@ export enum ErrorCode {
 
     // 用户自操作相关
     LoginTokenCheckError = 10000,
+    LoginError,
 
     // 房间相关
     RoomNotExist = 20000,

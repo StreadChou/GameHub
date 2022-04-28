@@ -1,5 +1,5 @@
 import {LogicProxy} from "../../../servers/logic/proxy/logicProxy";
-import {ErrorCode} from "../../../constant/ErrorCode";
+import {ErrorCode} from "../../../../object/ErrorCode";
 import {pinus} from "pinus";
 import {ClientException} from "../../../exception/clientException";
 import {RoomPlayerInitDto} from "../../../constant/RpcDto";

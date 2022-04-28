@@ -1,16 +1,11 @@
-import {ErrorCode} from "../ErrorCode";
+import {ErrorCode} from "../../../object/ErrorCode";
 import {GameOptions} from "../../core/game/Interface";
 import {PokerClientDto} from "./DtoConstant";
 
 
-export class DefaultResponse {
-    code: ErrorCode
-    data?: any
-    message?: string
-}
 
 export class RequestRoomRoomHandlerCreateRoom {
-    gameOption: GameOptions;
+
 }
 
 export class ResponseRoomRoomHandlerCreateRoom extends DefaultResponse {

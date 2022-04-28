@@ -1,8 +1,9 @@
 import {User} from "../../../core/user/user";
 import {pinus} from "pinus";
 import {UserServices} from "../../../core/user/services/userServices";
-import {PlayerAuthInfo} from "../../../core/user/dto/userDto";
-import {RoomPlayerInitDto} from "../../../constant/RpcDto";
+import {PlayerLoginRequestDto, PlayerLoginResponseDto, RoomPlayerInitDto} from "../../../constant/RpcDto";
+import {S2COnLogin} from "../../vo";
+import {PlayerPushRoute} from "../../../constant/Route";
 
 export class LogicServer {
     private static _instance: LogicServer
@@ -27,14 +28,14 @@ export class LogicServer {
         return this.userUidMap[uid];
     }
 
-    public async userLogin(uid: string, info: PlayerAuthInfo, params: { sid: number, fid: string }) {
-        const userEntity = await this.userServices.queryOrCreateUser(uid, info);
+    public async userLogin(info: PlayerLoginRequestDto, params: { sid: number, fid: string }): Promise<PlayerLoginResponseDto> {
+        const userEntity = await this.userServices.queryOrCreateUser(info);
         const user = User.loadFromEntity(userEntity);
         user.sid = params.sid;
         user.fid = params.fid;
         this.userUidMap[user.uid] = user;
-        await user.login();
-        return {};
+        user.pushMessage(PlayerPushRoute.OnLogin, user.makeOnLoinSuccessMessage());
+        return {logicServerId: pinus.app.getServerId(), uid: user.uid};
     }
 
     public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {

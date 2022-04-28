@@ -9,7 +9,7 @@ import {
     ResponseRoomRoomHandlerCreateRoom,
     ResponseRoomRoomHandlerJoinRoom, ResponseRoomRoomHandlerStartGame,
 } from "../../../constant/clientDto/Client2ServerDto";
-import {ErrorCode} from "../../../constant/ErrorCode";
+import {ErrorCode} from "../../../../object/ErrorCode";
 
 export default function (app: Application) {
     return new Handler(app);

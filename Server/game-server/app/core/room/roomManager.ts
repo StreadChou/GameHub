@@ -1,5 +1,5 @@
 import {NormalRoom} from "./room/normalRoom";
-import {ErrorCode} from "../../constant/ErrorCode";
+import {ErrorCode} from "../../../object/ErrorCode";
 import {AbstractRoom} from "./room/abstractRoom";
 import {RoomPlayer} from "./component/roomPlayer";
 import {randomNumberBetween} from "../../helper/randomHelper";

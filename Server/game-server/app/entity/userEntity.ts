@@ -1,9 +1,13 @@
 import {Column, Entity, PrimaryColumn} from "typeorm";
+import {PrimaryGeneratedColumn} from "typeorm/browser";
 
 @Entity()
 export class UserEntity {
-    @PrimaryColumn()
-    uid: string
+    @PrimaryGeneratedColumn("increment")
+    uid: number
+
+    @Column({unique: true})
+    aid: number
 
     @Column()
     nick: string;

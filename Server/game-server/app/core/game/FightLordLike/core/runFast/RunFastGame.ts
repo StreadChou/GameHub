@@ -5,7 +5,7 @@ import {RunFastReferee} from "./RunFastReferee";
 import {ListMap} from "../../../../../type/ListMap";
 import {RunFastRole} from "./RunFastRole";
 import {ClientException} from "../../../../../exception/clientException";
-import {ErrorCode} from "../../../../../constant/ErrorCode";
+import {ErrorCode} from "../../../../../../object/ErrorCode";
 import {AbstractFightLordLikeGame} from "../AbstractFightLordLikeGame";
 import {RunFastGameOptions} from "./RunFastInterface";
 import {RunFastGameConfig} from "./RunFastGameConfig";
