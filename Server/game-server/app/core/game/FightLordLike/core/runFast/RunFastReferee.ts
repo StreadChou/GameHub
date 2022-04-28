@@ -1,7 +1,7 @@
 import RunFastGame from "./RunFastGame";
 import {RunFastRole} from "./RunFastRole";
 import {ClientException} from "../../../../../exception/clientException";
-import {ErrorCode} from "../../../../../../object/ErrorCode";
+import {ErrorCode} from "../../../../../constant/ErrorCode";
 import {PokerCard} from "../../../core/poker/PokerCard";
 import {CardsType} from "../../Interface";
 import {CardTypeCheck, CardTypeIs} from "../../poker/helper/CardTypeFactory";

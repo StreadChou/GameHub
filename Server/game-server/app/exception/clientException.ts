@@ -1,5 +1,5 @@
 import {AbstractException} from "./abstractException";
-import {ErrorCode} from "../../object/ErrorCode";
+import {ErrorCode} from "../constant/ErrorCode";
 
 export class ClientException extends AbstractException {
     errorData: any;

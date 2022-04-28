@@ -31,5 +31,9 @@ export default class Hall extends cc.Component {
         })
     }
 
+    fillingUserInfo() {
+
+    }
+
 
 }

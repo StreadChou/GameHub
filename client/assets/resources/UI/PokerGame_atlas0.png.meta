@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "7b14d405-080e-4376-87a6-ed10a5d870a7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 1024,
+  "platformSettings": {},
+  "subMetas": {
+    "PokerGame_atlas0": {
+      "ver": "1.0.6",
+      "uuid": "4b4e7d0f-7784-4d6e-8a71-5d243ecec96c",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "7b14d405-080e-4376-87a6-ed10a5d870a7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -384,
+      "offsetY": 152,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1280,
+      "height": 720,
+      "rawWidth": 2048,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

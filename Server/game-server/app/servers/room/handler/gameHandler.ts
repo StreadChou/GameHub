@@ -1,10 +1,6 @@
 import {Application, FrontendSession} from 'pinus';
 import {RoomManager} from "../../../core/room/roomManager";
 import {AbstractRoom} from "../../../core/room/room/abstractRoom";
-import {
-    RequestRoomGameHandlerPlay,
-    ResponseRoomGameHandlerPlay
-} from "../../../constant/clientDto/Client2ServerDto";
 import {AbstractFightLordLikeGame} from "../../../core/game/FightLordLike/core/AbstractFightLordLikeGame";
 
 export default function (app: Application) {
@@ -19,7 +15,7 @@ export class Handler {
         this.roomManager = RoomManager.getInstance();
     }
 
-    async play(msg: RequestRoomGameHandlerPlay, session: FrontendSession): Promise<ResponseRoomGameHandlerPlay> {
+    async play(msg: any, session: FrontendSession): Promise<any> {
         const roomId = msg.roomId;
         const cards = msg.cards;
         const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);

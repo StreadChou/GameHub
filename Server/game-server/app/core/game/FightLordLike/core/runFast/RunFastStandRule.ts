@@ -1,7 +1,6 @@
 import RunFastGame from "./RunFastGame";
 import {BuildTransition, ITransitionDir, StateMachine, STOptions} from "../../../../../helper/stateMachine";
 import {GamePushRoute} from "../../../../../constant/Route";
-import {OnFightLordLikePhaseMessage} from "../../../../../constant/clientDto/Server2ClientDto";
 
 export interface RunFastGameFsmInterface {
     next: Array<ITransitionDir<GameState>>,
@@ -49,7 +48,7 @@ export class RunFastStandRule {
 
 
     async onTransitionAfter(currentState: GameState, toState: GameState) {
-        const message: OnFightLordLikePhaseMessage = {
+        const message: any = {
             phase: this.state,
             time: 0,
         }

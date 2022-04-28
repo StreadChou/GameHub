@@ -3,7 +3,7 @@ import {GameEnum, GameOptions} from "../../game/Interface";
 import {RunFastGameOptions} from "../../game/FightLordLike/core/runFast/RunFastInterface";
 import RunFastGame from "../../game/FightLordLike/core/runFast/RunFastGame";
 import {ClientException} from "../../../exception/clientException";
-import {ErrorCode} from "../../../../object/ErrorCode";
+import {ErrorCode} from "../../../constant/ErrorCode";
 import {RunFastGameConfig} from "../../game/FightLordLike/core/runFast/RunFastGameConfig";
 
 

@@ -2,7 +2,7 @@ import {ProtocolBase} from "../Base/ProtocolBase";
 import {RoomPushRoute} from "../Constant/Route";
 import {ControllerLogic} from "../Controller/Logic/ControllerLogic";
 import {ListMap} from "../Base/Helper/ListMap";
-import {AbstractGameOption, GameTypeEnum, GameTypeOption} from "../Constant/Game";
+import {AbstractGameOption} from "../Constant/Game";
 
 export class RoomServices extends ProtocolBase {
     protected static _instance;

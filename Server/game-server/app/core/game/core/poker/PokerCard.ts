@@ -1,5 +1,4 @@
 import {PokerSuit} from "./Interface";
-import {PokerClientDto} from "../../../../constant/clientDto/DtoConstant";
 
 export class PokerCard {
     // 花色
@@ -18,7 +17,7 @@ export class PokerCard {
 
 
     // 获取客户端数据
-    makeClient(): PokerClientDto {
+    makeClient() {
         return {
             suit: this.suit,
             rank: this.rank,

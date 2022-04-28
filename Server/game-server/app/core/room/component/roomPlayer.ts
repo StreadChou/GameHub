@@ -1,9 +1,7 @@
 import {LogicProxy} from "../../../servers/logic/proxy/logicProxy";
-import {ErrorCode} from "../../../../object/ErrorCode";
+import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus} from "pinus";
 import {ClientException} from "../../../exception/clientException";
-import {RoomPlayerInitDto} from "../../../constant/RpcDto";
-import {RoomRoomPlayerClientData} from "../../../constant/clientDto/DtoConstant";
 
 export class RoomPlayer {
     uid: string = "";
@@ -26,7 +24,7 @@ export class RoomPlayer {
 
     static async getInstanceByUid(uid: string): Promise<RoomPlayer> {
         let roomPlayer = new RoomPlayer(uid);
-        let userInfo: RoomPlayerInitDto = await LogicProxy.getInstance().generateRoomPlayer(uid);
+        let userInfo: any = await LogicProxy.getInstance().generateRoomPlayer(uid);
         Object.assign(roomPlayer, userInfo);
         return roomPlayer;
     }
@@ -41,7 +39,7 @@ export class RoomPlayer {
         pinus.app.channelService.pushMessageByUids(route, msg, persons, opts, cb)
     }
 
-    public makeClientData(): RoomRoomPlayerClientData {
+    public makeClientData(): any {
         return {
             uid: this.uid,
             seat: this.seat,

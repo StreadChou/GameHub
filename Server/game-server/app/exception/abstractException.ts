@@ -1,4 +1,4 @@
-import {ErrorCode} from "../../object/ErrorCode";
+import {ErrorCode} from "../constant/ErrorCode";
 
 export abstract class AbstractException extends Error {
     errorCode: ErrorCode
@@ -13,6 +13,4 @@ export abstract class AbstractException extends Error {
             code: this.errorCode,
         }
     }
-
-
 }

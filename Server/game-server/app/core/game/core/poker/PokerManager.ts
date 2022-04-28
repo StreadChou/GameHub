@@ -1,6 +1,5 @@
 import {PokerCard} from "./PokerCard";
 import {PokerSuit} from "./Interface";
-import {PokerClientDto} from "../../../../constant/clientDto/DtoConstant";
 
 export class PokerManager {
     cards: PokerCard[] = [];
@@ -37,7 +36,7 @@ export class PokerManager {
         return config;
     }
 
-    static makeClient(pokers: Array<PokerCard>): Array<PokerClientDto> {
+    static makeClient(pokers: Array<PokerCard>): Array<any> {
         return pokers.map(ele => {
             return ele.makeClient();
         })

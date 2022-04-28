@@ -1,8 +1,8 @@
-import {Injectable} from '@nestjs/common';
-import {JwtService} from "@nestjs/jwt";
-import {JwtSignOptions} from "@nestjs/jwt/dist/interfaces/jwt-module-options.interface";
-import {User} from "./entities/user.entity";
-import {UserService} from "./user.service";
+import { Injectable } from '@nestjs/common';
+import { JwtService } from "@nestjs/jwt";
+import { JwtSignOptions } from "@nestjs/jwt/dist/interfaces/jwt-module-options.interface";
+import { User } from "./entities/user.entity";
+import { UserService } from "./user.service";
 
 
 @Injectable()
@@ -20,6 +20,7 @@ export class AuthService {
             return {
                 aid: user.id,
                 username: user.username,
+                nick: user.username,
                 cover: user.cover,
             };
         }
@@ -27,9 +28,8 @@ export class AuthService {
     }
 
     async login(user: any, options?: JwtSignOptions) {
-        const payload = {username: user.username};
         return {
-            access_token: this.jwtService.sign(payload, options),
+            access_token: this.jwtService.sign(user, options),
             username: user.username,
         };
     }

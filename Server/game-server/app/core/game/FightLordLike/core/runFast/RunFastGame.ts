@@ -5,12 +5,11 @@ import {RunFastReferee} from "./RunFastReferee";
 import {ListMap} from "../../../../../type/ListMap";
 import {RunFastRole} from "./RunFastRole";
 import {ClientException} from "../../../../../exception/clientException";
-import {ErrorCode} from "../../../../../../object/ErrorCode";
+import {ErrorCode} from "../../../../../constant/ErrorCode";
 import {AbstractFightLordLikeGame} from "../AbstractFightLordLikeGame";
 import {RunFastGameOptions} from "./RunFastInterface";
 import {RunFastGameConfig} from "./RunFastGameConfig";
 import {RunFastStandRule} from "./RunFastStandRule";
-import {PokerClientDto} from "../../../../../constant/clientDto/DtoConstant";
 
 
 export default class RunFastGame extends AbstractFightLordLikeGame {
@@ -57,7 +56,7 @@ export default class RunFastGame extends AbstractFightLordLikeGame {
     }
 
     // 玩家出牌
-    playerPlayPokers(seat: number, _pokers: Array<PokerClientDto>) {
+    playerPlayPokers(seat: number, _pokers: Array<any>) {
         const role: RunFastRole = this.getRole(seat);
         if (!role) throw new ClientException(ErrorCode.RoleNotInGame, {}, "玩家不在游戏中")
 

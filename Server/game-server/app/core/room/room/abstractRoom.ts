@@ -1,16 +1,11 @@
 import {RoomPlayer} from "../component/roomPlayer";
-import {ErrorCode} from "../../../../object/ErrorCode";
+import {ErrorCode} from "../../../constant/ErrorCode";
 import {pinus, Channel} from "pinus";
 import {RoomPushRoute} from "../../../constant/Route";
 import {AbstractGame} from "../../game/core/abstract/abstractGame";
 import {ClientException} from "../../../exception/clientException";
 import {ListMap} from "../../../type/ListMap";
 import {GameOptions} from "../../game/Interface";
-import {
-    OnPlayerJoinRoomMessage,
-    OnPlayerLeaveRoomMessage,
-    OnRoomInfoMessage
-} from "../../../constant/clientDto/Server2ClientDto";
 
 export abstract class AbstractRoom {
 
@@ -74,7 +69,7 @@ export abstract class AbstractRoom {
     // 通知加入房间
     public async noticeJoinRoom(player: RoomPlayer) {
         // 先通知房间信息
-        const roomInfoMessage: OnRoomInfoMessage = {
+        const roomInfoMessage: any = {
             roomId: this.roomId,
             master: this.master,
             password: this.password,
@@ -84,14 +79,14 @@ export abstract class AbstractRoom {
         player.pushMessage(RoomPushRoute.OnRoomInfo, roomInfoMessage);
 
         // 给房间所有人通知有人进入
-        const joinRoomMessage: OnPlayerJoinRoomMessage = player.makeClientData()
+        const joinRoomMessage: any = player.makeClientData()
         this.pushRoomMessage(RoomPushRoute.OnPlayerJoinRoom, joinRoomMessage).then();
     }
 
 
     // 通知玩家离开房间
     public async noticeLeveRoom(player: RoomPlayer) {
-        const message: OnPlayerLeaveRoomMessage = {
+        const message: any = {
             uid: player.uid,
         }
         this.pushRoomMessage(RoomPushRoute.OnPlayerLeaveRoom, message).then();

@@ -4,7 +4,6 @@ import {RoomPlayer} from "../../../../room/component/roomPlayer";
 import {EventEmitter} from "events";
 import {PokerCard} from "../../../core/poker/PokerCard";
 import {PlayerEvent} from "../../Interface";
-import {PokerClientDto} from "../../../../../constant/clientDto/DtoConstant";
 
 export class RunFastRole extends AbstractPlayer {
     game: RunFastGame;
@@ -37,7 +36,7 @@ export class RunFastRole extends AbstractPlayer {
     }
 
     // 根据客户端信息, 从手牌中获取卡牌
-    getPokersFromHands(pokers: Array<PokerClientDto | PokerCard>): Array<PokerCard> {
+    getPokersFromHands(pokers: Array<any | PokerCard>): Array<PokerCard> {
         const rlt: Array<PokerCard> = []
         this.handsPokers.forEach(poker => {
             const res = pokers.some(ele => ele.suit == poker.suit && ele.value == poker.value);

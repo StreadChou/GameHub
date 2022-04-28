@@ -1,8 +1,6 @@
 import {UserEntity} from "../../entity/userEntity";
 import {UserServices} from "./services/userServices";
 import {pinus} from "pinus";
-import {RoomPlayerInitDto} from "../../constant/RpcDto";
-import {S2COnLogin} from "../../servers/vo";
 
 export class User {
     uid: string;
@@ -31,7 +29,7 @@ export class User {
 
 
     // 生成玩家登陆成功的电文内容
-    public makeOnLoinSuccessMessage(): S2COnLogin {
+    public makeOnLoinSuccessMessage(): any {
         return {
             attr: {
                 uid: this.uid,
@@ -42,7 +40,7 @@ export class User {
         }
     }
 
-    public async makeRoomNeed(): Promise<RoomPlayerInitDto> {
+    public async makeRoomNeed(): Promise<any> {
         return {
             uid: this.uid,
             nick: this.nick,

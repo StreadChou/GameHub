@@ -1,5 +1,6 @@
 export enum Client2ServerCmd {
-    Login = "connector.entryHandler.login",
+    GuestLogin = "connector.entryHandler.guestLogin",
+    TokenLogin = "connector.entryHandler.accountLogin",
 
 
     CreateRoom = "room.roomHandler.createRoom",

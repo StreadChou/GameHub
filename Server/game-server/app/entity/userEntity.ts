@@ -1,12 +1,11 @@
-import {Column, Entity, PrimaryColumn} from "typeorm";
-import {PrimaryGeneratedColumn} from "typeorm/browser";
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity()
 export class UserEntity {
     @PrimaryGeneratedColumn("increment")
     uid: number
 
-    @Column({unique: true})
+    @Column({unique: true, type: "bigint"})
     aid: number
 
     @Column()
@@ -18,7 +17,6 @@ export class UserEntity {
     @Column({default: 1})
     level: number;
 
-
-    @Column({default: 3200})
+    @Column({default: 0})
     money: number;
 }

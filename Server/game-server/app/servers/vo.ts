@@ -1,5 +1,5 @@
 // 登录
-import {ErrorCode} from "../../object/ErrorCode";
+import {ErrorCode} from "../constant/ErrorCode";
 import {GameOptions} from "../core/game/Interface";
 
 // 默认回文

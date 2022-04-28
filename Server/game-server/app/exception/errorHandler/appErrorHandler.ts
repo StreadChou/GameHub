@@ -12,4 +12,8 @@ export const AppErrorHandler: ResponseErrorHandler = function (err: any, msg: an
         console.error(err.message, err.stack);
         return cb(err, {code: 500});
     }
+
+    if (typeof err === "object"){
+        console.error(err.stack);
+    }
 }

@@ -1,6 +1,5 @@
 import {FrontendSession, pinus, RemoterClass} from "pinus";
 import {LogicRemote} from "../remote/logicRemote";
-import {PlayerLoginRequestDto, PlayerLoginResponseDto, RoomPlayerInitDto} from "../../../constant/RpcDto";
 
 export class LogicProxy {
     private static _instance: LogicProxy;
@@ -26,13 +25,13 @@ export class LogicProxy {
         return this._instance
     }
 
-    public async userLogin(info: PlayerLoginRequestDto, params: { sid: number, fid: string }): Promise<PlayerLoginResponseDto> {
+    public async userLogin(info: any, params: { sid: number, fid: string }): Promise<any> {
         const svrId = await this.getRandomServerId();
         return await this.logicRemote.Login.toServer(svrId, info, params)
     }
 
 
-    public async generateRoomPlayer(uid: string): Promise<RoomPlayerInitDto> {
+    public async generateRoomPlayer(uid: string): Promise<any> {
         const svrId = await this.getLogicServerId(uid);
         return await this.logicRemote.generateRoomPlayer.toServer(svrId, uid)
     }
