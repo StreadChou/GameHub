@@ -1,5 +1,5 @@
 import {Application, FrontendSession} from 'pinus';
-import {RoomManager} from "../../../core/room/roomManager";
+import {RoomManager} from "../instance/roomManager";
 import {AbstractRoom} from "../../../core/room/room/abstractRoom";
 import {AbstractFightLordLikeGame} from "../../../core/game/FightLordLike/core/AbstractFightLordLikeGame";
 

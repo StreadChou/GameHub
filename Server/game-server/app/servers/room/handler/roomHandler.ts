@@ -1,5 +1,5 @@
 import {Application, FrontendSession} from 'pinus';
-import {RoomManager} from "../../../core/room/roomManager";
+import {RoomManager} from "../instance/roomManager";
 import {AbstractRoom} from "../../../core/room/room/abstractRoom";
 import {RoomPlayer} from "../../../core/room/component/roomPlayer";
 import {ErrorCode} from "../../../constant/ErrorCode";

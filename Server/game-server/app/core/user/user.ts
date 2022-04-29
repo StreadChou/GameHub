@@ -1,29 +1,48 @@
 import {UserEntity} from "../../entity/userEntity";
 import {UserServices} from "./services/userServices";
 import {pinus} from "pinus";
+import {FastDto, fromJSON, Serialize, toDto} from "../../helper/jsonHelper";
+
+enum DtoEnum {
+    OnLoginDto = 1,
+    RoomNeedDto,
+}
 
 export class User {
-    uid: string;
-    nick: string
-    level: number
-    money: number
-    cover: string
+    userServices: UserServices;
 
+    @FastDto({enumKey: [DtoEnum.RoomNeedDto]})
     sid: number = 0; // sessionId
+
+    @FastDto({enumKey: [DtoEnum.RoomNeedDto]})
     fid: string = "" // frontendId
 
-    userServices: UserServices;
+    @Serialize({type: "string"})
+    @FastDto({enumKey: [DtoEnum.OnLoginDto, DtoEnum.RoomNeedDto]})
+    uid: string;
+
+    @Serialize()
+    @FastDto({enumKey: [DtoEnum.OnLoginDto, DtoEnum.RoomNeedDto]})
+    nick: string
+
+    @Serialize()
+    @FastDto({enumKey: [DtoEnum.OnLoginDto, DtoEnum.RoomNeedDto]})
+    level: number
+
+    @Serialize()
+    @FastDto({enumKey: [DtoEnum.OnLoginDto, DtoEnum.RoomNeedDto]})
+    money: number
+
+    @Serialize()
+    @FastDto({enumKey: [DtoEnum.OnLoginDto, DtoEnum.RoomNeedDto]})
+    cover: string
+
 
     // 从entity 中load 用户
     public static loadFromEntity = (entity: UserEntity) => new User(entity);
 
     private constructor(entity: UserEntity) {
-        this.uid = entity.uid.toString();
-        this.nick = entity.nick;
-        this.level = entity.level;
-        this.money = entity.money;
-        this.cover = entity.cover;
-
+        fromJSON(this, entity);
         this.userServices = UserServices.getInstance();
     }
 
@@ -31,28 +50,18 @@ export class User {
     // 生成玩家登陆成功的电文内容
     public makeOnLoinSuccessMessage(): any {
         return {
-            attr: {
-                uid: this.uid,
-                nick: this.nick,
-                level: this.level,
-                money: this.money,
-            }
+            attr: toDto(this, DtoEnum.OnLoginDto)
         }
     }
 
+    // 生成房间需要的玩家信息
     public async makeRoomNeed(): Promise<any> {
         return {
-            uid: this.uid,
-            nick: this.nick,
-            level: this.level,
-            money: this.money,
-            cover: this.cover,
-
-            sid: this.sid,
-            fid: this.fid,
+            user: toDto(this, DtoEnum.RoomNeedDto)
         };
     }
 
+    // 给玩家推送消息
     public pushMessage(route: string, msg: any, opts?: any, cb?: (err?: Error, result?: void) => void) {
         const persons = [{sid: this.fid, uid: this.uid.toString()}]
         pinus.app.channelService.pushMessageByUids(route, msg, persons, opts, cb)

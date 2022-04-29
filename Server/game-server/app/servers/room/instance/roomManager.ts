@@ -1,10 +1,10 @@
-import {NormalRoom} from "./room/normalRoom";
-import {ErrorCode} from "../../constant/ErrorCode";
-import {AbstractRoom} from "./room/abstractRoom";
-import {RoomPlayer} from "./component/roomPlayer";
-import {randomNumberBetween} from "../../helper/randomHelper";
-import {ClientException} from "../../exception/clientException";
-import {GameOptions} from "../game/Interface";
+import {NormalRoom} from "../../../core/room/room/normalRoom";
+import {ErrorCode} from "../../../constant/ErrorCode";
+import {AbstractRoom} from "../../../core/room/room/abstractRoom";
+import {RoomPlayer} from "../../../core/room/component/roomPlayer";
+import {randomNumberBetween} from "../../../helper/randomHelper";
+import {ClientException} from "../../../exception/clientException";
+import {GameOptions} from "../../../core/game/Interface";
 
 export class RoomManager {
     private static _instance: RoomManager;
