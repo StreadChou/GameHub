@@ -16,7 +16,7 @@ export enum FeePayFor {
 
 
 // 创建游戏的设置
-export interface AbstractGameOption {
+export interface AbstractRoomOption {
     maxPlayer: number;
     gameEnum: GameEnum
     gameTypeEnum: GameTypeEnum,
@@ -32,7 +32,7 @@ export enum RunFastConfig {
     ShowCardsNumber, // 显示卡牌数量
 }
 
-export interface RunFastGameOptions extends AbstractGameOption {
+export interface RunFastRoomOptions extends AbstractRoomOption {
     pokerNumber: number,
     dealPoker: number, // 单次发牌
     double: boolean;

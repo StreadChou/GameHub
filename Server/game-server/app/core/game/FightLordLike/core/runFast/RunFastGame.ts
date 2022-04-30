@@ -1,5 +1,3 @@
-import {AbstractRoom} from "../../../../room/room/abstractRoom";
-import {RoomPlayer} from "../../../../room/component/roomPlayer";
 import {RunFastTable} from "./RunFastTable";
 import {RunFastReferee} from "./RunFastReferee";
 import {ListMap} from "../../../../../type/ListMap";
@@ -7,8 +5,7 @@ import {RunFastRole} from "./RunFastRole";
 import {ClientException} from "../../../../../exception/clientException";
 import {ErrorCode} from "../../../../../constant/ErrorCode";
 import {AbstractFightLordLikeGame} from "../AbstractFightLordLikeGame";
-import {RunFastGameOptions} from "./RunFastInterface";
-import {RunFastGameConfig} from "./RunFastGameConfig";
+import {RunFastGameConfig, RunFastGameOption} from "./RunFastGameConfig";
 import {RunFastStandRule} from "./RunFastStandRule";
 
 
@@ -20,25 +17,33 @@ export default class RunFastGame extends AbstractFightLordLikeGame {
     config: RunFastGameConfig;
 
 
-    constructor(room: AbstractRoom, roomPlayers: Array<RoomPlayer>, opts: RunFastGameOptions, callback: Function) {
-        super(room, roomPlayers);
+    constructor(options: RunFastGameOption, callback: Function) {
+        super(options.room, options.players);
         this.callback = callback;
-
-        this.config = new RunFastGameConfig(this, opts); // 初始化配置
+        this.config = new RunFastGameConfig(this, options); // 初始化配置
 
         // 初始化玩家
-        roomPlayers.forEach(ele => {
+        options.players.forEach(ele => {
             this.players.push(new RunFastRole(this, ele))
         })
     }
 
-    get gameOption() {
-        return this.config.gameOption;
+    get maxPlayer() {
+        return this.config.options.roomConfig.maxPlayer;
     }
 
-    get cardsTypeConfig() {
-        return this.config.cardsTypeConfig;
+    get allowCardsType() {
+        return this.config.options.gameConfig.allowCardsType;
     }
+
+    get pokersConfig() {
+        return this.config.options.pokersConfig;
+    }
+
+    get gameConfig() {
+        return this.config.options.gameConfig;
+    }
+
 
     getRole(seat: number): RunFastRole {
         return this.players.key(seat);

@@ -40,10 +40,9 @@ export default class Login extends cc.Component {
 
 
     onLoginSuccess() {
-        console.error("登录成功, 需要切换场景");
         this.addComponent(Hall);
         this.node.removeComponent(this);
-        this.onDestroy();
+        this.destroy();
     }
 
     private loginPane: LoginPane;

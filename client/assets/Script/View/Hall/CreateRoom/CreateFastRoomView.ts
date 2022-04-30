@@ -1,48 +1,50 @@
 import {BaseCreateRoomView} from "./BaseCreateRoomView";
-import {RunFastConfig} from "../../../Constant/Game";
+import {
+    AbstractRoomOption,
+    FeePayFor,
+    GameEnum,
+    GameTypeEnum,
+    RunFastConfig,
+    RunFastRoomOptions
+} from "../../../Constant/Game";
+import {ControllerRoom} from "../../../Controller/Room/ControllerRoom";
 
 export class CreateFastRoomView extends BaseCreateRoomView {
-    public constructor() {
+    WindowName = "CreateRunFastRoom"
+
+    constructor() {
         super();
+        this.contentPane = fgui.UIPackage.createObject(this.PackageName, this.WindowName).asCom;
     }
 
     protected onInit(): void {
-        this.contentPane = fgui.UIPackage.createObject("Hall", "CreateRunFastRoom").asCom;
         this.contentPane.makeFullScreen();
-
-        // this.center();
-
         // 弹出窗口的动效已中心为轴心
         this.setPivot(0.5, 0.5);
-
         this.contentPane.getChild("createButton").onClick(this.createRoom, this);
-
-    }
-
-    protected onShown() {
-
-    }
-
-
-    protected doShowAnimation(): void {
-        this.setScale(0.1, 0.1);
-        fgui.GTween.to2(0.1, 0.1, 1, 1, 0.3)
-            .setTarget(this, this.setScale)
-            .setEase(fgui.EaseType.QuadOut)
-            .onComplete(this.onShown, this);
-    }
-
-    protected doHideAnimation(): void {
-        fgui.GTween.to2(1, 1, 0.1, 0.1, 0.3)
-            .setTarget(this, this.setScale)
-            .setEase(fgui.EaseType.QuadOut)
-            .onComplete(this.hideImmediately, this);
     }
 
 
     createRoom() {
-        const options = this.getOptions();
-        console.error("创建跑得快房间", options);
+        const _options = this.getOptions();
+        const createOption: { options: RunFastRoomOptions } = {
+            options: {
+                maxPlayer: _options.playerNumber,
+                gameEnum: GameEnum.RunFast,
+                gameTypeEnum: GameTypeEnum.FightLordLike,
+                whoPay: _options.whoPay,
+                chat: _options.chat,
+
+                pokerNumber: _options.pokerNumber,
+                dealPoker: _options.dealPoker, // 单次发牌
+                double: _options.double,
+                addPoints: _options.addPoints,
+                config: _options.setting,
+            }
+
+        }
+
+        ControllerRoom.getInstance().createRoom(createOption)
     }
 
     getOptions() {
@@ -52,10 +54,10 @@ export class CreateFastRoomView extends BaseCreateRoomView {
         const pokerNumber = parseInt(optsPane.getController("pokerNumber").selectedPage);
         const whoPay = parseInt(optsPane.getController("whoPay").selectedPage);
         const dealPoker = parseInt(optsPane.getController("dealPoker").selectedPage);
-        const chat = parseInt(optsPane.getController("chat").selectedPage);
+        const chat = !!optsPane.getController("chat").selectedPage;
 
-        const double = parseInt(optsPane.getController("double").selectedPage);
-        const addPoints = parseInt(optsPane.getController("addPoints").selectedPage);
+        const double = !!optsPane.getController("double").selectedPage
+        const addPoints = !!optsPane.getController("addPoints").selectedPage
 
         const getSetting = (type: RunFastConfig): boolean => {
             const settingPane = optsPane.getChild(`setting_${type}`);
@@ -64,7 +66,7 @@ export class CreateFastRoomView extends BaseCreateRoomView {
         }
 
         // @ts-ignore, 初始化的时候不给值
-        const setting: { [key in SettingEnum]: boolean } = {};
+        const setting: { [key in RunFastConfig]: boolean } = {};
         Object.values(RunFastConfig).forEach(key => {
             if (Number.isInteger(key)) {
                 // @ts-ignore

@@ -1,6 +1,7 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
-import {CardsType, CardsTypeConfig, FightLordLikeGameOptions} from "../../Interface";
+import {CardsType, CardsTypeConfig} from "../../Interface";
+import {FightLordLikeGameConfig} from "../../core/AbstractFightLordLikeConfig";
 
 
 // 单张
@@ -19,18 +20,18 @@ export class TypeSingle extends AbstractPokerHelp {
     }
 
 
-    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean{
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean{
         return cards.length == 1;
 
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean{
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean{
         const {pokerRank} = _opt
         return pokerRank.indexOf(cardsA[0].rank) > pokerRank.indexOf(cardsB[0].rank);
     }
 
 
-    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): Array<Array<PokerCard>> {
         return cards.map(ele => {
             return [ele]
         })

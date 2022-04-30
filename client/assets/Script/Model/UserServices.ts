@@ -1,6 +1,7 @@
 import {ProtocolBase} from "../Base/ProtocolBase";
 import {Client2ServerCmd, PlayerPushRoute} from "../Constant/Route";
 import {ControllerLogic} from "../Controller/Logic/ControllerLogic";
+import {fromJSON, Serialize} from "../Base/Helper/jsonHelper";
 
 export class UserServices extends ProtocolBase {
     protected static _instance: UserServices;
@@ -35,16 +36,30 @@ export class UserServices extends ProtocolBase {
     }
 
     // 登录之后
-    protected OnLogin(msg: any) {
-        this.userEntity = new UserEntity(msg);
+    protected OnLogin(message: any) {
+        this.userEntity = new UserEntity(message.attr);
         console.log(this.userEntity);
         ControllerLogic.getInstance().onLoginSuccess();
     }
 }
 
 export class UserEntity {
+    @Serialize({type: "string"})
+    uid: string;
+
+    @Serialize()
+    nick: string
+
+    @Serialize()
+    level: number
+
+    @Serialize()
+    money: number
+
+    @Serialize()
+    cover: string
 
     constructor(userInfo: any) {
-        Object.assign(userInfo);
+        fromJSON(this, userInfo)
     }
 }

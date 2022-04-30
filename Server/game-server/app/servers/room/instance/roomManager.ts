@@ -1,14 +1,14 @@
-import {NormalRoom} from "../../../core/room/room/normalRoom";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {AbstractRoom} from "../../../core/room/room/abstractRoom";
 import {RoomPlayer} from "../../../core/room/component/roomPlayer";
-import {randomNumberBetween} from "../../../helper/randomHelper";
 import {ClientException} from "../../../exception/clientException";
-import {GameOptions} from "../../../core/game/Interface";
+import {RunFastRoom} from "../../../core/room/room/runFastRoom";
+import {AbstractRoomOption, GameEnum} from "../../../core/game/Interface";
 
 export class RoomManager {
     private static _instance: RoomManager;
     roomMap: { [key in number]: AbstractRoom } = {};
+    roomIdRecord = 10000;
 
     private constructor() {
         // 单例
@@ -20,9 +20,10 @@ export class RoomManager {
         return this._instance;
     }
 
-    async createRoom(createRoomDto: GameOptions): Promise<AbstractRoom> {
-        let roomId: number = await this.generateRandomRoomId();
-        let room = new NormalRoom(roomId, createRoomDto);
+    // 创建房间
+    async createRoom(options: AbstractRoomOption): Promise<AbstractRoom> {
+        let roomId: number = await this.generateRoomId();
+        let room = RoomFactory(roomId, options);
         this.roomMap[roomId] = room;
         return room;
     }
@@ -48,7 +49,15 @@ export class RoomManager {
 
 
     // 生成唯一的房间ID
-    protected async generateRandomRoomId(): Promise<number> {
-        return randomNumberBetween(100000, 999999);
+    protected async generateRoomId(): Promise<number> {
+        return this.roomIdRecord++;
+    }
+}
+
+export function RoomFactory(roomId: number, options: AbstractRoomOption) {
+    switch (options.gameEnum) {
+        case GameEnum.RunFast:
+            return new RunFastRoom(roomId, options);
+
     }
 }

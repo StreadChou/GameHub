@@ -53,8 +53,8 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
     // 玩家自由出牌
     playerFreePlay(role: RunFastRole, pokers: Array<PokerCard>): CardsType {
         // 判断牌型是否合法
-        for (let allowCardsType of this.game.gameOption.allowCardsType) {
-            if (CardTypeIs(allowCardsType, pokers, this.game.cardsTypeConfig, this.game.gameOption)) {
+        for (let allowCardsType of this.game.allowCardsType) {
+            if (CardTypeIs(allowCardsType, pokers, this.game.pokersConfig, this.game.gameConfig)) {
                 return allowCardsType;
             }
         }
@@ -64,20 +64,23 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
     // 玩家压制出牌
     playerSuppressPlay(role: RunFastRole, pokers: Array<PokerCard>): CardsType {
         // 判断我和之前的是不是同一个牌型, 如果是的话
-        if (CardTypeIs(this.last.type, pokers, this.game.cardsTypeConfig, this.game.gameOption)) {
+        if (CardTypeIs(this.last.type, pokers, this.game.pokersConfig, this.game.gameConfig)) {
             // 判断我是否比上家大
-            if (CardTypeCheck(this.last.type, pokers, this.last.pokers, this.game.cardsTypeConfig, this.game.gameOption)) {
+            if (CardTypeCheck(this.last.type, pokers, this.last.pokers, this.game.pokersConfig, this.game.gameConfig)) {
                 return this.last.type;
             }
             throw new ClientException(ErrorCode.PokerLessThanLast, {}, "牌比上家小");
         }
-        // 如果和上家的牌型不一致
-        const lastConfig = this.game.cardsTypeConfig[this.last.type];
+
+
+        // 如果和上家的牌型不一致, 则需要判断对方牌型是不是强大于我的牌型
+        const lastConfig = this.game.pokersConfig[this.last.type];
         for (let thanType of lastConfig.than) {
-            if (CardTypeIs(thanType, pokers, this.game.cardsTypeConfig, this.game.gameOption)) {
+            if (CardTypeIs(thanType, pokers, this.game.pokersConfig, this.game.gameConfig)) {
                 return thanType
             }
         }
+
         throw new ClientException(ErrorCode.PokerIllegal, {}, "出牌不合法");
     }
 
@@ -90,7 +93,7 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
             locker: false,
             timer: setTimeout(() => {
 
-            }, this.game.gameOption.roundTime * 1000)
+            }, this.game.gameConfig.roundTime * 1000)
         }
     }
 
@@ -101,7 +104,7 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
             return this.game.getRole(1);
         }
         const nowSeat = this.round.role.seat;
-        if (nowSeat == this.game.gameOption.maxPlayer) return this.game.getRole(1);
+        if (nowSeat == this.game.maxPlayer) return this.game.getRole(1);
         return this.game.getRole(nowSeat + 1);
     }
 

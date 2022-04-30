@@ -5,23 +5,36 @@ import {RoomPushRoute} from "../../../constant/Route";
 import {AbstractGame} from "../../game/core/abstract/abstractGame";
 import {ClientException} from "../../../exception/clientException";
 import {ListMap} from "../../../type/ListMap";
-import {GameOptions} from "../../game/Interface";
+import {AbstractRoomOption} from "../../game/Interface";
+import {FastDto, toDto} from "../../../helper/jsonHelper";
+
+
+enum DtoEnum {
+    RoomInfo = 1,
+}
 
 export abstract class AbstractRoom {
-
+    @FastDto({enumKey: [DtoEnum.RoomInfo]})
     roomId: number = 0;
+
+    @FastDto({enumKey: [DtoEnum.RoomInfo]})
     password: number = 10;
+
+    @FastDto({enumKey: [DtoEnum.RoomInfo]})
     master: string = "";
+
+    @FastDto({enumKey: [DtoEnum.RoomInfo]})
+    gameOption: AbstractRoomOption; // 游戏选项
+
     players: ListMap<RoomPlayer> = new ListMap<RoomPlayer>("uid")
-    gameOption: GameOptions; // 游戏选项
 
     channel: Channel; // 房间信道
     game: AbstractGame; // 游戏
 
 
-    protected constructor(roomId: number, gameOptions: GameOptions) {
+    constructor(roomId: number, options: AbstractRoomOption) {
         this.roomId = roomId;
-        this.setGameOptions(gameOptions)
+        this.setGameOptions(options)
         this.channel = pinus.app.get('channelService').getChannel(`room_${this.roomId}`, true);
     }
 
@@ -40,7 +53,6 @@ export abstract class AbstractRoom {
     public async joinRoom(player: RoomPlayer): Promise<void> {
         if (this.isRoomFull) throw new ClientException(ErrorCode.RoomFull, {}, "房间已满");
         if (this.players.has(player.uid)) throw new ClientException(ErrorCode.AlreadyInRoom, {}, "已经在房间中");
-
         // 加入房间
         if (this.players.length <= 0) this.master = player.uid;
         this.players.push(player);
@@ -69,13 +81,8 @@ export abstract class AbstractRoom {
     // 通知加入房间
     public async noticeJoinRoom(player: RoomPlayer) {
         // 先通知房间信息
-        const roomInfoMessage: any = {
-            roomId: this.roomId,
-            master: this.master,
-            password: this.password,
-            maxPlayer: this.gameOption.maxPlayer,
-            playerList: this.players.map(ele => ele.makeClientData()),
-        }
+        const roomInfoMessage: any = toDto(this, DtoEnum.RoomInfo);
+        roomInfoMessage.players = this.players.map(ele => ele.makeClientData());
         player.pushMessage(RoomPushRoute.OnRoomInfo, roomInfoMessage);
 
         // 给房间所有人通知有人进入
@@ -102,7 +109,7 @@ export abstract class AbstractRoom {
         })
     }
 
-    protected abstract setGameOptions(gameOptions: GameOptions);
+    protected abstract setGameOptions(options: AbstractRoomOption);
 
     public abstract startGame(): Promise<void>;
 }

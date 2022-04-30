@@ -1,15 +1,19 @@
 import {ProtocolBase} from "../Base/ProtocolBase";
-import {RoomPushRoute} from "../Constant/Route";
-import {ControllerLogic} from "../Controller/Logic/ControllerLogic";
+import {Client2ServerCmd, RoomPushRoute} from "../Constant/Route";
 import {ListMap} from "../Base/Helper/ListMap";
-import {AbstractGameOption} from "../Constant/Game";
+import {AbstractRoomOption} from "../Constant/Game";
+import {fromJSON, Serialize} from "../Base/Helper/jsonHelper";
+import {ControllerRoom} from "../Controller/Room/ControllerRoom";
 
 export class RoomServices extends ProtocolBase {
     protected static _instance;
     protected roomEntity: RoomEntity;
 
-    public static get instance() {
-        this._instance = this._instance ?? new RoomServices();
+    public static get instance(): RoomServices {
+        if (!this._instance) {
+            this._instance = new RoomServices();
+            this._instance.addProtocols();
+        }
         return this._instance;
     }
 
@@ -20,19 +24,39 @@ export class RoomServices extends ProtocolBase {
 
     // 初始化监听
     protected initProtocols() {
+        this.initProtocol(Client2ServerCmd.CreateRoom, this.onCreateRoomSuccess.bind(this));
+
         this.initProtocol(RoomPushRoute.OnRoomInfo, this.onRoomInfo.bind(this));
         this.initProtocol(RoomPushRoute.OnPlayerJoinRoom, this.onPlayerJoinRoom.bind(this));
+
         this.initProtocol(RoomPushRoute.OnPlayerLeaveRoom, this.onPlayerLeaveRoom.bind(this));
     }
 
+    // 创建房间
+    requestCreateRoom(message: any) {
+        this.sendMsg(Client2ServerCmd.CreateRoom, message);
+    }
+
+    // 创建房间
+    requestJoinRoom(message: any) {
+        this.sendMsg(Client2ServerCmd.JoinRoom, message);
+    }
+
+    // 创建房间成功之后
+    onCreateRoomSuccess(message: any) {
+        this.requestJoinRoom({roomId: message.data.roomId}) // 请求加入房间
+    }
+
     // 进入房间之后
-    protected onRoomInfo(msg: any) {
-        this.roomEntity = new RoomEntity(msg);
-        ControllerLogic.getInstance().onLoginSuccess();
+    protected onRoomInfo(message: any) {
+        console.error("onRoomInfo", message)
+        this.roomEntity = new RoomEntity(message);
+        ControllerRoom.getInstance().onJoinRoomSuccess();
     }
 
     // 玩家加入房间
     protected onPlayerJoinRoom(message: any) {
+        console.error("onPlayerJoinRoom", message)
         this.roomEntity.playerJoinRoom(message);
     }
 
@@ -40,22 +64,26 @@ export class RoomServices extends ProtocolBase {
     protected onPlayerLeaveRoom(message: any) {
         this.roomEntity.playerLeaveRoom(message.uid);
     }
-
-
 }
 
 export class RoomEntity {
+    @Serialize()
     roomId: number;
+
+    @Serialize()
     password: number;
+
+    @Serialize()
     master: string;
-    gameOption: AbstractGameOption; // 游戏对应的设置
+
+    @Serialize()
+    gameOption: AbstractRoomOption; // 游戏对应的设置
+
     players: ListMap<RoomPlayerEntity> = new ListMap<RoomPlayerEntity>("uid"); // 房间内的玩家
 
     constructor(roomInfo: any) {
-        this.roomId = roomInfo.roomId;
-        this.password = roomInfo.password;
-        this.master = roomInfo.master;
-        this.gameOption = roomInfo.gameOption;
+        fromJSON(this, roomInfo)
+
         roomInfo.players.forEach(ele => {
             this.playerJoinRoom(ele);
         })
@@ -73,9 +101,22 @@ export class RoomEntity {
 }
 
 export class RoomPlayerEntity {
+    @Serialize({type: "string"})
     uid: string;
 
-    constructor(info: any) {
-        this.uid = info.uid;
+    @Serialize()
+    nick: string
+
+    @Serialize()
+    level: number
+
+    @Serialize()
+    money: number
+
+    @Serialize()
+    cover: string
+
+    constructor(userInfo: any) {
+        fromJSON(this, userInfo)
     }
 }

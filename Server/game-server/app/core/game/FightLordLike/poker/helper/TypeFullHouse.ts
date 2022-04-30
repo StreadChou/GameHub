@@ -1,6 +1,7 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
-import {CardsType, CardsTypeConfig, FightLordLikeGameOptions} from "../../Interface";
+import {CardsType, CardsTypeConfig} from "../../Interface";
+import {FightLordLikeGameConfig} from "../../core/AbstractFightLordLikeConfig";
 
 
 // 三代对
@@ -19,7 +20,7 @@ export class TypeFullHouse extends AbstractPokerHelp {
     }
 
 
-    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean {
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
         if (cards.length != 5) return false;
         const sameRank = this.pokerGetCardInSame(cards, 3);
 
@@ -31,7 +32,7 @@ export class TypeFullHouse extends AbstractPokerHelp {
         return otherRank[0] == otherRank[1]
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean {
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
         const {pokerRank} = _opt
         const sameRankA = this.pokerGetCardInSame(cardsA, 3);
         const sameRankB = this.pokerGetCardInSame(cardsB, 3);
@@ -40,7 +41,7 @@ export class TypeFullHouse extends AbstractPokerHelp {
     }
 
 
-    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): Array<Array<PokerCard>> {
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const uniqueRank = [...new Set(ranks)]
 

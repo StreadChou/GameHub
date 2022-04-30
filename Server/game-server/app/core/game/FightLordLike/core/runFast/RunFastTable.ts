@@ -20,7 +20,7 @@ export class RunFastTable extends AbstractFightLordLikeTable {
         super(game);
         this.game = game;
         this.pokerManager = new PokerManager(PokerManager.getPokerConfig(1));
-        if (this.game.gameOption.perPlayerCards == 16) {
+        if (this.game.gameConfig.pokerNumber == 16) {
             this.use16Cards();
         } else {
             this.use15Cards();
@@ -44,7 +44,7 @@ export class RunFastTable extends AbstractFightLordLikeTable {
 
 
     // 给玩家发牌
-    sendPokerToPlayer(role: RunFastRole, number = this.game.gameOption.perPlayerCards) {
+    sendPokerToPlayer(role: RunFastRole, number = this.game.gameConfig.pokerNumber) {
         const pokers = this.remainPokers.splice(0, number);
         role.receivePokers(pokers);
         const pokerInfo = PokerManager.makeClient(pokers);

@@ -1,7 +1,8 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
 import {ConfigStraight} from "../config/ConfigStraight";
-import {CardsType, CardsTypeConfig, FightLordLikeGameOptions} from "../../Interface";
+import {CardsType, CardsTypeConfig} from "../../Interface";
+import {FightLordLikeGameConfig} from "../../core/AbstractFightLordLikeConfig";
 
 // 同花顺
 export class TypeStraightFlush extends AbstractPokerHelp {
@@ -19,7 +20,7 @@ export class TypeStraightFlush extends AbstractPokerHelp {
     }
 
 
-    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean {
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
         if (cards.length <= 5) return false;
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const suits = cards.map(ele => ele.suit);
@@ -36,7 +37,7 @@ export class TypeStraightFlush extends AbstractPokerHelp {
         return true;
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean {
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
         const rankA = cardsA.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const rankB = cardsB.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const {pokerRank} = _opt
@@ -44,7 +45,7 @@ export class TypeStraightFlush extends AbstractPokerHelp {
     }
 
 
-    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): Array<Array<PokerCard>> {
         const config = _config[this.type] as ConfigStraight;
         let rlt: Array<Array<PokerCard>> = [];
         const {pokerRank} = _opt

@@ -11,7 +11,8 @@ import {TypeStraight} from "./TypeStraight";
 import {TypeStraightFlush} from "./TypeStraightFlush";
 import {TypeAllJoker} from "./TypeAllJoker";
 import {AbstractPokerHelp} from "./PokerHelper";
-import {CardsType, CardsTypeConfig, FightLordLikeGameOptions} from "../../Interface";
+import {CardsType, CardsTypeConfig} from "../../Interface";
+import {FightLordLikeGameConfig} from "../../core/AbstractFightLordLikeConfig";
 
 
 const CardsTypeMap: { [key in CardsType]: AbstractPokerHelp } = {
@@ -30,13 +31,13 @@ const CardsTypeMap: { [key in CardsType]: AbstractPokerHelp } = {
 
 
 // 判断 cards 是否是 type 类型
-export function CardTypeIs(type: CardsType, cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions) {
+export function CardTypeIs(type: CardsType, cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig) {
     const cls = CardsTypeMap[type];
     return cls.is(cards, _config, _opt);
 }
 
 // 判断 cardsA 是否 大于 cardsB (根据type)
-export function CardTypeCheck(type: CardsType, cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean {
+export function CardTypeCheck(type: CardsType, cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
     const cls = CardsTypeMap[type];
     return cls.check(cardsA, cardsB, _config, _opt);
 }
@@ -44,7 +45,7 @@ export function CardTypeCheck(type: CardsType, cardsA: Array<PokerCard>, cardsB:
 
 // 从 cardsA 中获取所有 大于 cardsB 的牌, 其中已知 cardsB 的类型是 type
 // 提醒功能
-export function CardsAllGt(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, type: CardsType, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): Array<Array<PokerCard>> {
+export function CardsAllGt(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, type: CardsType, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): Array<Array<PokerCard>> {
     let rlt: Array<Array<PokerCard>> = [];
 
     // 从cardsA 中获取所有符合的牌

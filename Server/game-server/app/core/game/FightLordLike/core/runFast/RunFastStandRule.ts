@@ -81,10 +81,10 @@ export class RunFastStandRule {
     }
 
     stateDeal() {
-        const cardNumberPerPlayer = this.game.gameOption.perPlayerCards;
-        this.game.players.forEach(player => {
-            this.game.table.sendPokerToPlayer(player, cardNumberPerPlayer);
-        })
+        // const cardNumberPerPlayer = this.game.gameOption.perPlayerCards;
+        // this.game.players.forEach(player => {
+        //     this.game.table.sendPokerToPlayer(player, cardNumberPerPlayer);
+        // })
     }
 
     stateGameOver() {

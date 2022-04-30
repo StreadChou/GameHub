@@ -5,6 +5,7 @@ import {nowTimestamp} from "../../../../helper/timeHelper";
 import {randomNumberBetween} from "../../../../helper/randomHelper";
 import {AbstractPlayer} from "./abstractPlayer";
 import {ListMap} from "../../../../type/ListMap";
+import {RunFastRole} from "../../FightLordLike/core/runFast/RunFastRole";
 
 export abstract class AbstractGame {
     room: AbstractRoom;

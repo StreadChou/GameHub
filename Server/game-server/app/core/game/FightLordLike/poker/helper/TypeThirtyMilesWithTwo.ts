@@ -1,6 +1,7 @@
 import {AbstractPokerHelp} from "./PokerHelper";
 import {PokerCard} from "../../../core/poker/PokerCard";
-import {CardsType, CardsTypeConfig, FightLordLikeGameOptions} from "../../Interface";
+import {CardsType, CardsTypeConfig} from "../../Interface";
+import {FightLordLikeGameConfig} from "../../core/AbstractFightLordLikeConfig";
 
 // 三代二
 export class TypeThirtyMilesWithTwo extends AbstractPokerHelp {
@@ -18,19 +19,19 @@ export class TypeThirtyMilesWithTwo extends AbstractPokerHelp {
     }
 
 
-    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean {
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
         if (cards.length != 5) return false;
         return this.getThirtyRank(cards) !== null;
     }
 
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): boolean {
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
         const {pokerRank} = _opt
         return pokerRank.indexOf(this.getThirtyRank(cardsA)) > pokerRank.indexOf(this.getThirtyRank(cardsB));
     }
 
 
-    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameOptions): Array<Array<PokerCard>> {
+    all(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): Array<Array<PokerCard>> {
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const uniqueRank = [...new Set(ranks)]
 
