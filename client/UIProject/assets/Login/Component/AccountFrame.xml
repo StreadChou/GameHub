@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="900,400" extention="Label">
   <displayList>
-    <image id="n5_pmpe" name="n5" src="gh835b" fileName="Image/Panel/panel043.png" pkg="hyyrj5lp" xy="0,0" size="900,400">
+    <image id="n16_q2uf" name="n16" src="q2ufni" fileName="Image/Panel/panel026.png" pkg="hyyrj5lp" xy="2,-2" size="900,400">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <image id="n7_pmpe" name="n7" src="gh835a" fileName="Image/Panel/panel042.png" pkg="hyyrj5lp" xy="25,25" size="850,350"/>
-    <component id="n12_pmpe" name="closeButton" src="pmpeb2" fileName="Component/Button/CloseButton.xml" pkg="hyyrj5lp" xy="827,16" size="42,49">
-      <Button sound="ui://hyyrj5lpgh83ag"/>
+    <component id="n15_q2uf" name="closeButton" src="q2ufo6" fileName="Component/Button/RightCloseButton.xml" pkg="hyyrj5lp" xy="827,14" size="39,46">
+      <relation target="" sidePair="right-right,top-top"/>
     </component>
   </displayList>
 </component>

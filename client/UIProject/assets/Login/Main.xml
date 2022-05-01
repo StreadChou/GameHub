@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <image id="n3_pmpe" name="n3" src="pmpe1" fileName="loading.png" pkg="2duhv4um" xy="0,0" size="1334,750"/>
+    <image id="n3_pmpe" name="n3" src="pmpe1" fileName="Image/loading.png" pkg="2duhv4um" xy="0,0" size="1334,750" visible="false"/>
     <component id="n0_rjbi" name="WechatLogin" src="rjbi6" fileName="Component/Button/WechatLogin.xml" xy="250,504" size="250,92" group="n10_m9xm" aspect="true"/>
     <component id="n1_rjbi" name="AccountLogin" src="rjbi4" fileName="Component/Button/AccountLogin.xml" xy="559,505" size="250,92" group="n10_m9xm" aspect="true"/>
     <component id="n2_rjbi" name="GuestLogin" src="rjbi5" fileName="Component/Button/GuestLogin.xml" xy="884,503" size="250,92" group="n10_m9xm" aspect="true"/>
@@ -9,12 +9,10 @@
       <relation target="n6_m9xm" sidePair="bottom-top"/>
     </group>
     <graph id="n4_m9xm" name="n4" xy="0,652" size="1334,100" group="n6_m9xm" type="rect" lineSize="0" fillColor="#26000000"/>
-    <component id="n7_m9xm" name="n7" src="pmpeb3" fileName="Component/CheckBox/CheckBox_1.xml" pkg="hyyrj5lp" xy="256,665" size="26,28" group="n6_m9xm">
-      <Button checked="true"/>
-    </component>
-    <text id="n5_m9xm" name="n5" xy="229,712" size="912,24" group="n6_m9xm" fontSize="16" color="#ffffff" text="抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。"/>
-    <text id="n8_m9xm" name="n8" xy="294,668" size="308,24" group="n6_m9xm" fontSize="16" color="#ffffff" text="我已阅读  &lt;游戏服务协议&gt; &lt;隐私收集协议&gt;"/>
-    <text id="n9_m9xm" name="n9" xy="621,668" size="425,24" group="n6_m9xm" fontSize="16" color="#ffffff" text="我已经知晓此游戏正在开发中,产生的所有内容都有可能销毁"/>
+    <text id="n5_m9xm" name="n5" xy="229,712" size="913,24" group="n6_m9xm" fontSize="16" color="#ffffff" text="抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。"/>
+    <text id="n8_m9xm" name="n8" xy="294,668" size="318,24" group="n6_m9xm" fontSize="16" color="#ffffff" text="我已阅读  &lt;游戏服务协议&gt; &lt;隐私收集协议&gt;"/>
+    <text id="n9_m9xm" name="n9" xy="621,668" size="424,24" group="n6_m9xm" fontSize="16" color="#ffffff" text="我已经知晓此游戏正在开发中,产生的所有内容都有可能销毁"/>
+    <component id="n12_q2uf" name="n12" src="pmpeb3" fileName="Component/CheckBox/CheckBox_1.xml" pkg="hyyrj5lp" xy="261,668" size="25,26" group="n6_m9xm" aspect="true"/>
     <group id="n6_m9xm" name="n6" xy="0,652" size="1334,100" advanced="true">
       <relation target="" sidePair="bottom-bottom"/>
     </group>

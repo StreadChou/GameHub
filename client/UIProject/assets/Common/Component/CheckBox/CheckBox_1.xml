@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="83,89" extention="Button">
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="1"/>
+<component size="117,50" pivot="0.5,0.5" overflow="hidden" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <image id="n0_pmpe" name="n0" src="gh832g" fileName="Image/Button/button079.png" xy="0,0">
+    <text id="n4_q2uf" name="title" xy="51,0" size="66,50" fontSize="32" color="#ffffe2" vAlign="middle" autoSize="shrink" strokeColor="#6e5745" singleLine="true" text="文本">
+      <relation target="" sidePair="width-width,height-height"/>
+    </text>
+    <loader id="n5_q2uf" name="n5" xy="0,0" size="46,50" url="ui://hyyrj5lpq2ufex" fill="scaleMatchHeight">
       <gearDisplay controller="button" pages="0,1,2,3"/>
-      <relation target="" sidePair="width-width,height-height"/>
-    </image>
-    <image id="n1_pmpe" name="n1" src="gh832h" fileName="Image/Button/button080.png" xy="0,0">
+      <relation target="" sidePair="height-height,left-left"/>
+    </loader>
+    <loader id="n6_q2uf" name="n6" xy="0,0" size="83,50" url="ui://hyyrj5lpq2ufew" fill="scaleMatchHeight">
       <gearDisplay controller="button" pages="1,3"/>
-      <relation target="" sidePair="width-width,height-height"/>
-    </image>
+      <relation target="" sidePair="height-height,left-left"/>
+    </loader>
   </displayList>
   <Button mode="Check"/>
 </component>

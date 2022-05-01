@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<component size="600,350">
-  <displayList>
-    <component id="n0_rjbi" name="frame" src="rjbiav" fileName="Component/ErrorWindow/AlertWindow/frame.xml" xy="0,0"/>
-    <text id="n5_pmpe" name="Title" xy="33,24" size="530,33" font="ui://hyyrj5lppmpeb1" fontSize="22" color="#ffffff" align="center" vAlign="middle" autoSize="none" bold="true" text="操作失败"/>
-    <text id="n6_pmpe" name="Message" xy="22,77" size="554,168" font="ui://hyyrj5lppmpe8" fontSize="20" color="#202020" align="center" vAlign="middle" letterSpacing="2" autoSize="none" text="错误内容"/>
-    <text id="n7_pmpe" name="Code" xy="509,280" size="10,24" font="ui://hyyrj5lppmpe8" fontSize="16" color="#484848" align="center" letterSpacing="2" text=""/>
-  </displayList>
-</component>

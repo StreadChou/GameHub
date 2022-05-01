@@ -2,18 +2,20 @@
 <component size="1334,750">
   <displayList>
     <image id="n20_m9xm" name="n20" src="m9xma" fileName="Background.png" xy="0,0" size="1334,750"/>
-    <image id="n12_m9xm" name="n12" src="gh835y" fileName="Image/Panel/panel012.png" pkg="hyyrj5lp" xy="-8,676" size="1334,103" aspect="true"/>
+    <image id="n12_m9xm" name="Background" src="gh835y" fileName="Image/Panel/panel012.png" pkg="hyyrj5lp" xy="-8,676" size="1334,103" group="n21_a65l" aspect="true"/>
+    <text id="n10_m9xm" name="Name" xy="107,705" size="156,34" group="n21_a65l" font="ui://hyyrj5lppmpeb1" fontSize="22" color="#ffffff" vAlign="middle" autoSize="none" bold="true" singleLine="true" text="六个字的名字"/>
     <image id="n3_m9xm" name="n3" src="gh833o" fileName="Image/Icon/icon069.png" pkg="hyyrj5lp" xy="52,701" size="43,43" group="n4_m9xm"/>
     <image id="n2_m9xm" name="n2" src="gh8354" fileName="Image/Panel/panel036.png" pkg="hyyrj5lp" xy="49,698" size="49,49" group="n4_m9xm"/>
-    <group id="n4_m9xm" name="n4" xy="49,698" size="49,49"/>
-    <text id="n10_m9xm" name="n10" xy="107,705" size="156,34" group="n9_m9xm" font="ui://hyyrj5lppmpeb1" fontSize="22" color="#ffffff" vAlign="middle" autoSize="none" bold="true" singleLine="true" text="六个字的名字"/>
-    <group id="n9_m9xm" name="n9" xy="107,705" size="156,34"/>
-    <image id="n14_m9xm" name="n14" src="gh8366" fileName="Image/Panel/panel020.png" pkg="hyyrj5lp" xy="320,702" size="198,39"/>
-    <image id="n15_m9xm" name="n15" src="gh8348" fileName="Image/Icon/icon001.png" pkg="hyyrj5lp" xy="324,705" size="32,32"/>
-    <text id="n16_m9xm" name="n16" xy="361,705" size="133,32" fontSize="22" color="#ffeac1" autoSize="none" bold="true" text="123456"/>
-    <image id="n17_m9xm" name="n17" src="gh832j" fileName="Image/Button/button069.png" pkg="hyyrj5lp" xy="480,702" size="40,40"/>
-    <component id="n18_m9xm" name="n18" src="gh837j" fileName="Component/Button/btn_md_green.xml" pkg="hyyrj5lp" xy="1155,701" size="118,42">
+    <group id="n4_m9xm" name="Cover" xy="49,698" size="49,49" group="n21_a65l"/>
+    <image id="n14_m9xm" name="n14" src="gh8366" fileName="Image/Panel/panel020.png" pkg="hyyrj5lp" xy="320,702" size="198,39" group="n21_a65l"/>
+    <image id="n15_m9xm" name="n15" src="gh8348" fileName="Image/Icon/icon001.png" pkg="hyyrj5lp" xy="324,705" size="32,32" group="n21_a65l"/>
+    <text id="n16_m9xm" name="n16" xy="361,705" size="133,32" group="n21_a65l" fontSize="22" color="#ffeac1" autoSize="none" bold="true" text="123456"/>
+    <image id="n17_m9xm" name="n17" src="gh832j" fileName="Image/Button/button069.png" pkg="hyyrj5lp" xy="480,702" size="40,40" group="n21_a65l"/>
+    <component id="n18_m9xm" name="n18" src="gh837j" fileName="Component/Button/btn_md_green.xml" pkg="hyyrj5lp" xy="1155,701" size="118,42" group="n21_a65l">
       <Button title="聊天" titleColor="#ffffff" titleFontSize="20"/>
     </component>
+    <group id="n21_a65l" name="Bottom" xy="-8,676" size="1334,103" advanced="true">
+      <relation target="" sidePair="bottom-bottom"/>
+    </group>
   </displayList>
 </component>

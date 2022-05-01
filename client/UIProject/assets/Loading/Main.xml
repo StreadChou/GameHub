@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <image id="n1_pmpe" name="n1" src="pmpe1" fileName="loading.png" xy="0,0" size="1334,750"/>
+    <image id="n1_pmpe" name="n1" src="pmpe1" fileName="Image/loading.png" xy="0,0" size="1334,750"/>
     <component id="n3_pmpe" name="LoadingSlider" src="pmpe5" fileName="LoadingSlider.xml" xy="100,696" size="1134,26">
       <relation target="" sidePair="width-width,bottom-bottom"/>
       <Slider max="100"/>

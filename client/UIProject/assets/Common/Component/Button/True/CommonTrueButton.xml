@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="157,62" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n3_q2uf" name="Background" src="q2ufdt" fileName="Image/Button/button001.png" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n2_q2uf" name="title" xy="11,9" size="128,34" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffe2" align="center" vAlign="middle" letterSpacing="2" autoSize="none" bold="true" strokeColor="#166295" singleLine="true" text="">
+      <relation target="" sidePair="width-width,height-height,top-top"/>
+    </text>
+  </displayList>
+  <Button sound="ui://hyyrj5lpgh8389" downEffect="scale" downEffectValue=".8"/>
+</component>

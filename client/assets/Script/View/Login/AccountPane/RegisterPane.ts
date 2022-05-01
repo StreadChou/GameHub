@@ -10,11 +10,11 @@ export class RegisterPane extends BaseUiWindow {
         super();
         this.contentPane = fgui.UIPackage.createObject(this.PackageName, this.WindowName).asCom;
 
-        this.contentPane.getChild("Login").asCom.onClick(() => {
+        this.contentPane.getChild("LoginButton").asCom.onClick(() => {
             Login.instance.openLoginPane();
         })
 
-        this.contentPane.getChild("RegisterButton").asCom.onClick(async () => {
+        this.contentPane.getChild("Register").asCom.onClick(async () => {
             const form = this.getFormData();
             await ControllerLogic.getInstance().registerToAuth(form)
         })

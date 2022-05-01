@@ -1,10 +1,15 @@
 {
-  "font": "",
-  "fontSize": 12,
+  "font": "ui://hyyrj5lppmpeb1",
+  "fontSize": 16,
   "textColor": "#000000",
   "fontAdjustment": false,
   "colorScheme": [
-    "自定义颜色 #FF0000"
+    "文本颜色-基本 #FFFFE2",
+    "文本颜色-输入框 #6E5745",
+    "文本描边-黄色 #D77210",
+    "文本描边-蓝色 #166295",
+    "文本描边-绿色 #1F8F27",
+    "文本描边-输入框 #FFEAC1"
   ],
   "fontSizeScheme": [
     "自定义字体大小 30"
@@ -14,11 +19,11 @@
   ],
   "scrollBars": {
     "horizontal": "",
-    "vertical": "",
+    "vertical": "ui://hyyrj5lpq2ufgn",
     "defaultDisplay": "visible"
   },
   "tipsRes": "",
-  "buttonClickSound": "",
+  "buttonClickSound": "ui://hyyrj5lpgh8389",
   "pivot": "default",
   "fileName": "Common"
 }

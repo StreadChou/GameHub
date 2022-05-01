@@ -27,6 +27,7 @@ export default class Loading extends cc.Component {
     }
 
     onDestroy() {
+        console.error("Loading destroy")
         this._view.dispose();
     }
 

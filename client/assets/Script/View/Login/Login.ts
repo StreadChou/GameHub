@@ -28,7 +28,8 @@ export default class Login extends cc.Component {
         })
 
         this._view.getChild("GuestLogin").onClick(() => {
-            ControllerLogic.getInstance().guestLogin();
+            // ControllerLogic.getInstance().guestLogin();
+            EventSystem.instance.fire(EVENT.ON_ERROR_CODE, {message: "游客登录已被禁止"});
         })
 
         this._view.getChild("AccountLogin").onClick(this.openLoginPane.bind(this));

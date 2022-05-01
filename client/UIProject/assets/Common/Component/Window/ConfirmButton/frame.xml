@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="600,350" extention="Label">
+  <displayList>
+    <image id="n4_q2uf" name="Background" src="q2ufni" fileName="Image/Panel/panel026.png" xy="4,3" size="600,350">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n5_q2uf" name="closeButton" src="q2ufns" fileName="Component/Button/False/CloseButton.xml" xy="244,264">
+      <relation target="n7_q2uf" sidePair="right-left,top-top"/>
+    </component>
+    <component id="n7_q2uf" name="confirmButton" src="q2ufnu" fileName="Component/Button/True/ConfirmButton.xml" xy="418,264">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+    </component>
+  </displayList>
+</component>

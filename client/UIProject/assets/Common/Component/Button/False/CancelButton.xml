@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="157,62">
+  <displayList>
+    <component id="n0_q2uf" name="n0" src="q2ufnl" fileName="Component/Button/False/CommonFalseButton.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+      <Button title="取消"/>
+    </component>
+  </displayList>
+</component>

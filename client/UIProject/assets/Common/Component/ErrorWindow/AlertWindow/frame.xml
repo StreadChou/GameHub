@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<component size="600,350" extention="Label">
-  <displayList>
-    <image id="n2_pmpe" name="Background" src="gh836b" fileName="Image/Panel/panel026.png" xy="-1,-5" size="600,350"/>
-    <component id="n3_pmpe" name="closeButton" src="pmpeax" fileName="Component/ErrorWindow/AlertWindow/CloseButton.xml" xy="220,259">
-      <Button sound="ui://hyyrj5lpgh83ag"/>
-    </component>
-  </displayList>
-</component>

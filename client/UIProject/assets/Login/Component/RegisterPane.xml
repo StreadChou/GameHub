@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="900,400">
+<component size="1344,750">
   <displayList>
-    <component id="n7_pmpe" name="frame" src="pmpe7" fileName="Component/AccountFrame.xml" xy="0,0"/>
-    <image id="n8_pmpe" name="n8" src="gh8369" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="102,67" size="397,57" group="n10_pmpe"/>
-    <text id="n11_pmpe" name="label_account" xy="134,68" size="72,57" group="n10_pmpe" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" text="账号:"/>
-    <text id="n12_pmpe" name="Account" xy="219,68" size="258,57" group="n10_pmpe" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" singleLine="true" text="stread" input="true"/>
-    <group id="n10_pmpe" name="AccountGroup" xy="102,67" size="397,58"/>
-    <image id="n13_pmpe" name="n13" src="gh8369" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="102,168" size="400,57" group="n16_pmpe"/>
-    <text id="n14_pmpe" name="label_password" xy="134,168" size="71,57" group="n16_pmpe" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" text="密码:"/>
-    <text id="n15_pmpe" name="Password" xy="219,169" size="257,57" group="n16_pmpe" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" singleLine="true" text="stread" input="true" password="true"/>
-    <group id="n16_pmpe" name="PasswordGroup" xy="102,168" size="400,58"/>
-    <image id="n28_sxqv" name="n28" src="gh8369" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="102,252" size="400,57" group="n31_sxqv"/>
-    <text id="n29_sxqv" name="label_phone" xy="134,252" size="71,57" group="n31_sxqv" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" text="手机:"/>
-    <text id="n30_sxqv" name="Phone" xy="219,253" size="257,57" group="n31_sxqv" font="ui://hyyrj5lppmpeb1" fontSize="24" color="#ffffff" vAlign="middle" autoSize="none" bold="true" strokeColor="#3f1d04" singleLine="true" text="13888888888" input="true"/>
-    <group id="n31_sxqv" name="PhoneGroup" xy="102,252" size="400,58"/>
-    <component id="n22_pmpe" name="Login" src="gh837l" fileName="Component/Button/btn_sm_blue.xml" pkg="hyyrj5lp" xy="591,258">
-      <Button title="去登陆" titleColor="#ffffff" titleFontSize="21"/>
+    <component id="n7_pmpe" name="frame" src="pmpe7" fileName="Component/AccountFrame.xml" xy="369,77" size="637,574">
+      <relation target="" sidePair="width-width,height-height"/>
     </component>
-    <component id="n23_pmpe" name="RegisterButton" src="pmpea" fileName="Component/RegisterButton.xml" xy="566,61"/>
+    <text id="n73_bn92" name="n73" xy="428,101" size="112,36" fontSize="26" color="#ffffe2" bold="true" strokeColor="#d77210" singleLine="true" text="注册账号"/>
+    <text id="n51_bn92" name="n51" xy="447,179" size="113,50" group="n57_bn92" fontSize="37" color="#6e5745" bold="true" strokeColor="#ffeac1" text="账号 : "/>
+    <image id="n49_bn92" name="n49" src="q2ufng" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="563,168" size="370,69" group="n57_bn92"/>
+    <text id="n53_bn92" name="Account" xy="592,184" size="305,39" group="n57_bn92" fontSize="28" color="#6e5745" autoSize="none" bold="true" strokeColor="#ffeac1" text="" input="true" prompt="[i][color=#999999]请输入账号[/color][/i]"/>
+    <group id="n57_bn92" name="n57" xy="447,168" size="486,69"/>
+    <text id="n58_bn92" name="n58" xy="447,268" size="113,50" group="n61_bn92" fontSize="37" color="#6e5745" bold="true" strokeColor="#ffeac1" text="手机 : "/>
+    <image id="n59_bn92" name="n59" src="q2ufng" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="563,257" size="370,69" group="n61_bn92"/>
+    <text id="n60_bn92" name="Phone" xy="592,273" size="299,39" group="n61_bn92" fontSize="28" color="#6e5745" autoSize="none" bold="true" strokeColor="#ffeac1" text="" input="true" prompt="[i][color=#999999]请输入手机号[/color][/i]"/>
+    <group id="n61_bn92" name="n61" xy="447,257" size="486,69"/>
+    <text id="n62_bn92" name="n62" xy="409,364" size="151,50" group="n65_bn92" fontSize="37" color="#6e5745" bold="true" strokeColor="#ffeac1" text="验证码 : "/>
+    <image id="n63_bn92" name="n63" src="q2ufng" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="564,353" size="178,69" group="n65_bn92"/>
+    <component id="n66_bn92" name="n66" src="q2ufno" fileName="Component/Button/True/CommonTrueButton.xml" pkg="hyyrj5lp" xy="752,357" size="189,70" group="n65_bn92">
+      <Button title="获取验证码"/>
+    </component>
+    <text id="n64_bn92" name="ValidateCode" xy="593,369" size="125,39" group="n65_bn92" fontSize="28" color="#6e5745" autoSize="none" bold="true" strokeColor="#ffeac1" text="" input="true"/>
+    <group id="n65_bn92" name="n65" xy="409,353" size="532,74"/>
+    <text id="n67_bn92" name="n67" xy="447,462" size="113,50" group="n70_bn92" fontSize="37" color="#6e5745" bold="true" strokeColor="#ffeac1" text="密码 : "/>
+    <image id="n68_bn92" name="n68" src="q2ufng" fileName="Image/Panel/panel023.png" pkg="hyyrj5lp" xy="563,451" size="370,69" group="n70_bn92"/>
+    <text id="n69_bn92" name="Password" xy="592,467" size="299,39" group="n70_bn92" fontSize="28" color="#6e5745" autoSize="none" bold="true" strokeColor="#ffeac1" text="" input="true" prompt="[i][color=#999999]请输入密码[/color][/i]"/>
+    <group id="n70_bn92" name="n70" xy="447,451" size="486,69"/>
+    <component id="n71_bn92" name="Register" src="q2ufno" fileName="Component/Button/True/CommonTrueButton.xml" pkg="hyyrj5lp" xy="725,543">
+      <Button title="注册账号"/>
+    </component>
+    <component id="n72_bn92" name="LoginButton" src="q2ufnl" fileName="Component/Button/False/CommonFalseButton.xml" pkg="hyyrj5lp" xy="486,543">
+      <Button title="登录账号" sound="ui://hyyrj5lpgh8389"/>
+    </component>
   </displayList>
 </component>
