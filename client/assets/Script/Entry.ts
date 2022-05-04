@@ -4,8 +4,6 @@ import {NetworkManager} from "./Lib/NetWork/NetworkManager";
 import Loading from "./View/Loading/Loading";
 import Login from "./View/Login/Login";
 import {AlertWindow} from "./View/Common/ErrorWindow/AlertWindow";
-import FightLordLikeGameMain from "./View/Game/FightLordLikeGame/FightLordLikeGameMain";
-import Hall from "./View/Hall/Hall";
 
 const {ccclass} = cc._decorator;
 
@@ -19,7 +17,7 @@ export default class Entry extends cc.Component {
     onLoad() {
         Entry.instance = this;
 
-        // NetworkManager.instance.openMainSocket("127.0.0.1", 3010);
+        NetworkManager.instance.openMainSocket("127.0.0.1", 3010);
         fgui.GRoot.create();
 
         const loading = <Loading>this.changeScenes(Loading);
@@ -38,7 +36,9 @@ export default class Entry extends cc.Component {
         EventSystem.instance.register(EVENT.ON_ERROR_CODE, (data: any) => {
             const errorWindows = new AlertWindow();
             const string = data.message ?? data.code ?? "未知错误";
-            errorWindows.showMessage(string);
+            const title = data.title ?? null;
+            const code = data.code ?? null;
+            errorWindows.showMessage(string, title, code);
         })
     }
 

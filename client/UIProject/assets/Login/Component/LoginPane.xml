@@ -7,11 +7,11 @@
     <text id="n23_q2uf" name="n23" xy="352,176" size="112,36" fontSize="26" color="#ffffe2" bold="true" strokeColor="#d77210" singleLine="true" text="账号登录"/>
     <image id="n25_q2uf" name="n25" src="q2ufnf" fileName="Image/Panel/panel022.png" pkg="hyyrj5lp" xy="359,242" size="409,82" group="n29_q2uf"/>
     <text id="n26_q2uf" name="n26" xy="389,264" size="88,39" group="n29_q2uf" fontSize="28" color="#6e5745" bold="true" strokeColor="#ffeac1" text="账号 : "/>
-    <text id="n28_q2uf" name="Account" xy="484,264" size="245,39" group="n29_q2uf" fontSize="28" color="#6e5745" autoSize="none" bold="true" strokeColor="#ffeac1" text="" input="true" prompt="[i][color=#999999]请输入账号或手机号&#xA;[/color][/i]"/>
+    <text id="n28_q2uf" name="Account" xy="484,264" size="245,39" group="n29_q2uf" fontSize="28" color="#6e5745" autoSize="none" bold="true" strokeColor="#ffeac1" text="stread" input="true" prompt="[i][color=#999999]请输入账号或手机号&#xA;[/color][/i]"/>
     <group id="n29_q2uf" name="n29" xy="359,242" size="409,82"/>
     <image id="n30_q2uf" name="n30" src="q2ufnf" fileName="Image/Panel/panel022.png" pkg="hyyrj5lp" xy="359,350" size="409,82" group="n33_q2uf"/>
     <text id="n31_q2uf" name="n31" xy="389,372" size="88,39" group="n33_q2uf" fontSize="28" color="#6e5745" bold="true" strokeColor="#ffeac1" text="密码 : "/>
-    <text id="n32_q2uf" name="Password" xy="484,372" size="245,39" group="n33_q2uf" fontSize="28" color="#6e5745" autoSize="none" bold="true" strokeColor="#ffeac1" text="" input="true" prompt="[i][color=#999999]请输入密码[/color][/i]"/>
+    <text id="n32_q2uf" name="Password" xy="484,372" size="245,39" group="n33_q2uf" fontSize="28" color="#6e5745" autoSize="none" bold="true" strokeColor="#ffeac1" text="stread" input="true" prompt="[i][color=#999999]请输入密码[/color][/i]" password="true"/>
     <group id="n33_q2uf" name="n33" xy="359,350" size="409,82"/>
     <component id="n37_bn92" name="Remember" src="pmpeb3" fileName="Component/CheckBox/CheckBox_1.xml" pkg="hyyrj5lp" xy="360,457" size="193,40">
       <Button title="记住密码" titleFontSize="28" sound=""/>

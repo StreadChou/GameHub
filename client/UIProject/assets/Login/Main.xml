@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <image id="n3_pmpe" name="n3" src="pmpe1" fileName="Image/loading.png" pkg="2duhv4um" xy="0,0" size="1334,750" visible="false"/>
+    <image id="n3_pmpe" name="n3" src="pmpe1" fileName="Image/loading.png" pkg="2duhv4um" xy="0,0" size="1334,750"/>
     <component id="n0_rjbi" name="WechatLogin" src="rjbi6" fileName="Component/Button/WechatLogin.xml" xy="250,504" size="250,92" group="n10_m9xm" aspect="true"/>
     <component id="n1_rjbi" name="AccountLogin" src="rjbi4" fileName="Component/Button/AccountLogin.xml" xy="559,505" size="250,92" group="n10_m9xm" aspect="true"/>
     <component id="n2_rjbi" name="GuestLogin" src="rjbi5" fileName="Component/Button/GuestLogin.xml" xy="884,503" size="250,92" group="n10_m9xm" aspect="true"/>

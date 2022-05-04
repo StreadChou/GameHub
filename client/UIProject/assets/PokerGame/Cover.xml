@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="80,80" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <loader id="n1_spvo" name="icon" xy="10,10" size="60,60" align="center" vAlign="middle" fill="scale">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <image id="n0_spvo" name="n0" src="spvoo8" fileName="Image/Icon/icon100.png" pkg="hyyrj5lp" xy="0,0" size="80,80">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+  </displayList>
+  <Button/>
+</component>

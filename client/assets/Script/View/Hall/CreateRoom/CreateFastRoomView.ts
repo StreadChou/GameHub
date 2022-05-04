@@ -1,7 +1,5 @@
 import {BaseCreateRoomView} from "./BaseCreateRoomView";
 import {
-    AbstractRoomOption,
-    FeePayFor,
     GameEnum,
     GameTypeEnum,
     RunFastConfig,
@@ -10,7 +8,7 @@ import {
 import {ControllerRoom} from "../../../Controller/Room/ControllerRoom";
 
 export class CreateFastRoomView extends BaseCreateRoomView {
-    WindowName = "CreateRunFastRoom"
+    WindowName = "CreateRunFast"
 
     constructor() {
         super();
@@ -21,17 +19,20 @@ export class CreateFastRoomView extends BaseCreateRoomView {
         this.contentPane.makeFullScreen();
         // 弹出窗口的动效已中心为轴心
         this.setPivot(0.5, 0.5);
-        this.contentPane.getChild("createButton").onClick(this.createRoom, this);
+        this.frame.getChild("create").onClick(this.createRoom, this);
     }
 
 
     createRoom() {
         const _options = this.getOptions();
+        console.log(_options);
+
         const createOption: { options: RunFastRoomOptions } = {
             options: {
-                maxPlayer: _options.playerNumber,
                 gameEnum: GameEnum.RunFast,
                 gameTypeEnum: GameTypeEnum.FightLordLike,
+
+                maxPlayer: _options.playerNumber,
                 whoPay: _options.whoPay,
                 chat: _options.chat,
 
@@ -43,23 +44,24 @@ export class CreateFastRoomView extends BaseCreateRoomView {
             }
 
         }
-
         ControllerRoom.getInstance().createRoom(createOption)
     }
 
     getOptions() {
-        const optsPane = this.contentPane.getChild("optsPane").asCom;
+        const optsPane = this.contentPane.getChild("options").asCom;
 
-        const playerNumber = parseInt(optsPane.getController("playerSelect").selectedPage);
+        const playerNumber = parseInt(optsPane.getController("playerNumber").selectedPage);
         const pokerNumber = parseInt(optsPane.getController("pokerNumber").selectedPage);
+        const chat = !!optsPane.getController("chat").selectedPage;
+
         const whoPay = parseInt(optsPane.getController("whoPay").selectedPage);
         const dealPoker = parseInt(optsPane.getController("dealPoker").selectedPage);
-        const chat = !!optsPane.getController("chat").selectedPage;
+
 
         const double = !!optsPane.getController("double").selectedPage
         const addPoints = !!optsPane.getController("addPoints").selectedPage
 
-        const getSetting = (type: RunFastConfig): boolean => {
+        const getSetting = (type: string): boolean => {
             const settingPane = optsPane.getChild(`setting_${type}`);
             if (!settingPane) return undefined;
             return settingPane.asButton.selected;
@@ -68,7 +70,7 @@ export class CreateFastRoomView extends BaseCreateRoomView {
         // @ts-ignore, 初始化的时候不给值
         const setting: { [key in RunFastConfig]: boolean } = {};
         Object.values(RunFastConfig).forEach(key => {
-            if (Number.isInteger(key)) {
+            if (!Number.isInteger(key)) {
                 // @ts-ignore
                 setting[key] = getSetting(key);
             }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="255,48" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n7_spvo" name="n7" src="q2ufnb" fileName="Image/Panel/panel018.png" xy="0,0" size="255,48">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n1_spvo" name="title" xy="51,1" size="153,49" fontSize="36" color="#ffeac1" vAlign="middle" autoSize="none" singleLine="true" text="3200">
+      <relation target="" sidePair="width-width,height-height"/>
+    </text>
+    <loader id="n2_spvo" name="icon" xy="0,0" size="49,49" url="ui://hyyrj5lpq2ufi1" align="center" vAlign="middle" fill="scale">
+      <relation target="" sidePair="height-height,left-left"/>
+    </loader>
+    <loader id="n4_spvo" name="add" xy="206,0" size="50,50" url="ui://hyyrj5lpq2ufdv" align="center" vAlign="middle" fill="scale">
+      <relation target="" sidePair="height-height,right-right"/>
+    </loader>
+  </displayList>
+  <Button sound="ui://hyyrj5lpgh8389"/>
+</component>

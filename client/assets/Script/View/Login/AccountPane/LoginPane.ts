@@ -3,6 +3,8 @@ import Login from "../Login";
 import {ControllerLogic} from "../../../Controller/Logic/ControllerLogic";
 import {EventSystem} from "../../../Event/EventSystem";
 import {EVENT} from "../../../Event/EventDefine";
+import Entry from "../../../Entry";
+import Hall from "../../Hall/Hall";
 
 export class LoginPane extends BaseUiWindow {
     PackageName = "Login";
@@ -22,6 +24,7 @@ export class LoginPane extends BaseUiWindow {
 
         this.contentPane.getChild("Login").asCom.onClick(async () => {
             const form = this.getFormData();
+            console.log("登录表单:", form);
             await ControllerLogic.getInstance().loginToAuth(form)
         })
     }

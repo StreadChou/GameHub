@@ -1,9 +1,9 @@
 import Hall from "../Hall/Hall";
 import {EventSystem} from "../../Event/EventSystem";
 import {EVENT} from "../../Event/EventDefine";
-import {ControllerLogic} from "../../Controller/Logic/ControllerLogic";
 import {LoginPane} from "./AccountPane/LoginPane";
 import {RegisterPane} from "./AccountPane/RegisterPane";
+import Entry from "../../Entry";
 
 const {ccclass, property} = cc._decorator;
 
@@ -37,13 +37,6 @@ export default class Login extends cc.Component {
 
     onDestroy() {
         this._view.dispose();
-    }
-
-
-    onLoginSuccess() {
-        this.addComponent(Hall);
-        this.node.removeComponent(this);
-        this.destroy();
     }
 
     private loginPane: LoginPane;

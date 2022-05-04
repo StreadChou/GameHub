@@ -30,6 +30,7 @@ export enum RunFastConfig {
     MustPlay, // 有牌必须出
     ThreeAceBoom, // 三个 A 算炸弹
     ShowCardsNumber, // 显示卡牌数量
+    Heart10Bird, // 红桃10抓鸟
 }
 
 export interface RunFastRoomOptions extends AbstractRoomOption {

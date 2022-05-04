@@ -1,6 +1,8 @@
 import Login from "../../View/Login/Login";
 import {UserServices} from "../../Model/UserServices";
-import axios from "axios";
+import Entry from "../../Entry";
+import Hall from "../../View/Hall/Hall";
+import {api} from "../../Base/AxiosBase";
 
 
 export class ControllerLogic {
@@ -17,7 +19,7 @@ export class ControllerLogic {
 
 
     async loginToAuth(form: any) {
-        axios.post("http://127.0.0.1:3000/auth/login", form).then((response) => {
+        api.post("http://127.0.0.1:3000/auth/login", form).then((response) => {
             const {access_token} = response.data;
             this.tokenLogin(access_token)
         })
@@ -25,7 +27,7 @@ export class ControllerLogic {
     }
 
     async registerToAuth(form: any) {
-        axios.post("http://127.0.0.1:3000/auth/register", form).then((response) => {
+        api.post("http://127.0.0.1:3000/auth/register", form).then((response) => {
             const {access_token} = response.data;
             this.tokenLogin(access_token)
         })
@@ -42,7 +44,6 @@ export class ControllerLogic {
     }
 
     public onLoginSuccess() {
-        // 通知view我登录成功了
-        this.loginComponent.onLoginSuccess();
+        Entry.instance.changeScenes(Hall)
     }
 }

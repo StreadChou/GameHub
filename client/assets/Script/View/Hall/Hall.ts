@@ -1,5 +1,6 @@
 import {CreateFastRoomView} from "./CreateRoom/CreateFastRoomView";
 import {UserEntity, UserServices} from "../../Model/UserServices";
+import {AlertWindow} from "../Common/ErrorWindow/AlertWindow";
 
 const {ccclass, property} = cc._decorator;
 
@@ -29,27 +30,31 @@ export default class Hall extends cc.Component {
     private _createRoomWindow: fgui.Window;
 
     initCreateRoomWindows() {
-        const createRoomBtn = this._view.getChild("Right").asCom.getChild("CreateRoom");
-        createRoomBtn.onClick(() => {
-            this._createRoomWindow = this._createRoomWindow ?? new CreateFastRoomView();
-            this._createRoomWindow.show();
+        this._view.getChild("RunFastButton").onClick(() => {
+            const window = new CreateFastRoomView();
+            window.show();
         })
+        // const createRoomBtn = this._view.getChild("Right").asCom.getChild("CreateRoom");
+        // createRoomBtn.onClick(() => {
+        //     this._createRoomWindow = this._createRoomWindow ?? new CreateFastRoomView();
+        //     this._createRoomWindow.show();
+        // })
     }
 
     fillingUserInfo(user: UserEntity) {
-        const header = this._view.getChild("Header").asCom;
-        const cover = header.getChild("CoverGroup").asCom.getChild("Cover").asImage;
-        const NickNode = header.getChild("Nick").asTextField;
-        const LevelNode = header.getChild("Level").asTextField;
-        const MoneyNode = header.getChild("GoldInfo").asCom.getChild("value");
+        const CoverNode = this._view.getChild("Cover").asCom;
+        CoverNode.icon = user.cover;
+
+        const NickNode = this._view.getChild("NickName").asTextField;
         NickNode.text = user.nick;
-        LevelNode.text = user.level.toString();
+
+        const GoldNode = this._view.getChild("Gold").asButton;
+        GoldNode.text = user.money.toString();
+
+
+        const MoneyNode = this._view.getChild("Money").asButton;
         MoneyNode.text = user.money.toString();
-    }
 
-    toGameMain(comp: any) {
-        this.addComponent(comp);
     }
-
 
 }

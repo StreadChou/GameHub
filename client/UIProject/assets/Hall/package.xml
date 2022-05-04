@@ -2,33 +2,15 @@
 <packageDescription id="4ezujtbm">
   <resources>
     <component id="swh90" name="Main.xml" path="/" exported="true"/>
-    <image id="hkqd2" name="Background.jpg" path="/Images/"/>
-    <image id="hkqd3" name="window_1.png" path="/Images/" scale="9grid" scale9grid="396,277,139,227"/>
-    <image id="hkqd5" name="button_1.png" path="/Images/"/>
-    <image id="hkqd7" name="button_3.png" path="/Images/" scale9grid="85,24,142,77"/>
-    <image id="hkqd9" name="window_2.png" path="/Images/" scale="9grid" scale9grid="41,116,582,301"/>
-    <image id="hkqda" name="default_header.png" path="/Images/header/"/>
-    <image id="hkqdb" name="header_border.png" path="/Images/header/"/>
-    <component id="hkqdc" name="Cover.xml" path="/Component/header/"/>
-    <component id="o0obi" name="RoomListItem.xml" path="/"/>
-    <image id="o0obk" name="gold.png" path="/Images/header/"/>
-    <component id="n6gul" name="Header.xml" path="/Component/header/"/>
-    <image id="n6gum" name="button_email.png" path="/Images/header/"/>
-    <image id="n6gun" name="button_setting.png" path="/Images/header/"/>
-    <image id="n6guo" name="button_support.png" path="/Images/header/"/>
-    <component id="n6guq" name="GoldInfo.xml" path="/Component/header/"/>
-    <image id="n6gur" name="play_bg_1_1.png" path="/Images/right/"/>
-    <image id="n6gus" name="play_bg_1_2.png" path="/Images/right/"/>
-    <image id="n6gut" name="play_bg_2_1.png" path="/Images/right/"/>
-    <image id="n6guu" name="play_bg_2_2.png" path="/Images/right/"/>
-    <image id="n6guv" name="play_bg_2_3.png" path="/Images/right/"/>
-    <component id="n6guy" name="CreateRoom.xml" path="/Component/right/"/>
-    <component id="n6guz" name="JoinRoom.xml" path="/Component/right/"/>
-    <component id="n6gu10" name="RightCtl.xml" path="/Component/right/"/>
-    <component id="h1ju11" name="CreateRunFastRoom.xml" path="/Component/create/RunFastCreateRoom/" exported="true"/>
-    <component id="h1ju14" name="RunFastCreateRooOpts.xml" path="/Component/create/RunFastCreateRoom/"/>
-    <image id="gxrw18" name="Tex_2706.png" path="/Images/"/>
-    <component id="gh831n" name="CreateFrame.xml" path="/Component/create/"/>
+    <image id="spvo1o" name="Background.jpg" path="/Images/"/>
+    <component id="spvo1p" name="Cover.xml" path="/"/>
+    <image id="bret1s" name="RunFast.png" path="/Images/"/>
+    <image id="bret1t" name="ChangShaMahJong.png" path="/Images/"/>
+    <component id="bret1u" name="Frame.xml" path="/Component/CreateRoom/"/>
+    <component id="bret1v" name="CreateRunFast.xml" path="/Component/CreateRoom/RunFast/" exported="true"/>
+    <component id="bret1w" name="RunFastOptions.xml" path="/Component/CreateRoom/RunFast/"/>
+    <component id="bret1x" name="ConfigCheckBox.xml" path="/Component/CreateRoom/"/>
+    <component id="bret1y" name="RunFastButton.xml" path="/Component/CreateRoom/RunFast/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

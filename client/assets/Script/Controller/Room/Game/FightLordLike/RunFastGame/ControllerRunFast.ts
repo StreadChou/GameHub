@@ -1,6 +1,7 @@
 import {AbstractGameController} from "../../AbstractGameController";
 import Hall from "../../../../../View/Hall/Hall";
 import FightLordLikeGameMain from "../../../../../View/Game/FightLordLikeGame/FightLordLikeGameMain";
+import Entry from "../../../../../Entry";
 
 export class ControllerRunFast extends AbstractGameController {
     private static _instance;
@@ -12,7 +13,7 @@ export class ControllerRunFast extends AbstractGameController {
     }
 
     onEnterRoom() {
-        console.log("切换到对应的场景")
-        Hall.instance.toGameMain(FightLordLikeGameMain);
+        Entry.instance.changeScenes(FightLordLikeGameMain)
     }
+
 }

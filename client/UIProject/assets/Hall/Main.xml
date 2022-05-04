@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <image id="n1_hkqd" name="Background" src="hkqd2" fileName="Images/Background.jpg" xy="1,0" size="1334,750">
+    <image id="n42_spvo" name="Background" src="spvo1o" fileName="Images/Background.jpg" xy="0,0" size="1334,750">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <component id="n24_n6gu" name="Header" src="n6gul" fileName="Component/header/Header.xml" xy="0,0"/>
-    <image id="n17_o0ob" name="n17" src="hkqd9" fileName="Images/window_2.png" xy="33,115" size="482,601" group="n20_o0ob">
-      <relation target="" sidePair="width-width,height-height"/>
-    </image>
-    <list id="n16_o0ob" name="n16" xy="62,222" size="415,447" group="n20_o0ob" overflow="scroll" defaultItem="ui://4ezujtbmo0obi">
-      <relation target="" sidePair="height-height"/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-    </list>
-    <text id="n18_o0ob" name="n18" xy="190,134" size="128,43" group="n20_o0ob" fontSize="30" color="#cccccc" align="center" autoSize="none" text="房间列表" input="true"/>
-    <text id="n19_o0ob" name="n19" xy="189,184" size="128,29" group="n20_o0ob" fontSize="18" color="#cccccc" align="center" autoSize="none" text="下拉刷新" input="true"/>
-    <group id="n20_o0ob" name="n20" xy="33,115" size="482,601"/>
-    <component id="n41_n6gu" name="Right" src="n6gu10" fileName="Component/right/RightCtl.xml" xy="678,114" size="600,630">
-      <relation target="" sidePair="width-width,height-height"/>
+    <image id="n43_spvo" name="HeaderBackground" src="q2ufn5" fileName="Image/Panel/panel012.png" pkg="hyyrj5lp" xy="-65,-37" size="1425,142" group="n56_spvo" flip="both"/>
+    <component id="n49_spvo" name="Gold" src="spvoo7" fileName="Component/Button/Item/Item.xml" pkg="hyyrj5lp" xy="393,17" group="n56_spvo">
+      <Button icon="ui://hyyrj5lpq2ufi1"/>
     </component>
+    <component id="n50_spvo" name="Money" src="spvoo7" fileName="Component/Button/Item/Item.xml" pkg="hyyrj5lp" xy="669,16" group="n56_spvo">
+      <Button icon="ui://hyyrj5lpq2ufhu"/>
+    </component>
+    <component id="n54_spvo" name="Cover" src="spvo1p" fileName="Cover.xml" xy="46,4" size="74,74" group="n56_spvo"/>
+    <text id="n55_spvo" name="NickName" xy="126,16" size="214,48" group="n56_spvo" fontSize="35" color="#ffffe2" autoSize="ellipsis" strokeColor="#6e5745" text="六个字的名字"/>
+    <group id="n56_spvo" name="Header" xy="-65,-37" size="1425,142"/>
+    <image id="n60_bret" name="ChangShaMahJong" src="bret1t" fileName="Images/ChangShaMahJong.png" xy="591,123"/>
+    <component id="n62_bret" name="RunFastButton" src="bret1y" fileName="Component/CreateRoom/RunFast/RunFastButton.xml" xy="834,123"/>
   </displayList>
 </component>

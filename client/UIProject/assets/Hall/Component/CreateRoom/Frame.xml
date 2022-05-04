@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1344,750" extention="Label">
+  <displayList>
+    <image id="n1_bret" name="Background" src="q2ufni" fileName="Image/Panel/panel026.png" pkg="hyyrj5lp" xy="0,0" size="1344,750">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n3_bret" name="closeButton" src="q2ufns" fileName="Component/Button/False/CloseButton.xml" pkg="hyyrj5lp" xy="1155,654">
+      <relation target="n1_bret" sidePair="right-right,bottom-bottom"/>
+    </component>
+    <component id="n4_bret" name="create" src="q2ufno" fileName="Component/Button/True/CommonTrueButton.xml" pkg="hyyrj5lp" xy="970,654">
+      <relation target="n3_bret" sidePair="right-right,top-top"/>
+      <Button title="创建房间"/>
+    </component>
+    <text id="n6_bret" name="title" xy="43,6" size="1256,67" fontSize="16" align="center" vAlign="middle" autoSize="none" text=""/>
+  </displayList>
+</component>

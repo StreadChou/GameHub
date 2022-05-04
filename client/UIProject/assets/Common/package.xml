@@ -453,16 +453,16 @@
     <image id="q2ufn2" name="panel009.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufn3" name="panel010.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufn4" name="panel011.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufn5" name="panel012.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufn5" name="panel012.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="455,0,912,142"/>
     <image id="q2ufn6" name="panel013.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufn7" name="panel014.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufn8" name="panel015.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufn9" name="panel016.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufna" name="panel017.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufnb" name="panel018.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufnb" name="panel018.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="31,12,62,24"/>
     <image id="q2ufnc" name="panel019.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufnd" name="panel020.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufne" name="panel021.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufnd" name="panel020.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="35,9,70,18"/>
+    <image id="q2ufne" name="panel021.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="41,17,82,34"/>
     <image id="q2ufnf" name="panel022.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="81,20,162,40"/>
     <image id="q2ufng" name="panel023.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="105,36,210,19"/>
     <image id="q2ufnh" name="panel024.png" path="/Image/Panel/" exported="true"/>
@@ -483,7 +483,10 @@
     <image id="q2ufo2" name="icon099_2.png" path="/Image/Icon/" exported="true"/>
     <image id="q2ufo3" name="icon099_1.png" path="/Image/Icon/" exported="true"/>
     <component id="q2ufo4" name="Radio_1.xml" path="/Component/Radio/" exported="true"/>
-    <component id="q2ufo6" name="RightCloseButton.xml" path="/Component/Button/" exported="true"/>
+    <component id="q2ufo6" name="RightCloseButton.xml" path="/Component/Button/False/" exported="true"/>
+    <component id="spvoo7" name="Item.xml" path="/Component/Button/Item/" exported="true"/>
+    <image id="spvoo8" name="icon100.png" path="/Image/Icon/" exported="true"/>
+    <image id="bretoa" name="button097.png" path="/Image/Button/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

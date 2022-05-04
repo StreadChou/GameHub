@@ -3,8 +3,9 @@
   <resources>
     <component id="m9xm8" name="Main.xml" path="/" exported="true"/>
     <image id="m9xma" name="Background.png" path="/"/>
-    <component id="m9xmb" name="GmPanel.xml" path="/GmPanel/" exported="true"/>
-    <component id="m9xmc" name="Frame.xml" path="/GmPanel/"/>
+    <component id="bretd" name="Cover.xml" path="/"/>
+    <component id="brete" name="HandsPoker.xml" path="/Component/" exported="true"/>
+    <image id="bretg" name="Images_Cards_Card_1_55.png" path="/Component/"/>
   </resources>
   <publish name=""/>
 </packageDescription>
