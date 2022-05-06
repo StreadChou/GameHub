@@ -36,7 +36,7 @@ export class RoomPlayer {
     @Serialize()
     fid: string = "" // frontendId
 
-    master: boolean = false;
+    @FastDto({enumKey: [DtoEnum.RoomPlayer]})
     seat: number;
 
 
@@ -62,7 +62,7 @@ export class RoomPlayer {
     }
 
     public async checkCanKickPlayer(targetPlayer: RoomPlayer): Promise<void> {
-        if (!this.master) throw new ClientException(ErrorCode.NotRoomMaster, {}, "不是房主, 无法操作");
+
     }
 
 

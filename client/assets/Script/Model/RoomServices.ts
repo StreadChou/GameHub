@@ -116,6 +116,9 @@ export class RoomPlayerEntity {
     @Serialize()
     cover: string
 
+    @Serialize()
+    seat: number;
+
     constructor(userInfo: any) {
         fromJSON(this, userInfo)
     }

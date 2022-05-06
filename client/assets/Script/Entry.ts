@@ -4,6 +4,7 @@ import {NetworkManager} from "./Lib/NetWork/NetworkManager";
 import Loading from "./View/Loading/Loading";
 import Login from "./View/Login/Login";
 import {AlertWindow} from "./View/Common/ErrorWindow/AlertWindow";
+import {ControllerRunFast} from "./Controller/Room/Game/FightLordLike/RunFastGame/ControllerRunFast";
 
 const {ccclass} = cc._decorator;
 
@@ -26,6 +27,9 @@ export default class Entry extends cc.Component {
 
         fgui.UIPackage.loadPackage("UI/Common", () => {
             loading.setProcess(100);
+
+            // ControllerRunFast.getInstance().onEnterRoom();
+
             setTimeout(() => {
                 this.changeScenes(Login)
             }, 500)

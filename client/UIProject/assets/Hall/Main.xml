@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <image id="n42_spvo" name="Background" src="spvo1o" fileName="Images/Background.jpg" xy="0,0" size="1334,750">
+    <image id="n63_f26b" name="n63" src="spvo1o" fileName="Images/Background.jpg" xy="0,0" size="1846,750" aspect="true"/>
+    <image id="n65_f26b" name="n65" src="f26b2i" fileName="Images/hero25.png" xy="937,74" size="512,680">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+    </image>
+    <image id="n43_spvo" name="HeaderBackground" src="q2ufn5" fileName="Image/Panel/panel012.png" pkg="hyyrj5lp" xy="-65,-37" size="1425,142" group="n56_spvo" flip="both">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <image id="n43_spvo" name="HeaderBackground" src="q2ufn5" fileName="Image/Panel/panel012.png" pkg="hyyrj5lp" xy="-65,-37" size="1425,142" group="n56_spvo" flip="both"/>
     <component id="n49_spvo" name="Gold" src="spvoo7" fileName="Component/Button/Item/Item.xml" pkg="hyyrj5lp" xy="393,17" group="n56_spvo">
       <Button icon="ui://hyyrj5lpq2ufi1"/>
     </component>
@@ -14,7 +17,14 @@
     <component id="n54_spvo" name="Cover" src="spvo1p" fileName="Cover.xml" xy="46,4" size="74,74" group="n56_spvo"/>
     <text id="n55_spvo" name="NickName" xy="126,16" size="214,48" group="n56_spvo" fontSize="35" color="#ffffe2" autoSize="ellipsis" strokeColor="#6e5745" text="六个字的名字"/>
     <group id="n56_spvo" name="Header" xy="-65,-37" size="1425,142"/>
-    <image id="n60_bret" name="ChangShaMahJong" src="bret1t" fileName="Images/ChangShaMahJong.png" xy="591,123"/>
-    <component id="n62_bret" name="RunFastButton" src="bret1y" fileName="Component/CreateRoom/RunFast/RunFastButton.xml" xy="834,123"/>
+    <component id="n64_f26b" name="GameList" src="f26b22" fileName="Component/CreateRoom/GameList.xml" xy="600,164">
+      <relation target="" sidePair="top-top"/>
+    </component>
+    <image id="n73_f26b" name="n73" src="q2ufg4" fileName="Image/Button/button036.png" pkg="hyyrj5lp" xy="-370,102" group="n78_f26b"/>
+    <text id="n74_f26b" name="n74" xy="14,119" size="31,138" group="n78_f26b" fontSize="26" color="#1f8f27" bold="true" text="房&#xA;间&#xA;列&#xA;表"/>
+    <group id="n78_f26b" name="n78" xy="-370,102" size="446,205"/>
+    <image id="n79_f26b" name="n79" src="q2ufg4" fileName="Image/Button/button036.png" pkg="hyyrj5lp" xy="-370,274" group="n81_f26b" grayed="true"/>
+    <text id="n80_f26b" name="n80" xy="14,290" size="31,138" group="n81_f26b" fontSize="26" color="#1f8f27" bold="true" text="好&#xA;友&#xA;列&#xA;表"/>
+    <group id="n81_f26b" name="n81" xy="-370,274" size="446,205"/>
   </displayList>
 </component>

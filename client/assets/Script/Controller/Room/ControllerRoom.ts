@@ -15,7 +15,10 @@ export class ControllerRoom {
 
     createRoom(options: any) {
         RoomServices.instance.requestCreateRoom(options)
-        console.error("创建跑得快房间", options);
+    }
+
+    joinRoom(options: any) {
+        RoomServices.instance.requestJoinRoom(options)
     }
 
 

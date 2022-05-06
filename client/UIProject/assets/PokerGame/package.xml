@@ -2,10 +2,17 @@
 <packageDescription id="u03c55yl">
   <resources>
     <component id="m9xm8" name="Main.xml" path="/" exported="true"/>
-    <image id="m9xma" name="Background.png" path="/"/>
-    <component id="bretd" name="Cover.xml" path="/"/>
-    <component id="brete" name="HandsPoker.xml" path="/Component/" exported="true"/>
-    <image id="bretg" name="Images_Cards_Card_1_55.png" path="/Component/"/>
+    <image id="m9xma" name="Background.png" path="/Image/"/>
+    <component id="bretd" name="Cover.xml" path="/Component/Other/"/>
+    <image id="bretg" name="Images_Cards_Card_1_55.png" path="/Image/"/>
+    <component id="breth" name="HandsPokerItem.xml" path="/Component/Poker/" exported="true"/>
+    <component id="f26bi" name="PlayerViewItem.xml" path="/Component/Other/"/>
+    <component id="f26bm" name="Timer.xml" path="/Component/Other/"/>
+    <component id="f26bn" name="BottomInfo.xml" path="/Component/Layouts/"/>
+    <component id="f26bo" name="SelfController.xml" path="/Component/Layouts/"/>
+    <component id="f26bp" name="FoldPokerItem.xml" path="/Component/Poker/" exported="true"/>
+    <component id="f26bq" name="PlayerController.xml" path="/Component/Layouts/"/>
+    <component id="f26br" name="RoomController.xml" path="/Component/Layouts/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

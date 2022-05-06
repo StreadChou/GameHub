@@ -4,6 +4,7 @@ import {EVENT} from "../../Event/EventDefine";
 import {LoginPane} from "./AccountPane/LoginPane";
 import {RegisterPane} from "./AccountPane/RegisterPane";
 import Entry from "../../Entry";
+import {ControllerLogic} from "../../Controller/Logic/ControllerLogic";
 
 const {ccclass, property} = cc._decorator;
 
@@ -28,8 +29,8 @@ export default class Login extends cc.Component {
         })
 
         this._view.getChild("GuestLogin").onClick(() => {
-            // ControllerLogic.getInstance().guestLogin();
-            EventSystem.instance.fire(EVENT.ON_ERROR_CODE, {message: "游客登录已被禁止"});
+            ControllerLogic.getInstance().guestLogin();
+            // EventSystem.instance.fire(EVENT.ON_ERROR_CODE, {message: "游客登录已被禁止"});
         })
 
         this._view.getChild("AccountLogin").onClick(this.openLoginPane.bind(this));

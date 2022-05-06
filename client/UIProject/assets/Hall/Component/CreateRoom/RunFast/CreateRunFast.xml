@@ -2,11 +2,11 @@
 <component size="1344,750">
   <displayList>
     <component id="n0_bret" name="frame" src="bret1u" fileName="Component/CreateRoom/Frame.xml" xy="63,29" size="1226,680">
-      <relation target="" sidePair="width-width,height-height"/>
-      <Label title="创建跑得快房间"/>
+      <relation target="" sidePair="height-height,center-center"/>
+      <Label title="创建跑得快房间" titleColor="#ffffe2" titleFontSize="31"/>
     </component>
-    <component id="n1_bret" name="options" src="bret1w" fileName="Component/CreateRoom/options/RunFastOptions.xml" xy="107,126" size="1149,448">
-      <relation target="n0_bret" sidePair="width-width,height-height,right-left,top-top"/>
+    <component id="n1_bret" name="options" src="bret1w" fileName="Component/CreateRoom/RunFast/RunFastOptions.xml" xy="107,126" size="1149,448">
+      <relation target="n0_bret" sidePair="width-width,height-height,center-center"/>
     </component>
   </displayList>
 </component>

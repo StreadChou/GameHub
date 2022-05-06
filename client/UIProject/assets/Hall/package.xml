@@ -10,7 +10,19 @@
     <component id="bret1v" name="CreateRunFast.xml" path="/Component/CreateRoom/RunFast/" exported="true"/>
     <component id="bret1w" name="RunFastOptions.xml" path="/Component/CreateRoom/RunFast/"/>
     <component id="bret1x" name="ConfigCheckBox.xml" path="/Component/CreateRoom/"/>
-    <component id="bret1y" name="RunFastButton.xml" path="/Component/CreateRoom/RunFast/"/>
+    <component id="f26b1z" name="Component1.xml" path="/Component/RoomList/"/>
+    <component id="f26b21" name="JoinRoomWindow.xml" path="/Component/" exported="true"/>
+    <component id="f26b22" name="GameList.xml" path="/Component/CreateRoom/"/>
+    <component id="f26b23" name="XL.xml" path="/Component/CreateRoom/Button/"/>
+    <image id="f26b26" name="JoinRoomBackground.png" path="/Images/"/>
+    <image id="f26b29" name="MoreGame.png" path="/Images/"/>
+    <image id="f26b2a" name="AnyValueMahjong.png" path="/Images/"/>
+    <image id="f26b2d" name="TurnAroundMahJong.png" path="/Images/"/>
+    <image id="f26b2e" name="ThreeFightOne.png" path="/Images/"/>
+    <component id="f26b2f" name="LG.xml" path="/Component/CreateRoom/Button/"/>
+    <component id="f26b2g" name="SM.xml" path="/Component/CreateRoom/Button/"/>
+    <component id="f26b2h" name="JoinRoom.xml" path="/Component/CreateRoom/Button/"/>
+    <image id="f26b2i" name="hero25.png" path="/Images/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

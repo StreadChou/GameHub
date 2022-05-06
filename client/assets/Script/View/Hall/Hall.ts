@@ -1,6 +1,5 @@
-import {CreateFastRoomView} from "./CreateRoom/CreateFastRoomView";
 import {UserEntity, UserServices} from "../../Model/UserServices";
-import {AlertWindow} from "../Common/ErrorWindow/AlertWindow";
+import {CreateRunFastRoomView} from "./CreateRoom/CreateRunFastRoomView";
 
 const {ccclass, property} = cc._decorator;
 
@@ -30,10 +29,16 @@ export default class Hall extends cc.Component {
     private _createRoomWindow: fgui.Window;
 
     initCreateRoomWindows() {
-        this._view.getChild("RunFastButton").onClick(() => {
-            const window = new CreateFastRoomView();
+        const GameListCom = this._view.getChild("GameList").asCom;
+        GameListCom.getChild("RunFastButton").onClick(() => {
+            const window = new CreateRunFastRoomView();
             window.show();
         })
+        GameListCom.getChild("JoinRoom").onClick(() => {
+            const window = new CreateRunFastRoomView();
+            window.show();
+        })
+
         // const createRoomBtn = this._view.getChild("Right").asCom.getChild("CreateRoom");
         // createRoomBtn.onClick(() => {
         //     this._createRoomWindow = this._createRoomWindow ?? new CreateFastRoomView();

@@ -8,20 +8,18 @@
   <controller name="double" alias="允许加倍" pages="0,0,1,1" selected="0"/>
   <controller name="addPoints" alias="允许加分" pages="0,0,1,1" selected="0"/>
   <displayList>
-    <graph id="n1_bret" name="background" xy="0,0" size="1150,200" type="rect" lineSize="0" fillColor="#0c000000">
-      <relation target="" sidePair="width-width,height-height"/>
-    </graph>
+    <graph id="n1_bret" name="background" xy="0,0" size="1150,528" type="rect" lineSize="0" fillColor="#0c000000"/>
     <graph id="n2_bret" name="n2" xy="0,60" size="1150,1" group="n9_bret" type="rect" lineSize="0" fillColor="#ffffffe2"/>
     <text id="n3_bret" name="n3" xy="27,16" size="120,34" group="n9_bret" fontSize="24" color="#6e5745" text="房间人数 : "/>
     <component id="n7_bret" name="n7" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="172,15" size="115,36" group="n9_bret">
-      <Button title="2人" titleColor="#6e5745" titleFontSize="24" controller="playerNumber" page="0"/>
+      <Button checked="true" title="2人" titleColor="#6e5745" titleFontSize="24" controller="playerNumber" page="0"/>
     </component>
     <component id="n8_bret" name="n8" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="283,16" size="115,36" group="n9_bret">
       <Button title="3人" titleColor="#6e5745" titleFontSize="24" controller="playerNumber" page="1"/>
     </component>
     <text id="n15_bret" name="n15" xy="513,17" size="120,34" group="n9_bret" fontSize="24" color="#6e5745" text="扑克数量 : "/>
     <component id="n16_bret" name="n16" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="658,16" size="115,36" group="n9_bret">
-      <Button title="15张" titleColor="#6e5745" titleFontSize="24" controller="pokerNumber" page="0"/>
+      <Button checked="true" title="15张" titleColor="#6e5745" titleFontSize="24" controller="pokerNumber" page="0"/>
     </component>
     <component id="n17_bret" name="n17" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="796,17" size="115,36" group="n9_bret">
       <Button title="16张" titleColor="#6e5745" titleFontSize="24" controller="pokerNumber" page="1"/>
@@ -39,7 +37,7 @@
     <graph id="n31_bret" name="n31" xy="0,190" size="1150,1" group="n35_bret" type="rect" lineSize="0" fillColor="#ffffffe2"/>
     <text id="n32_bret" name="n32" xy="27,146" size="120,34" group="n35_bret" fontSize="24" color="#6e5745" text="发牌方式 : "/>
     <component id="n33_bret" name="n33" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="172,145" size="164,36" group="n35_bret">
-      <Button title="正常发牌" titleColor="#6e5745" titleFontSize="24" controller="dealPoker" page="0"/>
+      <Button checked="true" title="正常发牌" titleColor="#6e5745" titleFontSize="24" controller="dealPoker" page="0"/>
     </component>
     <component id="n34_bret" name="n34" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="345,146" size="198,36" group="n35_bret">
       <Button title="四张连发" titleColor="#6e5745" titleFontSize="24" controller="dealPoker" page="1"/>
@@ -48,7 +46,7 @@
     <graph id="n36_bret" name="n36" xy="0,255" size="1150,1" group="n40_bret" type="rect" lineSize="0" fillColor="#ffffffe2"/>
     <text id="n37_bret" name="n37" xy="27,211" size="120,34" group="n40_bret" fontSize="24" color="#6e5745" text="房费支付 : "/>
     <component id="n38_bret" name="n38" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="172,210" size="128,36" group="n40_bret">
-      <Button title="房主付" titleColor="#6e5745" titleFontSize="24" controller="whoPay" page="0"/>
+      <Button checked="true" title="房主付" titleColor="#6e5745" titleFontSize="24" controller="whoPay" page="0"/>
     </component>
     <component id="n39_bret" name="n39" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="321,211" size="141,36" group="n40_bret">
       <Button title="平摊付" titleColor="#6e5745" titleFontSize="24" controller="whoPay" page="1"/>
@@ -63,7 +61,7 @@
       <Button title="翻倍" titleColor="#6e5745" titleFontSize="24" controller="double" page="1"/>
     </component>
     <component id="n44_bret" name="n44" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="297,276" size="198,36" group="n45_bret">
-      <Button title="不翻倍" titleColor="#6e5745" titleFontSize="24" controller="double" page="0"/>
+      <Button checked="true" title="不翻倍" titleColor="#6e5745" titleFontSize="24" controller="double" page="0"/>
     </component>
     <group id="n45_bret" name="n45" xy="0,275" size="1150,46"/>
     <graph id="n46_bret" name="n46" xy="0,385" size="1150,1" group="n50_bret" type="rect" lineSize="0" fillColor="#ffffffe2"/>
@@ -72,7 +70,7 @@
       <Button title="允许加分" titleColor="#6e5745" titleFontSize="24" controller="addPoints" page="1"/>
     </component>
     <component id="n49_bret" name="n49" src="q2ufo4" fileName="Component/Radio/Radio_1.xml" pkg="hyyrj5lp" xy="345,341" size="198,36" group="n50_bret">
-      <Button title="禁止加分" titleColor="#6e5745" titleFontSize="24" controller="addPoints" page="0"/>
+      <Button checked="true" title="禁止加分" titleColor="#6e5745" titleFontSize="24" controller="addPoints" page="0"/>
     </component>
     <group id="n50_bret" name="n50" xy="0,340" size="1150,46"/>
     <graph id="n52_bret" name="n52" xy="0,511" size="1150,1" group="n56_bret" type="rect" lineSize="0" fillColor="#ffffffe2"/>

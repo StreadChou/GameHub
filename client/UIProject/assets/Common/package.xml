@@ -117,7 +117,7 @@
     <sound id="gh83as" name="DealNoShuffle.ogg" path="/Sound/Special/" exported="true"/>
     <sound id="gh83at" name="Special_Multiply.ogg" path="/Sound/Special/" exported="true"/>
     <component id="rjbiau" name="AlertWindow.xml" path="/Component/Window/AlertWindow/" exported="true"/>
-    <component id="rjbiav" name="frame.xml" path="/Component/Window/AlertWindow/"/>
+    <component id="rjbiav" name="frame.xml" path="/Component/Window/AlertWindow/" exported="true"/>
     <font id="pmpe8" name="FZGDCTJW-R.TTF" path="/Font/" exported="true" renderMode="" samplePointSize="16"/>
     <font id="pmpeb1" name="FZPSHJW.TTF" path="/Font/" exported="true" renderMode="" samplePointSize="16"/>
     <component id="pmpeb3" name="CheckBox_1.xml" path="/Component/CheckBox/" exported="true"/>
@@ -415,14 +415,14 @@
     <image id="q2ufm0" name="word034.png" path="/Image/Words/" exported="true"/>
     <image id="q2ufm1" name="word032.png" path="/Image/Words/" exported="true"/>
     <image id="q2ufm2" name="word124.png" path="/Image/Words/" exported="true"/>
-    <image id="q2ufm3" name="panel001.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufm3" name="panel001.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="687,89,406,180"/>
     <image id="q2ufm4" name="panel029.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufm5" name="panel030.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufm6" name="panel031.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufm7" name="panel032.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufm8" name="panel033.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufm9" name="panel034.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufma" name="panel035.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufma" name="panel035.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="14,15,28,30"/>
     <image id="q2ufmb" name="panel036.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmc" name="panel037.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmd" name="panel038.png" path="/Image/Panel/" exported="true"/>
@@ -435,23 +435,22 @@
     <image id="q2ufmk" name="panel045.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufml" name="panel046.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmm" name="panel047.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufmn" name="panel048.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufmn" name="panel048.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="97,137,194,274"/>
     <image id="q2ufmo" name="panel049.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmp" name="panel050.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmq" name="panel051.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufmr" name="panel028.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="79,100,158,200"/>
     <image id="q2ufms" name="panel052.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmt" name="panel027.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="79,100,158,200"/>
     <image id="q2ufmu" name="panel025.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmv" name="panel002.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmw" name="panel003.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufmx" name="panel004.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufmy" name="panel005.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufmy" name="panel005.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="225,94,215,11"/>
     <image id="q2ufmz" name="panel006.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufn0" name="panel007.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufn1" name="panel008.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufn2" name="panel009.png" path="/Image/Panel/" exported="true"/>
-    <image id="q2ufn3" name="panel010.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufn2" name="panel009.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="74,59,148,118"/>
+    <image id="q2ufn3" name="panel010.png" path="/Image/Panel/" exported="true" scale9grid="334,63,668,126"/>
     <image id="q2ufn4" name="panel011.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufn5" name="panel012.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="455,0,912,142"/>
     <image id="q2ufn6" name="panel013.png" path="/Image/Panel/" exported="true"/>
@@ -463,11 +462,11 @@
     <image id="q2ufnc" name="panel019.png" path="/Image/Panel/" exported="true"/>
     <image id="q2ufnd" name="panel020.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="35,9,70,18"/>
     <image id="q2ufne" name="panel021.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="41,17,82,34"/>
-    <image id="q2ufnf" name="panel022.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="81,20,162,40"/>
-    <image id="q2ufng" name="panel023.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="105,36,210,19"/>
-    <image id="q2ufnh" name="panel024.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufnf" name="panel022.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="81,0,162,82"/>
+    <image id="q2ufng" name="panel023.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="105,32,210,22"/>
+    <image id="q2ufnh" name="panel024.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="49,0,98,56"/>
     <image id="q2ufni" name="panel026.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="54,86,108,156"/>
-    <image id="q2ufnj" name="panel053.png" path="/Image/Panel/" exported="true"/>
+    <image id="q2ufnj" name="panel053.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="136,36,187,86"/>
     <component id="q2ufnl" name="CommonFalseButton.xml" path="/Component/Button/False/" exported="true"/>
     <component id="q2ufno" name="CommonTrueButton.xml" path="/Component/Button/True/" exported="true"/>
     <component id="q2ufnq" name="BackButton.xml" path="/Component/Button/False/" exported="true"/>
@@ -476,7 +475,7 @@
     <component id="q2ufnt" name="AcceptButton.xml" path="/Component/Button/True/" exported="true"/>
     <component id="q2ufnu" name="ConfirmButton.xml" path="/Component/Button/True/" exported="true"/>
     <component id="q2ufnx" name="ConfirmWindow.xml" path="/Component/Window/ConfirmButton/" exported="true"/>
-    <component id="q2ufny" name="frame.xml" path="/Component/Window/ConfirmButton/"/>
+    <component id="q2ufny" name="frame.xml" path="/Component/Window/ConfirmButton/" exported="true"/>
     <component id="q2ufnz" name="CheckBox_Switch.xml" path="/Component/CheckBox/" exported="true"/>
     <image id="q2ufo0" name="icon099_4.png" path="/Image/Icon/" exported="true"/>
     <image id="q2ufo1" name="icon099_3.png" path="/Image/Icon/" exported="true"/>
@@ -487,6 +486,9 @@
     <component id="spvoo7" name="Item.xml" path="/Component/Button/Item/" exported="true"/>
     <image id="spvoo8" name="icon100.png" path="/Image/Icon/" exported="true"/>
     <image id="bretoa" name="button097.png" path="/Image/Button/" exported="true"/>
+    <image id="f26bob" name="icon101.png" path="/Image/Icon/" exported="true"/>
+    <image id="f26boc" name="panel028.png" path="/Image/Panel/" exported="true" scale="9grid" scale9grid="79,100,158,200"/>
+    <component id="f26boe" name="tips.xml" path="/Component/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

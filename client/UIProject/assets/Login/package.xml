@@ -13,6 +13,7 @@
     <image id="m9xmc" name="button086.png" path="/Image/"/>
     <image id="m9xmd" name="button087.png" path="/Image/"/>
     <image id="m9xme" name="button088.png" path="/Image/"/>
+    <image id="f26bf" name="hero116 (2).png" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>
