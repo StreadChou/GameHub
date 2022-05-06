@@ -39,7 +39,7 @@ export class RunFastRole extends AbstractPlayer {
     getPokersFromHands(pokers: Array<any | PokerCard>): Array<PokerCard> {
         const rlt: Array<PokerCard> = []
         this.handsPokers.forEach(poker => {
-            const res = pokers.some(ele => ele.suit == poker.suit && ele.value == poker.value);
+            const res = pokers.some(ele => ele.suit == poker.suit && ele.rank == poker.rank);
             if (!res) return null;
             rlt.push(poker);
         })

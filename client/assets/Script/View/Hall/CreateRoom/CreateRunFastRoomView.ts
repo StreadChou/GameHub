@@ -54,7 +54,7 @@ export class CreateRunFastRoomView extends BaseCreateRoomView {
         const pokerNumber = parseInt(optsPane.getController("pokerNumber").selectedPage);
         const chat = !!optsPane.getController("chat").selectedPage;
 
-        const whoPay = parseInt(optsPane.getController("whoPay").selectedPage);
+        const whoPay = optsPane.getController("whoPay").selectedPage as 'master' | 'all' | 'winner'
         const dealPoker = parseInt(optsPane.getController("dealPoker").selectedPage);
 
 
@@ -69,11 +69,8 @@ export class CreateRunFastRoomView extends BaseCreateRoomView {
 
         // @ts-ignore, 初始化的时候不给值
         const setting: { [key in RunFastConfig]: boolean } = {};
-        Object.values(RunFastConfig).forEach(key => {
-            if (!Number.isInteger(key)) {
-                // @ts-ignore
-                setting[key] = getSetting(key);
-            }
+        Object.keys(RunFastConfig).forEach(key => {
+            if (key in RunFastConfig) setting[RunFastConfig[key]] = getSetting(key);
         })
 
         return {playerNumber, pokerNumber, whoPay, dealPoker, chat, double, addPoints, setting}

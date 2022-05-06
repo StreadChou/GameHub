@@ -78,9 +78,11 @@ export class RoomServices extends ProtocolBase {
     requestGameOperation = (operation, data) => this.sendMsg(Client2ServerCmd.GameOperate, {operation, data});
 
     // 接收游戏事件
-    responseGameOperation(data) {
-        ControllerRoom.getInstance().onJoinRoomSuccess();
-        // this.sendMsg(Client2ServerCmd.GameOperate, {operation, data});
+    responseGameOperation(_data) {
+        if (_data.code == 200) {
+            const {operation, data} = _data.data;
+            ControllerRoom.getInstance().GameResponseOperation(operation, data);
+        }
     }
 
     onPushGameOperation(data) {
@@ -114,6 +116,8 @@ export class RoomEntity {
         roomInfo.players.forEach(ele => {
             this.playerJoinRoom(ele);
         })
+
+        console.error(this);
     }
 
     playerJoinRoom(playerInfo) {

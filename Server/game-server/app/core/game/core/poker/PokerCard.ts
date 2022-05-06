@@ -55,11 +55,11 @@ export class PokerCard {
         switch (this.rank) {
             case 1:
                 if (this.suit == PokerSuit.JOKER) return "小王"
-                if (this.suit == PokerSuit.ADVERT) return "A"
+                if (this.suit == PokerSuit.ADVERT) return "广告牌1"
                 return "A"
             case 2:
                 if (this.suit == PokerSuit.JOKER) return "大王"
-                if (this.suit == PokerSuit.ADVERT) return "A"
+                if (this.suit == PokerSuit.ADVERT) return "广告牌2"
                 return "2"
             case 11:
                 return "J"
@@ -68,7 +68,7 @@ export class PokerCard {
             case 13:
                 return "K"
             default:
-                return this.suit.toString();
+                return this.rank.toString();
         }
     }
 }

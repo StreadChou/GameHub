@@ -38,8 +38,8 @@ export class Handler {
         const {operation, data} = msg;
         const roomPlayer = room.getPlayer(session.uid);
 
-        await game.operate(roomPlayer, operation, data);
-
+        const rlt = await game.operate(roomPlayer, operation, data);
+        return {code: 200, data: {operation, data: rlt}};
     }
 
 }

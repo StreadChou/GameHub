@@ -8,28 +8,22 @@ export enum GameTypeEnum {
 }
 
 
-// 房费谁来付
-export enum FeePayFor {
-    Master = 1,
-    Players,
-}
-
 
 // 创建游戏的设置
 export interface AbstractRoomOption {
     maxPlayer: number;
     gameEnum: GameEnum
     gameTypeEnum: GameTypeEnum,
-    whoPay: FeePayFor,
+    whoPay: 'master' |  'all' | 'winner',
     chat: boolean,
 }
 
 export enum RunFastConfig {
-    FourWithThree = 1, // 四代三
-    Spade3First, // 黑桃三先出牌
-    MustPlay, // 有牌必须出
-    ThreeAceBoom, // 三个 A 算炸弹
-    ShowCardsNumber, // 显示卡牌数量
+    FourWithThree = 'fourWithThree', // 四代三
+    Spade3First = 'spade3First', // 黑桃三先出牌
+    MustPlay = 'mustPlay', // 有牌必须出
+    ThreeAceBoom = 'threeAceBoom', // 三个 A 算炸弹
+    ShowCardsNumber = 'showCardsNumber', // 显示卡牌数量
 }
 
 export interface RunFastRoomOptions extends AbstractRoomOption {

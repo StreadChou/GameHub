@@ -1,3 +1,4 @@
+
 export abstract class AbstractGameController {
 
     abstract onEnterRoom();
@@ -5,6 +6,10 @@ export abstract class AbstractGameController {
     abstract reloadPlayer();
 
     abstract onPushOperation(operation: string, data: any);
+
+    abstract requestOperation(operation: any, data: any)
+
+    abstract onResponseOperation(operation: string, data: any);
 
 
 }

@@ -41,5 +41,7 @@ export class ControllerRoom {
 
     GameOnPushOperation = (operation: string, data: any) => this.game.onPushOperation(operation, data);
 
+    GameResponseOperation = (operation: string, data: any) => this.game.onResponseOperation(operation, data);
+
 
 }

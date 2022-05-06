@@ -1,5 +1,6 @@
 export enum RequestOperation {
-    PlayPokers = "playPokers", // 出牌
+    RequestPlayPokers = "requestPlayPokers", // 出牌
+    RequestPass = "requestPass", // 过
 }
 
 export enum PushOperation {

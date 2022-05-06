@@ -4,7 +4,7 @@
   <controller name="pokerNumber" pages="0,15,1,16" selected="0"/>
   <controller name="chat" homePageType="specific" homePage="1" pages="0,0,1,1" selected="0"/>
   <controller name="whoPay" pages="0,master,1,all,2,winner" selected="0"/>
-  <controller name="dealPoker" pages="0,normal,1,4poker" selected="0"/>
+  <controller name="dealPoker" pages="0,1,1,4" selected="0"/>
   <controller name="double" alias="允许加倍" pages="0,0,1,1" selected="0"/>
   <controller name="addPoints" alias="允许加分" pages="0,0,1,1" selected="0"/>
   <displayList>
@@ -88,7 +88,7 @@
       <Button title="三个A算炸弹" titleColor="#6e5745" titleFontSize="24"/>
     </component>
     <component id="n65_bret" name="setting_ShowCardsNumber" src="bret1x" fileName="Component/CreateRoom/ConfigCheckBox.xml" xy="929,405" size="142,35" group="n56_bret">
-      <Button title="显示牌数" titleColor="#6e5745" titleFontSize="24"/>
+      <Button checked="true" title="显示牌数" titleColor="#6e5745" titleFontSize="24"/>
     </component>
     <component id="n66_bret" name="setting_Heart10Bird" src="bret1x" fileName="Component/CreateRoom/ConfigCheckBox.xml" xy="177,466" size="175,35" group="n56_bret">
       <Button title="红桃10抓鸟" titleColor="#6e5745" titleFontSize="24"/>

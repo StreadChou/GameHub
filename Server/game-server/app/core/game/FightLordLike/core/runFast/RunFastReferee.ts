@@ -48,6 +48,12 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
         // 记录上家出牌, 让下家
         this.last = {role, pokers, type};
 
+        this.game.pushMessage(PushOperation.OnPlayerPlay, {
+            pokers: pokers.map(ele => ele.makeClient()),
+            uid: role.uid,
+            seat: role.seat,
+        });
+        this.enterNextPlayerRound();
     }
 
     // 玩家自由出牌

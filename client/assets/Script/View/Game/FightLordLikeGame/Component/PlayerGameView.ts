@@ -1,6 +1,8 @@
 import FightLordLikeGameMain from "../FightLordLikeGameMain";
 import {RoomPlayerEntity} from "../../../../Model/RoomServices";
 import {OperateQueueDescriptor} from "../OperateQueue";
+import FoldPokerItem from "../Item/foldPokerItem";
+import HandsPokerItem from "../Item/HandsPokerItem";
 
 type PlayerItem = { view: fgui.GObject, player: RoomPlayerEntity };
 
@@ -23,14 +25,20 @@ export class PlayerGameView {
 
     onUILoaded() {
         this._view = this.father.getChild("PlayerController");
+
         this.leftPlayerView = this._view.asCom.getChild("left");
         this.leftPlayerView.asCom.getTransition("LeftView").play();
+        this.leftPlayerView.asCom.getChild("FoldPoker").asList.align = fgui.AlignType.Left;
 
         this.topPlayerView = this._view.asCom.getChild("top");
         this.topPlayerView.asCom.getTransition("TopView").play();
+        this.topPlayerView.asCom.getChild("FoldPoker").asList.align = fgui.AlignType.Center;
 
         this.rightPlayerView = this._view.asCom.getChild("right");
         this.rightPlayerView.asCom.getTransition("RightView").play();
+        this.rightPlayerView.asCom.getChild("FoldPoker").asList.align = fgui.AlignType.Right;
+
+        fgui.UIObjectFactory.setExtension("ui://PokerGame/FoldPokerItem", FoldPokerItem);
     }
 
     @OperateQueueDescriptor()
@@ -72,6 +80,42 @@ export class PlayerGameView {
                 timer.visible = false;
             }
         })
+
+    }
+
+    @OperateQueueDescriptor()
+    onReceivedPoker(seat: number, showNumber: boolean, number: number) {
+        const item = this.getPlayerViewItem(seat);
+        const handsPokerGroup = item.view.asCom.getChild("HandsPokerGroup");
+        const PokerNumber = item.view.asCom.getChild("PokerNumber");
+        handsPokerGroup.visible = true;
+        if (!showNumber) {
+            PokerNumber.asTextField.text = "--";
+        } else {
+            let allNumber = parseInt(PokerNumber.asTextField.text) + number;
+            PokerNumber.asTextField.text = allNumber.toString();
+        }
+
+    }
+
+    @OperateQueueDescriptor()
+    onPlayerFoldPoker(seat: number, showNumber: boolean, pokers: Array<{ rank: number, suit: number }>) {
+        const item = this.getPlayerViewItem(seat);
+        const PokerNumber = item.view.asCom.getChild("PokerNumber");
+        if (showNumber) {
+            let allNumber = parseInt(PokerNumber.asTextField.text) - pokers.length;
+            PokerNumber.asTextField.text = allNumber.toString();
+        }
+
+        const foldArea = item.view.asCom.getChild("FoldPoker").asList;
+        foldArea.asCom.visible = true;
+        pokers.sort((eleA, eleB) => eleB.rank - eleA.rank).forEach(ele => {
+            let item: HandsPokerItem = <HandsPokerItem>foldArea.addItemFromPool();
+            item.setPoker(ele);
+            item.useFont();
+        })
+        foldArea.ensureBoundsCorrect();
+        console.log(foldArea);
 
     }
 

@@ -52,11 +52,13 @@ export class RunFastTable extends AbstractFightLordLikeTable {
 
         const message = {
             uid: role.uid,
+            seat: role.seat,
             number: pokerInfo.length,
             pokers: pokerInfo,
         }
         const otherMessage = {
             uid: role.uid,
+            seat: role.seat,
             number: pokerInfo.length,
         }
         this.game.pushDifferentiationMessage(PushOperation.OnReceivedPoker, role, message, otherMessage)

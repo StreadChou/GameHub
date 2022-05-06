@@ -1,10 +1,16 @@
-import {PushOperation} from "./Operation";
+import {PushOperation, RequestOperation} from "./Operation";
 import {OnReceivedPoker} from "./operation/OnReceivedPoker";
 import {OnPhase} from "./operation/OnPhase";
 import {OnPlayerRound} from "./operation/OnPlayerRound";
 import {OnPlayerPlay} from "./operation/OnPlayerPlay";
+import {RequestPlayPokers} from "./operation/RequestPlayPokers";
 
-export function OperationRequestFactory() {
+export function OperationRequestFactory(operation: RequestOperation) {
+    switch (operation) {
+        case RequestOperation.RequestPlayPokers:
+            return new RequestPlayPokers();
+
+    }
 
 }
 

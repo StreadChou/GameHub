@@ -7,8 +7,9 @@ import {SelfRoomView} from "../../../../../View/Game/FightLordLikeGame/Component
 import {BottomView} from "../../../../../View/Game/FightLordLikeGame/Component/BottomView";
 import {PlayerGameView} from "../../../../../View/Game/FightLordLikeGame/Component/PlayerGameView";
 import {RoomState} from "../../../../../Constant/Room";
-import {PushOperation} from "./Operation";
-import {OperationPushFactory} from "./OperationFactory";
+import {PushOperation, RequestOperation} from "./Operation";
+import {OperationPushFactory, OperationRequestFactory} from "./OperationFactory";
+import {RunFastRoomOptions} from "../../../../../Constant/Game";
 
 export class ControllerRunFast extends AbstractGameController {
     private static _instance;
@@ -24,6 +25,10 @@ export class ControllerRunFast extends AbstractGameController {
 
     get isMaster(): boolean {
         return this.user.uid == this.room.master;
+    }
+
+    get option(): RunFastRoomOptions {
+        return this.room.gameOption as RunFastRoomOptions;
     }
 
     // 场景加载
@@ -68,5 +73,17 @@ export class ControllerRunFast extends AbstractGameController {
         const operator = OperationPushFactory(operation);
         if (operator) operator.running(data);
     }
+
+
+    requestOperation(operation: RequestOperation, data: any) {
+        const operator = OperationRequestFactory(operation);
+        if (operator) operator.request(data);
+    }
+
+    onResponseOperation(operation: RequestOperation, data: any) {
+        const operator = OperationRequestFactory(operation);
+        if (operator) operator.response(data);
+    }
+
 
 }

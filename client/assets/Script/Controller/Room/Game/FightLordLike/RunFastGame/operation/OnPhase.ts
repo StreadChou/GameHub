@@ -1,4 +1,5 @@
 import {SelfRoomView} from "../../../../../../View/Game/FightLordLikeGame/Component/SelfRoomView";
+import {PushOption} from "../../../Base/PushOption";
 
 export enum GameState {
     Init,  // 开始阶段
@@ -8,7 +9,7 @@ export enum GameState {
     GameOver, // 结束阶段, 结算阶段
 }
 
-export class OnPhase {
+export class OnPhase extends PushOption {
     running(data: { phase: GameState, time: number, data: any }) {
         const phase: GameState = data.phase;
         switch (phase) {

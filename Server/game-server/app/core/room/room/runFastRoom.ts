@@ -8,6 +8,7 @@ import RunFastGame from "../../game/FightLordLike/core/runFast/RunFastGame";
 
 export class RunFastRoom extends AbstractRoom {
     gameOption: RunFastRoomOptions; // 游戏选项
+    game: RunFastGame;
 
     protected setGameOptions(options: RunFastRoomOptions) {
         this.checkOptions(options);
@@ -17,8 +18,8 @@ export class RunFastRoom extends AbstractRoom {
     // 开始游戏
     public async startGame(): Promise<void> {
         const gameConfig = RunFastGameConfig.generateGameConfig(this);
-        
-        new RunFastGame(gameConfig, () => {
+
+        this.game = new RunFastGame(gameConfig, () => {
 
         })
     }
