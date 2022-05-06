@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="400,62">
+  <displayList>
+    <component id="n0_f26b" name="StartGameButton" src="q2ufno" fileName="Component/Button/True/CommonTrueButton.xml" pkg="hyyrj5lp" xy="0,0">
+      <Button title="开始游戏"/>
+    </component>
+    <component id="n1_f26b" name="ReadyButton" src="q2ufno" fileName="Component/Button/True/CommonTrueButton.xml" pkg="hyyrj5lp" xy="0,0" visible="false">
+      <Button title="准备"/>
+    </component>
+    <component id="n2_f26b" name="LeaveRoomButton" src="q2ufnl" fileName="Component/Button/False/CommonFalseButton.xml" pkg="hyyrj5lp" xy="243,0">
+      <Button title="离开房间"/>
+    </component>
+  </displayList>
+</component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,75">
+  <displayList>
+    <graph id="n5_f26b" name="n5" xy="0,0" size="1334,75" type="rect" lineSize="0" fillColor="#4cffffff">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <component id="n6_f26b" name="Cover" src="bretd" fileName="Cover.xml" xy="20,1" size="74,74">
+      <relation target="n5_f26b" sidePair="middle-middle,left-left"/>
+    </component>
+    <text id="n7_f26b" name="NickName" xy="100,13" size="214,48" fontSize="35" color="#ffffe2" strokeColor="#6e5745" text="六个字的名字">
+      <relation target="n5_f26b" sidePair="middle-middle"/>
+      <relation target="n6_f26b" sidePair="left-right"/>
+    </text>
+    <component id="n8_f26b" name="Gold" src="spvoo7" fileName="Component/Button/Item/Item.xml" pkg="hyyrj5lp" xy="367,14" size="255,48">
+      <relation target="n5_f26b" sidePair="middle-middle"/>
+      <relation target="n7_f26b" sidePair="left-right"/>
+      <Button icon="ui://hyyrj5lpq2ufi1"/>
+    </component>
+    <component id="n9_f26b" name="Money" src="spvoo7" fileName="Component/Button/Item/Item.xml" pkg="hyyrj5lp" xy="643,13" size="255,48">
+      <relation target="n8_f26b" sidePair="left-right"/>
+      <relation target="n5_f26b" sidePair="middle-middle"/>
+      <Button icon="ui://hyyrj5lpq2ufhu"/>
+    </component>
+  </displayList>
+</component>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="57,80" extention="Button" showSound="ui://hyyrj5lpgh83as">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <loader id="n3_bret" name="icon" xy="0,0" size="58,80" aspect="true" url="ui://u03c55ylbretg" align="center" vAlign="middle" fill="scale">
+      <gearDisplay controller="button" pages="0,1,2,3"/>
+      <gearXY controller="button" pages="1,3" values="0,-30|0,-30" default="0,0"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+  </displayList>
+  <Button/>
+  <transition name="HandsCardAdd">
+    <item time="0" type="Visible" value="true"/>
+    <item time="0" type="XY" value="221,0"/>
+    <item time="7" type="XY" value="0,0"/>
+  </transition>
+</component>

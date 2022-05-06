@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="703,467">
+  <displayList>
+    <component id="n0_f26b" name="RunFastButton" src="f26b23" fileName="Component/CreateRoom/Button/XL.xml" xy="236,0">
+      <Button icon="ui://4ezujtbmbret1s"/>
+    </component>
+    <component id="n1_f26b" name="ChangShaMahJong" src="f26b23" fileName="Component/CreateRoom/Button/XL.xml" xy="0,6">
+      <Button icon="ui://4ezujtbmbret1t"/>
+    </component>
+    <component id="n8_f26b" name="JoinRoom" src="f26b2h" fileName="Component/CreateRoom/Button/JoinRoom.xml" xy="471,2"/>
+    <component id="n9_f26b" name="AnyValueMahJong" src="f26b2f" fileName="Component/CreateRoom/Button/LG.xml" xy="467,108">
+      <Button icon="ui://4ezujtbmf26b2a"/>
+    </component>
+    <component id="n10_f26b" name="TurnAroundMahJong" src="f26b2g" fileName="Component/CreateRoom/Button/SM.xml" xy="4,320">
+      <Button icon="ui://4ezujtbmf26b2d"/>
+    </component>
+    <component id="n12_f26b" name="ThreeFightOne" src="f26b2g" fileName="Component/CreateRoom/Button/SM.xml" xy="236,320">
+      <Button icon="ui://4ezujtbmf26b2e"/>
+    </component>
+    <component id="n14_f26b" name="MoreGame" src="f26b2g" fileName="Component/CreateRoom/Button/SM.xml" xy="465,320">
+      <Button icon="ui://4ezujtbmf26b29"/>
+    </component>
+  </displayList>
+</component>

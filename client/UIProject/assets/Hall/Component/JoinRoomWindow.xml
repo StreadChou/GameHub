@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <component id="n0_f26b" name="frame" src="q2ufny" fileName="Component/Window/ConfirmButton/frame.xml" pkg="hyyrj5lp" xy="422,208" size="490,334">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <text id="n1_f26b" name="n1" xy="472,225" size="404,55" fontSize="24" color="#ffffe2" align="center" vAlign="middle" autoSize="none" bold="true" singleLine="true" text="加入房间">
+      <relation target="n0_f26b" sidePair="width-width,center-center,top-top"/>
+    </text>
+    <image id="n3_f26b" name="n3" src="q2ufnh" fileName="Image/Panel/panel024.png" pkg="hyyrj5lp" xy="498,298" size="348,56" group="n6_f26b"/>
+    <text id="n4_f26b" name="RoomId" xy="622,307" size="195,34" group="n6_f26b" fontSize="24" color="#ffffe2" autoSize="none" bold="true" text="100000" input="true"/>
+    <text id="n5_f26b" name="n5" xy="520,307" size="94,34" group="n6_f26b" fontSize="24" color="#ffffe2" align="center" bold="true" text="房间号: "/>
+    <group id="n6_f26b" name="n6" xy="498,298" size="348,56" advanced="true">
+      <relation target="n0_f26b" sidePair="center-center,top-top"/>
+    </group>
+    <image id="n7_f26b" name="n7" src="q2ufnh" fileName="Image/Panel/panel024.png" pkg="hyyrj5lp" xy="498,371" size="348,56" group="n10_f26b"/>
+    <text id="n8_f26b" name="Password" xy="622,380" size="195,34" group="n10_f26b" fontSize="24" color="#ffffe2" autoSize="none" bold="true" text="00" input="true"/>
+    <text id="n9_f26b" name="n9" xy="520,380" size="92,34" group="n10_f26b" fontSize="24" color="#ffffe2" align="center" bold="true" text="密   码: "/>
+    <group id="n10_f26b" name="n10" xy="498,371" size="348,56" advanced="true">
+      <relation target="n0_f26b" sidePair="center-center"/>
+      <relation target="n6_f26b" sidePair="top-top"/>
+    </group>
+  </displayList>
+</component>

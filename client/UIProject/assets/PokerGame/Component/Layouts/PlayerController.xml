@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750" opaque="false">
+  <displayList>
+    <component id="n0_f26b" name="n0" src="f26bi" fileName="Component/Other/PlayerViewItem.xml" xy="10,260" visible="false">
+      <relation target="" sidePair="left-left,top-top"/>
+    </component>
+    <component id="n1_f26b" name="n1" src="f26bi" fileName="Component/Other/PlayerViewItem.xml" xy="445,61" visible="false">
+      <relation target="" sidePair="center-center,top-top"/>
+    </component>
+    <component id="n2_f26b" name="n2" src="f26bi" fileName="Component/Other/PlayerViewItem.xml" xy="824,260" visible="false">
+      <relation target="" sidePair="right-right,top-top"/>
+    </component>
+  </displayList>
+</component>
