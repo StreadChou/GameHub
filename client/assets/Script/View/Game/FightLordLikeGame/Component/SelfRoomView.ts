@@ -32,10 +32,10 @@ export class SelfRoomView {
     }
 
     @OperateQueueDescriptor()
-    refreshInfo(gameStarted: boolean, isMaster: boolean, ready?: boolean) {
+    refreshInfo(notRoomState: boolean, isMaster: boolean, ready?: boolean) {
         // 如果游戏已经开始, 则强制不显示
-        if (gameStarted) {
-            this._view.visible = false;
+        if (notRoomState) {
+            return this._view.visible = false;
         }
 
         // 如果是房主, 则显示开始游戏, 否则显示准备按钮
@@ -55,6 +55,6 @@ export class SelfRoomView {
             ControllerRunFast.getInstance().leaveRoom();
         })
 
-        this._view.visible = true;
+        return this._view.visible = true;
     }
 }

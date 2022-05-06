@@ -29,6 +29,10 @@ export class RoomPlayer {
 
     @FastDto({enumKey: [DtoEnum.RoomPlayer]})
     @Serialize()
+    gold: number
+
+    @FastDto({enumKey: [DtoEnum.RoomPlayer]})
+    @Serialize()
     cover: string
 
     @Serialize()
@@ -38,6 +42,9 @@ export class RoomPlayer {
 
     @FastDto({enumKey: [DtoEnum.RoomPlayer]})
     seat: number;
+
+    @FastDto({enumKey: [DtoEnum.RoomPlayer]})
+    ready: boolean = false;
 
 
     private constructor(uid) {

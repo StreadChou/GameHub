@@ -1,7 +1,7 @@
 import {BaseUiWindow} from "../../../Base/UI/BaseUiWindow";
 import {ControllerRoom} from "../../../Controller/Room/ControllerRoom";
 
-export class CreateRunFastRoomView extends BaseUiWindow {
+export class JoinRoomWindow extends BaseUiWindow {
     PackageName = "Hall"
     WindowName = "JoinRoomWindow"
 
@@ -20,6 +20,7 @@ export class CreateRunFastRoomView extends BaseUiWindow {
 
     joinRoom() {
         const options = this.getOptions();
+        console.log(options);
         ControllerRoom.getInstance().joinRoom(options)
     }
 

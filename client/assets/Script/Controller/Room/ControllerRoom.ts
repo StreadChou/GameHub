@@ -1,11 +1,13 @@
 import {RoomServices} from "../../Model/RoomServices";
 import {AbstractRoomOption, GameTypeEnum} from "../../Constant/Game";
 import {ControllerRunFast} from "./Game/FightLordLike/RunFastGame/ControllerRunFast";
+import {AbstractGameController} from "./Game/AbstractGameController";
 
 // 房间控制器,
 // 所有房间的电文只影响数据,  房间控制器需要告知view什么时候刷新界面
 export class ControllerRoom {
     private static _instance;
+    private game: AbstractGameController;
 
 
     public static getInstance(): ControllerRoom {
@@ -24,31 +26,17 @@ export class ControllerRoom {
 
     // 加入房间成功
     onJoinRoomSuccess() {
-        console.error(RoomServices.room)
         const gameType = RoomServices.room.gameOption.gameTypeEnum;
         switch (gameType) {
             case GameTypeEnum.FightLordLike:
-                return ControllerRunFast.getInstance().onEnterRoom();
-
+                this.game = ControllerRunFast.getInstance()
+                return this.game.onEnterRoom();
         }
     }
 
-
-    // 进入房间之后
-    onRoom() {
-        // TODO 界面切换到Load,
-        // TODO 加载game.
-        // TODO 关掉load, 切换场景
-    }
-
-    // 有玩家加入
-    onRoomPlayer() {
-        //
-    }
-
-    // 根据数据恢复场景
-    recoverView() {
-        const roomInfo = {}
+    // 重新加载房间内的玩家
+    reloadPlayer() {
+        return this.game.reloadPlayer();
     }
 
 

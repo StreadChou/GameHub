@@ -7,6 +7,7 @@ import {ClientException} from "../../../exception/clientException";
 import {ListMap} from "../../../type/ListMap";
 import {AbstractRoomOption} from "../../game/Interface";
 import {FastDto, toDto} from "../../../helper/jsonHelper";
+import {RoomState} from "../Interface";
 
 
 enum DtoEnum {
@@ -25,6 +26,9 @@ export abstract class AbstractRoom {
 
     @FastDto({enumKey: [DtoEnum.RoomInfo]})
     gameOption: AbstractRoomOption; // 游戏选项
+
+    @FastDto({enumKey: [DtoEnum.RoomInfo]})
+    state: RoomState = RoomState.None;
 
     players: ListMap<RoomPlayer> = new ListMap<RoomPlayer>("uid")
 
@@ -70,7 +74,7 @@ export abstract class AbstractRoom {
 
     public getSeat(): number {
         const seatList = this.players.map(ele => ele.seat)
-        for (let i = 1; i <= this.gameOption.maxPlayer; i++) {
+        for (let i = 0; i < this.gameOption.maxPlayer; i++) {
             if (seatList.includes(i)) continue;
             return i;
         }

@@ -28,8 +28,7 @@ export class ControllerLogic {
 
     async registerToAuth(form: any) {
         api.post("http://127.0.0.1:3000/auth/register", form).then((response) => {
-            const {access_token} = response.data;
-            this.tokenLogin(access_token)
+            Login.instance.openLoginPane();
         })
     }
 

@@ -57,6 +57,9 @@ export class UserEntity {
     money: number
 
     @Serialize()
+    gold: number
+
+    @Serialize()
     cover: string
 
     constructor(userInfo: any) {

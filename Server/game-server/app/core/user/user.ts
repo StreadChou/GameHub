@@ -35,6 +35,10 @@ export class User {
 
     @Serialize()
     @FastDto({enumKey: [DtoEnum.OnLoginDto, DtoEnum.RoomNeedDto]})
+    gold: number
+
+    @Serialize()
+    @FastDto({enumKey: [DtoEnum.OnLoginDto, DtoEnum.RoomNeedDto]})
     cover: string
 
 

@@ -15,7 +15,7 @@
       <Button icon="ui://hyyrj5lpq2ufhu"/>
     </component>
     <component id="n54_spvo" name="Cover" src="spvo1p" fileName="Cover.xml" xy="46,4" size="74,74" group="n56_spvo"/>
-    <text id="n55_spvo" name="NickName" xy="126,16" size="214,48" group="n56_spvo" fontSize="35" color="#ffffe2" autoSize="ellipsis" strokeColor="#6e5745" text="六个字的名字"/>
+    <text id="n55_spvo" name="NickName" xy="126,16" size="214,48" group="n56_spvo" fontSize="35" color="#ffffe2" autoSize="ellipsis" strokeColor="#6e5745" singleLine="true" text="六个字的名字"/>
     <group id="n56_spvo" name="Header" xy="-65,-37" size="1425,142"/>
     <component id="n64_f26b" name="GameList" src="f26b22" fileName="Component/CreateRoom/GameList.xml" xy="600,164">
       <relation target="" sidePair="top-top"/>

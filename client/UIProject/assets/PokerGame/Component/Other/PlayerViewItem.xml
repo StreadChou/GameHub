@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="500,173">
   <displayList>
-    <list id="n4_f26b" name="FoldPoker" xy="290,8" size="200,63" visible="false" overflow="scroll"/>
+    <list id="n4_f26b" name="FoldPoker" xy="290,8" size="200,63" overflow="scroll"/>
     <component id="n0_f26b" name="Cover" src="bretd" fileName="Component/Other/Cover.xml" xy="7,2" group="n21_f26b"/>
     <image id="n14_f26b" name="n14" src="q2ufma" fileName="Image/Panel/panel035.png" pkg="hyyrj5lp" xy="76,12" size="138,29" group="n15_f26b"/>
-    <text id="n1_f26b" name="n1" xy="85,12" size="127,30" group="n15_f26b" fontSize="16" color="#ffffe2" align="center" vAlign="middle" vars="true" autoSize="shrink" text="六个字的名字"/>
+    <text id="n1_f26b" name="NickName" xy="85,12" size="127,30" group="n15_f26b" fontSize="16" color="#ffffe2" align="center" vAlign="middle" vars="true" autoSize="shrink" text="六个字的名字"/>
     <group id="n15_f26b" name="UserNameGroup" xy="76,12" size="138,30" group="n21_f26b" advanced="true"/>
     <image id="n16_f26b" name="n16" src="q2ufma" fileName="Image/Panel/panel035.png" pkg="hyyrj5lp" xy="76,46" size="138,31" group="n18_f26b"/>
-    <text id="n17_f26b" name="n17" xy="83,46" size="127,31" group="n18_f26b" fontSize="20" color="#ffffe2" align="center" vAlign="middle" vars="true" autoSize="shrink" text="3200"/>
+    <text id="n17_f26b" name="Gold" xy="83,46" size="127,31" group="n18_f26b" fontSize="20" color="#ffffe2" align="center" vAlign="middle" vars="true" autoSize="shrink" text="3200"/>
     <group id="n18_f26b" name="UserGoldGroup" xy="76,46" size="138,31" group="n21_f26b" advanced="true"/>
     <group id="n21_f26b" name="UserInfo" xy="7,2" size="207,80"/>
     <image id="n3_f26b" name="Poker" src="bretg" fileName="Image/Images_Cards_Card_1_55.png" xy="227,4" size="55,75" group="n19_f26b" aspect="true"/>
-    <group id="n19_f26b" name="FoldPokerGroup" xy="227,4" size="55,75" visible="false" advanced="true"/>
-    <component id="n11_f26b" name="Timer" src="f26bm" fileName="Component/Other/Timer.xml" xy="288,5" size="89,75" visible="false"/>
+    <group id="n19_f26b" name="FoldPokerGroup" xy="227,4" size="55,75" advanced="true"/>
+    <component id="n11_f26b" name="Timer" src="f26bm" fileName="Component/Other/Timer.xml" xy="288,5" size="89,75"/>
+    <text id="n22_f26b" name="PlayerState" xy="161,93" size="159,43" fontSize="31" color="#ffffe2" align="center" vAlign="middle" autoSize="none" strokeColor="#6e5745" singleLine="true" text="准备!"/>
   </displayList>
   <transition name="LeftView">
     <item time="0" type="XY" target="n0_f26b" value="7,2"/>
@@ -20,12 +21,14 @@
     <item time="0" type="XY" target="n15_f26b" value="76.5,12"/>
     <item time="0" type="XY" target="n18_f26b" value="76,46"/>
     <item time="0" type="XY" target="n19_f26b" value="227,4.052"/>
+    <item time="0" type="XY" target="n22_f26b" value="161,93"/>
     <item time="0" type="XY" target="n4_f26b" value="290,8"/>
     <item time="1" type="XY" target="n0_f26b" value="131,2"/>
     <item time="1" type="XY" target="n11_f26b" value="271,5"/>
     <item time="1" type="XY" target="n15_f26b" value="4.5,12"/>
     <item time="1" type="XY" target="n18_f26b" value="4,46"/>
     <item time="1" type="XY" target="n19_f26b" value="216,4.052"/>
+    <item time="1" type="XY" target="n22_f26b" value="281,19"/>
     <item time="1" type="XY" target="n4_f26b" value="275,8"/>
   </transition>
   <transition name="RightView">
@@ -34,13 +37,15 @@
     <item time="0" type="XY" target="n15_f26b" value="76.5,12"/>
     <item time="0" type="XY" target="n18_f26b" value="76,46"/>
     <item time="0" type="XY" target="n19_f26b" value="227,4.052"/>
+    <item time="0" type="XY" target="n22_f26b" value="161,93"/>
     <item time="0" type="XY" target="n4_f26b" value="290,8"/>
     <item time="1" type="XY" target="n0_f26b" value="290,2"/>
     <item time="1" type="XY" target="n11_f26b" value="150,5"/>
     <item time="1" type="XY" target="n15_f26b" value="359.5,12"/>
     <item time="1" type="XY" target="n18_f26b" value="359,46"/>
     <item time="1" type="XY" target="n19_f26b" value="232,4.052"/>
-    <item time="1" type="XY" target="n4_f26b" value="-42,8"/>
+    <item time="1" type="XY" target="n22_f26b" value="67,19"/>
+    <item time="1" type="XY" target="n4_f26b" value="28,9"/>
   </transition>
   <transition name="TopView">
     <item time="0" type="XY" target="n0_f26b" value="7,2"/>
@@ -48,12 +53,14 @@
     <item time="0" type="XY" target="n15_f26b" value="76.5,12"/>
     <item time="0" type="XY" target="n18_f26b" value="76,46"/>
     <item time="0" type="XY" target="n19_f26b" value="227,4.052"/>
+    <item time="0" type="XY" target="n22_f26b" value="161,93"/>
     <item time="0" type="XY" target="n4_f26b" value="290,8"/>
     <item time="1" type="XY" target="n0_f26b" value="199,2"/>
     <item time="1" type="XY" target="n11_f26b" value="180,84"/>
     <item time="1" type="XY" target="n15_f26b" value="268.5,12"/>
     <item time="1" type="XY" target="n18_f26b" value="268,46"/>
     <item time="1" type="XY" target="n19_f26b" value="141,4.052"/>
+    <item time="1" type="XY" target="n22_f26b" value="161,93"/>
     <item time="1" type="XY" target="n4_f26b" value="135,85"/>
   </transition>
 </component>

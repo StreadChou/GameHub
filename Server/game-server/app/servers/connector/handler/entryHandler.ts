@@ -27,7 +27,7 @@ export class Handler {
 
     async guestLogin(msg: any, session: FrontendSession) {
         const aid: number = parseInt(Date.now().toString() + randomNumberBetween(10000, 99999));
-        const nick: string = "游客"
+        const nick: string = "游客" + randomNumberBetween(10000, 99999)
         const cover: string = AppConfig.AuthServerUrl + "static/cover/1.png"
         const res = await LogicProxy.getInstance().userLogin({aid, cover, nick}, {
             sid: session.id,

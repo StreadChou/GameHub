@@ -19,4 +19,7 @@ export class UserEntity {
 
     @Column({default: 0})
     money: number;
+
+    @Column({default: 0})
+    gold: number;
 }

@@ -1,5 +1,6 @@
 import {UserEntity, UserServices} from "../../Model/UserServices";
 import {CreateRunFastRoomView} from "./CreateRoom/CreateRunFastRoomView";
+import {JoinRoomWindow} from "./JoinRoom/JoinRoomWindow";
 
 const {ccclass, property} = cc._decorator;
 
@@ -35,7 +36,7 @@ export default class Hall extends cc.Component {
             window.show();
         })
         GameListCom.getChild("JoinRoom").onClick(() => {
-            const window = new CreateRunFastRoomView();
+            const window = new JoinRoomWindow();
             window.show();
         })
 
