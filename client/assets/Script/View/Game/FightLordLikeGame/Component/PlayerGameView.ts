@@ -60,6 +60,21 @@ export class PlayerGameView {
         })
     }
 
+    @OperateQueueDescriptor()
+    onEnterPlayerRound(seat: number, time: number) {
+        Object.keys(this.seatToView).forEach((eleSeat) => {
+            const item: PlayerItem = this.seatToView[eleSeat];
+            const timer = item.view.asCom.getChild("Timer");
+            timer.asButton.title = time.toString();
+            if (parseInt(eleSeat) == seat) {
+                timer.visible = true;
+            } else {
+                timer.visible = false;
+            }
+        })
+
+    }
+
     protected reloadPlayerInfo(item: PlayerItem) {
         if (!item.player || item.player.seat === undefined || item.player.seat === null) return item.view.visible = false;
         item.view.asCom.getChild("Cover").asButton.icon = item.player.cover;

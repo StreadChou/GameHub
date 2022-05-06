@@ -10,17 +10,23 @@ import {RunFastStandRule} from "./RunFastStandRule";
 
 
 export default class RunFastGame extends AbstractFightLordLikeGame {
-    table: RunFastTable = new RunFastTable(this);
-    referee: RunFastReferee = new RunFastReferee(this);
     players: ListMap<RunFastRole> = new ListMap<RunFastRole>("seat"); // 这是Array和Map的组合
-    standRule: RunFastStandRule = new RunFastStandRule(this);
+
     config: RunFastGameConfig;
+    table: RunFastTable;
+    referee: RunFastReferee;
+    standRule: RunFastStandRule;
 
 
     constructor(options: RunFastGameOption, callback: Function) {
         super(options.room, options.players);
         this.callback = callback;
+
         this.config = new RunFastGameConfig(this, options); // 初始化配置
+        this.table = new RunFastTable(this);
+        this.referee = new RunFastReferee(this);
+        this.standRule = new RunFastStandRule(this);
+
 
         // 初始化玩家
         options.players.forEach(ele => {
@@ -60,25 +66,30 @@ export default class RunFastGame extends AbstractFightLordLikeGame {
         this.callback(this);
     }
 
-    // 玩家出牌
-    playerPlayPokers(seat: number, _pokers: Array<any>) {
-        const role: RunFastRole = this.getRole(seat);
-        if (!role) throw new ClientException(ErrorCode.RoleNotInGame, {}, "玩家不在游戏中")
-
-        const locker = this.referee.setRoundLocker(role);
-        if (locker) throw new ClientException(ErrorCode.RoleNotInGame, {}, "您已出牌")
-
-        const pokers = role.getPokersFromHands(_pokers);
-        if (!pokers) throw new ClientException(ErrorCode.IllegalOperation, {}, "所出的牌不在手牌中")
-
-        // 告知裁判, 我要出这个牌
-        this.referee.playerPlayPoker(role, pokers);
-
-        role.removePokersFromHands(pokers);
-    }
-
-    // 玩家过牌
-    playerPass(eat: number) {
+    // 玩家操作
+    async operate(operation: any, data: any) {
 
     }
+
+    // // 玩家出牌
+    // playerPlayPokers(seat: number, _pokers: Array<any>) {
+    //     const role: RunFastRole = this.getRole(seat);
+    //     if (!role) throw new ClientException(ErrorCode.RoleNotInGame, {}, "玩家不在游戏中")
+    //
+    //     const locker = this.referee.setRoundLocker(role);
+    //     if (locker) throw new ClientException(ErrorCode.RoleNotInGame, {}, "您已出牌")
+    //
+    //     const pokers = role.getPokersFromHands(_pokers);
+    //     if (!pokers) throw new ClientException(ErrorCode.IllegalOperation, {}, "所出的牌不在手牌中")
+    //
+    //     // 告知裁判, 我要出这个牌
+    //     this.referee.playerPlayPoker(role, pokers);
+    //
+    //     role.removePokersFromHands(pokers);
+    // }
+    //
+    // // 玩家过牌
+    // playerPass(eat: number) {
+    //
+    // }
 }

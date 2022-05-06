@@ -1,5 +1,6 @@
 import {RoomPlayer} from "../../../room/component/roomPlayer";
 import {AbstractGame} from "./abstractGame";
+import {GamePushRoute} from "../../../../constant/Route";
 
 export abstract class AbstractPlayer {
     game: AbstractGame;
@@ -21,7 +22,7 @@ export abstract class AbstractPlayer {
         this.seat = this.roomPlayer.seat;
     }
 
-    pushMessage(route: string, msg: any, opts?: any, cb?: (err?: Error, result?: void) => void) {
-        this.roomPlayer.pushMessage(route, msg, opts, cb)
+    pushMessage(operation: string, msg: any, opts?: any, cb?: (err?: Error, result?: void) => void) {
+        this.roomPlayer.pushMessage(GamePushRoute.OnOperation, {operation, data: msg}, opts, cb)
     }
 }

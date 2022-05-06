@@ -39,5 +39,7 @@ export class ControllerRoom {
         return this.game.reloadPlayer();
     }
 
+    GameOnPushOperation = (operation: string, data: any) => this.game.onPushOperation(operation, data);
+
 
 }

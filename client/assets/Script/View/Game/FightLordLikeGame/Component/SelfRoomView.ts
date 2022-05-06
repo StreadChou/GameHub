@@ -1,6 +1,7 @@
 import FightLordLikeGameMain from "../FightLordLikeGameMain";
 import {ControllerRunFast} from "../../../../Controller/Room/Game/FightLordLike/RunFastGame/ControllerRunFast";
 import {OperateQueueDescriptor} from "../OperateQueue";
+import {RoomServices} from "../../../../Model/RoomServices";
 
 export class SelfRoomView {
     static instance: SelfRoomView;
@@ -32,7 +33,7 @@ export class SelfRoomView {
     }
 
     @OperateQueueDescriptor()
-    refreshInfo(notRoomState: boolean, isMaster: boolean, ready?: boolean) {
+    refreshInfo(notRoomState: boolean, isMaster?: boolean, ready?: boolean) {
         // 如果游戏已经开始, 则强制不显示
         if (notRoomState) {
             return this._view.visible = false;
@@ -44,15 +45,15 @@ export class SelfRoomView {
         this.children.readyButton.asButton.title = ready ? "取消准备" : "准备"
 
         this.children.readyButton.asButton.onClick(() => {
-            ControllerRunFast.getInstance().playerReady();
+            RoomServices.instance.requestReady({});
         })
 
         this.children.startGameButton.asButton.onClick(() => {
-            ControllerRunFast.getInstance().startGame();
+            RoomServices.instance.requestStartGame({});
         })
 
         this.children.leaveRoomButton.asButton.onClick(() => {
-            ControllerRunFast.getInstance().leaveRoom();
+            RoomServices.instance.requestStartGame({});
         })
 
         return this._view.visible = true;

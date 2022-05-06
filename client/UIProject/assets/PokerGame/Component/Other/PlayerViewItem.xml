@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="500,173">
   <displayList>
-    <list id="n4_f26b" name="FoldPoker" xy="290,8" size="200,63" overflow="scroll"/>
+    <list id="n4_f26b" name="FoldPoker" xy="290,8" size="200,63" visible="false" overflow="scroll"/>
     <component id="n0_f26b" name="Cover" src="bretd" fileName="Component/Other/Cover.xml" xy="7,2" group="n21_f26b"/>
     <image id="n14_f26b" name="n14" src="q2ufma" fileName="Image/Panel/panel035.png" pkg="hyyrj5lp" xy="76,12" size="138,29" group="n15_f26b"/>
     <text id="n1_f26b" name="NickName" xy="85,12" size="127,30" group="n15_f26b" fontSize="16" color="#ffffe2" align="center" vAlign="middle" vars="true" autoSize="shrink" text="六个字的名字"/>
@@ -11,9 +11,9 @@
     <group id="n18_f26b" name="UserGoldGroup" xy="76,46" size="138,31" group="n21_f26b" advanced="true"/>
     <group id="n21_f26b" name="UserInfo" xy="7,2" size="207,80"/>
     <image id="n3_f26b" name="Poker" src="bretg" fileName="Image/Images_Cards_Card_1_55.png" xy="227,4" size="55,75" group="n19_f26b" aspect="true"/>
-    <group id="n19_f26b" name="FoldPokerGroup" xy="227,4" size="55,75" advanced="true"/>
-    <component id="n11_f26b" name="Timer" src="f26bm" fileName="Component/Other/Timer.xml" xy="288,5" size="89,75"/>
-    <text id="n22_f26b" name="PlayerState" xy="161,93" size="159,43" fontSize="31" color="#ffffe2" align="center" vAlign="middle" autoSize="none" strokeColor="#6e5745" singleLine="true" text="准备!"/>
+    <group id="n19_f26b" name="FoldPokerGroup" xy="227,4" size="55,75" visible="false" advanced="true"/>
+    <component id="n11_f26b" name="Timer" src="f26bm" fileName="Component/Other/Timer.xml" xy="288,5" size="89,75" visible="false"/>
+    <text id="n22_f26b" name="ReadyText" xy="161,93" size="159,43" visible="false" fontSize="31" color="#ffffe2" align="center" vAlign="middle" autoSize="none" strokeColor="#6e5745" singleLine="true" text="准备!"/>
   </displayList>
   <transition name="LeftView">
     <item time="0" type="XY" target="n0_f26b" value="7,2"/>

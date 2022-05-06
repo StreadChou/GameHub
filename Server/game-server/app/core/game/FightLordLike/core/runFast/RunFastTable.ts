@@ -6,6 +6,7 @@ import {shuffleArray} from "../../../../../helper/randomHelper";
 import {RunFastRole} from "./RunFastRole";
 import {GamePushRoute} from "../../../../../constant/Route";
 import {AbstractFightLordLikeTable} from "../AbstractFightLordLikeTable";
+import {PushOperation} from "./Operation";
 
 export class RunFastTable extends AbstractFightLordLikeTable {
     game: RunFastGame
@@ -52,13 +53,13 @@ export class RunFastTable extends AbstractFightLordLikeTable {
         const message = {
             uid: role.uid,
             number: pokerInfo.length,
-            cards: pokerInfo,
+            pokers: pokerInfo,
         }
         const otherMessage = {
             uid: role.uid,
             number: pokerInfo.length,
         }
-        this.game.pushDifferentiationMessage(GamePushRoute.OnReceivedPoker, role, message, otherMessage)
+        this.game.pushDifferentiationMessage(PushOperation.OnReceivedPoker, role, message, otherMessage)
     }
 
     // 玩家出牌

@@ -2,6 +2,7 @@
 <component size="1334,360" opaque="false" bgColor="#5e5e5e">
   <displayList>
     <list id="n1_f26b" name="HandsArea" xy="102,240" size="1130,120" visible="false" layout="row" selectionMode="multipleSingleClick" scroll="horizontal" colGap="-40" defaultItem="ui://u03c55ylbreth" align="center" autoClearItems="true">
+      <relation target="" sidePair="width-width,center-center"/>
       <item/>
       <item/>
       <item/>
@@ -13,14 +14,14 @@
       <item/>
     </list>
     <list id="n2_f26b" name="FoldArea" xy="167,147" size="1000,80" visible="false" touchable="false" layout="row" selectionMode="none" overflow="scroll" colGap="-40" defaultItem="ui://u03c55ylf26bp" align="center" autoClearItems="true">
-      <relation target="" sidePair="center-center"/>
+      <relation target="" sidePair="width-width,center-center"/>
       <item/>
       <item/>
       <item/>
       <item/>
       <item/>
     </list>
-    <component id="n3_f26b" name="Timer" src="f26bm" fileName="Component/Timer.xml" xy="611,24" visible="false">
+    <component id="n3_f26b" name="Timer" src="f26bm" fileName="Component/Other/Timer.xml" xy="611,24" visible="false">
       <relation target="" sidePair="center-center"/>
       <Button title="30" titleColor="#000000" titleFontSize="24"/>
     </component>

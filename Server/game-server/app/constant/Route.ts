@@ -5,10 +5,7 @@ export enum RoomPushRoute {
 }
 
 export enum GamePushRoute {
-    OnFightLordLikePhase = "onFightLordLikePhase",
-    OnReceivedPoker = "onReceivedPoker",
-    OnPlayerRound = "onPlayerRound",
-    OnPlayerPlay = "onPlayerPlay"
+    OnOperation = "onOperation",
 }
 
 

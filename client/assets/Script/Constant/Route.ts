@@ -6,8 +6,10 @@ export enum Client2ServerCmd {
     CreateRoom = "room.roomHandler.createRoom",
     JoinRoom = "room.roomHandler.joinRoom",
     LeaveRoom = "room.roomHandler.leaveRoom",
+    Ready = "room.roomHandler.Ready",
     StartGame = "room.roomHandler.startGame",
-    GameEvent = "room.gameHandler.gameEvent",
+
+    GameOperate = "room.gameHandler.operate",
 }
 
 export enum RoomPushRoute {
@@ -17,10 +19,7 @@ export enum RoomPushRoute {
 }
 
 export enum GamePushRoute {
-    OnFightLordLikePhase = "onFightLordLikePhase",
-    OnReceivedPoker = "onReceivedPoker",
-    OnPlayerRound = "onPlayerRound",
-    OnPlayerPlay = "onPlayerPlay"
+    OnOperation = "onOperation",
 }
 
 

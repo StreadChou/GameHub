@@ -4,5 +4,7 @@ export abstract class AbstractGameController {
 
     abstract reloadPlayer();
 
+    abstract onPushOperation(operation: string, data: any);
+
 
 }

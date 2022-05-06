@@ -4,7 +4,8 @@ export enum AppAttr {
 }
 
 export enum SessionAttr {
-    LogicServerId = "logicServerId"
+    LogicServerId = "logicServerId",
+    RoomId = "roomId",
 }
 
 

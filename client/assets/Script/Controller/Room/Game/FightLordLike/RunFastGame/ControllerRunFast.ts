@@ -7,6 +7,8 @@ import {SelfRoomView} from "../../../../../View/Game/FightLordLikeGame/Component
 import {BottomView} from "../../../../../View/Game/FightLordLikeGame/Component/BottomView";
 import {PlayerGameView} from "../../../../../View/Game/FightLordLikeGame/Component/PlayerGameView";
 import {RoomState} from "../../../../../Constant/Room";
+import {PushOperation} from "./Operation";
+import {OperationPushFactory} from "./OperationFactory";
 
 export class ControllerRunFast extends AbstractGameController {
     private static _instance;
@@ -32,16 +34,21 @@ export class ControllerRunFast extends AbstractGameController {
         this.room = RoomServices.room;
         this.user = UserServices.user;
 
-
-        FightLordLikeGameMain.instance.loadRoomInfo(this.room.roomId, this.room.password); // 显示房间信息
-        BottomView.instance.showBottomUserInfo(this.user.cover, this.user.nick, this.user.money, this.user.money); // 底部的用户信息
         this.reloadRoomView();
     }
 
+    // 重新加载房间基本信息, 是显示开始游戏还是准备
     reloadRoomView() {
+        // 显示房间信息 顶部的房间号和密码
+        FightLordLikeGameMain.instance.loadRoomInfo(this.room.roomId, this.room.password);
+
+        // 底部的用户信息, 名字和钱等
+        BottomView.instance.showBottomUserInfo(this.user.cover, this.user.nick, this.user.money, this.user.money);
+
+        // 房间操作, 是显示开始游戏还是准备
         const notRoomState = [RoomState.Match, RoomState.Gaming].includes(this.room.state);
         const main = this.room.getUserByUid(this.user.uid);
-        SelfRoomView.instance.refreshInfo(notRoomState, this.isMaster, main.ready); // 房间操作, 开始游戏还是准备
+        SelfRoomView.instance.refreshInfo(notRoomState, this.isMaster, main.ready);
     }
 
     // 重新加载房间玩家
@@ -56,20 +63,10 @@ export class ControllerRunFast extends AbstractGameController {
         }
     }
 
-    // 玩家准备
-    playerReady() {
 
+    onPushOperation(operation: PushOperation, data: any) {
+        const operator = OperationPushFactory(operation);
+        if (operator) operator.running(data);
     }
-
-    // 开始游戏
-    startGame() {
-
-    }
-
-    // 离开房间
-    leaveRoom() {
-
-    }
-
 
 }

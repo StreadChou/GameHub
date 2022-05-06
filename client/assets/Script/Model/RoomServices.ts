@@ -1,5 +1,5 @@
 import {ProtocolBase} from "../Base/ProtocolBase";
-import {Client2ServerCmd, RoomPushRoute} from "../Constant/Route";
+import {Client2ServerCmd, GamePushRoute, RoomPushRoute} from "../Constant/Route";
 import {ListMap} from "../Base/Helper/ListMap";
 import {AbstractRoomOption} from "../Constant/Game";
 import {fromJSON, Serialize} from "../Base/Helper/jsonHelper";
@@ -31,22 +31,29 @@ export class RoomServices extends ProtocolBase {
         this.initProtocol(RoomPushRoute.OnPlayerJoinRoom, this.onPlayerJoinRoom.bind(this));
 
         this.initProtocol(RoomPushRoute.OnPlayerLeaveRoom, this.onPlayerLeaveRoom.bind(this));
+
+        // 游戏操作
+        this.initProtocol(Client2ServerCmd.GameOperate, this.responseGameOperation.bind(this));
+        this.initProtocol(GamePushRoute.OnOperation, this.onPushGameOperation.bind(this));
     }
 
     // 请求创建房间
-    requestCreateRoom(message: any) {
-        this.sendMsg(Client2ServerCmd.CreateRoom, message);
+    requestCreateRoom = (message: any) => this.sendMsg(Client2ServerCmd.CreateRoom, message);
+
+    // 创建房间成功之后, 直接加入房间
+    onCreateRoomSuccess(message: any) {
+        this.requestJoinRoom({roomId: message.data.roomId})
     }
 
     // 请求加入房间
-    requestJoinRoom(message: any) {
-        this.sendMsg(Client2ServerCmd.JoinRoom, message);
-    }
+    requestJoinRoom = (message: any) => this.sendMsg(Client2ServerCmd.JoinRoom, message);
+    // 请求离开房间
+    requestLeaveRoom = (message: any) => this.sendMsg(Client2ServerCmd.LeaveRoom, message);
+    // 请求准备
+    requestReady = (message: any) => this.sendMsg(Client2ServerCmd.Ready, message);
+    // 请求开始游戏
+    requestStartGame = (message: any) => this.sendMsg(Client2ServerCmd.StartGame, message);
 
-    // 创建房间成功之后
-    onCreateRoomSuccess(message: any) {
-        this.requestJoinRoom({roomId: message.data.roomId}) // 请求加入房间
-    }
 
     // 当收到房间信息
     protected onRoomInfo(message: any) {
@@ -66,6 +73,21 @@ export class RoomServices extends ProtocolBase {
         this.roomEntity.playerLeaveRoom(message.uid);
         ControllerRoom.getInstance().reloadPlayer();
     }
+
+    // 发送游戏事件
+    requestGameOperation = (operation, data) => this.sendMsg(Client2ServerCmd.GameOperate, {operation, data});
+
+    // 接收游戏事件
+    responseGameOperation(data) {
+        ControllerRoom.getInstance().onJoinRoomSuccess();
+        // this.sendMsg(Client2ServerCmd.GameOperate, {operation, data});
+    }
+
+    onPushGameOperation(data) {
+        ControllerRoom.getInstance().GameOnPushOperation(data.operation, data.data);
+    }
+
+
 }
 
 export class RoomEntity {

@@ -4,6 +4,7 @@ import {AbstractRoom} from "../../../core/room/room/abstractRoom";
 import {RoomPlayer} from "../../../core/room/component/roomPlayer";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {AbstractRoomOption} from "../../../core/game/Interface";
+import {SessionAttr} from "../../../constant/app";
 
 export default function (app: Application) {
     return new Handler(app);
@@ -36,11 +37,14 @@ export class Handler {
         await player.checkCanJoinRoom(room);
 
         await room.joinRoom(player);
+        session.set(SessionAttr.RoomId, roomId);
+        await session.apush(SessionAttr.RoomId);
+
         return {code: ErrorCode.Success, data: {uid, roomId: room.roomId}};
     }
 
     async startGame(msg: any, session: FrontendSession): Promise<any> {
-        const roomId = msg.roomId;
+        const roomId = session.get(SessionAttr.RoomId);
         const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
         await room.startGame();
         return {code: 200, data: {roomId: room.roomId}};

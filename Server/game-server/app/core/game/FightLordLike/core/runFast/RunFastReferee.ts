@@ -6,6 +6,7 @@ import {PokerCard} from "../../../core/poker/PokerCard";
 import {CardsType} from "../../Interface";
 import {CardTypeCheck, CardTypeIs} from "../../poker/helper/CardTypeFactory";
 import {AbstractFightLordLikeReferee} from "../AbstractFightLordLikeReferee";
+import {PushOperation} from "./Operation";
 
 // 管理未发的牌以及已经出的牌
 export class RunFastReferee extends AbstractFightLordLikeReferee {
@@ -23,8 +24,7 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
     }
 
 
-    // 出牌有两种方式, 玩家手动出牌和倒计时到了之后系统出牌
-    // 这两个可能同时触发, 所以增加一个锁
+    // 出牌有两种方式, 玩家手动出牌和倒计时到了之后系统出牌 这两个可能同时触发, 所以增加一个锁
     setRoundLocker(role: RunFastRole): boolean {
         if (this.round.role != role) throw new ClientException(ErrorCode.NotRoleRound, {}, "当前不是您的回合");
         return this.round.locker;
@@ -88,23 +88,25 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
     enterNextPlayerRound() {
         if (this.round) clearTimeout(this.round.timer);
         const nextPlayer = this.getNextPlayer();
+        const time = this.game.gameConfig.roundTime
         this.round = {
             role: nextPlayer,
             locker: false,
             timer: setTimeout(() => {
 
-            }, this.game.gameConfig.roundTime * 1000)
+            }, time * 1000)
         }
+        this.game.pushMessage(PushOperation.OnPlayerRound, {time: time, uid: nextPlayer.uid, seat: nextPlayer.seat})
     }
 
     // 获取下一个打牌的人
     getNextPlayer(): RunFastRole {
         if (!this.round) {
             // TODO 这里需要确认谁先打牌
-            return this.game.getRole(1);
+            return this.game.getRole(0);
         }
         const nowSeat = this.round.role.seat;
-        if (nowSeat == this.game.maxPlayer) return this.game.getRole(1);
+        if (nowSeat == this.game.maxPlayer - 1) return this.game.getRole(0);
         return this.game.getRole(nowSeat + 1);
     }
 

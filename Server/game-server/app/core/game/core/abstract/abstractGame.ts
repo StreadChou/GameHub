@@ -6,6 +6,7 @@ import {randomNumberBetween} from "../../../../helper/randomHelper";
 import {AbstractPlayer} from "./abstractPlayer";
 import {ListMap} from "../../../../type/ListMap";
 import {RunFastRole} from "../../FightLordLike/core/runFast/RunFastRole";
+import {GamePushRoute} from "../../../../constant/Route";
 
 export abstract class AbstractGame {
     room: AbstractRoom;
@@ -25,6 +26,8 @@ export abstract class AbstractGame {
 
     abstract endGame();
 
+    abstract operate(player: RoomPlayer, operation: any, data: any): Promise<any>;
+
     protected makeFullGameChannel(players: Array<RoomPlayer>) {
         this.channel = pinus.app.get('channelService').getChannel(this.gameId, true);
         players.forEach(ele => {
@@ -32,17 +35,18 @@ export abstract class AbstractGame {
         })
     }
 
-    pushMessage(route: string, msg: any, opts ?: any, cb ?: (err: Error | null, result ?: void) => void) {
-        this.channel.pushMessage(route, msg, opts, cb);
+    pushMessage(operation: string, msg: any, opts ?: any, cb ?: (err: Error | null, result ?: void) => void) {
+        this.channel.pushMessage(GamePushRoute.OnOperation, {operation: operation, data: msg}, opts, cb);
     }
 
     // 发送差异化数据, 对自己可见, 对别人不可见
-    pushDifferentiationMessage(route: string, player: AbstractPlayer, message: any, otherMessage: any) {
+    pushDifferentiationMessage(operation: string, player: AbstractPlayer, message: any, otherMessage: any) {
         // 先给玩家自己发送
-        player.pushMessage(route, message);
+        player.pushMessage(operation, message);
         this.players.forEach(ele => {
-            if (player.uid != ele.uid) ele.pushMessage(route, otherMessage);
+            if (player.uid != ele.uid) ele.pushMessage(operation, otherMessage);
         })
     }
+
 
 }
