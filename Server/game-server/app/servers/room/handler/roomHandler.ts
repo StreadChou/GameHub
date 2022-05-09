@@ -50,4 +50,13 @@ export class Handler {
         return {code: 200, data: {roomId: room.roomId}};
     }
 
+    async leaveRoom(msg: any, session: FrontendSession): Promise<any> {
+        const uid = session.uid;
+        const roomId = session.get(SessionAttr.RoomId);
+        const room: AbstractRoom = this.roomManager.getRoomByRoomId(roomId);
+        const player = await RoomPlayer.getInstanceByUid(uid);
+        await room.leaveRoom(player);
+        return {code: 200, data: {roomId: room.roomId}};
+    }
+
 }

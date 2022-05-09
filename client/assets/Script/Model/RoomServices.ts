@@ -5,6 +5,7 @@ import {AbstractRoomOption} from "../Constant/Game";
 import {fromJSON, Serialize} from "../Base/Helper/jsonHelper";
 import {ControllerRoom} from "../Controller/Room/ControllerRoom";
 import {RoomState} from "../Constant/Room";
+import {UserServices} from "./UserServices";
 
 export class RoomServices extends ProtocolBase {
     protected static _instance;
@@ -70,8 +71,12 @@ export class RoomServices extends ProtocolBase {
 
     // 玩家离开房间
     protected onPlayerLeaveRoom(message: any) {
-        this.roomEntity.playerLeaveRoom(message.uid);
-        ControllerRoom.getInstance().reloadPlayer();
+        if (message.uid == UserServices.user.uid) {
+            ControllerRoom.getInstance().leaveRoom();
+        } else {
+            this.roomEntity.playerLeaveRoom(message.uid);
+            ControllerRoom.getInstance().reloadPlayer();
+        }
     }
 
     // 发送游戏事件

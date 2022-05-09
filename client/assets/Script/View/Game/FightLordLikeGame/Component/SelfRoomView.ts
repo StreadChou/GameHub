@@ -53,7 +53,7 @@ export class SelfRoomView {
         })
 
         this.children.leaveRoomButton.asButton.onClick(() => {
-            RoomServices.instance.requestStartGame({});
+            RoomServices.instance.requestLeaveRoom({});
         })
 
         return this._view.visible = true;

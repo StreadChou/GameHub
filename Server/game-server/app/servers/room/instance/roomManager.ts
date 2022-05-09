@@ -47,6 +47,12 @@ export class RoomManager {
         return room;
     }
 
+    public destroyRoom(roomId: number) {
+        const room = this.getRoomByRoomId(roomId)
+        room.destroy();
+        this.roomMap[room.roomId] = null;
+    }
+
 
     // 生成唯一的房间ID
     protected async generateRoomId(): Promise<number> {

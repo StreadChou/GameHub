@@ -2,6 +2,9 @@ import {RoomServices} from "../../Model/RoomServices";
 import {AbstractRoomOption, GameTypeEnum} from "../../Constant/Game";
 import {ControllerRunFast} from "./Game/FightLordLike/RunFastGame/ControllerRunFast";
 import {AbstractGameController} from "./Game/AbstractGameController";
+import Entry from "../../Entry";
+import FightLordLikeGameMain from "../../View/Game/FightLordLikeGame/FightLordLikeGameMain";
+import Hall from "../../View/Hall/Hall";
 
 // 房间控制器,
 // 所有房间的电文只影响数据,  房间控制器需要告知view什么时候刷新界面
@@ -37,6 +40,11 @@ export class ControllerRoom {
     // 重新加载房间内的玩家
     reloadPlayer() {
         return this.game.reloadPlayer();
+    }
+
+    leaveRoom() {
+        // 切换场景
+        Entry.instance.changeScenes(Hall);
     }
 
     GameOnPushOperation = (operation: string, data: any) => this.game.onPushOperation(operation, data);

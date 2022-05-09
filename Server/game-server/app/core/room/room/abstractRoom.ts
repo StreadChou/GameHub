@@ -8,6 +8,7 @@ import {ListMap} from "../../../type/ListMap";
 import {AbstractRoomOption} from "../../game/Interface";
 import {FastDto, toDto} from "../../../helper/jsonHelper";
 import {RoomState} from "../Interface";
+import {RoomManager} from "../../../servers/room/instance/roomManager";
 
 
 enum DtoEnum {
@@ -42,6 +43,10 @@ export abstract class AbstractRoom {
         this.channel = pinus.app.get('channelService').getChannel(`room_${this.roomId}`, true);
     }
 
+    destroy() {
+
+    }
+
     get isRoomFull() {
         return this.players.length >= this.gameOption.maxPlayer;
     }
@@ -67,9 +72,12 @@ export abstract class AbstractRoom {
 
 
     public async leaveRoom(player: RoomPlayer): Promise<void> {
-        if (this.players.has(player.uid)) throw new ClientException(ErrorCode.AlreadyInRoom, {}, "不在房间中");
-        // TODO 切换房主
+        if (!this.players.has(player.uid)) throw new ClientException(ErrorCode.AlreadyInRoom, {}, "不在房间中");
+        this.players.deleteKey(player.uid);
         await this.noticeLeveRoom(player);
+        if (this.players.length <= 0) {
+            RoomManager.getInstance().destroyRoom(this.roomId);
+        }
     }
 
     public getSeat(): number {
