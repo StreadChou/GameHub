@@ -18,7 +18,7 @@ export default class Entry extends cc.Component {
     onLoad() {
         Entry.instance = this;
 
-        NetworkManager.instance.openMainSocket("127.0.0.1", 3010);
+        NetworkManager.instance.openMainSocket("8.134.88.0", 3010);
         fgui.GRoot.create();
 
         const loading = <Loading>this.changeScenes(Loading);

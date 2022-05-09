@@ -1,3 +1,7 @@
 {
-  "start-scene": "36de60a3-13ce-4802-a502-860a0202fc37"
+  "start-scene": "36de60a3-13ce-4802-a502-860a0202fc37",
+  "group-list": [
+    "default"
+  ],
+  "last-module-event-record-time": 1652113600108
 }
