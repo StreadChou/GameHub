@@ -14,13 +14,19 @@ export class SelfGameView {
         this.father = father;
     }
 
+    onGameOver() {
+        SelfGameView.instance = undefined;
+    }
+
     // 总视图
     private _view: fgui.GObject;
 
     private handsArea: fgui.GList;
     private foldArea: fgui.GList;
     private timer: fgui.GButton;
+    private timerInterval: number;
     private operateArea: fgui.GObject;
+    private noticeTxt: fgui.GObject;
 
     onUILoaded() {
 
@@ -29,18 +35,30 @@ export class SelfGameView {
         this.foldArea = this._view.asCom.getChild("FoldArea").asList;
         this.timer = this._view.asCom.getChild("Timer").asButton;
         this.operateArea = this._view.asCom.getChild("operate");
+        this.noticeTxt = this._view.asCom.getChild("NoticeTxt");
+
         this._view.asCom.getChild("PlayPoker").onClick(() => {
             ControllerRunFast.getInstance().requestOperation(RequestOperation.RequestPlayPokers, {pokers: this.getAllSelectCard()});
         })
         this._view.asCom.getChild("Notice").onClick(() => {
-
+            ControllerRunFast.getInstance().requestOperation(RequestOperation.RequestNotice, {});
         })
         this._view.asCom.getChild("Pass").onClick(() => {
-
+            ControllerRunFast.getInstance().requestOperation(RequestOperation.RequestPass, {});
         })
 
         fgui.UIObjectFactory.setExtension("ui://PokerGame/HandsPokerItem", HandsPokerItem);
         fgui.UIObjectFactory.setExtension("ui://PokerGame/FoldPokerItem", FoldPokerItem);
+    }
+
+    reloadAllGameView() {
+        this.foldArea.visible = false;
+        if (this.timerInterval) clearInterval(this.timerInterval);
+        this.timer.visible = false;
+        this.operateArea.visible = false;
+
+        this.noticeTxt.visible = false;
+        this.noticeTxt.asTextField.text = "";
     }
 
     @OperateQueueDescriptor()
@@ -66,25 +84,37 @@ export class SelfGameView {
     }
 
     @OperateQueueDescriptor()
-    // 当回合开始的时候
+    // 当我的回合开始的时候
     onRoundStart(time: number) {
+        this.noticeTxt.visible = false;
         this.operateArea.visible = true;
         this.timer.asCom.visible = true;
         this.timer.asButton.title = time.toString();
+        this.timerInterval = setInterval(() => {
+            if (time <= 0) {
+                clearInterval(this.timerInterval);
+                this.timer.asCom.visible = false;
+            }
+            time--;
+            this.timer.asButton.title = time.toString();
+        }, 1000)
+
+        this.foldArea.removeChildrenToPool();
     }
+
 
     @OperateQueueDescriptor()
     // 当进入别人的回合
     onOtherRound() {
         this.operateArea.visible = false;
         this.timer.asCom.visible = false;
+        if (this.timerInterval) clearInterval(this.timerInterval);
     }
 
     @OperateQueueDescriptor()
     // 当我出牌的时候
     onFoldPoker(pokers: Array<{ rank: number, suit: number }>) {
         this.foldArea.visible = true;
-        this.foldArea.asCom.visible = true;
         pokers.sort((eleA, eleB) => eleB.rank - eleA.rank).forEach(ele => {
             let item: HandsPokerItem = <HandsPokerItem>this.foldArea.addItemFromPool();
             item.setPoker(ele);
@@ -97,6 +127,16 @@ export class SelfGameView {
             this.handsArea.removeChild(item);
         })
         this.handsArea.ensureBoundsCorrect();
+    }
+
+    @OperateQueueDescriptor()
+    // 当我出牌的时候
+    onPlayerPass() {
+        this.foldArea.visible = false;
+
+        const noticeNode = this.noticeTxt.asTextField;
+        noticeNode.text = "要不起!";
+        noticeNode.visible = true;
     }
 
     // 获取所有选中的牌

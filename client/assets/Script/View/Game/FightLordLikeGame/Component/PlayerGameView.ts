@@ -4,7 +4,7 @@ import {OperateQueueDescriptor} from "../OperateQueue";
 import FoldPokerItem from "../Item/foldPokerItem";
 import HandsPokerItem from "../Item/HandsPokerItem";
 
-type PlayerItem = { view: fgui.GObject, player: RoomPlayerEntity };
+type PlayerItem = { view: fgui.GObject, player: RoomPlayerEntity, timerInterval?: number };
 
 export class PlayerGameView {
     static instance: PlayerGameView;
@@ -42,6 +42,24 @@ export class PlayerGameView {
     }
 
     @OperateQueueDescriptor()
+    // 清理所有的game相关的视图, 当进入一个新回合之后, 玩家牌面的内容将会被清空
+    reloadAllGameView() {
+        Object.values(this.seatToView).forEach(item => {
+            const FoldPokerView = this.getItemArea(item, "FoldPoker").asList
+            FoldPokerView.removeChildrenToPool();
+            FoldPokerView.visible = false;
+
+            if (item.timerInterval) clearInterval(item.timerInterval);
+            this.getItemArea(item, "Timer").visible = false;
+
+            const NoticeTxtNode = this.getItemArea(item, "NoticeTxt").asTextField;
+            NoticeTxtNode.visible = false;
+            NoticeTxtNode.text = "";
+        })
+    }
+
+
+    @OperateQueueDescriptor()
     loadPlayer(maxNumber: number, targetSeat: number, mainSeat: number, player: RoomPlayerEntity) {
         this.setPlayerSeatToView(maxNumber, targetSeat, mainSeat, player);
         const playerItem = this.getPlayerViewItem(targetSeat);
@@ -54,33 +72,52 @@ export class PlayerGameView {
     setReady(targetSeat: number) {
         const item = this.getPlayerViewItem(targetSeat);
         if (item.player.ready) {
-            item.view.asCom.getChild("ReadyText").asTextField.text = "准备";
-            item.view.asCom.getChild("ReadyText").visible = true;
+            item.view.asCom.getChild("NoticeTxt").asTextField.text = "准备";
+            item.view.asCom.getChild("NoticeTxt").visible = true;
         } else {
-            item.view.asCom.getChild("ReadyText").visible = false;
+            item.view.asCom.getChild("NoticeTxt").visible = false;
         }
     }
 
     @OperateQueueDescriptor()
     onGameStart() {
         Object.values(this.seatToView).forEach((item) => {
-            item.view.asCom.getChild("ReadyText").visible = false; // 隐藏准备按钮
+            item.view.asCom.getChild("NoticeTxt").visible = false; // 隐藏准备按钮
         })
     }
 
     @OperateQueueDescriptor()
+    // 进入一个玩家的回合
     onEnterPlayerRound(seat: number, time: number) {
+        const item: PlayerItem = this.seatToView[seat];
+        this.getItemArea(item, "NoticeTxt").visible = false;
+
+        const timer = item.view.asCom.getChild("Timer");
+        timer.visible = true;
+        timer.asButton.title = time.toString();
+
+        item.timerInterval = setInterval(() => {
+            time--;
+            if (time <= 0) {
+                clearInterval(item.timerInterval);
+                timer.visible = true;
+            }
+            timer.asButton.title = time.toString();
+        }, 1000)
+
+        const foldArea = item.view.asCom.getChild("FoldPoker").asList;
+        foldArea.removeChildrenToPool();
+    }
+
+    @OperateQueueDescriptor()
+    // 清理所有玩家的倒计时
+    clearAllPlayerTimer() {
         Object.keys(this.seatToView).forEach((eleSeat) => {
             const item: PlayerItem = this.seatToView[eleSeat];
             const timer = item.view.asCom.getChild("Timer");
-            timer.asButton.title = time.toString();
-            if (parseInt(eleSeat) == seat) {
-                timer.visible = true;
-            } else {
-                timer.visible = false;
-            }
+            timer.visible = false;
+            if (item.timerInterval) clearInterval(item.timerInterval);
         })
-
     }
 
     @OperateQueueDescriptor()
@@ -115,9 +152,20 @@ export class PlayerGameView {
             item.useFont();
         })
         foldArea.ensureBoundsCorrect();
-        console.log(foldArea);
-
     }
+
+
+    @OperateQueueDescriptor()
+    // 玩家跳过
+    onPlayerPass(seat: number) {
+        const item = this.getPlayerViewItem(seat);
+        this.getItemArea(item, "FoldPoker").visible = false;
+
+        const noticeNode = this.getItemArea(item, "NoticeTxt").asTextField;
+        noticeNode.text = "要不起!";
+        noticeNode.visible = true;
+    }
+
 
     protected reloadPlayerInfo(item: PlayerItem) {
         if (!item.player || item.player.seat === undefined || item.player.seat === null) return item.view.visible = false;
@@ -130,6 +178,11 @@ export class PlayerGameView {
 
     protected getPlayerViewItem(seat: number): PlayerItem {
         return this.seatToView[seat];
+    }
+
+    protected getItemArea(item: PlayerItem, area: "FoldPoker" | "Cover" | "NickName" | "Gold" | "PokerNumber" | "Timer" | "NoticeTxt"): fgui.GObject {
+        let view = item.view;
+        return view.asCom.getChild(area)
     }
 
     protected setPlayerSeatToView(maxNumber: number, targetSeat: number, mainSeat: number, player: RoomPlayerEntity) {

@@ -30,11 +30,24 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
         return this.round.locker;
     }
 
+    playerPass(role: RunFastRole) {
+        // 如果之前就是我出的牌, 现在又轮到我出牌了, 也就是过了一个回合都没人要, 就把last 清空了
+        if (!this.last) {
+            throw new ClientException(ErrorCode.CommonError, {}, "您至少出一张牌");
+        }
+
+        // TODO 判断有牌必出
+
+        // 发送消息
+        this.game.pushMessage(PushOperation.OnPlayerPass, {
+            uid: role.uid,
+            seat: role.seat,
+        });
+        this.enterNextPlayerRound();
+    }
+
     // 裁判收到玩家出牌
     playerPlayPoker(role: RunFastRole, pokers: Array<PokerCard>) {
-        // 如果之前就是我出的牌, 现在又轮到我出牌了, 也就是过了一个回合都没人要, 就把last 清空了
-        if (this.last && this.last.role == role) this.last = undefined;
-
         // 我所出的牌的类型
         let type: CardsType;
 
@@ -94,6 +107,9 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
     enterNextPlayerRound() {
         if (this.round) clearTimeout(this.round.timer);
         const nextPlayer = this.getNextPlayer();
+        // 如果之前就是我出的牌, 现在又轮到我出牌了, 也就是过了一个回合都没人要, 就把last 清空了
+        if (this.last && this.last.role == nextPlayer) this.last = undefined;
+
         const time = this.game.gameConfig.roundTime
         this.round = {
             role: nextPlayer,
@@ -102,7 +118,12 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
 
             }, time * 1000)
         }
-        this.game.pushMessage(PushOperation.OnPlayerRound, {time: time, uid: nextPlayer.uid, seat: nextPlayer.seat})
+        this.game.pushMessage(PushOperation.OnPlayerRound, {
+            time: time,
+            uid: nextPlayer.uid,
+            seat: nextPlayer.seat,
+            newRound: !this.last,
+        })
     }
 
     // 获取下一个打牌的人

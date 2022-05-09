@@ -75,6 +75,10 @@ export default class RunFastGame extends AbstractFightLordLikeGame {
                 return this.operatePlayPokers(player, data);
             case RequestOperation.RequestPass:
                 return this.operatePass(player, data);
+            case RequestOperation.RequestNotice:
+                return this.operatePass(player, data);
+            default:
+                throw new ClientException(ErrorCode.CommonError, {}, "操作不合法")
         }
     }
 
@@ -93,6 +97,17 @@ export default class RunFastGame extends AbstractFightLordLikeGame {
     }
 
     operatePass(player: RoomPlayer, data: {}) {
+        const role: RunFastRole = this.getRole(player.seat);
+        if (!role) throw new ClientException(ErrorCode.RoleNotInGame, {}, "玩家不在游戏中")
+
+        // 判断是否我的回合
+        this.judgeInPlayerRound(role);
+
+        // 告知裁判, 我要出这个牌
+        this.referee.playerPass(role);
+    }
+
+    operateNotice(player: RoomPlayer, data: {}) {
         const role: RunFastRole = this.getRole(player.seat);
         if (!role) throw new ClientException(ErrorCode.RoleNotInGame, {}, "玩家不在游戏中")
 

@@ -8,7 +8,7 @@
       <relation target="n0_f26b" sidePair="width-width,center-center,top-top"/>
     </text>
     <image id="n3_f26b" name="n3" src="q2ufnh" fileName="Image/Panel/panel024.png" pkg="hyyrj5lp" xy="498,298" size="348,56" group="n6_f26b"/>
-    <text id="n4_f26b" name="RoomId" xy="622,307" size="195,34" group="n6_f26b" fontSize="24" color="#ffffe2" autoSize="none" bold="true" text="100000" input="true"/>
+    <text id="n4_f26b" name="RoomId" xy="622,307" size="195,34" group="n6_f26b" fontSize="24" color="#ffffe2" autoSize="none" bold="true" text="10000" input="true"/>
     <text id="n5_f26b" name="n5" xy="520,307" size="94,34" group="n6_f26b" fontSize="24" color="#ffffe2" align="center" bold="true" text="房间号: "/>
     <group id="n6_f26b" name="n6" xy="498,298" size="348,56" advanced="true">
       <relation target="n0_f26b" sidePair="center-center,top-top"/>

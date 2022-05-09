@@ -18,7 +18,7 @@
     <text id="n23_f26b" name="PokerNumber" xy="233,18" size="43,43" group="n19_f26b" fontSize="31" color="#ffffe2" align="center" vAlign="middle" autoSize="none" strokeColor="#6e5745" text="0"/>
     <group id="n19_f26b" name="HandsPokerGroup" xy="227,4" size="55,75" visible="false" advanced="true"/>
     <component id="n11_f26b" name="Timer" src="f26bm" fileName="Component/Other/Timer.xml" xy="288,5" size="89,75" visible="false"/>
-    <text id="n22_f26b" name="ReadyText" xy="161,93" size="159,43" visible="false" fontSize="31" color="#ffffe2" align="center" vAlign="middle" autoSize="none" strokeColor="#6e5745" singleLine="true" text="准备!"/>
+    <text id="n22_f26b" name="NoticeTxt" xy="161,93" size="159,43" visible="false" fontSize="31" color="#ffffe2" align="center" vAlign="middle" autoSize="none" strokeColor="#6e5745" singleLine="true" text="准备!"/>
   </displayList>
   <transition name="LeftView">
     <item time="0" type="XY" target="n0_f26b" value="7,2"/>

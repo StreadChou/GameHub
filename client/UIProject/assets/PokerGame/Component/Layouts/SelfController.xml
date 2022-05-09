@@ -37,5 +37,8 @@
     <group id="n7_f26b" name="operate" xy="408,127" size="517,62" visible="false" advanced="true">
       <relation target="" sidePair="center-center"/>
     </group>
+    <text id="n9_fyq7" name="NoticeTxt" xy="593,165" size="159,43" visible="false" fontSize="31" color="#ffffe2" align="center" vAlign="middle" autoSize="none" strokeColor="#6e5745" singleLine="true" text="准备!">
+      <relation target="" sidePair="center-center"/>
+    </text>
   </displayList>
 </component>

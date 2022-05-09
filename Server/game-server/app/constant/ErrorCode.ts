@@ -3,8 +3,8 @@ export enum ErrorCode {
     CommonError = 500,
 
     // 用户自操作相关
-    LoginTokenCheckError = 10000,
-    LoginError,
+    LoginTokenCheckError = 10000, // 登录Token错误
+    LoginError, // 登录错误
 
     // 房间相关
     RoomNotExist = 20000,
