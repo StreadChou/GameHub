@@ -5,7 +5,7 @@ import {CardsType, CardsTypeConfig} from "../../Interface";
 import {FightLordLikeGameConfig} from "../../core/AbstractFightLordLikeConfig";
 
 // 顺子
-export class TypeStraight extends AbstractPokerHelp{
+export class TypeStraight extends AbstractPokerHelp {
     type: CardsType = CardsType.Straight;
 
     private static _instance: TypeStraight;
@@ -20,7 +20,7 @@ export class TypeStraight extends AbstractPokerHelp{
     }
 
 
-    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean{
+    is(cards: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
         if (cards.length < 5) return false;
         const ranks = cards.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
 
@@ -35,7 +35,7 @@ export class TypeStraight extends AbstractPokerHelp{
         return true;
     }
 
-    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean{
+    check(cardsA: Array<PokerCard>, cardsB: Array<PokerCard>, _config: CardsTypeConfig, _opt: FightLordLikeGameConfig): boolean {
         const rankA = cardsA.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const rankB = cardsB.map(ele => ele.rank).sort((eleA, eleB) => eleA - eleB);
         const {pokerRank} = _opt
@@ -55,9 +55,9 @@ export class TypeStraight extends AbstractPokerHelp{
             let res = [...new Set(ranks)].map((rank) => {
                 let suitable: Array<PokerCard> = [];
 
-                for (let index = 0; index < length; length++) {
+                for (let index = 0; index < length; index++) {
                     let thisRank = pokerRank[pokerRank.indexOf(rank) + index]
-                    const temp = this.pokersGetSameRank(cards, thisRank, null,1);
+                    const temp = this.pokersGetSameRank(cards, thisRank, null, 1);
                     if (!temp) return undefined;
                     suitable = suitable.concat(temp);
                 }

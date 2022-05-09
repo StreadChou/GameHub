@@ -10,7 +10,7 @@ export class RunFastRole extends AbstractPlayer {
     roomPlayer: RoomPlayer;
     private event: EventEmitter = new EventEmitter().setMaxListeners(50);
 
-    private handsPokers: Array<PokerCard> = []; // 手上有的牌
+    public handsPokers: Array<PokerCard> = []; // 手上有的牌
     private foldPokers: Array<PokerCard> = []; // 已经出的牌
 
     constructor(game: RunFastGame, roomPlayer: RoomPlayer) {

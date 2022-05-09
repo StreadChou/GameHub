@@ -4,7 +4,7 @@ import {ClientException} from "../../../../../exception/clientException";
 import {ErrorCode} from "../../../../../constant/ErrorCode";
 import {PokerCard} from "../../../core/poker/PokerCard";
 import {CardsType} from "../../Interface";
-import {CardTypeCheck, CardTypeIs} from "../../poker/helper/CardTypeFactory";
+import {CardsAllGt, CardTypeCheck, CardTypeIs} from "../../poker/helper/CardTypeFactory";
 import {AbstractFightLordLikeReferee} from "../AbstractFightLordLikeReferee";
 import {PushOperation} from "./Operation";
 
@@ -135,6 +135,12 @@ export class RunFastReferee extends AbstractFightLordLikeReferee {
         const nowSeat = this.round.role.seat;
         if (nowSeat == this.game.maxPlayer - 1) return this.game.getRole(0);
         return this.game.getRole(nowSeat + 1);
+    }
+
+    // 告知玩家可以出哪些牌
+    noticePlayer(role: RunFastRole) {
+        if (!this.last) throw new ClientException(ErrorCode.CommonError, {}, "当前您可以任意出牌");
+        return CardsAllGt(role.handsPokers, this.last.pokers, this.last.type, this.game.pokersConfig, this.game.gameConfig);
     }
 
 }

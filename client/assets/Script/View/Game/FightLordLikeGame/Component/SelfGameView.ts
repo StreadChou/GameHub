@@ -27,6 +27,8 @@ export class SelfGameView {
     private timerInterval: number;
     private operateArea: fgui.GObject;
     private noticeTxt: fgui.GObject;
+    private noticeArray: Array<Array<{ suit: number, rank: number }>> = undefined
+    private noticeIndex: number = 0;
 
     onUILoaded() {
 
@@ -41,7 +43,13 @@ export class SelfGameView {
             ControllerRunFast.getInstance().requestOperation(RequestOperation.RequestPlayPokers, {pokers: this.getAllSelectCard()});
         })
         this._view.asCom.getChild("Notice").onClick(() => {
-            ControllerRunFast.getInstance().requestOperation(RequestOperation.RequestNotice, {});
+            if (!this.noticeArray) {
+                ControllerRunFast.getInstance().requestOperation(RequestOperation.RequestNotice, {});
+            } else {
+                this.noticeIndex++;
+                if (this.noticeIndex > this.noticeArray.length - 1) this.noticeIndex = 0;
+                this.onNoticePoker();
+            }
         })
         this._view.asCom.getChild("Pass").onClick(() => {
             ControllerRunFast.getInstance().requestOperation(RequestOperation.RequestPass, {});
@@ -59,6 +67,23 @@ export class SelfGameView {
 
         this.noticeTxt.visible = false;
         this.noticeTxt.asTextField.text = "";
+    }
+
+    @OperateQueueDescriptor()
+    // 当点击了提醒之后
+    onNoticePoker(noticeArray?: Array<Array<{ suit: number, rank: number }>>) {
+        if (noticeArray) this.noticeArray = noticeArray;
+        const pokers = this.noticeArray[this.noticeIndex];
+        if (!pokers) {
+            // TODO 没有牌打过上家
+            return undefined;
+        }
+        this.handsArea.asList._children.forEach(ele => ele.asButton.selected = false);
+        pokers.forEach(poker => {
+            // 查找没有选中的等值的牌
+            const _po = this.handsArea.asList._children.find((handsPoker: HandsPokerItem) => !handsPoker.asButton.selected && handsPoker.suit == poker.suit && handsPoker.rank == poker.rank)
+            _po.asButton.selected = true;
+        })
     }
 
     @OperateQueueDescriptor()
@@ -85,7 +110,9 @@ export class SelfGameView {
 
     @OperateQueueDescriptor()
     // 当我的回合开始的时候
-    onRoundStart(time: number) {
+    onRoundStart(time: number, newRound: boolean) {
+        this.noticeArray = undefined;
+        this.noticeIndex = 0;
         this.noticeTxt.visible = false;
         this.operateArea.visible = true;
         this.timer.asCom.visible = true;
@@ -100,6 +127,16 @@ export class SelfGameView {
         }, 1000)
 
         this.foldArea.removeChildrenToPool();
+
+        const passButton = this._view.asCom.getChild("Notice");
+        const noticeButton = this._view.asCom.getChild("Pass");
+        if (newRound) {
+            passButton.visible = false;
+            noticeButton.visible = false;
+        } else {
+            passButton.visible = true;
+            noticeButton.visible = true;
+        }
     }
 
 

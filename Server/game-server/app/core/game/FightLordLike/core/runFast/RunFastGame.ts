@@ -9,6 +9,7 @@ import {RunFastGameConfig, RunFastGameOption} from "./RunFastGameConfig";
 import {RunFastStandRule} from "./RunFastStandRule";
 import {RequestOperation} from "./Operation";
 import {RoomPlayer} from "../../../../room/component/roomPlayer";
+import {CardsAllGt} from "../../poker/helper/CardTypeFactory";
 
 
 export default class RunFastGame extends AbstractFightLordLikeGame {
@@ -76,7 +77,7 @@ export default class RunFastGame extends AbstractFightLordLikeGame {
             case RequestOperation.RequestPass:
                 return this.operatePass(player, data);
             case RequestOperation.RequestNotice:
-                return this.operatePass(player, data);
+                return this.operateNotice(player, data);
             default:
                 throw new ClientException(ErrorCode.CommonError, {}, "操作不合法")
         }
@@ -113,8 +114,7 @@ export default class RunFastGame extends AbstractFightLordLikeGame {
 
         // 判断是否我的回合
         this.judgeInPlayerRound(role);
-
-
+        return this.referee.noticePlayer(role);
     }
 
     judgeInPlayerRound(role: RunFastRole) {

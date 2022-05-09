@@ -14,7 +14,7 @@ export class OnPlayerRound extends PushOption {
         }
 
         if (data.uid == main.uid) {
-            SelfGameView.instance.onRoundStart(data.time)
+            SelfGameView.instance.onRoundStart(data.time, data.newRound)
         } else {
             SelfGameView.instance.onOtherRound()
             PlayerGameView.instance.onEnterPlayerRound(data.seat, data.time);
