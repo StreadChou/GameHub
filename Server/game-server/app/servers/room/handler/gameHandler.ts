@@ -1,7 +1,7 @@
 import {Application, FrontendSession} from 'pinus';
 import {RoomManager} from "../instance/roomManager";
 import {AbstractRoom} from "../../../core/room/room/abstractRoom";
-import {SessionAttr} from "../../../constant/app";
+import {SessionAttr} from "../../../constant/App";
 
 export default function (app: Application) {
     return new Handler(app);

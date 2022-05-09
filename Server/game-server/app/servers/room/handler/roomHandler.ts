@@ -4,7 +4,7 @@ import {AbstractRoom} from "../../../core/room/room/abstractRoom";
 import {RoomPlayer} from "../../../core/room/component/roomPlayer";
 import {ErrorCode} from "../../../constant/ErrorCode";
 import {AbstractRoomOption} from "../../../core/game/Interface";
-import {SessionAttr} from "../../../constant/app";
+import {SessionAttr} from "../../../constant/App";
 
 export default function (app: Application) {
     return new Handler(app);
