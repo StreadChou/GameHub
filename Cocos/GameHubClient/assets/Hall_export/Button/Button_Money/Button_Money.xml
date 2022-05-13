@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="189,40" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver"/>
+  <displayList>
+    <image id="n1_7bva" name="n1" xy="11,0" src="ml4v1e" fileName="backgorund.png" alpha="0.15"/>
+    <image id="n2_7bva" name="n2" xy="0,2" src="ml4v1f" fileName="Icon_Money.png"/>
+    <image id="n3_7bva" name="n3" xy="155,7" src="ml4v1g" fileName="plus.png"/>
+  </displayList>
+  <Button/>
+</component>

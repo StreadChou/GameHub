@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="202,187" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver"/>
+  <displayList>
+    <image id="n1_7bva" name="n1" xy="0,0" src="ml4vp" fileName="图层 5.png"/>
+    <image id="n2_7bva" name="n2" xy="40,34" src="ml4vq" fileName="图层 37.png"/>
+  </displayList>
+  <Button/>
+</component>

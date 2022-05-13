@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750" pivot="13,0">
+  <displayList>
+    <text id="n0_p0qc" name="Loading" xy="0,275" size="1334,200" fontSize="119" align="center" vAlign="middle" autoSize="none" text="Loading"/>
+  </displayList>
+</component>

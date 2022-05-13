@@ -1,3 +1,3 @@
-export abstract class AbstractView {
+export abstract class AbstractView extends cc.Component{
 
 }

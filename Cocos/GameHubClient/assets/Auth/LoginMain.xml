@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <image id="n1_nu4p" name="n1" src="c97bd" fileName="Image/BG_1.png" xy="0,0" size="1334,750">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n2_nu4p" name="n2" xy="210,677" size="905,54" font="STHeitiSC-Medium" fontSize="12" color="#494949" align="center" vAlign="middle" autoSize="shrink" text="抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。&#xD;登录代表您已阅读并统一  &lt;游戏服务协议&gt; &lt;隐私收集协议&gt; 已经知晓此游戏正在开发中,产生的所有内容都有可能销毁&#xD;">
+      <relation target="" sidePair="width-width,center-center"/>
+    </text>
+    <image id="n3_nu4p" name="n3" src="c97be" fileName="Image/Icon_Logo.png" xy="56,36">
+      <relation target="" sidePair="right-left,top-top"/>
+    </image>
+    <component id="n4_nu4p" name="RepairButton" src="c97bg" fileName="Button/Button_Repair.xml" xy="1129,36">
+      <relation target="" sidePair="right-right,top-bottom"/>
+    </component>
+    <component id="n5_nu4p" name="GuestLoginButton" src="c97bi" fileName="Button/Button_Guest.xml" xy="819,569" group="n8_c97b"/>
+    <component id="n6_nu4p" name="AccountLoginButton" src="c97bk" fileName="Button/Button_Account.xml" xy="551,569" group="n8_c97b"/>
+    <component id="n7_nu4p" name="WechatLoginButton" src="c97bm" fileName="Button/Button_Wechat.xml" xy="282,569" group="n8_c97b"/>
+    <group id="n8_c97b" name="n8" xy="282,569" size="770,70" advanced="true">
+      <relation target="" sidePair="center-center"/>
+    </group>
+  </displayList>
+</component>

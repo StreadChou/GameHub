@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <image id="n1_7bva" name="n1" src="ml4v0" fileName="Image/BG_1.png" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n2_7bva" name="n2" src="ml4v1" fileName="Image/hero25.png" xy="268,144">
+      <relation target="" sidePair="left-left%,right-right%"/>
+    </image>
+    <image id="n3_7bva" name="n3" src="ml4v2" fileName="Image/BackgroundBottom.png" xy="0,667">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n19_7bva" name="n19" src="ml4v14" fileName="Image/矩形 2.png" xy="82,158" alpha="0.29"/>
+    <image id="n20_7bva" name="n20" src="ml4v15" fileName="Icon/图层 4_1.png" xy="208,500"/>
+    <image id="n21_7bva" name="n21" src="ml4v16" fileName="Icon/图层 5_1.png" xy="208,392"/>
+    <image id="n22_7bva" name="n22" src="ml4v17" fileName="Icon/图层 8_1.png" xy="208,273"/>
+    <image id="n23_7bva" name="n23" src="ml4v18" fileName="Icon/图层 9.png" xy="208,159"/>
+    <image id="n24_7bva" name="n24" src="ml4v19" fileName="Image/HeaderBackground.png" xy="0,0"/>
+    <component id="n25_7bva" name="n25" src="ml4v1b" fileName="Button/Button_Setting/Button_Setting.xml" xy="1201,9"/>
+    <component id="n26_7bva" name="n26" src="ml4v1d" fileName="Button/Button_Email/Button_Email.xml" xy="1118,13"/>
+    <component id="n27_7bva" name="n27" src="ml4v1h" fileName="Button/Button_Money/Button_Money.xml" xy="904,13"/>
+    <component id="n28_7bva" name="n28" src="ml4v1k" fileName="Button/Button_Money/Button_Gold.xml" xy="705,13"/>
+    <text id="n29_7bva" name="n29" xy="223,5" size="140,30" font="STHeitiSC-Medium" fontSize="23" color="#c5cae0" align="center" vAlign="middle" autoSize="none" text="六个字的名字"/>
+    <text id="n30_7bva" name="n30" xy="223,36" size="33,25" font="STHeitiSC-Medium" fontSize="23" color="#e2bd9a" vAlign="middle" autoSize="none" text="LV"/>
+    <text id="n31_7bva" name="n31" xy="253,34" size="30,28" font="STHeitiSC-Medium" fontSize="23" color="#c5cae0" vAlign="middle" autoSize="none" text="10"/>
+    <component id="n32_7bva" name="n32" src="ml4v1m" fileName="Button/Button_Logout/Button_Logout.xml" xy="98,15"/>
+    <image id="n33_7bva" name="n33" src="ml4v1n" fileName="Icon/icon_Avatar.png" xy="160,6"/>
+    <image id="n34_7bva" name="n34" src="ml4v1o" fileName="Icon/图层 12.png" xy="364,2"/>
+    <component id="n12_7bva" name="n12" src="ml4vl" fileName="Button/Button_RunFast/Button_RunFast.xml" xy="667,147" group="n35_wl3m"/>
+    <component id="n13_7bva" name="n13" src="ml4vo" fileName="Button/Button_ChangShaMahJong/Button_ChangShaMahJong.xml" xy="858,144" group="n35_wl3m"/>
+    <component id="n14_7bva" name="n14" src="ml4vr" fileName="Button/Button_AnyValueMahJong/Button_AnyValueMahJong.xml" xy="1052,151" group="n35_wl3m"/>
+    <component id="n15_7bva" name="n15" src="ml4vu" fileName="Button/Button_FightLoard/Button_FightLoard.xml" xy="1054,323" group="n35_wl3m"/>
+    <component id="n16_7bva" name="n16" src="ml4vx" fileName="Button/Button_ThreeFightOne/Button_ThreeFightOne.xml" xy="669,409" group="n35_wl3m"/>
+    <component id="n17_7bva" name="n17" src="ml4v10" fileName="Button/Button_RoundMahJong/Button_RoundMahJong.xml" xy="865,409" group="n35_wl3m"/>
+    <component id="n18_7bva" name="n18" src="ml4v13" fileName="Button/Button_MoreGame/Button_MoreGame.xml" xy="1061,416" group="n35_wl3m"/>
+    <group id="n35_wl3m" name="n35" xy="667,144" size="587,404" advanced="true">
+      <relation target="" sidePair="right-right"/>
+    </group>
+    <component id="n4_7bva" name="n4" src="ml4v4" fileName="Button/Button_Shop/Button_Shop.xml" xy="69,639" group="n36_wl3m"/>
+    <component id="n5_7bva" name="n5" src="ml4v6" fileName="Button/Button_Activity/Button_Activity.xml" xy="539,673" group="n36_wl3m"/>
+    <component id="n6_7bva" name="n6" src="ml4v8" fileName="Button/Button_Task/Button_Task.xml" xy="394,673" group="n36_wl3m"/>
+    <component id="n7_7bva" name="n7" src="ml4va" fileName="Button/Button_Bag/Button_Bag.xml" xy="268,679" group="n36_wl3m"/>
+    <component id="n8_7bva" name="n8" src="ml4vc" fileName="Button/Button_Welfare/Button_Welfare.xml" xy="665,679" group="n36_wl3m"/>
+    <component id="n9_7bva" name="n9" src="ml4ve" fileName="Button/Button_More/Button_More.xml" xy="790,673" group="n36_wl3m"/>
+    <group id="n36_wl3m" name="n36" xy="69,639" size="837,108" advanced="true">
+      <relation target="" sidePair="left-left"/>
+    </group>
+    <component id="n10_7bva" name="n10" src="ml4vg" fileName="Button/Button_FastStart/Button_FastStart.xml" xy="1007,646" group="n37_wl3m"/>
+    <group id="n37_wl3m" name="n37" xy="1007,646" size="239,94" advanced="true">
+      <relation target="" sidePair="right-right"/>
+    </group>
+    <component id="n11_7bva" name="n11" src="ml4vi" fileName="Button/Button_JoinRoom/Button_JoinRoom.xml" xy="1013,535" group="n38_wl3m"/>
+    <group id="n38_wl3m" name="n38" xy="1013,535" size="242,97" advanced="true">
+      <relation target="" sidePair="right-right"/>
+    </group>
+  </displayList>
+</component>

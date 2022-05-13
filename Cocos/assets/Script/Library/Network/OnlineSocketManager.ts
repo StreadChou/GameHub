@@ -102,7 +102,7 @@ export class OnlineSocketManager extends EventEmitter implements IProtocolHelper
                 }
             }
         } else {
-            EventSystem.instance.fire(EVENT.ON_ERROR_CODE, msg);
+            EventSystem.instance.fire(EVENT.ON_ERROR, msg);
         }
         //处理消息插入队列
         this.handleMsgInsertQueue(route, msg);
