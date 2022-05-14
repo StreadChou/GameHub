@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<component size="204,273" extention="Button">
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver"/>
-  <displayList>
-    <image id="n1_7bva" name="n1" xy="0,0" src="ml4vm" fileName="图层 8.png"/>
-    <image id="n2_7bva" name="n2" xy="76,48" src="ml4vn" fileName="麻将.png"/>
-  </displayList>
-  <Button/>
-</component>

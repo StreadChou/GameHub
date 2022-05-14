@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<component size="53,37" extention="Button">
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver"/>
-  <displayList>
-    <image id="n1_7bva" name="n1" xy="0,0" src="ml4v1c" fileName="icon_email.png"/>
-  </displayList>
-  <Button/>
-</component>

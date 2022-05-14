@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="ac9pkdy3">
+  <resources>
+    <image id="ml4v0" name="BG_1.png" path="/Image/"/>
+    <image id="ml4v1" name="hero25.png" path="/Image/"/>
+    <image id="ml4v2" name="BackgroundBottom.png" path="/Image/"/>
+    <image id="ml4v3" name="图层 21.png" path="/Button/Button_Shop/"/>
+    <component id="ml4v4" name="Button_Shop.xml" path="/Button/Button_Shop/"/>
+    <image id="ml4v5" name="Background.png" path="/Button/Button_Activity/"/>
+    <component id="ml4v6" name="Button_Activity.xml" path="/Button/Button_Activity/"/>
+    <image id="ml4v7" name="图层 22.png" path="/Button/Button_Task/"/>
+    <component id="ml4v8" name="Button_Task.xml" path="/Button/Button_Task/"/>
+    <image id="ml4v9" name="图层 35.png" path="/Button/Button_Bag/"/>
+    <component id="ml4va" name="Button_Bag.xml" path="/Button/Button_Bag/"/>
+    <image id="ml4vb" name="图层 36.png" path="/Button/Button_Welfare/"/>
+    <component id="ml4vc" name="Button_Welfare.xml" path="/Button/Button_Welfare/"/>
+    <image id="ml4vd" name="图层 33.png" path="/Button/Button_More/"/>
+    <component id="ml4ve" name="Button_More.xml" path="/Button/Button_More/"/>
+    <image id="ml4vf" name="快速开始.png" path="/Button/Button_FastStart/"/>
+    <component id="ml4vg" name="Button_FastStart.xml" path="/Button/Button_FastStart/"/>
+    <image id="ml4vh" name="加入房间.png" path="/Button/Button_JoinRoom/"/>
+    <component id="ml4vi" name="Button_JoinRoom.xml" path="/Button/Button_JoinRoom/"/>
+    <image id="ml4vj" name="图层 7.png" path="/Button/Button_RunFast/"/>
+    <image id="ml4vk" name="扑克.png" path="/Button/Button_RunFast/"/>
+    <component id="ml4vl" name="Button_RunFast.xml" path="/Button/Button_RunFast/"/>
+    <image id="ml4vm" name="图层 8.png" path="/Button/Button_ChangShaMahJong/"/>
+    <image id="ml4vn" name="icon.png" path="/Button/Button_ChangShaMahJong/"/>
+    <component id="ml4vo" name="Button_ChangShaMahJong.xml" path="/Button/Button_ChangShaMahJong/"/>
+    <image id="ml4vp" name="background.png" path="/Button/Button_AnyValueMahJong/"/>
+    <image id="ml4vq" name="icon.png" path="/Button/Button_AnyValueMahJong/"/>
+    <component id="ml4vr" name="Button_AnyValueMahJong.xml" path="/Button/Button_AnyValueMahJong/"/>
+    <image id="ml4vs" name="图层 4.png" path="/Button/Button_FightLoard/"/>
+    <image id="ml4vt" name="icon.png" path="/Button/Button_FightLoard/"/>
+    <component id="ml4vu" name="Button_FightLoard.xml" path="/Button/Button_FightLoard/"/>
+    <image id="ml4vv" name="图层 17.png" path="/Button/Button_ThreeFightOne/"/>
+    <image id="ml4vw" name="图层 39.png" path="/Button/Button_ThreeFightOne/"/>
+    <component id="ml4vx" name="Button_ThreeFightOne.xml" path="/Button/Button_ThreeFightOne/"/>
+    <image id="ml4vy" name="图层 16.png" path="/Button/Button_RoundMahJong/"/>
+    <image id="ml4vz" name="图层 40.png" path="/Button/Button_RoundMahJong/"/>
+    <component id="ml4v10" name="Button_RoundMahJong.xml" path="/Button/Button_RoundMahJong/"/>
+    <image id="ml4v11" name="图层 2.png" path="/Button/Button_MoreGame/"/>
+    <image id="ml4v12" name="title.png" path="/Button/Button_MoreGame/"/>
+    <component id="ml4v13" name="Button_MoreGame.xml" path="/Button/Button_MoreGame/"/>
+    <image id="ml4v14" name="矩形 2.png" path="/Image/"/>
+    <image id="ml4v15" name="图层 4_1.png" path="/Icon/"/>
+    <image id="ml4v16" name="图层 5_1.png" path="/Icon/"/>
+    <image id="ml4v17" name="图层 8_1.png" path="/Icon/"/>
+    <image id="ml4v18" name="图层 9.png" path="/Icon/"/>
+    <image id="ml4v19" name="HeaderBackground.png" path="/Image/"/>
+    <image id="ml4v1a" name="icon_setting.png" path="/Button/Button_Setting/"/>
+    <component id="ml4v1b" name="Button_Setting.xml" path="/Button/Button_Setting/"/>
+    <image id="ml4v1c" name="icon_email.png" path="/Button/Button_Email/"/>
+    <component id="ml4v1d" name="Button_Email.xml" path="/Button/Button_Email/"/>
+    <image id="ml4v1e" name="Backgorund.png" path="/Button/Button_Money/"/>
+    <image id="ml4v1f" name="Icon_Money.png" path="/Button/Button_Money/"/>
+    <image id="ml4v1g" name="plus.png" path="/Button/Button_Money/"/>
+    <component id="ml4v1h" name="Button_Money.xml" path="/Button/Button_Money/"/>
+    <image id="ml4v1j" name="icon_gold.png" path="/Button/Button_Money/"/>
+    <component id="ml4v1k" name="Button_Gold.xml" path="/Button/Button_Money/"/>
+    <image id="ml4v1l" name="图层 42.png" path="/Button/Button_Logout/"/>
+    <component id="ml4v1m" name="Button_Logout.xml" path="/Button/Button_Logout/"/>
+    <image id="ml4v1n" name="icon_Avatar.png" path="/Icon/"/>
+    <image id="ml4v1o" name="图层 12.png" path="/Icon/"/>
+    <component id="ml4v1p" name="SceneHall.xml" path="/" exported="true"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

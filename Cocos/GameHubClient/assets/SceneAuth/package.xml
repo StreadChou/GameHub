@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="bo84ikbp">
+  <resources>
+    <component id="z5jv1" name="LoginPanel.xml" path="/Panel/" exported="true"/>
+    <component id="z5jv2" name="RegisterPanel.xml" path="/Panel/" exported="true"/>
+    <image id="c97bd" name="BG_1.png" path="/Image/"/>
+    <image id="c97be" name="Icon_Logo.png" path="/Image/"/>
+    <image id="c97bf" name="Background.png" path="/Button/"/>
+    <component id="c97bg" name="Button_Repair.xml" path="/Button/"/>
+    <image id="c97bh" name="Background_1.png" path="/Button/"/>
+    <component id="c97bi" name="Button_Guest.xml" path="/Button/"/>
+    <image id="c97bj" name="Background_2.png" path="/Button/"/>
+    <component id="c97bk" name="Button_Account.xml" path="/Button/"/>
+    <image id="c97bl" name="Background_3.png" path="/Button/"/>
+    <component id="c97bm" name="Button_Wechat.xml" path="/Button/"/>
+    <component id="c97bn" name="SceneAUth.xml" path="/" exported="true"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

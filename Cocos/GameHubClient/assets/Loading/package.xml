@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<packageDescription id="e95hjc3l">
-  <resources>
-    <component id="jrql0" name="LoadingMain.xml" path="/" exported="true"/>
-  </resources>
-  <publish name="" genCode="true"/>
-</packageDescription>

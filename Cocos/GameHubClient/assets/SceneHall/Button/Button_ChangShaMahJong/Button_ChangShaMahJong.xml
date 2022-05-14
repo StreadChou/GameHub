@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="204,273" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n1_7bva" name="n1" src="ml4vm" fileName="Button/Button_ChangShaMahJong/图层 8.png" xy="0,0"/>
+    <image id="n2_7bva" name="n2" src="ml4vn" fileName="Button/Button_ChangShaMahJong/icon.png" xy="76,48"/>
+  </displayList>
+  <Button downEffect="scale" downEffectValue=".8"/>
+</component>
