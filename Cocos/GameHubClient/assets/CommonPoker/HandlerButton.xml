@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="50,50" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <graph id="n6_pvr4" name="n6" xy="0,0" size="50,50" type="eclipse" lineSize="0" fillColor="#99ffffff"/>
+    <loader id="n3_pvr4" name="icon" xy="12,11" size="28,28" alpha="0.8" url="ui://b557p5phpvr4k" align="center" vAlign="middle" fill="scaleNoBorder">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+  </displayList>
+  <Button/>
+</component>

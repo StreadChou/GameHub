@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <image id="n0_pvr4" name="n0" src="pvr41" fileName="Background.jpg" xy="0,0" size="1334,750">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n2_pvr4" name="n2" src="pvr42" fileName="PokerList/HandsPoker/HandsPokers.xml" xy="117,600">
+      <relation target="" sidePair="center-center"/>
+    </component>
+    <component id="n3_pvr4" name="n3" src="pvr46" fileName="PokerList/FoldPoker/FoldPokers.xml" xy="213,495" size="907,100">
+      <relation target="" sidePair="center-center"/>
+    </component>
+    <component id="n6_pvr4" name="SelfUserInfo" src="pvr49" fileName="UserCover.xml" xy="86,479">
+      <Button icon="ui://b557p5phpvr4b"/>
+    </component>
+    <component id="n7_pvr4" name="LeftUserInfo" src="pvr4h" fileName="LeftUserInfo.xml" xy="105,215">
+      <relation target="" sidePair="left-left"/>
+      <relation target="n9_pvr4" sidePair="top-top"/>
+    </component>
+    <component id="n8_pvr4" name="TopUserInfo" src="pvr4f" fileName="TopUserInfo.xml" xy="534,9">
+      <relation target="" sidePair="center-center,top-top"/>
+    </component>
+    <component id="n9_pvr4" name="RightUserInfo" src="pvr4e" fileName="RightUserInfo.xml" xy="912,215">
+      <relation target="" sidePair="right-right"/>
+      <relation target="n7_pvr4" sidePair="top-top"/>
+    </component>
+    <graph id="n10_pvr4" name="RoomInfoBackground" xy="39,13" size="244,34" group="n15_pvr4" type="rect" lineSize="0" fillColor="#33000000"/>
+    <text id="n11_pvr4" name="RoomIdLabel" xy="48,20" size="50,19" group="n15_pvr4" fontSize="12" color="#ffffff" text="房间号 : "/>
+    <text id="n12_pvr4" name="RoomIdValue" xy="102,20" size="50,19" group="n15_pvr4" fontSize="12" color="#ffff00" autoSize="none" text="1000001"/>
+    <text id="n13_pvr4" name="PasswordLabel" xy="172,20" size="37,19" group="n15_pvr4" fontSize="12" color="#ffffff" autoSize="none" text="密码 : "/>
+    <text id="n14_pvr4" name="PasswordValue" xy="215,20" size="50,19" group="n15_pvr4" fontSize="12" color="#ffff00" autoSize="none" text="1000001"/>
+    <group id="n15_pvr4" name="RoomInfo" xy="39,13" size="244,34"/>
+    <component id="n18_pvr4" name="n18" src="pvr4o" fileName="HandlerButton.xml" xy="1239,25" group="n21_pvr4">
+      <Button icon="ui://b557p5phpvr4m"/>
+    </component>
+    <component id="n19_pvr4" name="n19" src="pvr4o" fileName="HandlerButton.xml" xy="1164,25" group="n21_pvr4">
+      <Button icon="ui://b557p5phpvr4l"/>
+    </component>
+    <component id="n20_pvr4" name="n20" src="pvr4o" fileName="HandlerButton.xml" xy="1089,25" group="n21_pvr4">
+      <Button icon="ui://b557p5phpvr4k"/>
+    </component>
+    <group id="n21_pvr4" name="n21" xy="1089,25" size="200,50" advanced="true">
+      <relation target="" sidePair="right-right"/>
+    </group>
+  </displayList>
+</component>

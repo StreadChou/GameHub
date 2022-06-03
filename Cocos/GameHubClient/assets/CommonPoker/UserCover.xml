@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="100,126" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <graph id="n5_pvr4" name="Background" xy="0,0" size="100,126" type="rect" lineSize="0" fillColor="#33000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <text id="n3_pvr4" name="title" xy="0,100" size="100,26" fontSize="17" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="3980"/>
+    <loader id="n4_pvr4" name="icon" xy="0,0" size="100,100" url="ui://b557p5phpvr4b" align="center" vAlign="middle" fill="scaleNoBorder" clearOnPublish="true">
+      <relation target="" sidePair="width-width,height-height,center-center"/>
+    </loader>
+  </displayList>
+  <Button/>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="253,126">
+  <displayList>
+    <component id="n7_pvr4" name="LeftUserInfo" src="pvr49" fileName="UserCover.xml" xy="0,0">
+      <Button icon="ui://b557p5phpvr4c"/>
+    </component>
+    <image id="n9_pvr4" name="n9" src="pvr44" fileName="PokerList/PokerBackground.png" xy="105,2" size="92,126"/>
+    <text id="n10_pvr4" name="n10" xy="113,40" size="76,45" fontSize="33" color="#ffffff" align="center" autoSize="none" text="15">
+      <relation target="n9_pvr4" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

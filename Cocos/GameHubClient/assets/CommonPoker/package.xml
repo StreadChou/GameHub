@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="b557p5ph">
-  <resources/>
+  <resources>
+    <component id="pvr40" name="CommonPoker.xml" path="/" exported="true"/>
+    <image id="pvr41" name="Background.jpg" path="/"/>
+    <component id="pvr42" name="HandsPokers.xml" path="/PokerList/HandsPoker/"/>
+    <component id="pvr43" name="HandsPokerItem.xml" path="/PokerList/HandsPoker/"/>
+    <image id="pvr44" name="PokerBackground.png" path="/PokerList/"/>
+    <component id="pvr45" name="FoldPokerItem.xml" path="/PokerList/FoldPoker/"/>
+    <component id="pvr46" name="FoldPokers.xml" path="/PokerList/FoldPoker/"/>
+    <component id="pvr49" name="UserCover.xml" path="/"/>
+    <image id="pvr4a" name="Cover2.jpg" path="/NotExportImage/"/>
+    <image id="pvr4b" name="Cover1.jpg" path="/NotExportImage/"/>
+    <image id="pvr4c" name="Cover3.jpg" path="/NotExportImage/"/>
+    <image id="pvr4d" name="Cover4.jpg" path="/NotExportImage/"/>
+    <component id="pvr4e" name="RightUserInfo.xml" path="/"/>
+    <component id="pvr4f" name="TopUserInfo.xml" path="/"/>
+    <component id="pvr4h" name="LeftUserInfo.xml" path="/"/>
+    <image id="pvr4i" name="TimerImage.png" path="/"/>
+    <component id="pvr4j" name="Timer.xml" path="/"/>
+    <image id="pvr4k" name="checklist.png" path="/"/>
+    <image id="pvr4l" name="info.png" path="/"/>
+    <image id="pvr4m" name="logout.png" path="/"/>
+    <component id="pvr4o" name="HandlerButton.xml" path="/"/>
+  </resources>
   <publish name="" genCode="true"/>
 </packageDescription>
