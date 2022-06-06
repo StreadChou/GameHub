@@ -3,7 +3,7 @@
 export default class UI_SceneLoading extends fgui.GComponent {
 
 	public m_LoadingBar:fgui.GSlider;
-	public static URL:string = "ui://e95hjc3ljrql0";
+	public static URL:string = "ui://e95hjc3lilxz7";
 
 	public static createInstance():UI_SceneLoading {
 		return <UI_SceneLoading>(fgui.UIPackage.createObject("SceneLoading", "SceneLoading"));

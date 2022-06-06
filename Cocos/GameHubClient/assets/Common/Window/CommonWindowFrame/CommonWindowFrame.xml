@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <image id="n0_iv7g" name="background" src="iv7g1" fileName="Window/CommonWindowFrame/图层 2.png" xy="0,0" size="1334,750">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n8_iv7g" name="closeButton" src="iv7g5" fileName="Window/CommonWindowFrame/CommonCloseButton.xml" xy="1247,16" size="50,52">
+      <relation target="" sidePair="right-right,top-top"/>
+    </component>
+  </displayList>
+</component>

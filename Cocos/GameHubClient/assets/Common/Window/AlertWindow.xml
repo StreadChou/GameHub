@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="670,375">
+  <displayList>
+    <component id="n1_iv7g" name="frame" src="iv7g0" fileName="Window/CommonWindowFrame/CommonWindowFrame.xml" xy="0,0" size="670,375"/>
+    <text id="n2_iv7g" name="Title" xy="46,9" size="522,69" fontSize="24" color="#ff4837" vAlign="middle" autoSize="none" text="操作失败"/>
+    <text id="n3_iv7g" name="Message" xy="46,101" size="586,202" fontSize="16" color="#4f4537" align="center" vAlign="middle" autoSize="none" text="这是错误信息"/>
+    <text id="n5_iv7g" name="CodeValue" xy="105,320" size="108,23" fontSize="15" color="#4f4537" autoSize="none" text="100000"/>
+    <text id="n4_iv7g" name="n4" xy="46,320" size="52,23" fontSize="15" color="#4f4537" autoSize="none" text="CODE : "/>
+  </displayList>
+</component>

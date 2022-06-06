@@ -8,7 +8,9 @@ export class LoginWindow extends AbstractWindow<UI_LoginPanel> {
     constructor() {
         super();
         LoginWindow.instance = this;
-        this._view = UI_LoginPanel.createInstance();
+        console.log("constructor . this", this);
+        this.contentPane = UI_LoginPanel.createInstance();
+        console.log("constructor . contentPane", this.contentPane);
     }
 
 

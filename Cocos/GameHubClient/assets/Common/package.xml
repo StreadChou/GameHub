@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="bjc65ilg">
-  <resources/>
+  <resources>
+    <component id="iv7g0" name="CommonWindowFrame.xml" path="/Window/CommonWindowFrame/"/>
+    <image id="iv7g1" name="图层 2.png" path="/Window/CommonWindowFrame/" scale="9grid" scale9grid="180,172,92,114"/>
+    <image id="iv7g2" name="图层 11.png" path="/Window/CommonWindowFrame/" scale9grid="25,26,50,52"/>
+    <component id="iv7g3" name="AlertWindow.xml" path="/Window/" exported="true"/>
+    <component id="iv7g5" name="CommonCloseButton.xml" path="/Window/CommonWindowFrame/"/>
+    <component id="iv7g6" name="AlertWindowFullScreen.xml" path="/Window/" exported="true"/>
+  </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

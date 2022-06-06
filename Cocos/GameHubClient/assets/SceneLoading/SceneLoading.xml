@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,750" pivot="13,0">
+<component size="1334,750">
   <displayList>
-    <image id="n2_kp0q" name="n2" src="kp0q1" fileName="Image/BG_1.png" xy="0,0">
+    <image id="n0_ilxz" name="n0" src="kp0q1" fileName="Image/BG_1.png" xy="0,0">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <component id="n3_kp0q" name="LoadingBar" src="kp0q2" fileName="LoadingSlider.xml" xy="117,640" size="1100,35">
-      <relation target="" sidePair="width-width"/>
-      <Slider value="50" max="100"/>
+    <component id="n1_ilxz" name="LoadingBar" src="kp0q2" fileName="LoadingSlider.xml" xy="137,651" size="1060,35" touchable="false">
+      <relation target="" sidePair="center-center"/>
+      <Slider value="1" max="100"/>
     </component>
   </displayList>
 </component>

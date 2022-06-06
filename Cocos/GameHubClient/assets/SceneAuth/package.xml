@@ -13,7 +13,7 @@
     <component id="c97bk" name="Button_Account.xml" path="/Button/"/>
     <image id="c97bl" name="Background_3.png" path="/Button/"/>
     <component id="c97bm" name="Button_Wechat.xml" path="/Button/"/>
-    <component id="c97bn" name="SceneAUth.xml" path="/" exported="true"/>
+    <component id="c97bn" name="SceneAuth.xml" path="/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

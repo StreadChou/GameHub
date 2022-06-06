@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="e95hjc3l">
   <resources>
-    <component id="jrql0" name="SceneLoading.xml" path="/" exported="true"/>
     <component id="kp0q2" name="LoadingSlider.xml" path="/"/>
     <image id="kp0q3" name="k34.png" path="/Image/" scale="9grid" scale9grid="105,3,210,8"/>
     <image id="kp0q4" name="k33.png" path="/Image/" scale="9grid" scale9grid="53,0,374,26"/>
     <image id="kp0q1" name="BG_1.png" path="/Image/"/>
+    <component id="ilxz7" name="SceneLoading.xml" path="/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

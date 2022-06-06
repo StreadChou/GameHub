@@ -2,7 +2,6 @@
  * 通用的window
  */
 export abstract class AbstractWindow<T extends fgui.GComponent> extends fgui.Window {
-    abstract _view: T;
     showDuration = 0.1; // 展示的时候动画持续时间
     hideDuration = 0.1; // 隐藏的时候动画持续时间
 

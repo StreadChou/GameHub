@@ -2,10 +2,11 @@ import {LoginWindow} from "./Window/LoginWindow";
 import {RegisterWindow} from "./Window/RegisterWindow";
 import {EventSystem} from "../../../../Library/EventSystem/EventSystem";
 import {EVENT} from "../../../../Library/EventSystem/EventDefine";
-import UI_SceneAUth from "../../../../UI/SceneAuth/UI_SceneAUth";
 import UI_LoginPanel from "../../../../UI/SceneAuth/UI_LoginPanel";
 import UI_RegisterPanel from "../../../../UI/SceneAuth/UI_RegisterPanel";
 import {AbstractScene} from "../../../Abstract/AbstractScene";
+import SceneAuthBinder from "../../../../UI/SceneAuth/SceneAuthBinder";
+import UI_SceneAuth from "../../../../UI/SceneAuth/UI_SceneAuth";
 
 /**
  * 界面不销毁, 如果断线的话需要回到这个页面
@@ -13,7 +14,7 @@ import {AbstractScene} from "../../../Abstract/AbstractScene";
 export class SceneAuth extends AbstractScene {
     private static _instance: SceneAuth;
 
-    protected _view: UI_SceneAUth;
+    protected _view: UI_SceneAuth;
     protected loaded: boolean = false;
 
 
@@ -23,12 +24,14 @@ export class SceneAuth extends AbstractScene {
 
     onLoad() {
         SceneAuth._instance = this;
-        fgui.UIPackage.loadPackage("UI/Auth", this.onUILoaded.bind(this));
+        fgui.UIPackage.addPackage("UI/SceneAuth");
+        this.onUILoaded();
     }
 
     onUILoaded() {
         super.onUILoaded();
-        this._view = UI_SceneAUth.createInstance();
+        SceneAuthBinder.bindAll();
+        this._view = UI_SceneAuth.createInstance();
         this._view.makeFullScreen();
         fgui.GRoot.inst.addChild(this._view);
 
@@ -44,6 +47,7 @@ export class SceneAuth extends AbstractScene {
     openLoginPanel() {
         const registerWindow = RegisterWindow.instance;
         if (registerWindow) registerWindow.hide();
+        console.log("LoginWindow.instance", LoginWindow.instance);
 
         const loginWindow = LoginWindow.instance ?? new LoginWindow();
         loginWindow.show();

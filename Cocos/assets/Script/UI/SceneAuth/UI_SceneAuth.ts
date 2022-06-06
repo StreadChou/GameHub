@@ -1,6 +1,6 @@
 /** This is an automatically generated class by FairyGUI. Please do not modify it. **/
 
-export default class UI_SceneAUth extends fgui.GComponent {
+export default class UI_SceneAuth extends fgui.GComponent {
 
 	public m_RepairButton:fgui.GButton;
 	public m_GuestLoginButton:fgui.GButton;
@@ -8,8 +8,8 @@ export default class UI_SceneAUth extends fgui.GComponent {
 	public m_WechatLoginButton:fgui.GButton;
 	public static URL:string = "ui://bo84ikbpc97bn";
 
-	public static createInstance():UI_SceneAUth {
-		return <UI_SceneAUth>(fgui.UIPackage.createObject("SceneAuth", "SceneAUth"));
+	public static createInstance():UI_SceneAuth {
+		return <UI_SceneAuth>(fgui.UIPackage.createObject("SceneAuth", "SceneAuth"));
 	}
 
 	protected onConstruct():void {
