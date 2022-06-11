@@ -1,5 +1,5 @@
 {
-  "path": "/Users/stread/Project/02_Stread/GameHub/Cocos/assets/resources/UI",
+  "path": "../assets/resources/UI",
   "branchPath": "",
   "fileExtension": "bin",
   "packageCount": 2,
@@ -9,7 +9,7 @@
   "compressPNG": false,
   "codeGeneration": {
     "allowGenCode": true,
-    "codePath": "/Users/stread/Project/02_Stread/GameHub/Cocos/assets/Script/UI",
+    "codePath": "../assets/Script/UI",
     "classNamePrefix": "UI_",
     "memberNamePrefix": "m_",
     "packageName": null,

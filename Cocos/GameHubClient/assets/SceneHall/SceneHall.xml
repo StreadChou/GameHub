@@ -21,12 +21,12 @@
     <component id="n28_7bva" name="ButtonGold" src="ml4v1k" fileName="Button/Button_Money/Button_Gold.xml" xy="705,13" group="n42_kp0q"/>
     <component id="n32_7bva" name="ButtonLogout" src="ml4v1m" fileName="Button/Button_Logout/Button_Logout.xml" xy="98,15" group="n42_kp0q"/>
     <group id="n42_kp0q" name="n42" xy="0,0" size="1246,69"/>
-    <component id="n12_7bva" name="ButtonRunfast" src="ml4vl" fileName="Button/Button_RunFast/Button_RunFast.xml" xy="667,147" group="n35_wl3m"/>
-    <component id="n13_7bva" name="ButtonChangShaMahJong" src="ml4vo" fileName="Button/Button_ChangShaMahJong/Button_ChangShaMahJong.xml" xy="858,144" group="n35_wl3m"/>
-    <component id="n14_7bva" name="ButtonAnyValueMahJong" src="ml4vr" fileName="Button/Button_AnyValueMahJong/Button_AnyValueMahJong.xml" xy="1052,151" group="n35_wl3m"/>
-    <component id="n15_7bva" name="ButtonFightLoard" src="ml4vu" fileName="Button/Button_FightLoard/Button_FightLoard.xml" xy="1054,323" group="n35_wl3m"/>
+    <component id="n12_7bva" name="ButtonRunFast" src="ml4vl" fileName="Button/Button_RunFast/Button_RunFast.xml" xy="667,147" group="n35_wl3m"/>
+    <component id="n13_7bva" name="ButtonChangShaMahjong" src="ml4vo" fileName="Button/Button_ChangShaMahjong/Button_ChangShaMahjong.xml" xy="858,144" group="n35_wl3m"/>
+    <component id="n14_7bva" name="ButtonAnyValueMahjong" src="ml4vr" fileName="Button/Button_AnyValueMahjong/Button_AnyValueMahjong.xml" xy="1052,151" group="n35_wl3m"/>
+    <component id="n15_7bva" name="ButtonFightLord" src="ml4vu" fileName="Button/Button_FightLord/Button_FightLord.xml" xy="1054,323" group="n35_wl3m"/>
     <component id="n16_7bva" name="ButtonThreeFightOne" src="ml4vx" fileName="Button/Button_ThreeFightOne/Button_ThreeFightOne.xml" xy="669,409" group="n35_wl3m"/>
-    <component id="n17_7bva" name="ButtonRoundMahJong" src="ml4v10" fileName="Button/Button_RoundMahJong/Button_RoundMahJong.xml" xy="865,409" group="n35_wl3m"/>
+    <component id="n17_7bva" name="ButtonRoundMahjong" src="ml4v10" fileName="Button/Button_RoundMahjong/Button_RoundMahjong.xml" xy="865,409" group="n35_wl3m"/>
     <component id="n18_7bva" name="ButtonMoreGame" src="ml4v13" fileName="Button/Button_MoreGame/Button_MoreGame.xml" xy="1061,416" group="n35_wl3m"/>
     <group id="n35_wl3m" name="n35" xy="667,144" size="587,404" advanced="true">
       <relation target="" sidePair="right-right"/>

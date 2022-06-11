@@ -24,7 +24,7 @@ export class SceneAuth extends AbstractScene {
 
     onLoad() {
         SceneAuth._instance = this;
-        fgui.UIPackage.addPackage("UI/SceneAuth");
+        fgui.UIPackage.addPackage("UI/SceneHall");
         this.onUILoaded();
     }
 
